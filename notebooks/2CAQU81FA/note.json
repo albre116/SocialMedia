@@ -1,0 +1,108 @@
+{
+  "paragraphs": [
+    {
+      "title": "Install dependencies",
+      "text": "%sh ls",
+      "user": "anonymous",
+      "dateUpdated": "Feb 7, 2017 4:18:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486437199394_-510152688",
+      "id": "20170207-031319_1304689909",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": "bin\nconf\nhs_err_pid61.log\ninterpreter\nlib\nLICENSE\nlicenses\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0-SNAPSHOT.war\n"
+      },
+      "dateCreated": "Feb 7, 2017 3:13:19 AM",
+      "dateStarted": "Feb 7, 2017 4:18:47 AM",
+      "dateFinished": "Feb 7, 2017 4:18:48 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nx \u003d 2",
+      "user": "anonymous",
+      "dateUpdated": "Feb 7, 2017 4:18:56 AM",
+      "config": {
+        "colWidth": 12.0,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486439220832_-1334790006",
+      "id": "20170207-034700_745345040",
+      "result": {
+        "code": "SUCCESS",
+        "type": "TEXT",
+        "msg": ""
+      },
+      "dateCreated": "Feb 7, 2017 3:47:00 AM",
+      "dateStarted": "Feb 7, 2017 4:18:56 AM",
+      "dateFinished": "Feb 7, 2017 4:18:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "dateUpdated": "Feb 7, 2017 3:47:12 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1486439232635_1584699972",
+      "id": "20170207-034712_1107248358",
+      "dateCreated": "Feb 7, 2017 3:47:12 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "TwitterHook",
+  "id": "2CAQU81FA",
+  "angularObjects": {
+    "2C7R26B77:shared_process": [],
+    "2CB58ETA2:shared_process": [],
+    "2C8W19DNT:shared_process": [],
+    "2C7K5QN74:shared_process": [],
+    "2C9NUCH49:shared_process": [],
+    "2CB6PDJYX:shared_process": [],
+    "2C88B84PE:shared_process": [],
+    "2C7EXJBEY:shared_process": [],
+    "2CAC4ETY5:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

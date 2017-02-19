@@ -27,7 +27,7 @@ zeppelin:
     - 4040:4040
   volumes:
     - ./notebooks:/usr/zeppelin/notebook
-    - ../:/rootenv
+#    - ./pythonpckg:/usr/zeppelin
 #elasticsearch:
 #  image: elasticsearch:2.3
 #  ports:

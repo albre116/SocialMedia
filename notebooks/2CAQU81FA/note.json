@@ -1,6 +1,79 @@
 {
   "paragraphs": [
     {
+      "title": "Register the Local Chapter File on the Package Search Path",
+      "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 19, 2017 10:33:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1487542544987_-284590178",
+      "id": "20170219-221544_1974543390",
+      "dateCreated": "Feb 19, 2017 10:15:44 PM",
+      "dateStarted": "Feb 19, 2017 10:32:25 PM",
+      "dateFinished": "Feb 19, 2017 10:32:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport twitter_client\ndir(twitter_client)\n",
+      "user": "anonymous",
+      "dateUpdated": "Feb 19, 2017 10:33:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027API\u0027, \u0027OAuthHandler\u0027, \u0027__builtins__\u0027, \u0027__cached__\u0027, \u0027__doc__\u0027, \u0027__file__\u0027, \u0027__loader__\u0027, \u0027__name__\u0027, \u0027__package__\u0027, \u0027__spec__\u0027, \u0027get_twitter_auth\u0027, \u0027get_twitter_client\u0027, \u0027os\u0027, \u0027sys\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1487543388436_702502000",
+      "id": "20170219-222948_296047686",
+      "dateCreated": "Feb 19, 2017 10:29:48 PM",
+      "dateStarted": "Feb 19, 2017 10:33:05 PM",
+      "dateFinished": "Feb 19, 2017 10:33:05 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
       "title": "Install dependencies",
       "text": "%sh ls /rootenv/Book-SocialMediaMiningPython/Chap02-03",
       "user": "anonymous",
@@ -11,13 +84,7 @@
         "editorMode": "ace/mode/sh",
         "title": true,
         "results": [
-          {
-            "graph": {
-              "mode": "table",
-              "height": 300.0,
-              "optionOpen": false
-            }
-          }
+          {}
         ],
         "editorSetting": {
           "language": "sh",
@@ -33,7 +100,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "twitter_client.py\ntwitter_cluster_users.py\ntwitter_conversation.py\ntwitter_followers_stats_numpy.py\ntwitter_followers_stats.py\ntwitter_followers_stats_set.py\ntwitter_get_home_timeline.py\ntwitter_get_user.py\ntwitter_get_user_timeline.py\ntwitter_hashtag_frequency.py\ntwitter_hashtag_stats.py\ntwitter_influence.py\ntwitter_make_geojson.py\ntwitter_map_basic.py\ntwitter_map_clustered.py\ntwitter_map_example.py\ntwitter_mention_frequency.py\ntwitter_streaming.py\ntwitter_term_frequency_graph.py\ntwitter_term_frequency.py\ntwitter_time_series.py\n"
+            "data": "bin\nconf\nhs_err_pid61.log\ninterpreter\nlib\nLICENSE\nlicenses\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0-SNAPSHOT.war\n"
           }
         ]
       },
@@ -106,25 +173,25 @@
   "name": "TwitterHook",
   "id": "2CAQU81FA",
   "angularObjects": {
-    "2C9XC3RBS:shared_process": [],
-    "2CBJHWEZ2:shared_process": [],
-    "2CC19M54M:shared_process": [],
-    "2CAPKEAMR:shared_process": [],
-    "2C9SPBEVS:shared_process": [],
-    "2CA5H37V3:shared_process": [],
-    "2C9ZAVHNQ:shared_process": [],
-    "2C91XDFR2:shared_process": [],
-    "2C8V21RYX:shared_process": [],
-    "2CBT8GRNF:shared_process": [],
-    "2C91U4XQ3:shared_process": [],
-    "2CANBZP9T:shared_process": [],
-    "2C9YX1C8U:shared_process": [],
-    "2CBJZ4EJ5:shared_process": [],
-    "2CC6VKZ35:shared_process": [],
-    "2CA568WMR:shared_process": [],
-    "2CB178EPB:shared_process": [],
-    "2C9X2WN74:shared_process": [],
-    "2CBBKXKRE:shared_process": []
+    "2CB2HTK47:shared_process": [],
+    "2CAQVNAEN:shared_process": [],
+    "2C91BGTXX:shared_process": [],
+    "2C8STJ2VR:shared_process": [],
+    "2CBGB4PVD:shared_process": [],
+    "2CB2GXTQM:shared_process": [],
+    "2CBVXNWUK:shared_process": [],
+    "2CAAG1NM5:shared_process": [],
+    "2C94XQEHA:shared_process": [],
+    "2CBYTBQYU:shared_process": [],
+    "2CA3RGB5H:shared_process": [],
+    "2CC6Q6KZZ:shared_process": [],
+    "2CBJAUDUB:shared_process": [],
+    "2C9XSRJYD:shared_process": [],
+    "2CCCE5WPA:shared_process": [],
+    "2C8D9G9YU:shared_process": [],
+    "2C8MK938X:shared_process": [],
+    "2C9QDYXFK:shared_process": [],
+    "2C9YBX2BY:shared_process": []
   },
   "config": {},
   "info": {}

@@ -2,29 +2,25 @@
   "paragraphs": [
     {
       "title": "Install dependencies",
-      "text": "%sh ls",
+      "text": "%sh ls /rootenv/Book-SocialMediaMiningPython/Chap02-03",
       "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 2:35:02 PM",
+      "dateUpdated": "Feb 19, 2017 2:44:42 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "results": [
           {
             "graph": {
               "mode": "table",
               "height": 300.0,
-              "optionOpen": false,
-              "keys": [],
-              "values": [],
-              "groups": [],
-              "scatter": {}
+              "optionOpen": false
             }
           }
         ],
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         }
       },
@@ -37,7 +33,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "bin\nconf\ninterpreter\nlib\nLICENSE\nlicenses\nlocal-repo\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0.war\n"
+            "data": "twitter_client.py\ntwitter_cluster_users.py\ntwitter_conversation.py\ntwitter_followers_stats_numpy.py\ntwitter_followers_stats.py\ntwitter_followers_stats_set.py\ntwitter_get_home_timeline.py\ntwitter_get_user.py\ntwitter_get_user_timeline.py\ntwitter_hashtag_frequency.py\ntwitter_hashtag_stats.py\ntwitter_influence.py\ntwitter_make_geojson.py\ntwitter_map_basic.py\ntwitter_map_clustered.py\ntwitter_map_example.py\ntwitter_mention_frequency.py\ntwitter_streaming.py\ntwitter_term_frequency_graph.py\ntwitter_term_frequency.py\ntwitter_time_series.py\n"
           }
         ]
       },
@@ -50,8 +46,8 @@
       "jobName": "paragraph_1486437199394_-510152688",
       "id": "20170207-031319_1304689909",
       "dateCreated": "Feb 7, 2017 3:13:19 AM",
-      "dateStarted": "Feb 19, 2017 2:35:02 PM",
-      "dateFinished": "Feb 19, 2017 2:35:03 PM",
+      "dateStarted": "Feb 19, 2017 2:44:42 PM",
+      "dateFinished": "Feb 19, 2017 2:44:42 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },

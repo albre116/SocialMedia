@@ -7,7 +7,7 @@ RUN set -ex \
     build-essential \
     pkg-config \
     gfortran \
- ' \
+  '\
  && apt-get update && apt-get install -y --no-install-recommends \
     $buildDeps \
     ca-certificates \
@@ -18,7 +18,7 @@ RUN set -ex \
     numpy \
     pandasql \
     scipy \
- ' \
+  '\
  && pip3 install $packages \
  && apt-get purge -y --auto-remove $buildDeps \
  && apt-get clean \
@@ -38,6 +38,11 @@ RUN curl -OL http://apache.mirrors.tds.net/zeppelin/zeppelin-${ZEPPELIN_VERSION}
     && mv /usr/zeppelin* $ZEPPELIN_HOME \
     && mkdir -p $ZEPPELIN_HOME/logs \
     && mkdir -p $ZEPPELIN_HOME/run 
+
+
+#Do the install of the custom packages
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
     
 ADD about.json $ZEPPELIN_NOTEBOOK_DIR/2BTRWA9EV/note.json
 WORKDIR $ZEPPELIN_HOME

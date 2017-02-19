@@ -4,73 +4,90 @@
       "title": "Install dependencies",
       "text": "%sh ls",
       "user": "anonymous",
-      "dateUpdated": "Feb 7, 2017 4:18:47 AM",
+      "dateUpdated": "Feb 19, 2017 2:35:02 PM",
       "config": {
         "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
         "enabled": true,
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "results": [
+          {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "keys": [],
+              "values": [],
+              "groups": [],
+              "scatter": {}
+            }
+          }
+        ],
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        }
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "jobName": "paragraph_1486437199394_-510152688",
-      "id": "20170207-031319_1304689909",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "bin\nconf\ninterpreter\nlib\nLICENSE\nlicenses\nlocal-repo\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0.war\n"
+          }
+        ]
+      },
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
         "msg": "bin\nconf\nhs_err_pid61.log\ninterpreter\nlib\nLICENSE\nlicenses\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0-SNAPSHOT.war\n"
       },
+      "apps": [],
+      "jobName": "paragraph_1486437199394_-510152688",
+      "id": "20170207-031319_1304689909",
       "dateCreated": "Feb 7, 2017 3:13:19 AM",
-      "dateStarted": "Feb 7, 2017 4:18:47 AM",
-      "dateFinished": "Feb 7, 2017 4:18:48 AM",
+      "dateStarted": "Feb 19, 2017 2:35:02 PM",
+      "dateFinished": "Feb 19, 2017 2:35:03 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nx \u003d 2",
       "user": "anonymous",
-      "dateUpdated": "Feb 7, 2017 4:18:56 AM",
+      "dateUpdated": "Feb 19, 2017 2:35:11 PM",
       "config": {
         "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
         "enabled": true,
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/text",
+        "results": [],
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        }
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "apps": [],
-      "jobName": "paragraph_1486439220832_-1334790006",
-      "id": "20170207-034700_745345040",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "result": {
         "code": "SUCCESS",
         "type": "TEXT",
         "msg": ""
       },
+      "apps": [],
+      "jobName": "paragraph_1486439220832_-1334790006",
+      "id": "20170207-034700_745345040",
       "dateCreated": "Feb 7, 2017 3:47:00 AM",
-      "dateStarted": "Feb 7, 2017 4:18:56 AM",
-      "dateFinished": "Feb 7, 2017 4:18:57 AM",
+      "dateStarted": "Feb 19, 2017 2:35:11 PM",
+      "dateFinished": "Feb 19, 2017 2:35:12 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -93,15 +110,25 @@
   "name": "TwitterHook",
   "id": "2CAQU81FA",
   "angularObjects": {
-    "2C7R26B77:shared_process": [],
-    "2CB58ETA2:shared_process": [],
-    "2C8W19DNT:shared_process": [],
-    "2C7K5QN74:shared_process": [],
-    "2C9NUCH49:shared_process": [],
-    "2CB6PDJYX:shared_process": [],
-    "2C88B84PE:shared_process": [],
-    "2C7EXJBEY:shared_process": [],
-    "2CAC4ETY5:shared_process": []
+    "2C9XC3RBS:shared_process": [],
+    "2CBJHWEZ2:shared_process": [],
+    "2CC19M54M:shared_process": [],
+    "2CAPKEAMR:shared_process": [],
+    "2C9SPBEVS:shared_process": [],
+    "2CA5H37V3:shared_process": [],
+    "2C9ZAVHNQ:shared_process": [],
+    "2C91XDFR2:shared_process": [],
+    "2C8V21RYX:shared_process": [],
+    "2CBT8GRNF:shared_process": [],
+    "2C91U4XQ3:shared_process": [],
+    "2CANBZP9T:shared_process": [],
+    "2C9YX1C8U:shared_process": [],
+    "2CBJZ4EJ5:shared_process": [],
+    "2CC6VKZ35:shared_process": [],
+    "2CA568WMR:shared_process": [],
+    "2CB178EPB:shared_process": [],
+    "2C9X2WN74:shared_process": [],
+    "2CBBKXKRE:shared_process": []
   },
   "config": {},
   "info": {}

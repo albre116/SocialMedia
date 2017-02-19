@@ -1,10 +1,10 @@
 {
   "paragraphs": [
     {
-      "title": "Register the Local Chapter File on the Package Search Path",
+      "title": "Register the Source Files on the Package Search Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 10:33:41 PM",
+      "dateUpdated": "Feb 19, 2017 10:38:20 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027]\n"
+            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027]\n"
           }
         ]
       },
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1487542544987_-284590178",
       "id": "20170219-221544_1974543390",
       "dateCreated": "Feb 19, 2017 10:15:44 PM",
-      "dateStarted": "Feb 19, 2017 10:32:25 PM",
-      "dateFinished": "Feb 19, 2017 10:32:25 PM",
+      "dateStarted": "Feb 19, 2017 10:37:45 PM",
+      "dateFinished": "Feb 19, 2017 10:37:45 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nimport twitter_client\ndir(twitter_client)\n",
+      "text": "%python\n\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 10:33:05 PM",
+      "dateUpdated": "Feb 19, 2017 10:37:41 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -70,51 +70,6 @@
       "dateCreated": "Feb 19, 2017 10:29:48 PM",
       "dateStarted": "Feb 19, 2017 10:33:05 PM",
       "dateFinished": "Feb 19, 2017 10:33:05 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "title": "Install dependencies",
-      "text": "%sh ls /rootenv/Book-SocialMediaMiningPython/Chap02-03",
-      "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 2:44:42 PM",
-      "config": {
-        "colWidth": 12.0,
-        "enabled": true,
-        "editorMode": "ace/mode/sh",
-        "title": true,
-        "results": [
-          {}
-        ],
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false
-        }
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "bin\nconf\nhs_err_pid61.log\ninterpreter\nlib\nLICENSE\nlicenses\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0-SNAPSHOT.war\n"
-          }
-        ]
-      },
-      "result": {
-        "code": "SUCCESS",
-        "type": "TEXT",
-        "msg": "bin\nconf\nhs_err_pid61.log\ninterpreter\nlib\nLICENSE\nlicenses\nlogs\nnotebook\nNOTICE\nREADME.md\nrun\nwebapps\nzeppelin-web-0.7.0-SNAPSHOT.war\n"
-      },
-      "apps": [],
-      "jobName": "paragraph_1486437199394_-510152688",
-      "id": "20170207-031319_1304689909",
-      "dateCreated": "Feb 7, 2017 3:13:19 AM",
-      "dateStarted": "Feb 19, 2017 2:44:42 PM",
-      "dateFinished": "Feb 19, 2017 2:44:42 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },

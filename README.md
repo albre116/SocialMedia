@@ -1,5 +1,10 @@
 # SocialMedia
-Social Media Test Code
+Social Media Test Code for Twitter Hook.  
+Comes with a Zeppelin Notebook that needs to be built from a subdirectory.
 
-# docker run command
-docker run --rm -v ./notebooks:/usr/zeppelin/notebook -p 8080:8080 dylanmei/zeppelin
+#build commands
+docker-compose build
+
+#run commands (in background)
+docker-compose up -d
+

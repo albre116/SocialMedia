@@ -4,16 +4,16 @@
       "title": "Register the Source Files on the Package Search Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 10:38:20 PM",
+      "dateUpdated": "Feb 19, 2017 11:05:36 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/python",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027]\n"
+            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027]\n"
           }
         ]
       },
@@ -33,23 +33,26 @@
       "jobName": "paragraph_1487542544987_-284590178",
       "id": "20170219-221544_1974543390",
       "dateCreated": "Feb 19, 2017 10:15:44 PM",
-      "dateStarted": "Feb 19, 2017 10:37:45 PM",
-      "dateFinished": "Feb 19, 2017 10:37:45 PM",
+      "dateStarted": "Feb 19, 2017 11:05:37 PM",
+      "dateFinished": "Feb 19, 2017 11:05:38 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n\n",
+      "title": "Test Client and Grab First 10 Tweets",
+      "text": "%python\nfrom tweepy import Cursor\nfrom twitter_client import get_twitter_client\nclient \u003d get_twitter_client()\nfor status in Cursor(client.home_timeline).items(10):\n    # Process a single status \n    print(status.text)",
       "user": "anonymous",
-      "dateUpdated": "Feb 19, 2017 10:37:41 PM",
+      "dateUpdated": "Feb 19, 2017 11:15:23 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "text",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/text",
+        "title": true
       },
       "settings": {
         "params": {},
@@ -60,7 +63,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027API\u0027, \u0027OAuthHandler\u0027, \u0027__builtins__\u0027, \u0027__cached__\u0027, \u0027__doc__\u0027, \u0027__file__\u0027, \u0027__loader__\u0027, \u0027__name__\u0027, \u0027__package__\u0027, \u0027__spec__\u0027, \u0027get_twitter_auth\u0027, \u0027get_twitter_client\u0027, \u0027os\u0027, \u0027sys\u0027]\n"
+            "data": "... ... ... God, Allah, Buddha, Great Spirit: Minnesota hospital chaplains adapt to diversity https://t.co/KpUF7NS4ta\nSo long, surface lots: Parking areas redeveloped in Twin Cities suburbs https://t.co/2MSvLlyEjY https://t.co/5kGDK7zEyL\nWarm weather is melting winter economy in Minnesota, Wisconsin  towns https://t.co/wQF2kp6WMd https://t.co/R6vTxGRguo\nRT @walshpj: Crystal, MN, reports 68 degrees today, but “high probabilities\" for 10+ inches of snow loom for one part of state. https://t.c…\nWe want to see how you\u0027re enjoying this warm winter weather. Please text WARM to 612-351-6010 and follow the prompt… https://t.co/iSGdhyVn83\nWeather service says Crystal, Minn., at 68 degrees as of 3 p.m. https://t.co/4C4hYCoZws https://t.co/79OjJYXfct\nWhat happens when two Twin Cities restaurant titans relocate to Wisconsin? Magic. https://t.co/VXBoZlL8MO https://t.co/umph3oWRE2\nP.J. Fleck lands QB: 3-star recruit from Ohio commits to Gophers https://t.co/HzrWSMVsnY https://t.co/sUX4feLaQW\nMan\u0027s punch outside west metro bar leaves brother with severe head injury https://t.co/KEeFDCZDk5 https://t.co/LjrXFuqsU0\nOne, two, three, four! What makes a protest song really soar? https://t.co/ACBFc4DQ2b\n"
           }
         ]
       },
@@ -68,8 +71,8 @@
       "jobName": "paragraph_1487543388436_702502000",
       "id": "20170219-222948_296047686",
       "dateCreated": "Feb 19, 2017 10:29:48 PM",
-      "dateStarted": "Feb 19, 2017 10:33:05 PM",
-      "dateFinished": "Feb 19, 2017 10:33:05 PM",
+      "dateStarted": "Feb 19, 2017 11:15:23 PM",
+      "dateFinished": "Feb 19, 2017 11:15:23 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -128,25 +131,25 @@
   "name": "TwitterHook",
   "id": "2CAQU81FA",
   "angularObjects": {
-    "2CB2HTK47:shared_process": [],
-    "2CAQVNAEN:shared_process": [],
-    "2C91BGTXX:shared_process": [],
-    "2C8STJ2VR:shared_process": [],
-    "2CBGB4PVD:shared_process": [],
-    "2CB2GXTQM:shared_process": [],
-    "2CBVXNWUK:shared_process": [],
-    "2CAAG1NM5:shared_process": [],
-    "2C94XQEHA:shared_process": [],
-    "2CBYTBQYU:shared_process": [],
-    "2CA3RGB5H:shared_process": [],
-    "2CC6Q6KZZ:shared_process": [],
-    "2CBJAUDUB:shared_process": [],
-    "2C9XSRJYD:shared_process": [],
-    "2CCCE5WPA:shared_process": [],
-    "2C8D9G9YU:shared_process": [],
-    "2C8MK938X:shared_process": [],
-    "2C9QDYXFK:shared_process": [],
-    "2C9YBX2BY:shared_process": []
+    "2CAW75Q86:shared_process": [],
+    "2CBAFZ6R4:shared_process": [],
+    "2CC47CWDC:shared_process": [],
+    "2C97KX7QD:shared_process": [],
+    "2CAS2H1C4:shared_process": [],
+    "2C9ZSRSVP:shared_process": [],
+    "2CAEKFW9R:shared_process": [],
+    "2CBY6J3SJ:shared_process": [],
+    "2C9GDZDYH:shared_process": [],
+    "2CCC7EE6G:shared_process": [],
+    "2CAC9F6WY:shared_process": [],
+    "2C97AQ986:shared_process": [],
+    "2CCBKG45E:shared_process": [],
+    "2CBJYRSBJ:shared_process": [],
+    "2CAXQZZZR:shared_process": [],
+    "2CC5BNKUM:shared_process": [],
+    "2C9NYTMQC:shared_process": [],
+    "2CBH637Z9:shared_process": [],
+    "2CBG7SEC3:shared_process": []
   },
   "config": {},
   "info": {}

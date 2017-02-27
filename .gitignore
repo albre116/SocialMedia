@@ -90,4 +90,9 @@ ENV/
 
 # Secret Key Files
 keys.secret
+
+# data files
 *.jsonl
+
+# outputs of figures
+*.png

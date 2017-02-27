@@ -1,5 +1,11 @@
 FROM gettyimages/spark:2.0.2-hadoop-2.7
 
+#Do the install of the custom packages
+COPY requirements.txt .
+#RUN pip3 install -r requirements.txt
+
+
+
 # SciPy
 RUN set -ex \
  && buildDeps=' \
@@ -14,12 +20,7 @@ RUN set -ex \
     wget \
     liblapack-dev \
     libopenblas-dev \
- && packages=' \
-    numpy \
-    pandasql \
-    scipy \
-  '\
- && pip3 install $packages \
+ && pip3 install -r requirements.txt \
  && apt-get purge -y --auto-remove $buildDeps \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
@@ -39,11 +40,6 @@ RUN curl -OL http://apache.mirrors.tds.net/zeppelin/zeppelin-${ZEPPELIN_VERSION}
     && mkdir -p $ZEPPELIN_HOME/logs \
     && mkdir -p $ZEPPELIN_HOME/run 
 
-
-#Do the install of the custom packages
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt
-    
 ADD about.json $ZEPPELIN_NOTEBOOK_DIR/2BTRWA9EV/note.json
 WORKDIR $ZEPPELIN_HOME
 CMD ["bin/zeppelin.sh"]

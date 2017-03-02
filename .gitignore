@@ -93,6 +93,7 @@ keys.secret
 
 # data files
 *.jsonl
+./notebook/users/*.json
 
 # outputs of figures
 *.png

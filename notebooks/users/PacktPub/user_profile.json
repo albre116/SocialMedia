@@ -1,0 +1,126 @@
+{
+    "name": "Packt",
+    "favourites_count": 1190,
+    "status": {
+        "is_quote_status": false,
+        "place": null,
+        "in_reply_to_user_id": null,
+        "favorite_count": 8,
+        "source": "<a href=\"http://sproutsocial.com\" rel=\"nofollow\">Sprout Social</a>",
+        "geo": null,
+        "in_reply_to_user_id_str": null,
+        "in_reply_to_status_id": null,
+        "entities": {
+            "symbols": [],
+            "user_mentions": [],
+            "hashtags": [
+                {
+                    "text": "Angular",
+                    "indices": [
+                        23,
+                        31
+                    ]
+                },
+                {
+                    "text": "JavaScript",
+                    "indices": [
+                        100,
+                        111
+                    ]
+                }
+            ],
+            "urls": [
+                {
+                    "display_url": "packtpub.com/packt/free-ebo\u2026",
+                    "indices": [
+                        76,
+                        99
+                    ],
+                    "url": "https://t.co/pyQdHRVttr",
+                    "expanded_url": "https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-angular"
+                },
+                {
+                    "display_url": "twitter.com/i/web/status/8\u2026",
+                    "indices": [
+                        113,
+                        136
+                    ],
+                    "url": "https://t.co/R61isipTPl",
+                    "expanded_url": "https://twitter.com/i/web/status/837075986579603456"
+                }
+            ]
+        },
+        "id": 837075986579603456,
+        "contributors": null,
+        "in_reply_to_status_id_str": null,
+        "possibly_sensitive": false,
+        "truncated": true,
+        "favorited": false,
+        "id_str": "837075986579603456",
+        "retweeted": false,
+        "retweet_count": 4,
+        "lang": "en",
+        "coordinates": null,
+        "created_at": "Wed Mar 01 23:04:01 +0000 2017",
+        "in_reply_to_screen_name": null,
+        "text": "Discover the basics of #Angular 2 with our free eBook that explains it all: https://t.co/pyQdHRVttr #JavaScript\u2026 https://t.co/R61isipTPl"
+    },
+    "profile_location": null,
+    "verified": true,
+    "profile_background_tile": true,
+    "entities": {
+        "url": {
+            "urls": [
+                {
+                    "display_url": "PacktPub.com",
+                    "indices": [
+                        0,
+                        22
+                    ],
+                    "url": "http://t.co/vEPCgOu235",
+                    "expanded_url": "http://www.PacktPub.com"
+                }
+            ]
+        },
+        "description": {
+            "urls": []
+        }
+    },
+    "url": "http://t.co/vEPCgOu235",
+    "profile_use_background_image": true,
+    "location": "Birmingham, UK",
+    "following": false,
+    "contributors_enabled": false,
+    "statuses_count": 16605,
+    "translator_type": "none",
+    "friends_count": 1152,
+    "created_at": "Mon Dec 01 13:16:47 +0000 2008",
+    "screen_name": "PacktPub",
+    "default_profile": false,
+    "followers_count": 17721,
+    "profile_background_color": "FFA200",
+    "profile_text_color": "666666",
+    "is_translation_enabled": false,
+    "profile_image_url": "http://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg",
+    "utc_offset": 0,
+    "profile_background_image_url": "http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png",
+    "follow_request_sent": false,
+    "listed_count": 1160,
+    "has_extended_profile": false,
+    "default_profile_image": false,
+    "description": "We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri",
+    "geo_enabled": true,
+    "profile_sidebar_border_color": "000000",
+    "profile_background_image_url_https": "https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png",
+    "profile_banner_url": "https://pbs.twimg.com/profile_banners/17778401/1476694720",
+    "profile_image_url_https": "https://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg",
+    "protected": false,
+    "profile_link_color": "0084B4",
+    "id_str": "17778401",
+    "lang": "en",
+    "notifications": false,
+    "id": 17778401,
+    "profile_sidebar_fill_color": "CC9933",
+    "time_zone": "London",
+    "is_translator": false
+}

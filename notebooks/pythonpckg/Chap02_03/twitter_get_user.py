@@ -7,7 +7,7 @@ import math
 from tweepy import Cursor
 from twitter_client import get_twitter_client
 
-MAX_FRIENDS = 15000
+MAX_FRIENDS = 25000
 
 def usage():
     print("Usage:")

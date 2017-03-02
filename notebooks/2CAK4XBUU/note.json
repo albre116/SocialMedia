@@ -4,7 +4,7 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Feb 27, 2017 3:02:26 AM",
+      "dateUpdated": "Mar 2, 2017 1:27:15 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027, \u0027/usr/zeppelin/interpreter/lib/python\u0027]\n"
+            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027, \u0027/usr/zeppelin/interpreter/lib/python\u0027]\n"
           }
         ]
       },
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1488164473531_1981506022",
       "id": "20170227-030113_187077902",
       "dateCreated": "Feb 27, 2017 3:01:13 AM",
-      "dateStarted": "Feb 27, 2017 3:02:26 AM",
-      "dateFinished": "Feb 27, 2017 3:02:26 AM",
+      "dateStarted": "Mar 2, 2017 1:27:15 AM",
+      "dateFinished": "Mar 2, 2017 1:27:16 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"PacktPub\")\nprint(json.dumps(profile._json, indent \u003d4))\n\n",
       "user": "anonymous",
-      "dateUpdated": "Feb 27, 2017 3:07:13 AM",
+      "dateUpdated": "Mar 2, 2017 1:27:19 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -61,7 +61,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "{\n    \"name\": \"Packt\",\n    \"favourites_count\": 1183,\n    \"status\": {\n        \"is_quote_status\": true,\n        \"place\": null,\n        \"in_reply_to_user_id\": null,\n        \"favorite_count\": 0,\n        \"source\": \"\u003ca href\u003d\\\"http://twitter.com\\\" rel\u003d\\\"nofollow\\\"\u003eTwitter Web Client\u003c/a\u003e\",\n        \"geo\": null,\n        \"in_reply_to_user_id_str\": null,\n        \"in_reply_to_status_id\": null,\n        \"entities\": {\n            \"symbols\": [],\n            \"user_mentions\": [\n                {\n                    \"id\": 3013576476,\n                    \"indices\": [\n                        3,\n                        17\n                    ],\n                    \"screen_name\": \"alien_mafia07\",\n                    \"name\": \"Brendan Rodrigues\",\n                    \"id_str\": \"3013576476\"\n                }\n            ],\n            \"hashtags\": [\n                {\n                    \"text\": \"packtpub\",\n                    \"indices\": [\n                        41,\n                        50\n                    ]\n                }\n            ],\n            \"urls\": [\n                {\n                    \"display_url\": \"twitter.com/packtpub/statu\\u2026\",\n                    \"indices\": [\n                        51,\n                        74\n                    ],\n                    \"url\": \"https://t.co/yJWVyo9Spo\",\n                    \"expanded_url\": \"https://twitter.com/packtpub/status/835553708096241665\"\n                }\n            ]\n        },\n        \"id\": 836012798656274433,\n        \"contributors\": null,\n        \"in_reply_to_status_id_str\": null,\n        \"possibly_sensitive\": false,\n        \"favorited\": false,\n        \"truncated\": false,\n        \"id_str\": \"836012798656274433\",\n        \"retweeted\": false,\n        \"retweeted_status\": {\n            \"is_quote_status\": true,\n            \"place\": null,\n            \"in_reply_to_user_id\": null,\n            \"favorite_count\": 0,\n            \"source\": \"\u003ca href\u003d\\\"http://twitter.com/download/iphone\\\" rel\u003d\\\"nofollow\\\"\u003eTwitter for iPhone\u003c/a\u003e\",\n            \"geo\": null,\n            \"in_reply_to_user_id_str\": null,\n            \"in_reply_to_status_id\": null,\n            \"entities\": {\n                \"symbols\": [],\n                \"user_mentions\": [],\n                \"hashtags\": [\n                    {\n                        \"text\": \"packtpub\",\n                        \"indices\": [\n                            22,\n                            31\n                        ]\n                    }\n                ],\n                \"urls\": [\n                    {\n                        \"display_url\": \"twitter.com/packtpub/statu\\u2026\",\n                        \"indices\": [\n                            32,\n                            55\n                        ],\n                        \"url\": \"https://t.co/yJWVyo9Spo\",\n                        \"expanded_url\": \"https://twitter.com/packtpub/status/835553708096241665\"\n                    }\n                ]\n            },\n            \"id\": 835554403515957249,\n            \"contributors\": null,\n            \"in_reply_to_status_id_str\": null,\n            \"possibly_sensitive\": false,\n            \"favorited\": false,\n            \"truncated\": false,\n            \"id_str\": \"835554403515957249\",\n            \"retweeted\": false,\n            \"retweet_count\": 1,\n            \"lang\": \"en\",\n            \"coordinates\": null,\n            \"created_at\": \"Sat Feb 25 18:17:48 +0000 2017\",\n            \"in_reply_to_screen_name\": null,\n            \"text\": \"Just like the oscars!\\n#packtpub https://t.co/yJWVyo9Spo\",\n            \"quoted_status_id\": 835553708096241665,\n            \"quoted_status_id_str\": \"835553708096241665\"\n        },\n        \"retweet_count\": 1,\n        \"lang\": \"en\",\n        \"coordinates\": null,\n        \"created_at\": \"Mon Feb 27 00:39:18 +0000 2017\",\n        \"in_reply_to_screen_name\": null,\n        \"text\": \"RT @alien_mafia07: Just like the oscars!\\n#packtpub https://t.co/yJWVyo9Spo\",\n        \"quoted_status_id\": 835553708096241665,\n        \"quoted_status_id_str\": \"835553708096241665\"\n    },\n    \"profile_location\": null,\n    \"verified\": true,\n    \"profile_background_tile\": true,\n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"display_url\": \"PacktPub.com\",\n                    \"indices\": [\n                        0,\n                        22\n                    ],\n                    \"url\": \"http://t.co/vEPCgOu235\",\n                    \"expanded_url\": \"http://www.PacktPub.com\"\n                }\n            ]\n        },\n        \"description\": {\n            \"urls\": []\n        }\n    },\n    \"url\": \"http://t.co/vEPCgOu235\",\n    \"profile_use_background_image\": true,\n    \"location\": \"Birmingham, UK\",\n    \"following\": false,\n    \"contributors_enabled\": false,\n    \"statuses_count\": 16549,\n    \"translator_type\": \"none\",\n    \"friends_count\": 1151,\n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\",\n    \"screen_name\": \"PacktPub\",\n    \"default_profile\": false,\n    \"followers_count\": 17659,\n    \"profile_background_color\": \"FFA200\",\n    \"profile_text_color\": \"666666\",\n    \"is_translation_enabled\": false,\n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"utc_offset\": 0,\n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"follow_request_sent\": false,\n    \"listed_count\": 1160,\n    \"has_extended_profile\": false,\n    \"default_profile_image\": false,\n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\",\n    \"geo_enabled\": true,\n    \"profile_sidebar_border_color\": \"000000\",\n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1476694720\",\n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"protected\": false,\n    \"profile_link_color\": \"0084B4\",\n    \"id_str\": \"17778401\",\n    \"lang\": \"en\",\n    \"notifications\": false,\n    \"id\": 17778401,\n    \"profile_sidebar_fill_color\": \"CC9933\",\n    \"time_zone\": \"London\",\n    \"is_translator\": false\n}\n"
+            "data": "{\n    \"name\": \"Packt\",\n    \"favourites_count\": 1190,\n    \"status\": {\n        \"is_quote_status\": false,\n        \"place\": null,\n        \"in_reply_to_user_id\": null,\n        \"favorite_count\": 8,\n        \"source\": \"\u003ca href\u003d\\\"http://sproutsocial.com\\\" rel\u003d\\\"nofollow\\\"\u003eSprout Social\u003c/a\u003e\",\n        \"geo\": null,\n        \"in_reply_to_user_id_str\": null,\n        \"in_reply_to_status_id\": null,\n        \"entities\": {\n            \"symbols\": [],\n            \"user_mentions\": [],\n            \"hashtags\": [\n                {\n                    \"text\": \"Angular\",\n                    \"indices\": [\n                        23,\n                        31\n                    ]\n                },\n                {\n                    \"text\": \"JavaScript\",\n                    \"indices\": [\n                        100,\n                        111\n                    ]\n                }\n            ],\n            \"urls\": [\n                {\n                    \"display_url\": \"packtpub.com/packt/free-ebo\\u2026\",\n                    \"indices\": [\n                        76,\n                        99\n                    ],\n                    \"url\": \"https://t.co/pyQdHRVttr\",\n                    \"expanded_url\": \"https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-angular\"\n                },\n                {\n                    \"display_url\": \"twitter.com/i/web/status/8\\u2026\",\n                    \"indices\": [\n                        113,\n                        136\n                    ],\n                    \"url\": \"https://t.co/R61isipTPl\",\n                    \"expanded_url\": \"https://twitter.com/i/web/status/837075986579603456\"\n                }\n            ]\n        },\n        \"id\": 837075986579603456,\n        \"contributors\": null,\n        \"in_reply_to_status_id_str\": null,\n        \"possibly_sensitive\": false,\n        \"truncated\": true,\n        \"favorited\": false,\n        \"id_str\": \"837075986579603456\",\n        \"retweeted\": false,\n        \"retweet_count\": 4,\n        \"lang\": \"en\",\n        \"coordinates\": null,\n        \"created_at\": \"Wed Mar 01 23:04:01 +0000 2017\",\n        \"in_reply_to_screen_name\": null,\n        \"text\": \"Discover the basics of #Angular 2 with our free eBook that explains it all: https://t.co/pyQdHRVttr #JavaScript\\u2026 https://t.co/R61isipTPl\"\n    },\n    \"profile_location\": null,\n    \"verified\": true,\n    \"profile_background_tile\": true,\n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"display_url\": \"PacktPub.com\",\n                    \"indices\": [\n                        0,\n                        22\n                    ],\n                    \"url\": \"http://t.co/vEPCgOu235\",\n                    \"expanded_url\": \"http://www.PacktPub.com\"\n                }\n            ]\n        },\n        \"description\": {\n            \"urls\": []\n        }\n    },\n    \"url\": \"http://t.co/vEPCgOu235\",\n    \"profile_use_background_image\": true,\n    \"location\": \"Birmingham, UK\",\n    \"following\": false,\n    \"contributors_enabled\": false,\n    \"statuses_count\": 16605,\n    \"translator_type\": \"none\",\n    \"friends_count\": 1152,\n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\",\n    \"screen_name\": \"PacktPub\",\n    \"default_profile\": false,\n    \"followers_count\": 17720,\n    \"profile_background_color\": \"FFA200\",\n    \"profile_text_color\": \"666666\",\n    \"is_translation_enabled\": false,\n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"utc_offset\": 0,\n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"follow_request_sent\": false,\n    \"listed_count\": 1160,\n    \"has_extended_profile\": false,\n    \"default_profile_image\": false,\n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\",\n    \"geo_enabled\": true,\n    \"profile_sidebar_border_color\": \"000000\",\n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1476694720\",\n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"protected\": false,\n    \"profile_link_color\": \"0084B4\",\n    \"id_str\": \"17778401\",\n    \"lang\": \"en\",\n    \"notifications\": false,\n    \"id\": 17778401,\n    \"profile_sidebar_fill_color\": \"CC9933\",\n    \"time_zone\": \"London\",\n    \"is_translator\": false\n}\n"
           }
         ]
       },
@@ -69,24 +69,359 @@
       "jobName": "paragraph_1488164539535_1378463289",
       "id": "20170227-030219_2047250947",
       "dateCreated": "Feb 27, 2017 3:02:19 AM",
-      "dateStarted": "Feb 27, 2017 3:07:13 AM",
-      "dateFinished": "Feb 27, 2017 3:07:14 AM",
+      "dateStarted": "Mar 2, 2017 1:27:19 AM",
+      "dateFinished": "Mar 2, 2017 1:27:20 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\n",
+      "title": "Get Followers and Friends of Target",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py PacktPub",
       "user": "anonymous",
-      "dateUpdated": "Feb 27, 2017 3:07:13 AM",
+      "dateUpdated": "Mar 2, 2017 1:36:54 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "More results available. Sleeping for 60 seconds to avoid rate limit\nMore results available. Sleeping for 60 seconds to avoid rate limit\nTraceback (most rMeocreen tr ecsaulllt sl aasvta)i:l\n  File \"/usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py\", line 55, in \u003cmodule\u003e\n    users \u003d client.lookup_users(user_ids\u003dchunk)\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/api.py\", line 322, in lookup_users\n    return self._lookup_users(post_data\u003dpost_data)\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/binder.py\", line 245, in _call\n    return method.execute()\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/binder.py\", line 229, in execute\n    raise TweepError(error_msg, resp, api_code\u003dapi_error_code)\ntweepy.error.TweepError: [{\u0027code\u0027: 32, \u0027message\u0027: \u0027Could not authenticate you.\u0027}]\nable. Sleeping for 60 seconds to avoid rate limit\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 1"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488164833954_-1339573152",
+      "id": "20170227-030713_247712242",
+      "dateCreated": "Feb 27, 2017 3:07:13 AM",
+      "dateStarted": "Mar 2, 2017 1:31:48 AM",
+      "dateFinished": "Mar 2, 2017 1:36:28 AM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "User Stats list methods",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_followers_stats.py PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 1:48:16 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "----- Timing -----\nInitialize data: 0.8608033657073975\nSet-based operations: 0.3534057140350342\nTotal time: 1.2142090797424316\n----- Stats -----\nPacktPub has 15000 followers\nPacktPub has 700 friends\nPacktPub has 381 mutual friends\n319 friends are not following PacktPub back\n14619 followers are not followed back by PacktPub\nSome mutual friends: cesardelfinr, gKillilea11, J_D_Landis, DG_Ed, Rustbeltdiary\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488417617941_885708161",
+      "id": "20170302-012017_977099561",
+      "dateCreated": "Mar 2, 2017 1:20:17 AM",
+      "dateStarted": "Mar 2, 2017 1:46:55 AM",
+      "dateFinished": "Mar 2, 2017 1:46:57 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Check set operator timing",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_followers_stats_set.py PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 1:48:00 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "----- Timing -----\nInitialize data: 0.8699491024017334\nSet-based operations: 0.0010688304901123047\nTotal time: 0.8710179328918457\n----- Stats -----\nPacktPub has 15000 followers\nPacktPub has 700 friends\nPacktPub has 381 mutual friends\n319 friends are not following PacktPub back\n14619 followers are not followed back by PacktPub\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488418654299_-993331612",
+      "id": "20170302-013734_1397451114",
+      "dateCreated": "Mar 2, 2017 1:37:34 AM",
+      "dateStarted": "Mar 2, 2017 1:47:01 AM",
+      "dateFinished": "Mar 2, 2017 1:47:02 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Check Numpy Timing",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_followers_stats_numpy.py PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 1:47:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "----- Timing -----\nInitialize data: 0.9404487609863281\nSet-based operations: 0.013110876083374023\nTotal time: 0.9535596370697021\n----- Stats -----\nPacktPub has 15000 followers\nPacktPub has 700 friends\nPacktPub has 381 mutual friends\n319 friends are not following PacktPub back\n14619 followers are not followed back by PacktPub\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488419191926_888638367",
+      "id": "20170302-014631_1742619980",
+      "dateCreated": "Mar 2, 2017 1:46:31 AM",
+      "dateStarted": "Mar 2, 2017 1:47:08 AM",
+      "dateFinished": "Mar 2, 2017 1:47:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Get Source data for influencers followers",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py marcobonzanini \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:11:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "More results available. Sleeping for 60 seconds to avoid rate limit\nMore results available. Sleeping for 60 seconds to avoid rate limit\nMore results available. Sleeping for 60 seconds to avoid rate limit\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488419717618_355342454",
+      "id": "20170302-015517_131044796",
+      "dateCreated": "Mar 2, 2017 1:55:17 AM",
+      "dateStarted": "Mar 2, 2017 2:11:47 AM",
+      "dateFinished": "Mar 2, 2017 2:18:20 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Get Source data for influencer timelines",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py marcobonzanini \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:18:52 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488419918381_78767647",
+      "id": "20170302-015838_1562410435",
+      "dateCreated": "Mar 2, 2017 1:58:38 AM",
+      "dateStarted": "Mar 2, 2017 2:18:52 AM",
+      "dateFinished": "Mar 2, 2017 2:18:58 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Compute Influence ",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_influence.py marcobonzanini PacktPub\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:19:02 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "----- Stats marcobonzanini -----\n854 followers\n3542812 users reached by 1-degree connections\nAverage number of followers for marcobonzanini\u0027s followers: 4148.49\nFavorited 949 times (2.16 per tweet, 1.11 per user)\nRetweeted 2593 times (5.89 per tweet, 3.04 per user)\n----- Stats PacktPub -----\n17721 followers\n47110076 users reached by 1-degree connections\nAverage number of followers for PacktPub\u0027s followers: 2658.43\nFavorited 8449 times (0.51 per tweet, 0.48 per user)\nRetweeted 94776 times (5.71 per tweet, 5.35 per user)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488419228019_117094229",
+      "id": "20170302-014708_1962196116",
+      "dateCreated": "Mar 2, 2017 1:47:08 AM",
+      "dateStarted": "Mar 2, 2017 2:19:02 AM",
+      "dateFinished": "Mar 2, 2017 2:19:03 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Cluster Kmeans by TF-IDF",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_cluster_users.py \\\n--filename users/marcobonzanini/followers.jsonl \\\n--k 5 \\\n--max-features 200 \\\n--max-ngram 3\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:30:07 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Data dimensions: (854, 200)\n---------- Cluster 0\n\nHere to share events, tutorials, courses, books... related to #noSQL #mongoDB #Cassandra, #DyanmoDB, #AzureTable #Riak, #BerkeleyDB #couchDB....\nalways learning\nCS Undergrad, CEG. Novice Computer Programmer. Anything that is Computer Technology interests me. A TV and Movie freak.\nPostdoctoral Fellow at Harvard Kennedy School, Program on Education Policy and Governance\nStudent, geek and developer. #pythonista\nCTO @ H-ART, Dad, Cyclist, Runner\nProfesseur agrégé Sciences Physiques / Physique Appliquée\nProducts @Cisco. NFV, cloud, DevOps, digital trans, machine learning, blockchain. Christ follower. Love simplicity, wine \u0026 bacon. #MWC17\nnice to see you guys~\n---------- Cluster 1\nApprentice PhD Data Science researcher. Mountain biker.  \nPhotographer.  \nPredictive analytics addict.  \nSQL.  R.  Python.\nBinge learner.  \nMission fan.\nAttempting Data Science. \nCo-organiser for Hadoop User Group UK @hug_UK\nPassionate about Data Science, Machine Learning, OpenData, Python, and data for social good in international development\nStudent at Queen Mary, University of London. Major in Big Data Science\nOCP, CISSP, CCAH, CCDH. Founder of  @novadatascience. Interests - Databases, Machine Learning, Data Science, Python, Scala, Apache Spark. Opinions are my own.\nHello from Rome! Nuclear Engineer who loves astronomy, physics, mathematics and data science. Love music expecially prog, heavy and rock!!\n15-16 November 2017 #BigData London hosts leading global data \u0026 analytics experts, ready to arm you with the tools to deliver an effective data-driven strategy\nPassionate about startups \u0026 data science\nData librarian\nComputer Science + Software Developer. Interested in big data,  data driven *,  musician,  coffee lover,  soccer lover.\n---------- Cluster 2\nLa SAEM Thales y el Centro de Informática Científica de Andalucía (CICA), organizan los cursos sobre Matemáticas - Informática - Educación y Nuevas Tecnologías\nPython científico en español: NumPy, SciPy, matplotlib y más. ¿Quieres colaborar? ¡Escríbenos! Mucho buen humor :)\nCréation d\u0027un nouveau conglomérat regroupant @Montreal_AI et @Quebec_AI Inauguration prévue en début 2017. #MtlIA #MtlAI #MontrealAI #QuebecAI\nLa felicidad no suele ser un objetivo sino una consecuencia.\nCodeur en série repenti / Responsable de systèmes d\u0027information sous la contrainte / Photographe amateur de machins pas très beaux\nProfesor e investigador de #Sociología, ahora en Freie Universität Berlin y #UdeA. Siempre del RCD Espanyol ⚽. Mi blog: http://t.co/w4CqcbdG1u y mi web\nCorriendo por los cerros, estudiando (MSc-DCC  UCH) datos.Si no twitteo es porque estoy en la montaña\nIngeniería en Desarrollo de Software, apasionado con la tecnología.\nCo-fundador de Artiolabs. Diplomado en Ingeniería Informatica de Gestión y con un Master Universitario en Inteligencia Artificial.\nLingüista. Ahora en la UAM. Acabando un libro sobre el español y las nuevas tecnologías. Investigando el discurso en las redes sociales.\n---------- Cluster 3\nData Scientist @Mallzee \u0026 Physicist, Python enthusiast, always learning.\nData Scientist @AvanadeUK. Views my own.\ncecilialiao \u003d {\u0027@dunnhumby\u0027: \u0027data scientist\u0027, \u0027@pydatalondon\u0027: \u0027co-organiser\u0027}\nData Scientist \u0026 Director @Applied_AI, Organiser @bayesianmixer. Cautious Optimist.\nBioinformatician, Data Scientist and Web Developer\nscientist,cyclist,computerist,googlerist (views my own, and likely nobody else\u0027s)\nData Scientist @Apple.\nData Scientist, math enthusiast, problem solver. Playing with deep learning and big data. Writing at https://t.co/a8doiTscD9\nResearch Scientist @SignalHQ\nData Scientist @StitchFix Human computation \u0026 Styling Algorithms. Artificial Intelligence PhD. Deep Learning, Knowledge Engineering, Robotics, Quantified Self\n---------- Cluster 4\nWorking on my PhD to improve historical research with information technology and helping companies make better decisions based on data. @hrcie #tm1 #python\nBorn at a very young age, professional coffe-drinker, Python Developer @ Energee3, proudly founder of @pyrecommunity\nCS Junior, Python Developer\nFounder \u0026 Organizer @PyDataDelhi -\nCS Junior \u0026 Python Developer -\nResearch Intern @IIITDelhi -\nEx @SquadRunApp (S\u002716) -\nPassionately curious ¯\\_(ツ)_/¯\nroot@bt:~# Whoami \r\nWebApp Security Learner | Python/Django enthusiastic. http://t.co/RvopZcH6lC\nEconomics/Finance/Statistics/Geopolitics. Learning Python and agent-based modeling. Apprentice modeler of social systems\nPythonic Quest is a blog to document my journey in learning #python #programming. Aiming to produce useful #python resources for the community.\nFull Stack Developer @stinkstudios. Swiss⚡️Italian. Python \u0026 Django user. @gdgcampania organiser. @pyconit organiser\nYet another Tony Stark wannabe | Business Dev \u0026 Marketing Technologist at @Zerynth | #IoT #Python #HCI #SciFi\nnice day!  I love #machineLearning #textMining #NLProc  #textanalytics #informationretrieval #python\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488419702611_1735806184",
+      "id": "20170302-015502_1068225597",
+      "dateCreated": "Mar 2, 2017 1:55:02 AM",
+      "dateStarted": "Mar 2, 2017 2:30:07 AM",
+      "dateFinished": "Mar 2, 2017 2:30:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Networkx Conversation Thread",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_conversation.py stream__woundcare__nurses_burn.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:38:38 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Name: \nType: DiGraph\nNumber of nodes: 369\nNumber of edges: 0\nAverage in degree:   0.0000\nAverage out degree:   0.0000\nMost replied tweet (0 replies):\n{\u0027created_at\u0027: \u0027Sun Feb 26 23:17:08 +0000 2017\u0027, \u0027author\u0027: \u0027lundi_zena\u0027, \u0027tweet\u0027: \u0027Simple But DELICIOUS Snacks That Will Burn Fat -- https://t.co/qc75sglcmo\u0027}\nLongest discussion:\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488421807700_-939549965",
+      "id": "20170302-023007_1078982491",
+      "dateCreated": "Mar 2, 2017 2:30:07 AM",
+      "dateStarted": "Mar 2, 2017 2:38:38 AM",
+      "dateFinished": "Mar 2, 2017 2:38:39 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 2, 2017 2:37:57 AM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1488164833954_-1339573152",
-      "id": "20170227-030713_247712242",
-      "dateCreated": "Feb 27, 2017 3:07:13 AM",
+      "jobName": "paragraph_1488422277768_-779264036",
+      "id": "20170302-023757_337772184",
+      "dateCreated": "Mar 2, 2017 2:37:57 AM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -94,25 +429,25 @@
   "name": "TwitterHookChap03",
   "id": "2CAK4XBUU",
   "angularObjects": {
-    "2CB9D37AH:shared_process": [],
-    "2C9VKDTFT:shared_process": [],
-    "2CB28243C:shared_process": [],
-    "2C93EX3TE:shared_process": [],
-    "2CCFB8C1V:shared_process": [],
-    "2CBZDDQ4F:shared_process": [],
-    "2C9E584VX:shared_process": [],
-    "2C91XAQ26:shared_process": [],
-    "2C94WWYMW:shared_process": [],
-    "2CC99VE6D:shared_process": [],
-    "2CB4ENSVV:shared_process": [],
-    "2CAS6VRHV:shared_process": [],
-    "2CBMWRBCX:shared_process": [],
-    "2CAY3NGCX:shared_process": [],
-    "2CBDYKUSE:shared_process": [],
-    "2C9VHCPDR:shared_process": [],
-    "2CA9WJBCT:shared_process": [],
-    "2CCPN9K9A:shared_process": [],
-    "2C9MC6JNJ:shared_process": []
+    "2CB5UGQQK:shared_process": [],
+    "2C9FDJU76:shared_process": [],
+    "2CBXAJAAQ:shared_process": [],
+    "2CBASYMPE:shared_process": [],
+    "2CCRCC6RT:shared_process": [],
+    "2CAKRJ16J:shared_process": [],
+    "2CBJW2SZZ:shared_process": [],
+    "2CAS1AA31:shared_process": [],
+    "2CB6EX1TF:shared_process": [],
+    "2CC5X22PT:shared_process": [],
+    "2CBU4EWCM:shared_process": [],
+    "2CCJM66S1:shared_process": [],
+    "2CB2X91TX:shared_process": [],
+    "2CA3FCE4B:shared_process": [],
+    "2CA2B21MZ:shared_process": [],
+    "2CANQUZYQ:shared_process": [],
+    "2CA3Y87DP:shared_process": [],
+    "2CBCDKRW9:shared_process": [],
+    "2CCEDEPWE:shared_process": []
   },
   "config": {},
   "info": {}

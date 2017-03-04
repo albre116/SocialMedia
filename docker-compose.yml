@@ -12,6 +12,7 @@ zeppelin:
     SPARK_SUBMIT_OPTIONS: >-
       --conf spark.driver.host=localhost
       --conf spark.driver.port=8081
+#      --packages org.apache.spark.spark-streaming-twitter_2.11:1.5.2
 #      --conf spark.es.nodes=elasticsearch
 #      --conf spark.es.discovery=false
 #      --conf spark.es.port=9200

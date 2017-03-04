@@ -4,7 +4,7 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Mar 2, 2017 1:27:15 AM",
+      "dateUpdated": "Mar 4, 2017 6:30:02 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027, \u0027/usr/zeppelin/interpreter/lib/python\u0027]\n"
+            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027, \u0027/usr/zeppelin/interpreter/lib/python\u0027]\n"
           }
         ]
       },
@@ -33,8 +33,8 @@
       "jobName": "paragraph_1488164473531_1981506022",
       "id": "20170227-030113_187077902",
       "dateCreated": "Feb 27, 2017 3:01:13 AM",
-      "dateStarted": "Mar 2, 2017 1:27:15 AM",
-      "dateFinished": "Mar 2, 2017 1:27:16 AM",
+      "dateStarted": "Mar 4, 2017 6:30:02 PM",
+      "dateFinished": "Mar 4, 2017 6:30:02 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -376,15 +376,16 @@
       "title": "Networkx Conversation Thread",
       "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_conversation.py stream__woundcare__nurses_burn.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Mar 2, 2017 2:38:38 AM",
+      "dateUpdated": "Mar 4, 2017 2:35:22 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "text",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
@@ -404,24 +405,502 @@
       "jobName": "paragraph_1488421807700_-939549965",
       "id": "20170302-023007_1078982491",
       "dateCreated": "Mar 2, 2017 2:30:07 AM",
-      "dateStarted": "Mar 2, 2017 2:38:38 AM",
-      "dateFinished": "Mar 2, 2017 2:38:39 AM",
+      "dateStarted": "Mar 4, 2017 2:35:22 PM",
+      "dateFinished": "Mar 4, 2017 2:35:24 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sh\n",
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_make_geojson.py --tweets stream__woundcare__nurses_burn.jsonl --geojson stream_woundcare.geo.json",
       "user": "anonymous",
-      "dateUpdated": "Mar 2, 2017 2:37:57 AM",
+      "dateUpdated": "Mar 4, 2017 2:58:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488422277768_-779264036",
+      "id": "20170302-023757_337772184",
+      "dateCreated": "Mar 2, 2017 2:37:57 AM",
+      "dateStarted": "Mar 4, 2017 2:50:23 PM",
+      "dateFinished": "Mar 4, 2017 2:50:23 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\ncat stream_woundcare.geo.json\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 2:51:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\n    \"features\": [\n        {\n            \"geometry\": {\n                \"coordinates\": [\n                    150.70916176,\n                    -33.97016367\n                ],\n                \"type\": \"Point\"\n            },\n            \"type\": \"Feature\",\n            \"properties\": {\n                \"text\": \"Burn off. Camden (769 The Northern Rd, Bringelly, NSW 2556) at 27 Feb 2017 10:11 https://t.co/eZ1btQ7mTC #NSWRFS #Burnoff #NSWFires\",\n                \"created_at\": \"Sun Feb 26 23:18:01 +0000 2017\"\n            }\n        }\n    ],\n    \"type\": \"FeatureCollection\"\n}"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488638891343_-424264564",
+      "id": "20170304-144811_88786110",
+      "dateCreated": "Mar 4, 2017 2:48:11 PM",
+      "dateStarted": "Mar 4, 2017 2:51:13 PM",
+      "dateFinished": "Mar 4, 2017 2:51:13 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport folium\nfolium.GeoJson(open(\u0027/usr/zeppelin/notebook/stream_woundcare.geo.json\u0027),name\u003d\u0027geojson\u0027)\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:11:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cfolium.features.GeoJson object at 0x7f9312176ac8\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488643019077_-1973301754",
+      "id": "20170304-155659_1823844582",
+      "dateCreated": "Mar 4, 2017 3:56:59 PM",
+      "dateStarted": "Mar 4, 2017 6:11:38 PM",
+      "dateFinished": "Mar 4, 2017 6:11:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:30:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488641060259_19077251",
+      "id": "20170304-152420_131094033",
+      "dateCreated": "Mar 4, 2017 3:24:20 PM",
+      "dateStarted": "Mar 4, 2017 6:30:09 PM",
+      "dateFinished": "Mar 4, 2017 6:30:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:30:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@23e533a6\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644102885_1730267088",
+      "id": "20170304-161502_1014211897",
+      "dateCreated": "Mar 4, 2017 4:15:02 PM",
+      "dateStarted": "Mar 4, 2017 6:30:13 PM",
+      "dateFinished": "Mar 4, 2017 6:30:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:30:16 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming._\n\nimport org.apache.spark.streaming.twitter._\n\nimport org.apache.spark.storage.StorageLevel\n\nimport scala.io.Source\n\nimport scala.collection.mutable.HashMap\n\nimport java.io.File\n\nimport org.apache.log4j.Logger\n\nimport org.apache.log4j.Level\n\nimport sys.process.stringSeqToProcess\n\nimport twitter4j.HashtagEntity\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644061932_1416819328",
+      "id": "20170304-161421_2143422983",
+      "dateCreated": "Mar 4, 2017 4:14:21 PM",
+      "dateStarted": "Mar 4, 2017 6:30:16 PM",
+      "dateFinished": "Mar 4, 2017 6:30:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:30:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nconsumerKey: String \u003d UZXuNs30p93oGmxh4L8Bm39A2\n\nconsumerSecret: String \u003d KJrToBczE1JqBafrZQg9yrrHVkx3SGhlq29hCLSMPq3enDfIjL\n\naccessToken: String \u003d 828809891196391424-t3S2blpCVwoSUwjTeXkETXvZwtdOgvj\n\naccessTokenSecret: String \u003d YbL3vYPwwfSRAC9zvbe1rgFGuIS2vsRk3jigc2qqGhng3\n\nres4: String \u003d UZXuNs30p93oGmxh4L8Bm39A2\n\nres5: String \u003d KJrToBczE1JqBafrZQg9yrrHVkx3SGhlq29hCLSMPq3enDfIjL\n\nres6: String \u003d 828809891196391424-t3S2blpCVwoSUwjTeXkETXvZwtdOgvj\n\nres7: String \u003d YbL3vYPwwfSRAC9zvbe1rgFGuIS2vsRk3jigc2qqGhng3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644078855_-699284299",
+      "id": "20170304-161438_2133319834",
+      "dateCreated": "Mar 4, 2017 4:14:38 PM",
+      "dateStarted": "Mar 4, 2017 6:30:50 PM",
+      "dateFinished": "Mar 4, 2017 6:30:51 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(2))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#hadoop\", \"#bigdata\", \"#spark\", \"#hortonworks\", \"#HDP\"))\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(600))\n\ncase class Tweet(createdAt:Long, text:String, screenName:String)\ntwt.map(status\u003d\u003e\n  Tweet(status.getCreatedAt().getTime()/1000, status.getText(), status.getUser().getScreenName())\n).foreachRDD(rdd\u003d\u003e\n  rdd.toDF().registerTempTable(\"tweets\")\n)\n\n//twt.print\n\nssc.start()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:11:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@76683e\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@51068fb1\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@424b15a4\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n\n\n\n\n\n\n\n\n\n\n\n\njava.lang.IllegalStateException: RpcEnv has been stopped\n  at org.apache.spark.rpc.netty.Dispatcher.registerRpcEndpoint(Dispatcher.scala:65)\n  at org.apache.spark.rpc.netty.NettyRpcEnv.setupEndpoint(NettyRpcEnv.scala:129)\n  at org.apache.spark.streaming.scheduler.ReceiverTracker.start(ReceiverTracker.scala:158)\n  at org.apache.spark.streaming.scheduler.JobScheduler.start(JobScheduler.scala:94)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply$mcV$sp(StreamingContext.scala:583)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at ... run in separate thread using org.apache.spark.util.ThreadUtils ... ()\n  at org.apache.spark.streaming.StreamingContext.liftedTree1$1(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext.start(StreamingContext.scala:572)\n  ... 54 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488645301568_-1732971085",
+      "id": "20170304-163501_1805257672",
+      "dateCreated": "Mar 4, 2017 4:35:01 PM",
+      "dateStarted": "Mar 4, 2017 6:11:50 PM",
+      "dateFinished": "Mar 4, 2017 6:11:53 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect from_unixtime(createdAt), count(1) from tweets group by createdAt order by createdAt\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 4:55:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-03-04 16:54:42\t2\n2017-03-04 16:54:47\t1\n2017-03-04 16:54:51\t1\n2017-03-04 16:54:55\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488645395548_1510617029",
+      "id": "20170304-163635_619061164",
+      "dateCreated": "Mar 4, 2017 4:36:35 PM",
+      "dateStarted": "Mar 4, 2017 4:55:00 PM",
+      "dateFinished": "Mar 4, 2017 4:55:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nssc.stop()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:06:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488647200197_1632540270",
+      "id": "20170304-170640_966081262",
+      "dateCreated": "Mar 4, 2017 5:06:40 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#hadoop\", \"#bigdata\", \"#spark\", \"#hortonworks\", \"#HDP\",\" #mnwild \"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    rdd.toDF().registerTempTable(\"tweets\")\n    //var items \u003d rdd.collect()\n    //z.angularBind(\"data\", items) \n}\n)\n\n//twt.print\n\nssc.start()",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:34:11 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@55350758\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@2b97307\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@333577e6\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n\n\n\n\n\n\n\n\n\n\n\n\njava.lang.IllegalStateException: RpcEnv has been stopped\n  at org.apache.spark.rpc.netty.Dispatcher.registerRpcEndpoint(Dispatcher.scala:65)\n  at org.apache.spark.rpc.netty.NettyRpcEnv.setupEndpoint(NettyRpcEnv.scala:129)\n  at org.apache.spark.streaming.scheduler.ReceiverTracker.start(ReceiverTracker.scala:158)\n  at org.apache.spark.streaming.scheduler.JobScheduler.start(JobScheduler.scala:94)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply$mcV$sp(StreamingContext.scala:583)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at ... run in separate thread using org.apache.spark.util.ThreadUtils ... ()\n  at org.apache.spark.streaming.StreamingContext.liftedTree1$1(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext.start(StreamingContext.scala:572)\n  ... 54 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488647225989_-1440587113",
+      "id": "20170304-170705_1400146531",
+      "dateCreated": "Mar 4, 2017 5:07:05 PM",
+      "dateStarted": "Mar 4, 2017 6:34:11 PM",
+      "dateFinished": "Mar 4, 2017 6:34:14 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect * from tweets",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:34:06 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "java.lang.IllegalStateException: SparkContext has been shutdown\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1865)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1886)\n\tat org.apache.spark.SparkContext.runJob(SparkContext.scala:1899)\n\tat org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:347)\n\tat org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:39)\n\tat org.apache.spark.sql.Dataset$$anonfun$org$apache$spark$sql$Dataset$$execute$1$1.apply(Dataset.scala:2193)\n\tat org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:57)\n\tat org.apache.spark.sql.Dataset.withNewExecutionId(Dataset.scala:2546)\n\tat org.apache.spark.sql.Dataset.org$apache$spark$sql$Dataset$$execute$1(Dataset.scala:2192)\n\tat org.apache.spark.sql.Dataset.org$apache$spark$sql$Dataset$$collect(Dataset.scala:2199)\n\tat org.apache.spark.sql.Dataset$$anonfun$head$1.apply(Dataset.scala:1935)\n\tat org.apache.spark.sql.Dataset$$anonfun$head$1.apply(Dataset.scala:1934)\n\tat org.apache.spark.sql.Dataset.withTypedCallback(Dataset.scala:2576)\n\tat org.apache.spark.sql.Dataset.head(Dataset.scala:1934)\n\tat org.apache.spark.sql.Dataset.take(Dataset.scala:2149)\n\tat sun.reflect.GeneratedMethodAccessor44.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.apache.zeppelin.spark.ZeppelinContext.showDF(ZeppelinContext.java:235)\n\tat org.apache.zeppelin.spark.SparkSqlInterpreter.interpret(SparkSqlInterpreter.java:130)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.interpret(LazyOpenInterpreter.java:94)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:489)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:175)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler$1.run(FIFOScheduler.java:139)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)\n\tat java.lang.Thread.run(Thread.java:745)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488651700174_-397928581",
+      "id": "20170304-182140_1143884594",
+      "dateCreated": "Mar 4, 2017 6:21:40 PM",
+      "dateStarted": "Mar 4, 2017 6:34:06 PM",
+      "dateFinished": "Mar 4, 2017 6:34:06 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\n\nval ssc \u003d new StreamingContext(sc, Seconds(2))\n\nval tweets \u003d TwitterUtils.createStream(ssc, None).window(Seconds(10))\n\ntweets.foreachRDD(rdd \u003d\u003e {\n    val df \u003d rdd\n      .filter(_.getGeoLocation !\u003d null)\n      .map(t \u003d\u003e Tweet(t.getUser.getName, t.getText, t.getGeoLocation.getLatitude, t.getGeoLocation.getLongitude))\n          \n    var items \u003d df.collect\n    z.angularBind(\"data\", items) \n})\n\nssc.start()\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 5:01:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\ndefined class Tweet\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@3a197e15\n\ntweets: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@26445de6\n\n\n\n\n\n\n\n\n\n\n\n\njava.lang.IllegalStateException: RpcEnv has been stopped\n  at org.apache.spark.rpc.netty.Dispatcher.registerRpcEndpoint(Dispatcher.scala:65)\n  at org.apache.spark.rpc.netty.NettyRpcEnv.setupEndpoint(NettyRpcEnv.scala:129)\n  at org.apache.spark.streaming.scheduler.ReceiverTracker.start(ReceiverTracker.scala:158)\n  at org.apache.spark.streaming.scheduler.JobScheduler.start(JobScheduler.scala:94)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply$mcV$sp(StreamingContext.scala:583)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at ... run in separate thread using org.apache.spark.util.ThreadUtils ... ()\n  at org.apache.spark.streaming.StreamingContext.liftedTree1$1(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext.start(StreamingContext.scala:572)\n  ... 58 elided\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644369785_-921054551",
+      "id": "20170304-161929_1537388438",
+      "dateCreated": "Mar 4, 2017 4:19:29 PM",
+      "dateStarted": "Mar 4, 2017 5:01:05 PM",
+      "dateFinished": "Mar 4, 2017 5:01:07 PM",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nssc.stop(true,true)\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 6:33:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644403109_-771341257",
+      "id": "20170304-162003_1046576340",
+      "dateCreated": "Mar 4, 2017 4:20:03 PM",
+      "dateStarted": "Mar 4, 2017 6:33:49 PM",
+      "dateFinished": "Mar 4, 2017 6:34:00 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 4, 2017 4:21:45 PM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1488422277768_-779264036",
-      "id": "20170302-023757_337772184",
-      "dateCreated": "Mar 2, 2017 2:37:57 AM",
+      "jobName": "paragraph_1488644505837_-617517794",
+      "id": "20170304-162145_1114494194",
+      "dateCreated": "Mar 4, 2017 4:21:45 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -429,25 +908,25 @@
   "name": "TwitterHookChap03",
   "id": "2CAK4XBUU",
   "angularObjects": {
-    "2CB5UGQQK:shared_process": [],
-    "2C9FDJU76:shared_process": [],
-    "2CBXAJAAQ:shared_process": [],
-    "2CBASYMPE:shared_process": [],
-    "2CCRCC6RT:shared_process": [],
-    "2CAKRJ16J:shared_process": [],
-    "2CBJW2SZZ:shared_process": [],
-    "2CAS1AA31:shared_process": [],
-    "2CB6EX1TF:shared_process": [],
-    "2CC5X22PT:shared_process": [],
-    "2CBU4EWCM:shared_process": [],
-    "2CCJM66S1:shared_process": [],
-    "2CB2X91TX:shared_process": [],
-    "2CA3FCE4B:shared_process": [],
-    "2CA2B21MZ:shared_process": [],
-    "2CANQUZYQ:shared_process": [],
-    "2CA3Y87DP:shared_process": [],
-    "2CBCDKRW9:shared_process": [],
-    "2CCEDEPWE:shared_process": []
+    "2CBNPYUQA:shared_process": [],
+    "2CBMM1NN8:shared_process": [],
+    "2CBRFS2YR:shared_process": [],
+    "2CCUSG2A1:shared_process": [],
+    "2CB375ZW2:shared_process": [],
+    "2CB66W7WC:shared_process": [],
+    "2CCQE5G3F:shared_process": [],
+    "2CB1HK364:shared_process": [],
+    "2CAH1K37C:shared_process": [],
+    "2C9ENCRHF:shared_process": [],
+    "2CD7EM9A1:shared_process": [],
+    "2CD831WRV:shared_process": [],
+    "2CBTFKZPE:shared_process": [],
+    "2CAU5UPGU:shared_process": [],
+    "2CBQSAKU8:shared_process": [],
+    "2CB1ZXFWK:shared_process": [],
+    "2CBUSFEH3:shared_process": [],
+    "2C9EDJ52U:shared_process": [],
+    "2C9GX9EN9:shared_process": []
   },
   "config": {},
   "info": {}

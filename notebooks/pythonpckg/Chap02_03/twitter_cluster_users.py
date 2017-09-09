@@ -51,4 +51,4 @@ if __name__ == '__main__':
         for label, descriptions in clusters.items():
             print('---------- Cluster {}'.format(label))
             for desc in descriptions[:10]:
-                print(desc)
+                print(desc.encode('utf-8'))

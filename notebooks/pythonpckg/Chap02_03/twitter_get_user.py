@@ -27,7 +27,7 @@ if __name__ == '__main__':
     dirname = "users/{}".format(screen_name)
     max_pages = math.ceil(MAX_FRIENDS / 5000)
     try:
-        os.makedirs(dirname, mode=0o755, exist_ok=True)
+        os.makedirs(dirname, mode=0o755)
     except OSError:
         print("Directory {} already exists".format(dirname))
     except Exception as e:

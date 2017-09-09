@@ -55,4 +55,4 @@ if __name__ == '__main__':
                              stopwords=stopword_list)
             tf.update(tokens)
         for tag, count in tf.most_common(30):
-            print("{}: {}".format(tag, count))
+            print("{}: {}".format(tag.encode('utf-8'), count))

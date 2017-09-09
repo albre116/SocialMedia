@@ -5,6 +5,7 @@ zeppelin:
     TWITTER_CONSUMER_SECRET: ${TWITTER_CONSUMER_SECRET}
     TWITTER_ACCESS_TOKEN: ${TWITTER_ACCESS_TOKEN}
     TWITTER_ACCESS_SECRET: ${TWITTER_ACCESS_SECRET}
+    ZEPPELIN_NOTEBOOK_DIR: '/notebook'
     ZEPPELIN_PORT: 8080
     ZEPPELIN_JAVA_OPTS: >-
       -Dspark.driver.memory=2g
@@ -27,7 +28,7 @@ zeppelin:
     - 8081:8081
     - 4040:4040
   volumes:
-    - ./notebooks:/usr/zeppelin/notebook
+    - ./notebooks/:/notebook
 #    - ./pythonpckg:/usr/zeppelin
 #elasticsearch:
 #  image: elasticsearch:2.3

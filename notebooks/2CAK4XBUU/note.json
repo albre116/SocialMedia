@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Hook Local Package Files to Path",
-      "text": "%python\nimport sys\nsys.path.insert(0,\"/usr/zeppelin/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
+      "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Mar 4, 2017 6:30:02 PM",
+      "dateUpdated": "Sep 9, 2017 4:29:45 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027\u0027, \u0027/usr/local/lib/python3.4/dist-packages/pip-9.0.1-py3.4.egg\u0027, \u0027/usr/local/lib/python3.4/dist-packages/py4j-0.10.4-py3.4.egg\u0027, \u0027/usr/interpreter/lib/python\u0027, \u0027/usr/zeppelin/$PYTHONPATH\u0027, \u0027/usr/lib/python3.4\u0027, \u0027/usr/lib/python3.4/plat-x86_64-linux-gnu\u0027, \u0027/usr/lib/python3.4/lib-dynload\u0027, \u0027/usr/local/lib/python3.4/dist-packages\u0027, \u0027/usr/lib/python3/dist-packages\u0027, \u0027/usr/zeppelin/interpreter/lib/python\u0027]\n"
+            "data": "[\u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/usr/zeppelin/notebook/pythonpckg/Chap02_03\u0027, \u0027/tmp\u0027, \u0027/zeppelin/interpreter/python/py4j-0.9.2/src\u0027, \u0027/zeppelin/interpreter/lib/python\u0027, \u0027/opt/conda/lib/python27.zip\u0027, \u0027/opt/conda/lib/python2.7\u0027, \u0027/opt/conda/lib/python2.7/plat-linux2\u0027, \u0027/opt/conda/lib/python2.7/lib-tk\u0027, \u0027/opt/conda/lib/python2.7/lib-old\u0027, \u0027/opt/conda/lib/python2.7/lib-dynload\u0027, \u0027/opt/conda/lib/python2.7/site-packages\u0027, \u0027/opt/conda/lib/python2.7/site-packages/setuptools-27.2.0-py2.7.egg\u0027]\n"
           }
         ]
       },
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1488164473531_1981506022",
       "id": "20170227-030113_187077902",
       "dateCreated": "Feb 27, 2017 3:01:13 AM",
-      "dateStarted": "Mar 4, 2017 6:30:02 PM",
-      "dateFinished": "Mar 4, 2017 6:30:02 PM",
+      "dateStarted": "Sep 9, 2017 4:29:45 AM",
+      "dateFinished": "Sep 9, 2017 4:29:45 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"PacktPub\")\nprint(json.dumps(profile._json, indent \u003d4))\n\n",
       "user": "anonymous",
-      "dateUpdated": "Mar 2, 2017 1:27:19 AM",
+      "dateUpdated": "Sep 9, 2017 4:29:59 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -61,7 +61,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "{\n    \"name\": \"Packt\",\n    \"favourites_count\": 1190,\n    \"status\": {\n        \"is_quote_status\": false,\n        \"place\": null,\n        \"in_reply_to_user_id\": null,\n        \"favorite_count\": 8,\n        \"source\": \"\u003ca href\u003d\\\"http://sproutsocial.com\\\" rel\u003d\\\"nofollow\\\"\u003eSprout Social\u003c/a\u003e\",\n        \"geo\": null,\n        \"in_reply_to_user_id_str\": null,\n        \"in_reply_to_status_id\": null,\n        \"entities\": {\n            \"symbols\": [],\n            \"user_mentions\": [],\n            \"hashtags\": [\n                {\n                    \"text\": \"Angular\",\n                    \"indices\": [\n                        23,\n                        31\n                    ]\n                },\n                {\n                    \"text\": \"JavaScript\",\n                    \"indices\": [\n                        100,\n                        111\n                    ]\n                }\n            ],\n            \"urls\": [\n                {\n                    \"display_url\": \"packtpub.com/packt/free-ebo\\u2026\",\n                    \"indices\": [\n                        76,\n                        99\n                    ],\n                    \"url\": \"https://t.co/pyQdHRVttr\",\n                    \"expanded_url\": \"https://www.packtpub.com/packt/free-ebook/what-you-need-know-about-angular\"\n                },\n                {\n                    \"display_url\": \"twitter.com/i/web/status/8\\u2026\",\n                    \"indices\": [\n                        113,\n                        136\n                    ],\n                    \"url\": \"https://t.co/R61isipTPl\",\n                    \"expanded_url\": \"https://twitter.com/i/web/status/837075986579603456\"\n                }\n            ]\n        },\n        \"id\": 837075986579603456,\n        \"contributors\": null,\n        \"in_reply_to_status_id_str\": null,\n        \"possibly_sensitive\": false,\n        \"truncated\": true,\n        \"favorited\": false,\n        \"id_str\": \"837075986579603456\",\n        \"retweeted\": false,\n        \"retweet_count\": 4,\n        \"lang\": \"en\",\n        \"coordinates\": null,\n        \"created_at\": \"Wed Mar 01 23:04:01 +0000 2017\",\n        \"in_reply_to_screen_name\": null,\n        \"text\": \"Discover the basics of #Angular 2 with our free eBook that explains it all: https://t.co/pyQdHRVttr #JavaScript\\u2026 https://t.co/R61isipTPl\"\n    },\n    \"profile_location\": null,\n    \"verified\": true,\n    \"profile_background_tile\": true,\n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"display_url\": \"PacktPub.com\",\n                    \"indices\": [\n                        0,\n                        22\n                    ],\n                    \"url\": \"http://t.co/vEPCgOu235\",\n                    \"expanded_url\": \"http://www.PacktPub.com\"\n                }\n            ]\n        },\n        \"description\": {\n            \"urls\": []\n        }\n    },\n    \"url\": \"http://t.co/vEPCgOu235\",\n    \"profile_use_background_image\": true,\n    \"location\": \"Birmingham, UK\",\n    \"following\": false,\n    \"contributors_enabled\": false,\n    \"statuses_count\": 16605,\n    \"translator_type\": \"none\",\n    \"friends_count\": 1152,\n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\",\n    \"screen_name\": \"PacktPub\",\n    \"default_profile\": false,\n    \"followers_count\": 17720,\n    \"profile_background_color\": \"FFA200\",\n    \"profile_text_color\": \"666666\",\n    \"is_translation_enabled\": false,\n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"utc_offset\": 0,\n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"follow_request_sent\": false,\n    \"listed_count\": 1160,\n    \"has_extended_profile\": false,\n    \"default_profile_image\": false,\n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\",\n    \"geo_enabled\": true,\n    \"profile_sidebar_border_color\": \"000000\",\n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\",\n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1476694720\",\n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/763664369850933250/Qbroz7iN_normal.jpg\",\n    \"protected\": false,\n    \"profile_link_color\": \"0084B4\",\n    \"id_str\": \"17778401\",\n    \"lang\": \"en\",\n    \"notifications\": false,\n    \"id\": 17778401,\n    \"profile_sidebar_fill_color\": \"CC9933\",\n    \"time_zone\": \"London\",\n    \"is_translator\": false\n}\n"
+            "data": "{\n    \"follow_request_sent\": false, \n    \"has_extended_profile\": false, \n    \"profile_use_background_image\": true, \n    \"profile_text_color\": \"666666\", \n    \"default_profile_image\": false, \n    \"id\": 17778401, \n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"verified\": true, \n    \"translator_type\": \"none\", \n    \"profile_location\": null, \n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"profile_sidebar_fill_color\": \"CC9933\", \n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"url\": \"http://t.co/vEPCgOu235\", \n                    \"indices\": [\n                        0, \n                        22\n                    ], \n                    \"expanded_url\": \"http://www.PacktPub.com\", \n                    \"display_url\": \"PacktPub.com\"\n                }\n            ]\n        }, \n        \"description\": {\n            \"urls\": []\n        }\n    }, \n    \"followers_count\": 22325, \n    \"profile_sidebar_border_color\": \"000000\", \n    \"id_str\": \"17778401\", \n    \"profile_background_color\": \"FFA200\", \n    \"listed_count\": 1206, \n    \"status\": {\n        \"contributors\": null, \n        \"truncated\": true, \n        \"text\": \"By 2020, 25 billion things will be connected to the Internet. How can #Blockchain level up #IoT security?\\u2026 https://t.co/hlyShu8K05\", \n        \"is_quote_status\": false, \n        \"in_reply_to_status_id\": null, \n        \"id\": 906351469246533633, \n        \"favorite_count\": 4, \n        \"source\": \"\u003ca href\u003d\\\"http://sproutsocial.com\\\" rel\u003d\\\"nofollow\\\"\u003eSprout Social\u003c/a\u003e\", \n        \"retweeted\": false, \n        \"coordinates\": null, \n        \"entities\": {\n            \"symbols\": [], \n            \"user_mentions\": [], \n            \"hashtags\": [\n                {\n                    \"indices\": [\n                        70, \n                        81\n                    ], \n                    \"text\": \"Blockchain\"\n                }, \n                {\n                    \"indices\": [\n                        91, \n                        95\n                    ], \n                    \"text\": \"IoT\"\n                }\n            ], \n            \"urls\": [\n                {\n                    \"url\": \"https://t.co/hlyShu8K05\", \n                    \"indices\": [\n                        107, \n                        130\n                    ], \n                    \"expanded_url\": \"https://twitter.com/i/web/status/906351469246533633\", \n                    \"display_url\": \"twitter.com/i/web/status/9\\u2026\"\n                }\n            ]\n        }, \n        \"in_reply_to_screen_name\": null, \n        \"in_reply_to_user_id\": null, \n        \"retweet_count\": 7, \n        \"id_str\": \"906351469246533633\", \n        \"favorited\": false, \n        \"geo\": null, \n        \"in_reply_to_user_id_str\": null, \n        \"possibly_sensitive\": false, \n        \"lang\": \"en\", \n        \"created_at\": \"Sat Sep 09 03:00:04 +0000 2017\", \n        \"in_reply_to_status_id_str\": null, \n        \"place\": null\n    }, \n    \"is_translation_enabled\": false, \n    \"utc_offset\": 3600, \n    \"statuses_count\": 20903, \n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\", \n    \"friends_count\": 958, \n    \"location\": \"Birmingham, UK\", \n    \"profile_link_color\": \"0084B4\", \n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"following\": false, \n    \"geo_enabled\": true, \n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1502788154\", \n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"name\": \"Packt\", \n    \"lang\": \"en\", \n    \"profile_background_tile\": true, \n    \"favourites_count\": 1437, \n    \"screen_name\": \"PacktPub\", \n    \"notifications\": false, \n    \"url\": \"http://t.co/vEPCgOu235\", \n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\", \n    \"contributors_enabled\": false, \n    \"time_zone\": \"London\", \n    \"protected\": false, \n    \"default_profile\": false, \n    \"is_translator\": false\n}\n"
           }
         ]
       },
@@ -69,25 +69,25 @@
       "jobName": "paragraph_1488164539535_1378463289",
       "id": "20170227-030219_2047250947",
       "dateCreated": "Feb 27, 2017 3:02:19 AM",
-      "dateStarted": "Mar 2, 2017 1:27:19 AM",
-      "dateFinished": "Mar 2, 2017 1:27:20 AM",
+      "dateStarted": "Sep 9, 2017 4:29:59 AM",
+      "dateFinished": "Sep 9, 2017 4:29:59 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Get Followers and Friends of Target",
-      "text": "%sh cd /usr/zeppelin/notebook \u0026\u0026\npython /usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py PacktPub",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py PacktPub",
       "user": "anonymous",
-      "dateUpdated": "Mar 2, 2017 1:36:54 AM",
+      "dateUpdated": "Sep 9, 2017 4:22:26 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
@@ -99,7 +99,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "More results available. Sleeping for 60 seconds to avoid rate limit\nMore results available. Sleeping for 60 seconds to avoid rate limit\nTraceback (most rMeocreen tr ecsaulllt sl aasvta)i:l\n  File \"/usr/zeppelin/notebook/pythonpckg/Chap02_03/twitter_get_user.py\", line 55, in \u003cmodule\u003e\n    users \u003d client.lookup_users(user_ids\u003dchunk)\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/api.py\", line 322, in lookup_users\n    return self._lookup_users(post_data\u003dpost_data)\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/binder.py\", line 245, in _call\n    return method.execute()\n  File \"/usr/local/lib/python3.4/dist-packages/tweepy/binder.py\", line 229, in execute\n    raise TweepError(error_msg, resp, api_code\u003dapi_error_code)\ntweepy.error.TweepError: [{\u0027code\u0027: 32, \u0027message\u0027: \u0027Could not authenticate you.\u0027}]\nable. Sleeping for 60 seconds to avoid rate limit\n"
+            "data": "Error while creating directory users/PacktPub\nmakedirs() got an unexpected keyword argument \u0027exist_ok\u0027\n"
           },
           {
             "type": "TEXT",
@@ -111,8 +111,8 @@
       "jobName": "paragraph_1488164833954_-1339573152",
       "id": "20170227-030713_247712242",
       "dateCreated": "Feb 27, 2017 3:07:13 AM",
-      "dateStarted": "Mar 2, 2017 1:31:48 AM",
-      "dateFinished": "Mar 2, 2017 1:36:28 AM",
+      "dateStarted": "Sep 9, 2017 4:22:26 AM",
+      "dateFinished": "Sep 9, 2017 4:22:27 AM",
       "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
@@ -778,62 +778,25 @@
   "name": "TwitterHookChap03",
   "id": "2CAK4XBUU",
   "angularObjects": {
-    "2CBWDW12Z:shared_process": [],
-    "2CCQ395SU:shared_process": [],
-    "2CCWY51FW:shared_process": [],
-    "2CD4ZQU1T:shared_process": [
-      {
-        "name": "data",
-        "object": [
-          {
-            "user": "Trendinalia USA",
-            "tweet": "28 verified accounts helped to turn #CLBvCHI into a Trending Topic. Some of them: @MLS, @MenInBlazers \u0026 @ColumbusCrewSC — #trndnl",
-            "lat": 38.8991,
-            "lon": -77.029
-          },
-          {
-            "user": "Rachel Collins",
-            "tweet": "More patches in progress! And a little sneak peak of the Cobbett pants. 🤘🏻💜👖… https://t.co/XI6X4aybGk",
-            "lat": 42.42,
-            "lon": -71.1079
-          },
-          {
-            "user": "Awesome.",
-            "tweet": "I\u0027m at M1 Innovations Barber Studio in Washington, DC https://t.co/gP7QiWJ2gn",
-            "lat": 38.92106281,
-            "lon": -76.99423513
-          },
-          {
-            "user": "Ana Flavia Menezes",
-            "tweet": "Drinking a Bam Bière by @jollypumpkin @ The Happiest Cow\u0027s Crib — https://t.co/AaSgsuW7vb #photo",
-            "lat": 51.5306,
-            "lon": -0.20583
-          },
-          {
-            "user": "TMJ-LA Retail Jobs",
-            "tweet": "Can you recommend anyone for this #job in #Gonzales, LA? https://t.co/KuxY9e4Lvn #Retail #Hiring #CareerArc",
-            "lat": 30.2385294,
-            "lon": -90.9200987
-          }
-        ],
-        "noteId": "2CAK4XBUU"
-      }
-    ],
-    "2CC95NGEZ:shared_process": [],
-    "2CC45ZDUB:shared_process": [],
-    "2C9QU1UYW:shared_process": [],
-    "2CBNJQVVZ:shared_process": [],
-    "2C9SSF9RN:shared_process": [],
-    "2CBQKVJ9G:shared_process": [],
-    "2CA8YYQ1S:shared_process": [],
-    "2CBTB76X6:shared_process": [],
-    "2C9YPFSVJ:shared_process": [],
-    "2CAJAKS95:shared_process": [],
-    "2CDDPW5PW:shared_process": [],
-    "2CC1K1DQJ:shared_process": [],
-    "2CCDSM2E5:shared_process": [],
-    "2CA3ZNZ5U:shared_process": [],
-    "2CAHV5MUS:shared_process": []
+    "2CT5JWZHB:shared_process": [],
+    "2CUY8BRM6:shared_process": [],
+    "2CSCBP3C6:shared_process": [],
+    "2CS39VS7K:shared_process": [],
+    "2CTJGGS4N:shared_process": [],
+    "2CTEK8TE3:shared_process": [],
+    "2CV7FSYBU:shared_process": [],
+    "2CRWK4BUU:shared_process": [],
+    "2CUPGJT64:shared_process": [],
+    "2CRUCTUVR:shared_process": [],
+    "2CS7RY93N:shared_process": [],
+    "2CV276R86:shared_process": [],
+    "2CRZ8JJ7J:shared_process": [],
+    "2CUP7X94E:shared_process": [],
+    "2CUHJWAS1:shared_process": [],
+    "2CSMTSG43:shared_process": [],
+    "2CU9KJ73W:shared_process": [],
+    "2CUTDJB3G:shared_process": [],
+    "2CU8QX92F:shared_process": []
   },
   "config": {},
   "info": {}

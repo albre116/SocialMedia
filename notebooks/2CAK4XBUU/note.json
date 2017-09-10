@@ -4,7 +4,7 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:13:42 PM",
+      "dateUpdated": "Sep 9, 2017 10:17:27 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -25,7 +25,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "[\u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/tmp\u0027, \u0027/zeppelin/interpreter/python/py4j-0.9.2/src\u0027, \u0027/zeppelin/interpreter/lib/python\u0027, \u0027/opt/conda/lib/python27.zip\u0027, \u0027/opt/conda/lib/python2.7\u0027, \u0027/opt/conda/lib/python2.7/plat-linux2\u0027, \u0027/opt/conda/lib/python2.7/lib-tk\u0027, \u0027/opt/conda/lib/python2.7/lib-old\u0027, \u0027/opt/conda/lib/python2.7/lib-dynload\u0027, \u0027/opt/conda/lib/python2.7/site-packages\u0027, \u0027/opt/conda/lib/python2.7/site-packages/setuptools-27.2.0-py2.7.egg\u0027]\n"
+            "data": "[\u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/tmp\u0027, \u0027/zeppelin/interpreter/python/py4j-0.9.2/src\u0027, \u0027/zeppelin/interpreter/lib/python\u0027, \u0027/opt/conda/lib/python27.zip\u0027, \u0027/opt/conda/lib/python2.7\u0027, \u0027/opt/conda/lib/python2.7/plat-linux2\u0027, \u0027/opt/conda/lib/python2.7/lib-tk\u0027, \u0027/opt/conda/lib/python2.7/lib-old\u0027, \u0027/opt/conda/lib/python2.7/lib-dynload\u0027, \u0027/opt/conda/lib/python2.7/site-packages\u0027, \u0027/opt/conda/lib/python2.7/site-packages/setuptools-27.2.0-py2.7.egg\u0027]\n"
           }
         ]
       },
@@ -33,15 +33,15 @@
       "jobName": "paragraph_1488164473531_1981506022",
       "id": "20170227-030113_187077902",
       "dateCreated": "Feb 27, 2017 3:01:13 AM",
-      "dateStarted": "Sep 9, 2017 5:13:42 PM",
-      "dateFinished": "Sep 9, 2017 5:13:42 PM",
+      "dateStarted": "Sep 9, 2017 10:17:27 PM",
+      "dateFinished": "Sep 9, 2017 10:17:33 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"PacktPub\")\nprint(json.dumps(profile._json, indent \u003d4))\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:13:58 PM",
+      "dateUpdated": "Sep 9, 2017 10:17:35 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -61,7 +61,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "{\n    \"follow_request_sent\": false, \n    \"has_extended_profile\": false, \n    \"profile_use_background_image\": true, \n    \"profile_text_color\": \"666666\", \n    \"default_profile_image\": false, \n    \"id\": 17778401, \n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"verified\": true, \n    \"translator_type\": \"none\", \n    \"profile_location\": null, \n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"profile_sidebar_fill_color\": \"CC9933\", \n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"url\": \"http://t.co/vEPCgOu235\", \n                    \"indices\": [\n                        0, \n                        22\n                    ], \n                    \"expanded_url\": \"http://www.PacktPub.com\", \n                    \"display_url\": \"PacktPub.com\"\n                }\n            ]\n        }, \n        \"description\": {\n            \"urls\": []\n        }\n    }, \n    \"followers_count\": 22337, \n    \"profile_sidebar_border_color\": \"000000\", \n    \"id_str\": \"17778401\", \n    \"profile_background_color\": \"FFA200\", \n    \"listed_count\": 1206, \n    \"status\": {\n        \"contributors\": null, \n        \"truncated\": true, \n        \"text\": \"There is definitely a need for @Apple (and others) to build a dark mode into their \\nhttps://t.co/RinvaMkzUA\\u2026 https://t.co/pvnrWGRBL1\", \n        \"is_quote_status\": false, \n        \"in_reply_to_status_id\": null, \n        \"id\": 906547784207257600, \n        \"favorite_count\": 1, \n        \"source\": \"\u003ca href\u003d\\\"http://sproutsocial.com\\\" rel\u003d\\\"nofollow\\\"\u003eSprout Social\u003c/a\u003e\", \n        \"retweeted\": false, \n        \"coordinates\": null, \n        \"entities\": {\n            \"symbols\": [], \n            \"user_mentions\": [\n                {\n                    \"id\": 380749300, \n                    \"indices\": [\n                        31, \n                        37\n                    ], \n                    \"id_str\": \"380749300\", \n                    \"screen_name\": \"Apple\", \n                    \"name\": \"Apple\"\n                }\n            ], \n            \"hashtags\": [], \n            \"urls\": [\n                {\n                    \"url\": \"https://t.co/RinvaMkzUA\", \n                    \"indices\": [\n                        84, \n                        107\n                    ], \n                    \"expanded_url\": \"http://bit.ly/2wKNc6y\", \n                    \"display_url\": \"bit.ly/2wKNc6y\"\n                }, \n                {\n                    \"url\": \"https://t.co/pvnrWGRBL1\", \n                    \"indices\": [\n                        109, \n                        132\n                    ], \n                    \"expanded_url\": \"https://twitter.com/i/web/status/906547784207257600\", \n                    \"display_url\": \"twitter.com/i/web/status/9\\u2026\"\n                }\n            ]\n        }, \n        \"in_reply_to_screen_name\": null, \n        \"in_reply_to_user_id\": null, \n        \"retweet_count\": 0, \n        \"id_str\": \"906547784207257600\", \n        \"favorited\": false, \n        \"geo\": null, \n        \"in_reply_to_user_id_str\": null, \n        \"possibly_sensitive\": false, \n        \"lang\": \"en\", \n        \"created_at\": \"Sat Sep 09 16:00:09 +0000 2017\", \n        \"in_reply_to_status_id_str\": null, \n        \"place\": null\n    }, \n    \"is_translation_enabled\": false, \n    \"utc_offset\": 3600, \n    \"statuses_count\": 20912, \n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\", \n    \"friends_count\": 958, \n    \"location\": \"Birmingham, UK\", \n    \"profile_link_color\": \"0084B4\", \n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"following\": false, \n    \"geo_enabled\": true, \n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1502788154\", \n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"name\": \"Packt\", \n    \"lang\": \"en\", \n    \"profile_background_tile\": true, \n    \"favourites_count\": 1437, \n    \"screen_name\": \"PacktPub\", \n    \"notifications\": false, \n    \"url\": \"http://t.co/vEPCgOu235\", \n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\", \n    \"contributors_enabled\": false, \n    \"time_zone\": \"London\", \n    \"protected\": false, \n    \"default_profile\": false, \n    \"is_translator\": false\n}\n"
+            "data": "{\n    \"follow_request_sent\": false, \n    \"has_extended_profile\": false, \n    \"profile_use_background_image\": true, \n    \"profile_text_color\": \"666666\", \n    \"default_profile_image\": false, \n    \"id\": 17778401, \n    \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"verified\": true, \n    \"translator_type\": \"none\", \n    \"profile_location\": null, \n    \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"profile_sidebar_fill_color\": \"CC9933\", \n    \"entities\": {\n        \"url\": {\n            \"urls\": [\n                {\n                    \"url\": \"http://t.co/vEPCgOu235\", \n                    \"indices\": [\n                        0, \n                        22\n                    ], \n                    \"expanded_url\": \"http://www.PacktPub.com\", \n                    \"display_url\": \"PacktPub.com\"\n                }\n            ]\n        }, \n        \"description\": {\n            \"urls\": []\n        }\n    }, \n    \"followers_count\": 22337, \n    \"profile_sidebar_border_color\": \"000000\", \n    \"id_str\": \"17778401\", \n    \"profile_background_color\": \"FFA200\", \n    \"listed_count\": 1207, \n    \"status\": {\n        \"contributors\": null, \n        \"truncated\": true, \n        \"text\": \"Have Apple stopped being the Ferrari of computers while keeping the same prices? \\nhttps://t.co/ccAsptYoYS\\u2026 https://t.co/QDDXKYGReJ\", \n        \"is_quote_status\": false, \n        \"in_reply_to_status_id\": null, \n        \"id\": 906623262825869312, \n        \"favorite_count\": 1, \n        \"source\": \"\u003ca href\u003d\\\"http://sproutsocial.com\\\" rel\u003d\\\"nofollow\\\"\u003eSprout Social\u003c/a\u003e\", \n        \"retweeted\": false, \n        \"coordinates\": null, \n        \"entities\": {\n            \"symbols\": [], \n            \"user_mentions\": [], \n            \"hashtags\": [], \n            \"urls\": [\n                {\n                    \"url\": \"https://t.co/ccAsptYoYS\", \n                    \"indices\": [\n                        82, \n                        105\n                    ], \n                    \"expanded_url\": \"http://bit.ly/2vOxREL\", \n                    \"display_url\": \"bit.ly/2vOxREL\"\n                }, \n                {\n                    \"url\": \"https://t.co/QDDXKYGReJ\", \n                    \"indices\": [\n                        107, \n                        130\n                    ], \n                    \"expanded_url\": \"https://twitter.com/i/web/status/906623262825869312\", \n                    \"display_url\": \"twitter.com/i/web/status/9\\u2026\"\n                }\n            ]\n        }, \n        \"in_reply_to_screen_name\": null, \n        \"in_reply_to_user_id\": null, \n        \"retweet_count\": 3, \n        \"id_str\": \"906623262825869312\", \n        \"favorited\": false, \n        \"geo\": null, \n        \"in_reply_to_user_id_str\": null, \n        \"possibly_sensitive\": false, \n        \"lang\": \"en\", \n        \"created_at\": \"Sat Sep 09 21:00:04 +0000 2017\", \n        \"in_reply_to_status_id_str\": null, \n        \"place\": null\n    }, \n    \"is_translation_enabled\": false, \n    \"utc_offset\": 3600, \n    \"statuses_count\": 20916, \n    \"description\": \"We help developers build better software | Email customercare@packtpub.com for support | Twitter support 9-5 Mon-Fri\", \n    \"friends_count\": 958, \n    \"location\": \"Birmingham, UK\", \n    \"profile_link_color\": \"0084B4\", \n    \"profile_image_url\": \"http://pbs.twimg.com/profile_images/896029760576512001/-aQIRO0R_normal.jpg\", \n    \"following\": false, \n    \"geo_enabled\": true, \n    \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/17778401/1502788154\", \n    \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/498821312354058242/-H6BGz56.png\", \n    \"name\": \"Packt\", \n    \"lang\": \"en\", \n    \"profile_background_tile\": true, \n    \"favourites_count\": 1437, \n    \"screen_name\": \"PacktPub\", \n    \"notifications\": false, \n    \"url\": \"http://t.co/vEPCgOu235\", \n    \"created_at\": \"Mon Dec 01 13:16:47 +0000 2008\", \n    \"contributors_enabled\": false, \n    \"time_zone\": \"London\", \n    \"protected\": false, \n    \"default_profile\": false, \n    \"is_translator\": false\n}\n"
           }
         ]
       },
@@ -69,8 +69,8 @@
       "jobName": "paragraph_1488164539535_1378463289",
       "id": "20170227-030219_2047250947",
       "dateCreated": "Feb 27, 2017 3:02:19 AM",
-      "dateStarted": "Sep 9, 2017 5:13:58 PM",
-      "dateFinished": "Sep 9, 2017 5:13:58 PM",
+      "dateStarted": "Sep 9, 2017 10:17:35 PM",
+      "dateFinished": "Sep 9, 2017 10:17:36 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -78,7 +78,7 @@
       "title": "Get Followers and Friends of Target",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py MarkA2663",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:25:59 PM",
+      "dateUpdated": "Sep 9, 2017 10:18:28 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -94,23 +94,20 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "jobName": "paragraph_1488164833954_-1339573152",
       "id": "20170227-030713_247712242",
       "dateCreated": "Feb 27, 2017 3:07:13 AM",
-      "dateStarted": "Sep 9, 2017 5:25:59 PM",
-      "dateFinished": "Sep 9, 2017 5:26:00 PM",
+      "dateStarted": "Sep 9, 2017 9:52:48 PM",
+      "dateFinished": "Sep 9, 2017 9:52:49 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_get_user.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:25:24 PM",
+      "dateUpdated": "Sep 9, 2017 9:52:52 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -125,22 +122,14 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "root      1008  0.0  0.1  19708  3172 ?        S    17:25   0:00 bash -c ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_get_user.py\nroot      1013  0.0  0.0  12944   928 ?        S    17:25   0:00 grep /notebook/pythonpckg/Chap02_03/twitter_get_user.py\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1504977791819_1106714438",
       "id": "20170909-172311_1517261061",
       "dateCreated": "Sep 9, 2017 5:23:11 PM",
-      "dateStarted": "Sep 9, 2017 5:25:24 PM",
-      "dateFinished": "Sep 9, 2017 5:25:24 PM",
+      "dateStarted": "Sep 9, 2017 9:52:53 PM",
+      "dateFinished": "Sep 9, 2017 9:52:53 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -161,10 +150,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "jobName": "paragraph_1504977858700_1510224090",
       "id": "20170909-172418_1100759746",
@@ -172,278 +157,301 @@
       "dateStarted": "Sep 9, 2017 5:25:19 PM",
       "dateFinished": "Sep 9, 2017 5:25:19 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "User Stats list methods",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_followers_stats.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:26:39 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:02 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "----- Timing -----\nInitialize data: 0.000707149505615\nSet-based operations: 5.00679016113e-06\nTotal time: 0.000712156295776\n----- Stats -----\nMarkA2663 has 1 followers\nMarkA2663 has 3 friends\nMarkA2663 has 0 mutual friends\n3 friends are not following MarkA2663 back\n1 followers are not followed back by MarkA2663\nTraceback (most recent call last):\n  File \"/notebook/pythonpckg/Chap02_03/twitter_followers_stats.py\", line 44, in \u003cmodule\u003e\n    some_mutual_friends \u003d \u0027, \u0027.join(sample(mutual_friends, 5))\n  File \"/opt/conda/lib/python2.7/random.py\", line 323, in sample\n    raise ValueError(\"sample larger than population\")\nValueError: sample larger than population\n"
-          },
-          {
-            "type": "TEXT",
-            "data": "ExitValue: 1"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488417617941_885708161",
       "id": "20170302-012017_977099561",
       "dateCreated": "Mar 2, 2017 1:20:17 AM",
-      "dateStarted": "Sep 9, 2017 5:26:39 PM",
-      "dateFinished": "Sep 9, 2017 5:26:39 PM",
+      "dateStarted": "Sep 9, 2017 9:53:02 PM",
+      "dateFinished": "Sep 9, 2017 9:53:02 PM",
       "status": "ERROR",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Check set operator timing",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_followers_stats_set.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:27:02 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:09 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "----- Timing -----\nInitialize data: 0.00061297416687\nSet-based operations: 5.96046447754e-06\nTotal time: 0.000618934631348\n----- Stats -----\nMarkA2663 has 1 followers\nMarkA2663 has 3 friends\nMarkA2663 has 0 mutual friends\n3 friends are not following MarkA2663 back\n1 followers are not followed back by MarkA2663\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488418654299_-993331612",
       "id": "20170302-013734_1397451114",
       "dateCreated": "Mar 2, 2017 1:37:34 AM",
-      "dateStarted": "Sep 9, 2017 5:27:02 PM",
-      "dateFinished": "Sep 9, 2017 5:27:02 PM",
+      "dateStarted": "Sep 9, 2017 9:53:09 PM",
+      "dateFinished": "Sep 9, 2017 9:53:09 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Check Numpy Timing",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_followers_stats_numpy.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:27:20 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "----- Timing -----\nInitialize data: 0.00146317481995\nSet-based operations: 0.00064492225647\nTotal time: 0.00210809707642\n----- Stats -----\nMarkA2663 has 1 followers\nMarkA2663 has 3 friends\nMarkA2663 has 0 mutual friends\n3 friends are not following MarkA2663 back\n1 followers are not followed back by MarkA2663\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488419191926_888638367",
       "id": "20170302-014631_1742619980",
       "dateCreated": "Mar 2, 2017 1:46:31 AM",
-      "dateStarted": "Sep 9, 2017 5:27:20 PM",
-      "dateFinished": "Sep 9, 2017 5:27:21 PM",
+      "dateStarted": "Sep 9, 2017 9:53:13 PM",
+      "dateFinished": "Sep 9, 2017 9:53:13 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Get Source data for influencers followers",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py marcobonzanini \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:28:16 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:17 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Directory users/MarkA2663 already exists\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488419717618_355342454",
       "id": "20170302-015517_131044796",
       "dateCreated": "Mar 2, 2017 1:55:17 AM",
-      "dateStarted": "Sep 9, 2017 5:28:16 PM",
-      "dateFinished": "Sep 9, 2017 5:28:28 PM",
+      "dateStarted": "Sep 9, 2017 9:53:17 PM",
+      "dateFinished": "Sep 9, 2017 9:53:28 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Get Source data for influencer timelines",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py marcobonzanini \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:28:57 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:40 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      },
       "apps": [],
       "jobName": "paragraph_1488419918381_78767647",
       "id": "20170302-015838_1562410435",
       "dateCreated": "Mar 2, 2017 1:58:38 AM",
-      "dateStarted": "Sep 9, 2017 5:28:57 PM",
-      "dateFinished": "Sep 9, 2017 5:29:00 PM",
+      "dateStarted": "Sep 9, 2017 9:53:41 PM",
+      "dateFinished": "Sep 9, 2017 9:53:45 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Compute Influence ",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_influence.py marcobonzanini MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:29:22 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:47 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "----- Stats marcobonzanini -----\n1186 followers\n5721015 users reached by 1-degree connections\nAverage number of followers for marcobonzanini\u0027s followers: 4823.0\nFavorited 1572 times (2.0 per tweet, 1.0 per user)\nRetweeted 5027 times (6.0 per tweet, 4.0 per user)\n----- Stats MarkA2663 -----\n1 followers\n27 users reached by 1-degree connections\nAverage number of followers for MarkA2663\u0027s followers: 27.0\nFavorited 0 times (0.0 per tweet, 0.0 per user)\nRetweeted 0 times (0.0 per tweet, 0.0 per user)\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488419228019_117094229",
       "id": "20170302-014708_1962196116",
       "dateCreated": "Mar 2, 2017 1:47:08 AM",
-      "dateStarted": "Sep 9, 2017 5:29:22 PM",
-      "dateFinished": "Sep 9, 2017 5:29:22 PM",
+      "dateStarted": "Sep 9, 2017 9:53:47 PM",
+      "dateFinished": "Sep 9, 2017 9:53:48 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Cluster Kmeans by TF-IDF",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_cluster_users.py \\\n--filename users/marcobonzanini/followers.jsonl \\\n--k 5 \\\n--max-features 200 \\\n--max-ngram 3\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:32:53 PM",
+      "dateUpdated": "Sep 9, 2017 9:53:52 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Data dimensions: (1186, 200)\n---------- Cluster 0\n50% Ambidextrous😃 | A newbie in #programming | I love tweeting #motivationalquotes\nRocket Scientist. Ghanaian. Polish. American. European. Love @gee_analytics #Travel #Photography #DataScience #DataVisualization #Machinelearning #AI #MIT\nOfficial British Airways Twitter account. We love reading your Tweets \u0026 are here 24 hours a day, 7 days a week to help. You can also visit\nI am a self-taught developer and I love the  challenges of Backend development. I am also a Python and Django enthusiast!\nCogNeuro PhD candidate @Dartmouth. (familiar) face processing w/#psycophysics, #fMRI, #MEG and #ML. proud supporter of #OpenScience. I love brains and machines.\nDigital Recruiter at Redcat Digital dealing in all things Data. Apart from that I love Netflix, reading and rugby, that\u0027s all really.\nlove math, programming, classic music and anime\nProducts @Cisco. NFV, cloud, DevOps, digital trans, machine learning, blockchain, Clojure. Christ follower. Love simplicity, whisk(e)y \u0026 bacon.\nWe Love Apple\nnice day!  I love #machineLearning #textMining #NLProc  #textanalytics #informationretrieval #python\n---------- Cluster 1\nFan of: .NET, TFS, WCF, Aurelia, Security, Soccer, US Coast Guard, Sopra Steria\nWe bring screening, investigations and security systems under one roof - and we\u0027re the only ones in Canada who do. You\u0027ll like us.\nMi ... a name I call myself.  Fa ... a long long way to run.\n#System, #Engineering, #Economy, #Agriculture, #Ecology, #Water, #Statistics, #Data, #Software, #Code, #GIS, #Psychology, #Education, #PublicHealth\n\n\nEliminating waste from projects, processes and organisations using project #analytics, #MachineLearning, #AI and Delivery Science™. No muda #nowaste\nLinux, Software Engineering, Virtualisation and Cloud. @PythonIreland chairperson, Plays in @slotpb\nPhD candidate; Climate change \u0026 Networks; University of Tabriz;\n\n---------- Cluster 2\nData Scientist Pretender\nData Scientist\nData. Chess. Conflicts. To change my mind, please bring data.\nData engineering, for data scientists. Our managed #dataops platform makes extraction, unification and transformation a breeze. @techstars NYC \u002717.\nData scientist, Physicist - focused on ML \u0026 AI. Pastime photographer.\nData Brawler and Maker\nSenior Data Scientist at Pandora -- search and recsys\nFoodie || Dreamer || Data Scientist || R programming || Keyboard Player || Avid Reader || YouTube addict || BE + MBA\nData scientist. Trained in the Technion and Tel-Aviv University.\nA scientist turned journalist, or officially, Senior Data Analyst and Science Officer @scicasts\nAll opinions my own\n---------- Cluster 3\nPythonic Data Science\nBiology, Science \u0026 Health Communication, Interaction Design, Data Science, Scientometrics.  #Webometrics, #Cybermetrics \u0026 #Altmetrics Posts in Eng. and Port.\ndata science manager @Patreon, formerly @Google. Trustee of @Chanticleer. Mega-nerd by day...mega-nerd by night.\nData Science postgraduate @city_cs. Freelance web developer. Tweets on anything that feeds my curiosity. Fan of The Wire.\nscience, materials, python, web, data\nDirector Data Science @ EAN, Expedia\nCS Undergrad. Data Science Enthusiast. Organizer @pydatadelhi\nOracle employee, data-science enthusiast and  epee fencer All opinions are personal and do not represent my employer.\nGood at: Data, science, research. Bad at but still tries: Having it all, rollerskating, ukulele. Work at: @bytecubed @DistrictDataLab @DataCommunityDC\nI have worn many hats. \nI’m a herder of no cats. \nI\u0027m a geologist who loves rhymes. And Data, and Science, like in #DataScience     \n#NASADatanauts 🌋🛰️🚀\n---------- Cluster 4\nSoftware Engineer at @gdsteam 7238 74F6 886D 5994 323F 1781 8CFB 47AD C384 F0CC\nTrabalhador do Software Livre, Militante Marxista, entusiasta das Ciências e da Revolução Socialista que libertará humanos e acabará com as divisões de classes\nSoftware Engineer #Android #Magento.Interested in travelling,reading book and playing guitar.\nCloud engineer @stanchart | AWS Pro | DevOps | Python | Golang | C# | Et cetera\nSoftware Engineer. AI, Program Synthesis and Functional Programming enthusiast. M.Sc. Software Engineering candidate - University of Oxford.\nPassionate and opinionated Software Engineer and Entrepreneur | Remote Sensing | Climate | Python at @bopensolutions\nSoftware engineer. AWS cert. solutions architect. Nuts about DevOps, Python, GoLang, Docker and fiddly microcontroller. The path of most resistance appeals\nSoftware Engineer in @toptalllc, CTO in @tippilab and happy husband with @lyubawenka Blogger at https://t.co/sY9m4VgPuT\nSoftware Engineer @Viralize\nData Science \u0026 Python Enthusiast | \nCS Undergrad |\nSpeaker @PyConHK 2016 | \nCo-organizer @PyDataDelhi | \nSoftware Engineer @SocialCops |\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488419702611_1735806184",
       "id": "20170302-015502_1068225597",
       "dateCreated": "Mar 2, 2017 1:55:02 AM",
-      "dateStarted": "Sep 9, 2017 5:32:53 PM",
-      "dateFinished": "Sep 9, 2017 5:32:55 PM",
+      "dateStarted": "Sep 9, 2017 9:53:52 PM",
+      "dateFinished": "Sep 9, 2017 9:53:55 PM",
       "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Collect Streaming Events",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#cocktail\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 9, 2017 9:55:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1504994111409_1044953838",
+      "id": "20170909-215511_1433266402",
+      "dateCreated": "Sep 9, 2017 9:55:11 PM",
+      "dateStarted": "Sep 9, 2017 9:55:29 PM",
+      "status": "ABORT",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 9, 2017 9:56:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1504994141274_-396117972",
+      "id": "20170909-215541_153372288",
+      "dateCreated": "Sep 9, 2017 9:55:41 PM",
+      "dateStarted": "Sep 9, 2017 9:56:24 PM",
+      "dateFinished": "Sep 9, 2017 9:56:24 PM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh kill 400\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 9, 2017 9:56:33 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1504994137610_-141814274",
+      "id": "20170909-215537_1252182617",
+      "dateCreated": "Sep 9, 2017 9:55:37 PM",
+      "status": "READY",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Networkx Conversation Thread",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_conversation.py stream__cocktail.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:34:40 PM",
+      "dateUpdated": "Sep 9, 2017 9:59:06 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -459,28 +467,20 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Name: \nType: DiGraph\nNumber of nodes: 7\nNumber of edges: 0\nAverage in degree:   0.0000\nAverage out degree:   0.0000\nMost replied tweet (0 replies):\n{\u0027tweet\u0027: u\u0027#cocktail drink 4loko will get you krunk\u0027, \u0027created_at\u0027: u\u0027Sat Sep 09 16:34:15 +0000 2017\u0027, \u0027author\u0027: u\u0027MarkA2663\u0027}\nLongest discussion:\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488421807700_-939549965",
       "id": "20170302-023007_1078982491",
       "dateCreated": "Mar 2, 2017 2:30:07 AM",
-      "dateStarted": "Sep 9, 2017 5:34:40 PM",
-      "dateFinished": "Sep 9, 2017 5:34:40 PM",
+      "dateStarted": "Sep 9, 2017 9:59:06 PM",
+      "dateFinished": "Sep 9, 2017 9:59:07 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_make_geojson.py --tweets stream__cocktail.jsonl --geojson stream_cocktail.geo.json",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:35:41 PM",
+      "dateUpdated": "Sep 9, 2017 9:59:20 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -494,24 +494,21 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
       },
       "apps": [],
       "jobName": "paragraph_1488422277768_-779264036",
       "id": "20170302-023757_337772184",
       "dateCreated": "Mar 2, 2017 2:37:57 AM",
-      "dateStarted": "Sep 9, 2017 5:35:41 PM",
-      "dateFinished": "Sep 9, 2017 5:35:41 PM",
+      "dateStarted": "Sep 9, 2017 9:59:20 PM",
+      "dateFinished": "Sep 9, 2017 9:59:20 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sh cd /notebook \u0026\u0026\ncat stream_cocktail.geo.json\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:35:58 PM",
+      "dateUpdated": "Sep 9, 2017 9:59:23 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -526,28 +523,20 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "{\n    \"type\": \"FeatureCollection\", \n    \"features\": []\n}"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488638891343_-424264564",
       "id": "20170304-144811_88786110",
       "dateCreated": "Mar 4, 2017 2:48:11 PM",
-      "dateStarted": "Sep 9, 2017 5:35:58 PM",
-      "dateFinished": "Sep 9, 2017 5:35:58 PM",
+      "dateStarted": "Sep 9, 2017 9:59:23 PM",
+      "dateFinished": "Sep 9, 2017 9:59:23 PM",
       "status": "FINISHED",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%python\nimport folium\nfolium.GeoJson(open(\u0027/notebook/stream_cocktail.geo.json\u0027),name\u003d\u0027geojson\u0027)\n",
+      "text": "%python\nimport folium\nfolium.GeoJson(open(\u0027/notebook/stream_cocktail.geo.jso\u0027),name\u003d\u0027geojson\u0027)\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:36:52 PM",
+      "dateUpdated": "Sep 9, 2017 10:00:23 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -562,28 +551,48 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-6817904145005585563.py\", line 282, in \u003cmodule\u003e\n    raise Exception(traceback.format_exc())\nException: Traceback (most recent call last):\n  File \"/tmp/zeppelin_python-6817904145005585563.py\", line 275, in \u003cmodule\u003e\n    exec(code, _zcUserQueryNameSpace)\n  File \"\u003cstdin\u003e\", line 2, in \u003cmodule\u003e\n  File \"/opt/conda/lib/python2.7/site-packages/folium/features.py\", line 495, in __init__\n    raise ValueError(\u0027Unhandled object {!r}.\u0027.format(data))\nValueError: Unhandled object \u003copen file \u0027/notebook/stream_cocktail.geo.json\u0027, mode \u0027r\u0027 at 0x7ff15e02f390\u003e.\n\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488643019077_-1973301754",
       "id": "20170304-155659_1823844582",
       "dateCreated": "Mar 4, 2017 3:56:59 PM",
-      "dateStarted": "Sep 9, 2017 5:36:52 PM",
-      "dateFinished": "Sep 9, 2017 5:36:53 PM",
+      "dateStarted": "Sep 9, 2017 10:00:23 PM",
+      "dateFinished": "Sep 9, 2017 10:00:23 PM",
       "status": "ERROR",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:38:05 PM",
+      "dateUpdated": "Sep 9, 2017 10:03:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1488644102885_1730267088",
+      "id": "20170304-161502_1014211897",
+      "dateCreated": "Mar 4, 2017 4:15:02 PM",
+      "dateStarted": "Sep 9, 2017 10:03:27 PM",
+      "dateFinished": "Sep 9, 2017 10:03:46 PM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 9, 2017 10:16:56 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -603,43 +612,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@1d819c87\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1488644102885_1730267088",
-      "id": "20170304-161502_1014211897",
-      "dateCreated": "Mar 4, 2017 4:15:02 PM",
-      "dateStarted": "Sep 9, 2017 5:38:06 PM",
-      "dateFinished": "Sep 9, 2017 5:38:19 PM",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n",
-      "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:38:42 PM",
-      "config": {
-        "colWidth": 12.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false
-        },
-        "editorMode": "ace/mode/scala"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "ERROR",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "java.lang.NullPointerException\n\tat org.apache.zeppelin.spark.Utils.invokeMethod(Utils.java:38)\n\tat org.apache.zeppelin.spark.Utils.invokeMethod(Utils.java:33)\n\tat org.apache.zeppelin.spark.SparkInterpreter.createSparkContext_2(SparkInterpreter.java:391)\n\tat org.apache.zeppelin.spark.SparkInterpreter.createSparkContext(SparkInterpreter.java:380)\n\tat org.apache.zeppelin.spark.SparkInterpreter.getSparkContext(SparkInterpreter.java:146)\n\tat org.apache.zeppelin.spark.SparkInterpreter.open(SparkInterpreter.java:828)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:70)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:491)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:175)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler$1.run(FIFOScheduler.java:139)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n"
+            "data": "\nimport org.apache.spark.streaming._\n\nimport org.apache.spark.streaming.twitter._\n\nimport org.apache.spark.storage.StorageLevel\n\nimport scala.io.Source\n\nimport scala.collection.mutable.HashMap\n\nimport java.io.File\n\nimport org.apache.log4j.Logger\n\nimport org.apache.log4j.Level\n\nimport sys.process.stringSeqToProcess\n\nimport twitter4j.HashtagEntity\n\nconsumerKey: String \u003d UZXuNs30p93oGmxh4L8Bm39A2\n\nconsumerSecret: String \u003d KJrToBczE1JqBafrZQg9yrrHVkx3SGhlq29hCLSMPq3enDfIjL\n\naccessToken: String \u003d 828809891196391424-t3S2blpCVwoSUwjTeXkETXvZwtdOgvj\n\naccessTokenSecret: String \u003d YbL3vYPwwfSRAC9zvbe1rgFGuIS2vsRk3jigc2qqGhng3\n\nres46: String \u003d UZXuNs30p93oGmxh4L8Bm39A2\n\nres47: String \u003d KJrToBczE1JqBafrZQg9yrrHVkx3SGhlq29hCLSMPq3enDfIjL\n\nres48: String \u003d 828809891196391424-t3S2blpCVwoSUwjTeXkETXvZwtdOgvj\n\nres49: String \u003d YbL3vYPwwfSRAC9zvbe1rgFGuIS2vsRk3jigc2qqGhng3\n"
           }
         ]
       },
@@ -647,15 +620,15 @@
       "jobName": "paragraph_1488644061932_1416819328",
       "id": "20170304-161421_2143422983",
       "dateCreated": "Mar 4, 2017 4:14:21 PM",
-      "dateStarted": "Sep 9, 2017 5:38:42 PM",
-      "dateFinished": "Sep 9, 2017 5:38:45 PM",
-      "status": "ERROR",
+      "dateStarted": "Sep 9, 2017 10:16:56 PM",
+      "dateFinished": "Sep 9, 2017 10:17:04 PM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:40:35 PM",
+      "dateUpdated": "Sep 9, 2017 10:19:04 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -672,21 +645,28 @@
         "params": {},
         "forms": {}
       },
-      "results": "Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize\u003d512m; support was removed in 8.0\nJava HotSpot(TM) 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000eab00000, 357564416, 0) failed; error\u003d\u0027Cannot allocate memory\u0027 (errno\u003d12)\n#\n# There is insufficient memory for the Java Runtime Environment to continue.\n# Native memory allocation (mmap) failed to map 357564416 bytes for committing reserved memory.\n# An error report file with more information is saved as:\n# /zeppelin/hs_err_pid1415.log\n",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1488641060259_19077251",
       "id": "20170304-152420_131094033",
       "dateCreated": "Mar 4, 2017 3:24:20 PM",
-      "dateStarted": "Sep 9, 2017 5:40:35 PM",
-      "dateFinished": "Sep 9, 2017 5:40:35 PM",
-      "status": "ERROR",
-      "errorMessage": "org.apache.zeppelin.interpreter.InterpreterException: Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize\u003d512m; support was removed in 8.0\nJava HotSpot(TM) 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000eab00000, 357564416, 0) failed; error\u003d\u0027Cannot allocate memory\u0027 (errno\u003d12)\n#\n# There is insufficient memory for the Java Runtime Environment to continue.\n# Native memory allocation (mmap) failed to map 357564416 bytes for committing reserved memory.\n# An error report file with more information is saved as:\n# /zeppelin/hs_err_pid1415.log\n\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterManagedProcess.start(RemoteInterpreterManagedProcess.java:143)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterProcess.reference(RemoteInterpreterProcess.java:73)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.open(RemoteInterpreter.java:265)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreter.getFormType(RemoteInterpreter.java:430)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.getFormType(LazyOpenInterpreter.java:111)\n\tat org.apache.zeppelin.notebook.Paragraph.jobRun(Paragraph.java:387)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:175)\n\tat org.apache.zeppelin.scheduler.RemoteScheduler$JobRunner.run(RemoteScheduler.java:329)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)\n\tat java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\n",
+      "dateStarted": "Sep 9, 2017 10:19:04 PM",
+      "dateFinished": "Sep 9, 2017 10:19:04 PM",
+      "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#hadoop\", \"#bigdata\", \"#spark\", \"#hortonworks\", \"#HDP\",\" #mnwild \"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()",
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#cocktails\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()",
       "user": "anonymous",
-      "dateUpdated": "Mar 4, 2017 9:16:02 PM",
+      "dateUpdated": "Sep 9, 2017 10:19:30 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -702,11 +682,11 @@
         "forms": {}
       },
       "results": {
-        "code": "SUCCESS",
+        "code": "ERROR",
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@53d4b41f\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@3b73d5d5\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@6c1bdebe\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@704c961d\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@41081407\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@140d9650\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n\n\n\n\n\n\n\n\n\n\n\n\njava.lang.IllegalStateException: RpcEnv has been stopped\n  at org.apache.spark.rpc.netty.Dispatcher.registerRpcEndpoint(Dispatcher.scala:65)\n  at org.apache.spark.rpc.netty.NettyRpcEnv.setupEndpoint(NettyRpcEnv.scala:129)\n  at org.apache.spark.streaming.scheduler.ReceiverTracker.start(ReceiverTracker.scala:158)\n  at org.apache.spark.streaming.scheduler.JobScheduler.start(JobScheduler.scala:101)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply$mcV$sp(StreamingContext.scala:583)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext$$anonfun$liftedTree1$1$1.apply(StreamingContext.scala:578)\n  at ... run in separate thread using org.apache.spark.util.ThreadUtils ... ()\n  at org.apache.spark.streaming.StreamingContext.liftedTree1$1(StreamingContext.scala:578)\n  at org.apache.spark.streaming.StreamingContext.start(StreamingContext.scala:572)\n  ... 66 elided\n"
           }
         ]
       },
@@ -714,37 +694,43 @@
       "jobName": "paragraph_1488647225989_-1440587113",
       "id": "20170304-170705_1400146531",
       "dateCreated": "Mar 4, 2017 5:07:05 PM",
-      "dateStarted": "Mar 4, 2017 9:16:02 PM",
-      "dateFinished": "Mar 4, 2017 9:16:06 PM",
-      "status": "FINISHED",
+      "dateStarted": "Sep 9, 2017 10:19:30 PM",
+      "dateFinished": "Sep 9, 2017 10:19:35 PM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n-- checking window contents\n\nselect * from tweets",
       "user": "anonymous",
-      "dateUpdated": "Mar 4, 2017 9:16:56 PM",
+      "dateUpdated": "Sep 9, 2017 10:12:48 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {
           "0": {
             "graph": {
-              "mode": "multiBarChart",
+              "mode": "scatterChart",
               "height": 300.0,
               "optionOpen": true,
               "setting": {
-                "multiBarChart": {}
+                "multiBarChart": {},
+                "scatterChart": {
+                  "xAxis": {
+                    "name": "user",
+                    "index": 0.0,
+                    "aggr": "sum"
+                  },
+                  "yAxis": {
+                    "name": "tweet",
+                    "index": 1.0,
+                    "aggr": "sum"
+                  }
+                }
               },
-              "commonSetting": {},
               "keys": [
                 {
-                  "name": "lat",
-                  "index": 2.0,
-                  "aggr": "sum"
-                },
-                {
-                  "name": "lon",
-                  "index": 3.0,
+                  "name": "user",
+                  "index": 0.0,
                   "aggr": "sum"
                 }
               ],
@@ -761,43 +747,36 @@
           }
         },
         "editorSetting": {
-          "language": "sql",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/text"
       },
       "settings": {
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "user\ttweet\tlat\tlon\nAhmed Magdy Shabrawy\tJust posted a photo @ Al-Korba https://t.co/hldM7ofmDg\t30.09148326\t31.32388941\nTMJ-JAX HRTA Jobs\tWant to work at Panera Bread? We\u0027re #hiring in #Jacksonville, FL! Click for details: https://t.co/uJVgMAWJmg #parttime #Hospitality #Job\t30.1934339\t-81.7381617\nWahala Dey\tFG gives N10,000 to victims of Rann bomb blast\t6.51590798\t3.38378906\n"
-          }
-        ]
-      },
       "apps": [],
       "jobName": "paragraph_1488651700174_-397928581",
       "id": "20170304-182140_1143884594",
       "dateCreated": "Mar 4, 2017 6:21:40 PM",
-      "dateStarted": "Mar 4, 2017 9:16:56 PM",
-      "dateFinished": "Mar 4, 2017 9:16:57 PM",
-      "status": "FINISHED",
+      "dateStarted": "Sep 9, 2017 10:12:48 PM",
+      "dateFinished": "Sep 9, 2017 10:12:48 PM",
+      "status": "ERROR",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nssc.stop()\n\n",
       "user": "anonymous",
-      "dateUpdated": "Mar 4, 2017 9:18:54 PM",
+      "dateUpdated": "Sep 9, 2017 10:19:53 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": false
         },
         "editorMode": "ace/mode/scala"
       },
@@ -813,8 +792,8 @@
       "jobName": "paragraph_1488644403109_-771341257",
       "id": "20170304-162003_1046576340",
       "dateCreated": "Mar 4, 2017 4:20:03 PM",
-      "dateStarted": "Mar 4, 2017 9:18:54 PM",
-      "dateFinished": "Mar 4, 2017 9:18:54 PM",
+      "dateStarted": "Sep 9, 2017 10:19:53 PM",
+      "dateFinished": "Sep 9, 2017 10:19:54 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -832,31 +811,87 @@
       "id": "20170304-162145_1114494194",
       "dateCreated": "Mar 4, 2017 4:21:45 PM",
       "status": "READY",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
   "name": "TwitterHookChap03",
   "id": "2CAK4XBUU",
   "angularObjects": {
-    "2CSM6JCXG:shared_process": [],
-    "2CV9Z7Z67:shared_process": [],
-    "2CRQSWYAU:shared_process": [],
-    "2CUXH81EG:shared_process": [],
-    "2CS6WR7W3:shared_process": [],
-    "2CUSS5HU2:shared_process": [],
-    "2CU9EJ9RH:shared_process": [],
-    "2CSDXYGMU:shared_process": [],
-    "2CVJRH9GT:shared_process": [],
-    "2CU7QKX7F:shared_process": [],
-    "2CVGDZAWJ:shared_process": [],
-    "2CUG281QN:shared_process": [],
-    "2CSVVRBPW:shared_process": [],
-    "2CUZ7UDWJ:shared_process": [],
-    "2CV7VF63T:shared_process": [],
-    "2CU53125F:shared_process": [],
-    "2CVG1RRCC:shared_process": [],
-    "2CRSAJ2DM:shared_process": [],
-    "2CUNS4VKJ:shared_process": []
+    "2CSWW3JFZ:shared_process": [],
+    "2CTZHEAXS:shared_process": [],
+    "2CS8XMAED:shared_process": [],
+    "2CV38BKJ1:shared_process": [],
+    "2CSN5Q8M2:shared_process": [],
+    "2CT8TJR1X:shared_process": [],
+    "2CUCNEZWX:shared_process": [],
+    "2CUJRKD1W:shared_process": [],
+    "2CVBW8M21:shared_process": [],
+    "2CVGT743F:shared_process": [],
+    "2CRV84R39:shared_process": [],
+    "2CS9KS3CK:shared_process": [],
+    "2CVAKRNDC:shared_process": [],
+    "2CSXQX2C4:shared_process": [],
+    "2CV44AZUE:shared_process": [],
+    "2CSXT4UTU:shared_process": [],
+    "2CUM3AK26:shared_process": [],
+    "2CU5QJ6D3:shared_process": [
+      {
+        "name": "data",
+        "object": [
+          {
+            "user": "Babayiğit Sözeri",
+            "tweet": "seyreltmek #amansallaki yükletilme denizpırasası noktalama",
+            "lat": 41.03749,
+            "lon": 28.968226
+          },
+          {
+            "user": "RoadRunnerSportsJobs",
+            "tweet": "This #job might be a great fit for you: Retail Store Assistant Manager - https://t.co/qRiPbL5DTD #runner #marathon #Retail #SanCarlos, CA",
+            "lat": 37.5033342,
+            "lon": -122.2457091
+          },
+          {
+            "user": "Abdülbaki Günlü",
+            "tweet": "neyzen bakışlı solcu çekirdeklenmek #amansallaki avokado bekletilebilme",
+            "lat": 41.037989,
+            "lon": 28.968119
+          },
+          {
+            "user": "Trendinalia PI",
+            "tweet": "➍ Lotto Result September 9 2017\n➎ Inferno\n➏ Pvl Live Stream\n➐ Abs Cbn Sports\n➑ Catch Me If You Can\n➒ UAAP Season 80\n\n2017/9/10 06:09 +08",
+            "lat": 15.5931,
+            "lon": 120.7391
+          },
+          {
+            "user": "eat+drink",
+            "tweet": "A little pre-eflight wine and nosh.... @ Ford\u0027s Filling Station at Lax https://t.co/7W3vqdOUQy",
+            "lat": 33.94067095,
+            "lon": -118.40438342
+          },
+          {
+            "user": "🀄️☕️🐎琴馬🐴恵馬🏇🥗🎧",
+            "tweet": "I\u0027m at 大洗磯前神社 in 大洗町, 茨城県 w/ @9moekasu https://t.co/QTXG1Dxfsf",
+            "lat": 36.315845,
+            "lon": 140.58745
+          },
+          {
+            "user": "CA Cust. Srv. Jobs",
+            "tweet": "If you\u0027re looking for work in #PalmDesert, CA, check out this #job: https://t.co/kvz3qETAme #CustomerService #Hiring #CareerArc",
+            "lat": 33.7637689,
+            "lon": -116.3426552
+          },
+          {
+            "user": "Roger Manning",
+            "tweet": "The area costume shops must have made a mint selling \"Jack Sparrow\" gear for this #fallfestival… https://t.co/HWNktBVXSP",
+            "lat": 39.9531,
+            "lon": -86.2695
+          }
+        ],
+        "noteId": "2CAK4XBUU"
+      }
+    ],
+    "2CV95B9D2:shared_process": []
   },
   "config": {},
   "info": {}

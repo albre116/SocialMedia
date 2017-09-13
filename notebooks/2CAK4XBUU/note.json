@@ -4,16 +4,16 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 10:17:27 PM",
+      "dateUpdated": "Sep 13, 2017 2:10:00 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/python",
+        "editorMode": "ace/mode/text",
         "title": true
       },
       "settings": {
@@ -254,7 +254,7 @@
       "title": "Get Source data for influencers followers",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py marcobonzanini \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 9:53:17 PM",
+      "dateUpdated": "Sep 13, 2017 3:52:35 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -314,7 +314,7 @@
       "title": "Compute Influence ",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_influence.py marcobonzanini MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 9:53:47 PM",
+      "dateUpdated": "Sep 13, 2017 3:53:42 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -817,82 +817,7 @@
   ],
   "name": "TwitterHookChap03",
   "id": "2CAK4XBUU",
-  "angularObjects": {
-    "2CSWW3JFZ:shared_process": [],
-    "2CTZHEAXS:shared_process": [],
-    "2CS8XMAED:shared_process": [],
-    "2CV38BKJ1:shared_process": [],
-    "2CSN5Q8M2:shared_process": [],
-    "2CT8TJR1X:shared_process": [],
-    "2CUCNEZWX:shared_process": [],
-    "2CUJRKD1W:shared_process": [],
-    "2CVBW8M21:shared_process": [],
-    "2CVGT743F:shared_process": [],
-    "2CRV84R39:shared_process": [],
-    "2CS9KS3CK:shared_process": [],
-    "2CVAKRNDC:shared_process": [],
-    "2CSXQX2C4:shared_process": [],
-    "2CV44AZUE:shared_process": [],
-    "2CSXT4UTU:shared_process": [],
-    "2CUM3AK26:shared_process": [],
-    "2CU5QJ6D3:shared_process": [
-      {
-        "name": "data",
-        "object": [
-          {
-            "user": "Babayiğit Sözeri",
-            "tweet": "seyreltmek #amansallaki yükletilme denizpırasası noktalama",
-            "lat": 41.03749,
-            "lon": 28.968226
-          },
-          {
-            "user": "RoadRunnerSportsJobs",
-            "tweet": "This #job might be a great fit for you: Retail Store Assistant Manager - https://t.co/qRiPbL5DTD #runner #marathon #Retail #SanCarlos, CA",
-            "lat": 37.5033342,
-            "lon": -122.2457091
-          },
-          {
-            "user": "Abdülbaki Günlü",
-            "tweet": "neyzen bakışlı solcu çekirdeklenmek #amansallaki avokado bekletilebilme",
-            "lat": 41.037989,
-            "lon": 28.968119
-          },
-          {
-            "user": "Trendinalia PI",
-            "tweet": "➍ Lotto Result September 9 2017\n➎ Inferno\n➏ Pvl Live Stream\n➐ Abs Cbn Sports\n➑ Catch Me If You Can\n➒ UAAP Season 80\n\n2017/9/10 06:09 +08",
-            "lat": 15.5931,
-            "lon": 120.7391
-          },
-          {
-            "user": "eat+drink",
-            "tweet": "A little pre-eflight wine and nosh.... @ Ford\u0027s Filling Station at Lax https://t.co/7W3vqdOUQy",
-            "lat": 33.94067095,
-            "lon": -118.40438342
-          },
-          {
-            "user": "🀄️☕️🐎琴馬🐴恵馬🏇🥗🎧",
-            "tweet": "I\u0027m at 大洗磯前神社 in 大洗町, 茨城県 w/ @9moekasu https://t.co/QTXG1Dxfsf",
-            "lat": 36.315845,
-            "lon": 140.58745
-          },
-          {
-            "user": "CA Cust. Srv. Jobs",
-            "tweet": "If you\u0027re looking for work in #PalmDesert, CA, check out this #job: https://t.co/kvz3qETAme #CustomerService #Hiring #CareerArc",
-            "lat": 33.7637689,
-            "lon": -116.3426552
-          },
-          {
-            "user": "Roger Manning",
-            "tweet": "The area costume shops must have made a mint selling \"Jack Sparrow\" gear for this #fallfestival… https://t.co/HWNktBVXSP",
-            "lat": 39.9531,
-            "lon": -86.2695
-          }
-        ],
-        "noteId": "2CAK4XBUU"
-      }
-    ],
-    "2CV95B9D2:shared_process": []
-  },
+  "angularObjects": {},
   "config": {},
   "info": {}
 }

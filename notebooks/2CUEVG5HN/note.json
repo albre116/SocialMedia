@@ -237,7 +237,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Bayes Lecture Twitter Map (Part 1 Spark Twitter Client Place)",
+  "name": "Bayes Lecture Twitter Map (Part 1.3 Spark Twitter Client Place)",
   "id": "2CUEVG5HN",
   "angularObjects": {
     "2CSGNTVK6:shared_process": [],
@@ -253,13 +253,7 @@
     "2CTWJKKGC:shared_process": [],
     "2CSJ7PCCR:shared_process": [],
     "2CS7M34WX:shared_process": [],
-    "2CTAVCMB5:shared_process": [
-      {
-        "name": "data",
-        "object": [],
-        "noteId": "2CUEVG5HN"
-      }
-    ],
+    "2CTAVCMB5:shared_process": [],
     "2CTYEYNXE:shared_process": [],
     "2CTW97MUQ:shared_process": [],
     "2CUX9DTK9:shared_process": [],

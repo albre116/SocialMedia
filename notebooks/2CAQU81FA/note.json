@@ -4,7 +4,7 @@
       "title": "Register the Source Files on the Package Search Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:48:33 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -14,7 +14,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -42,7 +44,7 @@
       "title": "Test Client and Grab First 10 Tweets",
       "text": "%python\nfrom tweepy import Cursor\nfrom twitter_client import get_twitter_client\nclient \u003d get_twitter_client()\nfor status in Cursor(client.home_timeline).items(10):\n    # Process a single status \n    print(status.text)",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:48:41 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -52,7 +54,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -75,7 +79,7 @@
       "title": "Run grabbing tweets to a jsonl file on the volume mount",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_home_timeline.py \n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:48:54 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -85,7 +89,9 @@
           "language": "text",
           "editOnDblClick": false
         },
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -113,7 +119,7 @@
       "title": "Take a look at the saved tweet file",
       "text": "%sh ls /notebook \u0026\u0026\ncat /notebook/home_timeline.jsonl",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:49:00 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -123,7 +129,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -151,7 +159,7 @@
       "title": "Get a specific users time line tweets",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py PacktPub\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:49:11 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -161,7 +169,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -184,7 +194,7 @@
       "title": "Take a look at that users tweets",
       "text": "%sh ls /notebook \u0026\u0026\nhead /notebook/user_timeline_PacktPub.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 1:49:24 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -194,7 +204,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -222,7 +234,7 @@
       "title": "Hit the Streaming API to Collect Data",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#Irma",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 2:06:01 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -232,7 +244,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -264,17 +278,19 @@
       "title": "Identify the running stream process",
       "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 5:43:45 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -302,17 +318,19 @@
       "title": "Kill the running stream process",
       "text": "%sh kill 788\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 5:43:53 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -335,17 +353,19 @@
       "title": "Basic Tweet Summary Stats for JsonL tweet file",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_PacktPub.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:13:04 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -373,17 +393,19 @@
       "title": "Hashtags summary info",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_stats.py user_timeline_PacktPub.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 5:45:02 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -411,17 +433,19 @@
       "title": "Hashtag mention",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_mention_frequency.py user_timeline_PacktPub.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 5:54:27 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sh",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sh",
-        "title": true
+        "editorMode": "ace/mode/text",
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -449,7 +473,7 @@
       "title": "You Specify the nltk needed data sets here",
       "text": "%sh python -m nltk.downloader stopwords\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 4:37:38 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -459,7 +483,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -487,7 +513,7 @@
       "title": "Text Analysis",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_term_frequency.py user_timeline_PacktPub.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 4:37:45 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -497,7 +523,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -524,7 +552,7 @@
     {
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_term_frequency_graph.py user_timeline_PacktPub.jsonl",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 4:39:57 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -533,7 +561,9 @@
           "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/text",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -565,7 +595,7 @@
       "title": "Do Manual Plot",
       "text": "%python\n# Chap02-03/twitter_term_frequency_graph.py\nimport sys\nimport string\nimport json\nfrom collections import Counter\nfrom nltk.tokenize import TweetTokenizer\nfrom nltk.corpus import stopwords\nimport matplotlib.pyplot as plt\ndef process(text, tokenizer\u003dTweetTokenizer(), stopwords\u003d[]):\n    \"\"\"Process the text of a tweet:\n    - Lowercase\n    - Tokenize\n    - Stopword removal\n    - Digits removal\n    Return: list of strings\n    \"\"\"\n    text \u003d text.lower()\n    tokens \u003d tokenizer.tokenize(text)\n    return [tok for tok in tokens if tok not in stopwords and not tok.isdigit()]\n\ntweet_tokenizer \u003d TweetTokenizer()\npunct \u003d list(string.punctuation)\nstopword_list \u003d stopwords.words(\u0027english\u0027) + punct + [\u0027rt\u0027, \u0027via\u0027]\nfname \u003d \u0027/notebook/user_timeline_PacktPub.jsonl\u0027\ntf \u003d Counter()\nwith open(fname, \u0027r\u0027) as f:\n    for line in f:\n        tweet \u003d json.loads(line)\n        tokens \u003d process(text\u003dtweet.get(\u0027text\u0027, \u0027\u0027),\n                         tokenizer\u003dtweet_tokenizer,\n                         stopwords\u003dstopword_list)\n        tf.update(tokens)\n        y \u003d [count for tag, count in tf.most_common(1000)]\n        x \u003d range(1, len(y)+1)\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 4:54:05 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -575,7 +605,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -597,15 +629,18 @@
     {
       "text": "%python\nplt.figure()\nplt.bar(x, y)\nplt.title(\" Term Frequencies\")\nplt.ylabel(\" Frequency\")\nz.show(plt)\nplt.close()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:01:25 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "text",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/text",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -632,7 +667,7 @@
     {
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_time_series.py stream__cocktail.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:04:16 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -641,7 +676,9 @@
           "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/text",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -673,7 +710,7 @@
       "title": "Plot Time Series",
       "text": "%python\n\n# Chap02-03/twitter_time_series.py\nimport sys\nimport json\nfrom datetime import datetime\nimport matplotlib.pyplot as plt\nimport matplotlib.dates as mdates\nimport pandas as pd\nimport numpy as np\nimport pickle\n\nfname \u003d \u0027/notebook/stream__cocktail.jsonl\u0027\nwith open(fname, \u0027r\u0027) as f:\n    all_dates \u003d []\n    for line in f:\n        tweet \u003d json.loads(line)\n        all_dates.append(tweet.get(\u0027created_at\u0027))\n    ones \u003d np.ones(len(all_dates))\n    idx \u003d pd.DatetimeIndex(all_dates)\n    # the actual series (at series of 1s for the moment)\n    my_series \u003d pd.Series(ones, index\u003didx)\n    # Resampling / bucketing into 1-minute buckets\n    per_minute \u003d my_series.resample(\u00271Min\u0027, how\u003d\u0027sum\u0027).fillna(0)\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:08:25 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -683,7 +720,9 @@
           "editOnDblClick": false
         },
         "editorMode": "ace/mode/text",
-        "title": true
+        "title": true,
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -710,7 +749,7 @@
     {
       "text": "%python\nplt.figure()\nplt.plot(per_minute.values)\nplt.title(\" Term Frequencies\")\nplt.ylabel(\" Frequency\")\nz.configure_mpl(width\u003d400, height\u003d300, fmt\u003d\u0027svg\u0027)\nz.show(plt)\nplt.close()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 9, 2017 5:08:24 PM",
+      "dateUpdated": "Sep 14, 2017 2:59:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -719,7 +758,9 @@
           "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/text",
+        "tableHide": false,
+        "editorHide": true
       },
       "settings": {
         "params": {},
@@ -735,27 +776,7 @@
   ],
   "name": "TwitterHookChap02",
   "id": "2CAQU81FA",
-  "angularObjects": {
-    "2CSS9W43R:shared_process": [],
-    "2CTZY7BJ6:shared_process": [],
-    "2CURA44AW:shared_process": [],
-    "2CTNGQQ5Y:shared_process": [],
-    "2CV9UMKPG:shared_process": [],
-    "2CTSAF9PT:shared_process": [],
-    "2CVFCCJR3:shared_process": [],
-    "2CS7BAWC7:shared_process": [],
-    "2CVP1TFUZ:shared_process": [],
-    "2CSK4G7H2:shared_process": [],
-    "2CVBY152S:shared_process": [],
-    "2CUDQ5VMK:shared_process": [],
-    "2CSYY88RE:shared_process": [],
-    "2CTTU3KAM:shared_process": [],
-    "2CUC5XRTB:shared_process": [],
-    "2CSKTDYCT:shared_process": [],
-    "2CVWACU5U:shared_process": [],
-    "2CS1AN1ZZ:shared_process": [],
-    "2CTQJFJ9J:shared_process": []
-  },
+  "angularObjects": {},
   "config": {
     "looknfeel": "default",
     "personalizedMode": "false"

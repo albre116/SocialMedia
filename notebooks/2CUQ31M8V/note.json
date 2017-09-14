@@ -232,7 +232,7 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Bayes Lecture Twitter Map (Part 1 Spark Twitter Client GeoLoc)",
+  "name": "Bayes Lecture Twitter Map (Part 1.2 Spark Twitter Client GeoLoc)",
   "id": "2CUQ31M8V",
   "angularObjects": {
     "2CSGNTVK6:shared_process": [],

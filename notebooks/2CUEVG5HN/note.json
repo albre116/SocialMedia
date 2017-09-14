@@ -3,7 +3,7 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:51:10 PM",
+      "dateUpdated": "Sep 14, 2017 2:25:20 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -22,24 +22,23 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@5fad4850\n"
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@7b5ea1f4\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1505350377753_-1050031012",
-      "id": "20170914-005257_756679878",
-      "dateCreated": "Sep 14, 2017 12:52:57 AM",
-      "dateStarted": "Sep 14, 2017 1:51:10 PM",
-      "dateFinished": "Sep 14, 2017 1:51:14 PM",
+      "jobName": "paragraph_1505396413619_-1309561807",
+      "id": "20170914-134013_1388942810",
+      "dateCreated": "Sep 14, 2017 1:40:13 PM",
+      "dateStarted": "Sep 14, 2017 2:25:20 PM",
+      "dateFinished": "Sep 14, 2017 2:25:24 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Get the scala packages required and env variables",
-      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n",
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:51:18 PM",
+      "dateUpdated": "Sep 14, 2017 2:25:26 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -47,8 +46,7 @@
         "editorSetting": {
           "language": "scala"
         },
-        "editorMode": "ace/mode/scala",
-        "title": true
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -64,18 +62,18 @@
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1505350418061_554757174",
-      "id": "20170914-005338_393750063",
-      "dateCreated": "Sep 14, 2017 12:53:38 AM",
-      "dateStarted": "Sep 14, 2017 1:51:18 PM",
-      "dateFinished": "Sep 14, 2017 1:51:25 PM",
+      "jobName": "paragraph_1505396456121_1092102124",
+      "id": "20170914-134056_1684202951",
+      "dateCreated": "Sep 14, 2017 1:40:56 PM",
+      "dateStarted": "Sep 14, 2017 2:25:26 PM",
+      "dateFinished": "Sep 14, 2017 2:25:34 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n\n",
+      "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:37:50 PM",
+      "dateUpdated": "Sep 14, 2017 2:25:38 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -85,8 +83,8 @@
           "editOnDblClick": true
         },
         "editorMode": "ace/mode/undefined",
-        "editorHide": false,
-        "tableHide": true
+        "editorHide": true,
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -102,19 +100,18 @@
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1505350460295_141044837",
-      "id": "20170914-005420_1902955168",
-      "dateCreated": "Sep 14, 2017 12:54:20 AM",
-      "dateStarted": "Sep 14, 2017 1:30:31 PM",
-      "dateFinished": "Sep 14, 2017 1:30:31 PM",
+      "jobName": "paragraph_1505396569055_2009667478",
+      "id": "20170914-134249_1248757363",
+      "dateCreated": "Sep 14, 2017 1:42:49 PM",
+      "dateStarted": "Sep 14, 2017 2:25:38 PM",
+      "dateFinished": "Sep 14, 2017 2:25:38 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "https://github.com/biancini/SparkTwitterAnalyzer/blob/master/src/main/scala/it/reti/spark/sentiment/TweetStreamingApp.scala",
-      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\n// val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getPlace !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getPlace().getBoundingBoxCoordinates().head.head.getLatitude(), t.getPlace().getBoundingBoxCoordinates().head.head.getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 2:16:07 PM",
+      "dateUpdated": "Sep 14, 2017 2:26:50 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -124,7 +121,6 @@
           "editOnDblClick": true
         },
         "editorMode": "ace/mode/scala",
-        "title": true,
         "editorHide": false,
         "tableHide": true
       },
@@ -137,27 +133,36 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@4c9e4599\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@6524c827\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@111aa0ed\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@2df1a79a\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@6155e1\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@65eac60a\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1505350467397_2036317919",
-      "id": "20170914-005427_2046324729",
-      "dateCreated": "Sep 14, 2017 12:54:27 AM",
-      "dateStarted": "Sep 14, 2017 1:51:30 PM",
-      "dateFinished": "Sep 14, 2017 1:51:32 PM",
+      "jobName": "paragraph_1505396582764_-658166071",
+      "id": "20170914-134302_2079537237",
+      "dateCreated": "Sep 14, 2017 1:43:02 PM",
+      "dateStarted": "Sep 14, 2017 2:25:45 PM",
+      "dateFinished": "Sep 14, 2017 2:25:47 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\n-- checking window contents\n\nselect * from tweets\n",
+      "text": "%sql\n-- checking window contents\n\nselect * from tweets\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:25:32 PM",
+      "dateUpdated": "Sep 14, 2017 2:25:59 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
-        "results": {},
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
         "editorSetting": {
           "language": "sql"
         },
@@ -172,23 +177,23 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "user\ttweet\tlat\tlon\nゆきはら@鳶沢みさきFC\t給油 (@ ENEOS 宇佐美 122号浦和インター下り給油所 in さいたま市, 埼玉県) https://t.co/4kk3eYz3WB\t35.90728836\t139.71003652\n"
+            "data": "user\ttweet\tlat\tlon\n"
           }
         ]
       },
       "apps": [],
-      "jobName": "paragraph_1505350483405_270720541",
-      "id": "20170914-005443_1213347979",
-      "dateCreated": "Sep 14, 2017 12:54:43 AM",
-      "dateStarted": "Sep 14, 2017 1:25:32 PM",
-      "dateFinished": "Sep 14, 2017 1:25:32 PM",
+      "jobName": "paragraph_1505396625043_-939540111",
+      "id": "20170914-134345_1127694139",
+      "dateCreated": "Sep 14, 2017 1:43:45 PM",
+      "dateStarted": "Sep 14, 2017 2:25:59 PM",
+      "dateFinished": "Sep 14, 2017 2:25:59 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:51:47 PM",
+      "dateUpdated": "Sep 14, 2017 2:26:33 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -207,33 +212,33 @@
         "msg": []
       },
       "apps": [],
-      "jobName": "paragraph_1505350498990_-1626076213",
-      "id": "20170914-005458_662638385",
-      "dateCreated": "Sep 14, 2017 12:54:58 AM",
-      "dateStarted": "Sep 14, 2017 1:51:47 PM",
-      "dateFinished": "Sep 14, 2017 1:51:47 PM",
+      "jobName": "paragraph_1505396639847_1843764081",
+      "id": "20170914-134359_1211307661",
+      "dateCreated": "Sep 14, 2017 1:43:59 PM",
+      "dateStarted": "Sep 14, 2017 2:26:33 PM",
+      "dateFinished": "Sep 14, 2017 2:26:34 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 1:03:27 AM",
+      "dateUpdated": "Sep 14, 2017 2:24:10 PM",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1505351007769_102536010",
-      "id": "20170914-010327_961088822",
-      "dateCreated": "Sep 14, 2017 1:03:27 AM",
+      "jobName": "paragraph_1505399050203_1372879568",
+      "id": "20170914-142410_2097053109",
+      "dateCreated": "Sep 14, 2017 2:24:10 PM",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Bayes Lecture Twitter Map (Part 1 Spark Twitter Client GeoLoc)",
-  "id": "2CUQ31M8V",
+  "name": "Bayes Lecture Twitter Map (Part 1 Spark Twitter Client Place)",
+  "id": "2CUEVG5HN",
   "angularObjects": {
     "2CSGNTVK6:shared_process": [],
     "2CT1D5V2U:shared_process": [],
@@ -248,7 +253,13 @@
     "2CTWJKKGC:shared_process": [],
     "2CSJ7PCCR:shared_process": [],
     "2CS7M34WX:shared_process": [],
-    "2CTAVCMB5:shared_process": [],
+    "2CTAVCMB5:shared_process": [
+      {
+        "name": "data",
+        "object": [],
+        "noteId": "2CUEVG5HN"
+      }
+    ],
     "2CTYEYNXE:shared_process": [],
     "2CTW97MUQ:shared_process": [],
     "2CUX9DTK9:shared_process": [],

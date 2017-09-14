@@ -1,0 +1,485 @@
+{
+  "paragraphs": [
+    {
+      "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:16:34 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@738f5361\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505351626339_2072182766",
+      "id": "20170914-011346_36115199",
+      "dateCreated": "Sep 14, 2017 1:13:46 AM",
+      "dateStarted": "Sep 14, 2017 1:16:34 AM",
+      "dateFinished": "Sep 14, 2017 1:16:38 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:16:52 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming._\n\nimport org.apache.spark.streaming.twitter._\n\nimport org.apache.spark.storage.StorageLevel\n\nimport scala.io.Source\n\nimport scala.collection.mutable.HashMap\n\nimport java.io.File\n\nimport org.apache.log4j.Logger\n\nimport org.apache.log4j.Level\n\nimport sys.process.stringSeqToProcess\n\nimport twitter4j.HashtagEntity\n\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\n\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\n\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\n\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\n\nres3: String \u003d null\n\nres4: String \u003d null\n\nres5: String \u003d null\n\nres6: String \u003d null\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505351755131_617214023",
+      "id": "20170914-011555_1380296648",
+      "dateCreated": "Sep 14, 2017 1:15:55 AM",
+      "dateStarted": "Sep 14, 2017 1:16:52 AM",
+      "dateFinished": "Sep 14, 2017 1:16:59 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "https://spark.apache.org/docs/latest/streaming-programming-guide.html",
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(5))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\n//val tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(60))\n\ncase class Tweet(createdAt:Long, text:String, screenName:String)\ntwt.map(t\u003d\u003e\n  Tweet(t.getCreatedAt().getTime()/1000, t.getText(), t.getUser().getScreenName())).foreachRDD(rdd\u003d\u003e{\n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:21:32 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@4375708d\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@16e04c61\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@3400601d\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505351812660_-1350499122",
+      "id": "20170914-011652_1852008891",
+      "dateCreated": "Sep 14, 2017 1:16:52 AM",
+      "dateStarted": "Sep 14, 2017 1:21:32 AM",
+      "dateFinished": "Sep 14, 2017 1:21:34 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect from_unixtime(createdAt), count(1) from tweets group by createdAt order by createdAt\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:25:57 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "lineChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-09-14 01:24:50\t1\n2017-09-14 01:24:51\t1\n2017-09-14 01:24:52\t2\n2017-09-14 01:24:53\t5\n2017-09-14 01:24:54\t2\n2017-09-14 01:24:55\t1\n2017-09-14 01:24:56\t3\n2017-09-14 01:24:57\t2\n2017-09-14 01:24:58\t2\n2017-09-14 01:24:59\t2\n2017-09-14 01:25:00\t3\n2017-09-14 01:25:01\t3\n2017-09-14 01:25:02\t2\n2017-09-14 01:25:03\t1\n2017-09-14 01:25:05\t2\n2017-09-14 01:25:06\t6\n2017-09-14 01:25:09\t2\n2017-09-14 01:25:11\t2\n2017-09-14 01:25:12\t2\n2017-09-14 01:25:13\t2\n2017-09-14 01:25:14\t1\n2017-09-14 01:25:15\t1\n2017-09-14 01:25:16\t3\n2017-09-14 01:25:17\t1\n2017-09-14 01:25:20\t2\n2017-09-14 01:25:21\t3\n2017-09-14 01:25:22\t1\n2017-09-14 01:25:23\t2\n2017-09-14 01:25:24\t2\n2017-09-14 01:25:25\t6\n2017-09-14 01:25:28\t3\n2017-09-14 01:25:30\t9\n2017-09-14 01:25:31\t1\n2017-09-14 01:25:32\t1\n2017-09-14 01:25:35\t3\n2017-09-14 01:25:36\t2\n2017-09-14 01:25:37\t3\n2017-09-14 01:25:38\t2\n2017-09-14 01:25:39\t1\n2017-09-14 01:25:40\t5\n2017-09-14 01:25:41\t2\n2017-09-14 01:25:42\t1\n2017-09-14 01:25:43\t2\n2017-09-14 01:25:44\t5\n2017-09-14 01:25:45\t3\n2017-09-14 01:25:46\t7\n2017-09-14 01:25:47\t3\n2017-09-14 01:25:48\t2\n2017-09-14 01:25:49\t3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352092138_-754323861",
+      "id": "20170914-012132_849022349",
+      "dateCreated": "Sep 14, 2017 1:21:32 AM",
+      "dateStarted": "Sep 14, 2017 1:25:52 AM",
+      "dateFinished": "Sep 14, 2017 1:25:52 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "/* declaring a function in Scala */\n\ndef sentiment(s:String) : String \u003d {\n    val positive \u003d Array(\"like\", \"love\", \"good\", \"great\", \"happy\", \"cool\", \"the\", \"one\", \"that\")\n    val negative \u003d Array(\"hate\", \"bad\", \"stupid\", \"is\")\n\n    var st \u003d 0;\n\n    val words \u003d s.split(\" \")    \n    positive.foreach(p \u003d\u003e\n        words.foreach(w \u003d\u003e\n            if(p\u003d\u003dw) st \u003d st+1\n        )\n    )\n\n    negative.foreach(p\u003d\u003e\n        words.foreach(w\u003d\u003e\n            if(p\u003d\u003dw) st \u003d st-1\n        )\n    )\n    if(st\u003e0)\n        \"positivie\"\n    else if(st\u003c0)\n        \"negative\"\n    else\n        \"neutral\"\n}\n\nsqlc.udf.register(\"sentiment\", sentiment _)\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:22:19 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nsentiment: (s: String)String\n\nres19: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,StringType,Some(List(StringType)))\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352108026_159100676",
+      "id": "20170914-012148_1747510058",
+      "dateCreated": "Sep 14, 2017 1:21:48 AM",
+      "dateStarted": "Sep 14, 2017 1:22:19 AM",
+      "dateFinished": "Sep 14, 2017 1:22:20 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n#declaring a function in Python\n\nimport re\n\ndef wordcount(a):\n  return len(re.split(\"\\W+\",a))\n  \nsqlContext.registerFunction(\"wordcount\", wordcount)\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:22:31 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python"
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352139936_555822764",
+      "id": "20170914-012219_747991536",
+      "dateCreated": "Sep 14, 2017 1:22:19 AM",
+      "dateStarted": "Sep 14, 2017 1:22:31 AM",
+      "dateFinished": "Sep 14, 2017 1:22:31 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--using SQL to mix window data, with scala function and python function\n\nselect from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment, wordcount(text) as wordcount, text  from tweets\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:29:05 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "scatterChart": {
+                  "xAxis": {
+                    "name": "wordcount",
+                    "index": 3.0,
+                    "aggr": "sum"
+                  },
+                  "yAxis": {
+                    "name": "sentiment",
+                    "index": 2.0,
+                    "aggr": "sum"
+                  }
+                }
+              }
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "created\tscreenName\tsentiment\twordcount\ttext\n2017-09-14 01:25:49\tCanMichelle\tneutral\t8\t#KeyWest #floridakeys #irma https://t.co/9zI9ffX2Dj\n2017-09-14 01:25:49\tXXKatyPlayZX\tpositivie\t18\tRT @IBexWeBex: Playing in the Hirmacane before it gets worse #Irma #TropicalStorm #useyourIrmaginagion (yes… https://t.co/qWrmdpgkkk\n2017-09-14 01:25:50\tstuyff\tneutral\t10\thttps://t.co/CP8qGKAvqR #wannaone, #irma, #power1stwin, #micaelistas, #nyfw, #lovearmyparaoaxaca\n2017-09-14 01:25:50\tjt512_\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:25:50\tbitchdujour\tneutral\t17\tRT @WLTX: Swimming Piggies Survive Their 5th Hurricane https://t.co/zTxmvpVYCi #Irma https://t.co/xrKcef1I1n\n2017-09-14 01:25:52\tflakitona_x3\tpositivie\t19\tRT @ABC: Stunning drone footage captures severe damage, flooding in Naples after Hurricane #Irma plows through the area.… \n2017-09-14 01:25:53\tSeminoleZack\tneutral\t17\tRT @samsportsline: Telvin Smith on #Irma : \"I\u0027m a Seminole so hurricanes don\u0027t effect me.\" @FSUFootball\n2017-09-14 01:25:53\tcbrooks_joc\tpositivie\t22\tDon\u0027t miss @wbcassidy_joc\u0027s 1st-person account of #Irma and the underlying supply chain risk management lessons. https://t.co/ZcJJ41fVQZ\n2017-09-14 01:25:55\ttjohns63_lee\tpositivie\t22\tRT @TimTebow: So thankful for @FLGovScott leadership and love for the people of our great state. #Irma #Florida https://t.co/APgR7x9304\n2017-09-14 01:25:56\tasiel4_\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:25:56\tmonnomseclipse\tpositivie\t21\tRT @stevespaleta: Latest views from @NOAASatellites hurricanes #Irma \u0026 #Jose \nMore videos of the storms: https://t.co/8OvWCpJ0ED\nhttps://t.…\n2017-09-14 01:25:56\tmirandalopez___\tpositivie\t25\tRT @Juice2Wavy: You messed up the caption. Should be \"Watch asshole stand by and record while dog struggles to save the life of ano… \n2017-09-14 01:25:56\tb2savage\tpositivie\t24\tPlenty of light for a dormant construction project. ACROSS the street no lights for Senior Apt Complex. Day 5 #Irma… https://t.co/fXdmc1oLAC\n2017-09-14 01:25:57\tp9cker_girl\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n2017-09-14 01:25:57\tyagstyle\tpositivie\t23\tRT @ClimateNexus: Fact: climate change can make hurricanes like #Harvey \u0026 #Irma stronger. With deniers in charge, it\u0027s up to media to… \n2017-09-14 01:25:57\tryanboweypga\tpositivie\t22\t@Delta thanks for doing the RIGHT thing @AmericanAir another customer experience fail! No refunds for those traveling to St Maarten?? #irma\n2017-09-14 01:25:57\ttrinitymae73\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:25:57\tMadiKathy\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:25:58\tFayeRapoDesPres\tneutral\t24\tRT @NRDC: #Irma is the longest-lasting powerful hurricane ever recorded—and climate change has made it even stronger. https://t.co/ehdnpYVf…\n2017-09-14 01:25:58\tnoasbobs\tneutral\t19\tRT @KathyScheepers: Gotta run #OnEdChat \nThinking of our #SDG colleagues in #IrmaRecovery #Irma zone  @JenWilliamsEdu @ProfeEdTech who have…\n2017-09-14 01:25:59\tandrewww_2z\tneutral\t11\tCant believe this dog just ended racism https://t.co/7X3EGbtjCA\n2017-09-14 01:25:59\tshapiro_WAC\tpositivie\t28\tRT @JebBush: Huge thanks to all the workers from across U.S. helping to restore power post #Irma No shortage of heroes in FL right now #Tha…\n2017-09-14 01:26:00\tjulievortiz\tnegative\t24\tRT @Zyphree_: y\u0027all abandon dogs knowing damn well they would risk their lives for you... hate how you just standing there record… \n2017-09-14 01:26:00\tSweetGirlGone\tneutral\t25\tRT @GovMikeHuckabee: I love this! Service comes in big and small ways. This is a big way. God bless this officer! https://t.co/aM7l9ohg27\n2017-09-14 01:26:00\tguaicaipurocla2\tneutral\t21\tRT @VillegasPoljak: Ayuda humanitaria a Cuba tras huracán #Irma: #Venezuela la primera en llegar #VamosAlDialogoPorLaPaz https://t.co/VI0JN…\n2017-09-14 01:26:03\tyagstyle\tnegative\t20\tRT @tedlieu: With Irma and Harvey devastation, climate change legislation is needed more than ever before. Go Congress, go!… \n2017-09-14 01:26:04\tMarkJShuler\tpositivie\t24\tThis was good advice...hoping which can\u0027t hurt that there be less destructive hurricanes hitting land for any natio… https://t.co/N9ygjHzJIy\n2017-09-14 01:26:04\tRelaxInAntigua\tneutral\t18\tThe latest Relax In Antigua Daily News! https://t.co/fN2ipXDF3n Thanks to @Survive_Travel @MoveTheWorldUS @USAemPortugues #antigua #irma\n2017-09-14 01:26:05\tmarkmongo\tneutral\t8\tFlorida in a nutshell https://t.co/ddKmHHSGMc\n2017-09-14 01:26:04\tciromorah\tneutral\t12\tRT @MichelPesquera: A ustedes ¿Qué les trajo #Irma? https://t.co/EmDeA19plW\n2017-09-14 01:26:05\tPektranhem\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:04\tciromorah\tneutral\t12\tRT @MichelPesquera: A ustedes ¿Qué les trajo #Irma? https://t.co/EmDeA19plW\n2017-09-14 01:26:06\tkathiemoore\tneutral\t15\tSpring Hill Daily has been published! https://t.co/4XBJqJPwES Stories via @wherald #irma #4warn\n2017-09-14 01:26:07\tKatieCallahanUF\tneutral\t23\tRT @GatorsSwimDv: Here are more photos of our Gators helping to clean up Eastside High School after #Irma \nGreat athletes with great… \n2017-09-14 01:26:07\tMaxwellMercy\tneutral\t8\tOh whatever you want https://t.co/RLuH73sLXV\n2017-09-14 01:26:07\tmaryannbatlle\tneutral\t24\tRT @FLSERT: Florida Hurricane #Irma Power Outage Numbers as of 9/13/2017 21:00 PM ET. PDF at: https://t.co/MdtDTxRJZf… \n2017-09-14 01:26:08\tkawaiipotatos2_\tneutral\t22\tRT @luscas: pq a mãe natureza já tem noção que nois já tamo completamente destruídos https://t.co/JpxA9q0bi5\n2017-09-14 01:26:09\tTyb_Tone\tpositivie\t25\tRT @Juice2Wavy: You messed up the caption. Should be \"Watch asshole stand by and record while dog struggles to save the life of ano… \n2017-09-14 01:26:10\tlilvegantorsi\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:11\tfelicialay97\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:11\tSiddonsDan\tpositivie\t20\tRT @FoxBusiness: .@JeffFlock surprised his mom in Englewood, FL and assessed the damage from #Irma together. https://t.co/KcwycfeonC\n2017-09-14 01:26:11\ttjohns63_lee\tpositivie\t18\tRT @CityofJax: Watch \"After the Storm: Helping Our Neighbors. Rebuilding Our City.\" #Irma #FirstCoastStrong https://t.co/sK3TaShted\n2017-09-14 01:26:11\tJaJasTweets\tneutral\t24\tRT @FLSERT: Florida Hurricane #Irma Power Outage Numbers as of 9/13/2017 21:00 PM ET. PDF at: https://t.co/MdtDTxRJZf… \n2017-09-14 01:26:12\tPaulFox13\tpositivie\t20\tRT @MikeTheiss: Extreme storm surge scours out the land around a collapsed hotel in #Islamorada #Irma https://t.co/5QU3Ybz935\n2017-09-14 01:26:12\tlilvegantorsi\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:12\tDevinochoa77\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:13\tjrodneyhamilton\tneutral\t12\t@Wyland I hope and pray your home survived #Irma. Stay safe\n2017-09-14 01:26:14\tl_sault94\tneutral\t23\tRT @Mowgli_Alg: Dites vous c\u0027 est un autre animal qui le sauve pendant que l\u0027humain il film mdr https://t.co/I11B4WaArj\n2017-09-14 01:26:14\tsamuelcpw\tneutral\t18\tHillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following … https://t.co/D7mzZtYSji\n2017-09-14 01:26:15\t248jameso\tneutral\t22\tRT @TimTebow: Totally uplifted by this #ww2 veteran, who\u0027s spirit and talents encouraged his fellow visitors at this Special Need… \n2017-09-14 01:26:15\thmcronin3\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:15\tNancy_Bellicec\tneutral\t22\tSo, you\u0027re shutting down your airline, trains then? Letting your private island return to nature? Bicycling everywh… https://t.co/N4l3mBkagb\n2017-09-14 01:26:16\tDinaCsFabFunky\tneutral\t16\tShame on you @AirCanada for price gouging on flights in out of FL #irma #Hurricaneirma  #neveraircanada\n2017-09-14 01:26:16\tMoosiePooh\tneutral\t20\tRT @UNICEFJamaica: Children in #Barbuda speaking after #Irma.\nYou can help them 👉🏾 https://t.co/wZPhIOabZr https://t.co/Un8k3Cwbjq\n2017-09-14 01:26:16\tTukutana\tpositivie\t27\tRT @ManUpandGo: We want to thank the kids @tukutana in Uganda for praying for Man Up team members by name as we faced #irma this pa… \n2017-09-14 01:26:16\thumansincrisis\tneutral\t16\tThe latest The Humans in Crisis Daily! https://t.co/9o1Z9fqCq7 Thanks to @nashchamber @GrameenFdn #irma\n2017-09-14 01:26:16\tEvelynKissinge2\tpositivie\t25\tRT @CBSEveningNews: Much of this year’s orange crop in Florida was wiped out from Hurricane #Irma\n@CarterEvans got a look at the damage… \n2017-09-14 01:26:17\tdelarunwoman\tneutral\t18\tRT @NBCNightlyNews: Flooding in Havana as Hurricane #Irma moves through. https://t.co/kKDGlzMs8O https://t.co/WOpRB9XbEV\n2017-09-14 01:26:18\tMariettaCitySch\tneutral\t24\tRT @MariettaCitySch: A big thank you to our MCS staff for taking care of our schools during #Irma. We appreciate you! #WeAreMarietta https:…\n2017-09-14 01:26:18\twnabeonsalsdick\tneutral\t21\tRT @HumaneSociety: The Florida Greyhound Association had no plans to evacuate 700 dogs, even if a Category 5 storm hit. 😠… \n2017-09-14 01:26:19\tkayleigh_Galvin\tneutral\t14\tRT @iHartDnB: G-R-E-N-F-E-L-L https://t.co/8Xt8dg8S5b\n2017-09-14 01:26:19\theatherhza\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:19\tDarianGasseling\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:19\tVicelisFreitez\tneutral\t21\tRT @VillegasPoljak: Ayuda humanitaria a Cuba tras huracán #Irma: #Venezuela la primera en llegar #VamosAlDialogoPorLaPaz https://t.co/VI0JN…\n2017-09-14 01:26:19\tReneeNWhitfield\tpositivie\t22\tRT @USMC: Yesterday, Marines with the 26th MEU delivered over 52,000 pounds of relief supplies to victims of Hurricane #Irma,… \n2017-09-14 01:26:19\tVirgilioPonce\tneutral\t23\tRT @bohemiaonline: #Cuba Antes las adversidades de #Irma, en #Camagüey los Jóvenes andan con su carga de arte a cuestas… \n2017-09-14 01:26:20\tlavishllauren\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:20\tsonofselassie\tpositivie\t20\tRT @ABC: Police investigating two burglaries where suspects crashed a vehicle into store in the aftermath of Hurricane #Irma… \n2017-09-14 01:26:21\tWhangdoodles_6\tneutral\t22\tRT @NOAASatellites: Check out this awesome video a NOAA Hurricane Hunter aircraft took from inside #Irma! Satellite images of Irma here… \n2017-09-14 01:26:22\tjazmacii\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:22\thmcronin3\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:23\tebark954\tneutral\t10\tHappy to be done with #irma https://t.co/zf64B8LC1S\n2017-09-14 01:26:24\tmaarrian_\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:24\tQueennKekee\tneutral\t9\tRT @SplitDizzy: Thank God daily. https://t.co/uS1AhQvAWt\n2017-09-14 01:26:24\tmyhardware1\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:24\tJulesandk\tpositivie\t23\tRT @weatherchannel: Hurricanes #Harvey and #Irma could be the first back-to-back hurricanes to have their names retired in 12 years:… \n2017-09-14 01:26:25\tredboybroken\tpositivie\t20\tRT @MikeTheiss: Extreme storm surge scours out the land around a collapsed hotel in #Islamorada #Irma https://t.co/5QU3Ybz935\n2017-09-14 01:26:24\tbadassniiii\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:25\tjnkay\tpositivie\t23\tRT @AP: Join shrimp worker Donald Garner for a #360video tour of #irma damage in his part of the Keys. Full coverage:… \n2017-09-14 01:26:25\tJhic709365\tneutral\t21\tRT @CBPFlorida: Fox News @adamhousley with CBP Air and Marine Operations crew in Miami learning more about Hurricane #Irma response… \n2017-09-14 01:26:25\tkrispythehuman\tpositivie\t23\tRT @TomWellborn: Hahaha, people complaining about #irma looters when insurance companies and banks prepping to rip people off to the tune o…\n2017-09-14 01:26:26\tWCScanner\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n2017-09-14 01:26:27\tsonicwest21\tneutral\t17\tRT @CharlesPPierce: A nun with a chainsaw.\nWelcome to my sixth grade nightmare. https://t.co/d0395JexBX\n2017-09-14 01:26:27\tEnlaceMexicoMX\tneutral\t19\tRT @EnlaceMexicoMX: #Internacionales Suman 8 #muertos en los #cayosdeFlorida por “ #Irma ” https://t.co/ZKrikE2pT0 https://t.co/e7kwoA0JAt\n2017-09-14 01:26:28\tPam216384429\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n2017-09-14 01:26:28\tWeStandWithEvan\tneutral\t21\tRT @OrlandoPolice: Nice work, @OsceolaSheriff !! We think you made her day (she probably made your day, too!) https://t.co/2BeJHpTWlf\n2017-09-14 01:26:29\tbluej02\tpositivie\t19\tRT @brittneydonovan: Have you seen these incredible videos of #HurricaneIrma flooding, damage in the Jacksonville area? #Irma Watch:… \n2017-09-14 01:26:30\td33ness72\tneutral\t8\tRT @kerpen: Congrats @DougDomenech!!! https://t.co/OSfSusWmb6\n2017-09-14 01:26:30\tAdamMcGillRoss\tneutral\t11\tRT @DannyBurgessFL: HOOAH! Proud of our troops. 🇺🇸 https://t.co/3M4uZkijS2\n2017-09-14 01:26:31\tjoannew567\tneutral\t21\tRT @rightvoicenow: Watch dog saving another dog from #HurricaneIrma \nWe Haven\u0027t Confirmed This #Video Yet\n#Irma #Hurricane #StormSurge \nhtt…\n2017-09-14 01:26:30\ttrumpathon\tneutral\t18\tRecord Storm Surge Flooding in Jacksonville, Florida. #Florida #IRMA #Jacksonville https://t.co/Xh2hmH0pGv https://t.co/24Y6zOTVj5\n2017-09-14 01:26:31\tJKing57219064\tnegative\t19\tRT @LouDobbs: Making America Great Again- @Kellyannepolls: After #Irma @POTUS is focused on saving lives, not swamp shenanigans.… \n2017-09-14 01:26:32\tiamneyvgn\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:32\twis_sports_news\tneutral\t6\tRT @mikefreemanNFL: ???????? https://t.co/yaEvA87yUC\n2017-09-14 01:26:32\tannalise_23\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:33\tboytoy1814\tpositivie\t23\tRT @GeorgeHWBush: Across the U.S., Americans have answered the call to help with hurricane recovery. Praying for all Floridians. #Irma http…\n2017-09-14 01:26:33\talyyyy_xc\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:34\tWeStandWithEvan\tneutral\t22\tRT @GMA: WATCH: Kissimmee, Florida police officer dances with an elderly woman at an emergency shelter to help ease her anxi… \n2017-09-14 01:26:34\tLaurence_Zl\tneutral\t12\tL\u0027eau n\u0027est plus propre et potable ? https://t.co/LRNUmMk6TI\n2017-09-14 01:26:34\tnutmegbc\tneutral\t12\tRT @FrAquinasOP: Her chainsaw: loud. Her dogma: louder. https://t.co/dXwhGd04uo\n2017-09-14 01:26:34\tmis_libby\tneutral\t21\tRT @AynRandPaulRyan: Sister Margaret Ann, in south Florida, with her chainsaw to clear #Irma debris. 😁\n#WednesdayWisdom \nhttps://t.co/R9Q0l…\n2017-09-14 01:26:35\tTheJParrilla\tpositivie\t23\tRT @weatherchannel: Hurricanes #Harvey and #Irma could be the first back-to-back hurricanes to have their names retired in 12 years:… \n2017-09-14 01:26:35\tShawnJefe21\tneutral\t12\tLet\u0027s goooooo they definitely somebody reincarnated lol https://t.co/mqT67usDrC\n2017-09-14 01:26:35\tiPulledDaTrigga\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n2017-09-14 01:26:35\tlavishllauren\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:36\tindiahails\tpositivie\t25\tRT @Juice2Wavy: You messed up the caption. Should be \"Watch asshole stand by and record while dog struggles to save the life of ano… \n2017-09-14 01:26:36\tSkylar_J\tneutral\t8\tthis made me cry https://t.co/hTfAQRcqt4\n2017-09-14 01:26:38\tnikkicoro82\tneutral\t14\tRT @JohnMoralesNBC6: Little Palm Island, off Little Torch Key. #Irma https://t.co/006W2FU82H\n2017-09-14 01:26:38\tDaveDruda\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n2017-09-14 01:26:39\tKenz_weel10\tneutral\t14\tRT @NickKuk: This guys saving dogs!!! #hurricane #storm #miami #irma https://t.co/FreNqNXgFG\n2017-09-14 01:26:39\tgabs_amma\tneutral\t14\tRT @iHartDnB: G-R-E-N-F-E-L-L https://t.co/8Xt8dg8S5b\n2017-09-14 01:26:40\tHaileHagos11\tneutral\t22\tRT @ABC: Coast Guard evacuates 99 people, including 21 children, and 13 pets from U.S. Virgin Islands after Hurricane #Irma.… \n2017-09-14 01:26:40\tJennaLeeTV\tpositivie\t19\tRT @Virgin: Please donate to the #BVI Community Support Appeal: https://t.co/uYnBedEjOx #Irma https://t.co/2QXaPfoqK6\n2017-09-14 01:26:41\tcarhughes\tneutral\t21\tMarriott rescue ship left stranded tourists behind because they weren\u0027t guests of hotel https://t.co/VrRgHRDvwU #Fail @MarriottIntl #Irma\n2017-09-14 01:26:42\ttrishaxtrisha60\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:42\tTBRaysTwins\tpositivie\t23\tRT @weatherchannel: Hurricanes #Harvey and #Irma could be the first back-to-back hurricanes to have their names retired in 12 years:… \n2017-09-14 01:26:43\tStevenD1973\tpositivie\t24\tRT @NYPDSpecialops: While deployed to the #Irma rescue efforts in Puerto Rico the members of NY-TF1 remember the heros lost on Septembe… \n2017-09-14 01:26:43\tgls4499\tneutral\t10\t*cries* god bless this man https://t.co/A99Wf7BhZF\n2017-09-14 01:26:43\tMaryLittleton\tneutral\t6\tFlorida men https://t.co/8Wpjue7RXW\n2017-09-14 01:26:44\tCamacaroMa\tneutral\t21\tRT @VillegasPoljak: Ayuda humanitaria a Cuba tras huracán #Irma: #Venezuela la primera en llegar #VamosAlDialogoPorLaPaz https://t.co/VI0JN…\n2017-09-14 01:26:45\tpichi5377\tneutral\t19\tRT @omarjmarrero: Junto al Gobernador @ricardorossello en el @DistritoPR asegurando que los repatriados cuenten con los mejores servi… \n2017-09-14 01:26:45\t_xokatelynn\tneutral\t16\tRT @Hannasuewilson: There\u0027s a special place in heaven for this man https://t.co/AbGTdjzAHH\n2017-09-14 01:26:47\tvulcanslut\tneutral\t14\tRT @7Weather: Here is the latest forecast track on #Irma https://t.co/ezIgWfsw9k\n2017-09-14 01:26:48\tcl2995\tneutral\t18\tRT @Breaking911: Hillsborough County, Florida Sheriff investigating 2 burglaries where suspects crashed truck into store following H… \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352151355_-573415257",
+      "id": "20170914-012231_1463084058",
+      "dateCreated": "Sep 14, 2017 1:22:31 AM",
+      "dateStarted": "Sep 14, 2017 1:26:50 AM",
+      "dateFinished": "Sep 14, 2017 1:26:51 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--ploting sentiment\n\nselect  sentiment(text) as sentiment, count(1) from tweets group by sentiment(text)\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:29:16 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sentiment\tcount(1)\nneutral\t85\nnegative\t7\npositivie\t37\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352167304_-720927328",
+      "id": "20170914-012247_122513089",
+      "dateCreated": "Sep 14, 2017 1:22:47 AM",
+      "dateStarted": "Sep 14, 2017 1:29:09 AM",
+      "dateFinished": "Sep 14, 2017 1:29:09 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--show most common words for positive and negatives tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment, wordcount(text) as wordcount, text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003c\u003e \u0027neutral\u0027\ngroup by word, sentiment\n--having count(1) \u003e 1\norder by cnt desc\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:29:47 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "word\tsentiment\tcnt\nthe\tpositivie\t34\nRT\tpositivie\t30\n#Irma\tpositivie\t19\nin\tpositivie\t19\n\tpositivie\t17\nto\tpositivie\t13\nof\tpositivie\t12\nbe\tpositivie\t12\nand\tpositivie\t11\nout\tpositivie\t8\na\tpositivie\t7\nstorm\tpositivie\t6\n#Harvey\tpositivie\t6\ncould\tpositivie\t5\nretired\tpositivie\t5\nback-to-back\tpositivie\t5\ntheir\tpositivie\t5\n12\tpositivie\t5\nHurricanes\tpositivie\t5\nhurricanes\tpositivie\t5\nyears:…\tpositivie\t5\nHurricane\tpositivie\t5\n@weatherchannel:\tpositivie\t5\nnames\tpositivie\t5\nour\tpositivie\t5\nhave\tpositivie\t5\nfirst\tpositivie\t5\nscours\tpositivie\t4\nis\tnegative\t4\nland\tpositivie\t4\naround\tpositivie\t4\n@MikeTheiss:\tpositivie\t4\n#Islamorada\tpositivie\t4\nsurge\tpositivie\t4\nafter\tpositivie\t4\nup\tpositivie\t4\nhotel\tpositivie\t4\nExtreme\tpositivie\t4\nRT\tnegative\t4\nlike\tpositivie\t4\ncollapsed\tpositivie\t4\nhttps://t.co/5QU3Ybz935\tpositivie\t4\nCheck\tpositivie\t3\nmessed\tpositivie\t3\nano…\tpositivie\t3\nthat\tpositivie\t3\nYou\tpositivie\t3\ndeliver\tpositivie\t3\nstruggles\tpositivie\t3\ncan\tpositivie\t3\n@Juice2Wavy:\tpositivie\t3\npizza\tpositivie\t3\nstand\tpositivie\t3\nsave\tpositivie\t3\nasshole\tpositivie\t3\nShould\tpositivie\t3\nfor\tpositivie\t3\ndog\tpositivie\t3\ntryna\tpositivie\t3\nfrom\tpositivie\t3\nby\tpositivie\t3\nlove\tpositivie\t3\n\"Watch\tpositivie\t3\nwill\tpositivie\t3\ncaption.\tpositivie\t3\nlife\tpositivie\t3\nrecord\tpositivie\t3\nwhile\tpositivie\t3\nhe\u0027s\tpositivie\t2\nisland\tpositivie\t2\n@PaulFox13:\tpositivie\t2\nislands\tpositivie\t2\nkrusty\tpositivie\t2\none\tpositivie\t2\nsunsets.\tpositivie\t2\nscene\tpositivie\t2\nI\tpositivie\t2\nbrown:…\tpositivie\t2\nhe\tpositivie\t2\nabsolutely\tpositivie\t2\n@aoojadi:\tpositivie\t2\na\tnegative\t2\ndestruction\tpositivie\t2\nas\tpositivie\t2\nwho\tpositivie\t2\nuse\tnegative\t2\nnothing\tpositivie\t2\ndid\tpositivie\t2\n#Irma\tnegative\t2\nThanks…\tpositivie\t2\nturns\tpositivie\t2\nhttps://t.co/Ygyo61kKkR\tpositivie\t2\nspirits\tpositivie\t2\ntonight\tpositivie\t2\nlooking\tpositivie\t2\nNo\tpositivie\t2\nkrab\tpositivie\t2\nThe\tpositivie\t2\nCaribbean\tpositivie\t2\npower\tpositivie\t2\nseen\tpositivie\t2\nseveral\tpositivie\t2\n@NASA:\tpositivie\t2\nruin\tpositivie\t2\nspace\tpositivie\t2\nthis\tpositivie\t2\n#Sarasota!\tpositivie\t2\nOctober\tnegative\t1\nsuspects\tpositivie\t1\ntoday\tnegative\t1\naftermath\tpositivie\t1\nvehicle\tpositivie\t1\ndevastation\tpositivie\t1\nSprings,\tpositivie\t1\n#Jesus…\tnegative\t1\ndrone\tpositivie\t1\n@ndccOrlando\tnegative\t1\nIndian\tpositivie\t1\nshould\tpositivie\t1\nhttps://t.co/v9sZf9G8FO\tpositivie\t1\nat\tnegative\t1\nIf\tnegative\t1\nfrom\tnegative\t1\nhit\tpositivie\t1\nclimate\tpositivie\t1\nout,\tnegative\t1\nlbs\tnegative\t1\nON\tnegative\t1\nRiver\tpositivie\t1\n@RepSwalwell:\tpositivie\t1\nWe\tnegative\t1\n#RAF\tpositivie\t1\nhttps://t.co/GhNny7zeV6\tnegative\t1\nAnguilla\tpositivie\t1\nchange\tpositivie\t1\n@LeahRBoss:\tpositivie\t1\nGod\tnegative\t1\ntwo\tpositivie\t1\nhim\tpositivie\t1\nserve\tnegative\t1\nflame,\tnegative\t1\n#HurricaneIrma\tnegative\t1\nHatcher,\tpositivie\t1\nheroes\tpositivie\t1\nstate.\tpositivie\t1\nSo\tpositivie\t1\nwhere\tpositivie\t1\ntax\tpositivie\t1\nimpacts\tpositivie\t1\nor\tnegative\t1\nPolice\tpositivie\t1\nheating\tpositivie\t1\nKrab\tpositivie\t1\nWe\tpositivie\t1\nunder\tpositivie\t1\n@SFLRedCross:\tnegative\t1\nhttps://t.co/cqn45B53tL\tpositivie\t1\nset\tpositivie\t1\ngreat\tpositivie\t1\nalterna…\tnegative\t1\nVirgin\tpositivie\t1\nFlorida\tnegative\t1\n😍😍😍\tpositivie\t1\nhttps://t.co/jHBS98…\tpositivie\t1\nstore\tpositivie\t1\nnamed\tpositivie\t1\nHurricane\tnegative\t1\ndenial\tnegative\t1\nlong\tpositivie\t1\nwhich\tpositivie\t1\n@Greenpeace:\tnegative\t1\nget\tpositivie\t1\nsee\tpositivie\t1\nleast\tpositivie\t1\nhtt…\tpositivie\t1\nbar\tpositivie\t1\npeople\tpositivie\t1\nBonita\tpositivie\t1\nhanded\tnegative\t1\ninvestigating\tpositivie\t1\nU.S.\tpositivie\t1\n40,000\tnegative\t1\n🍃🍂Absolute\tpositivie\t1\nopen\tnegative\t1\nworkers\tpositivie\t1\npower\tnegative\t1\npost\tpositivie\t1\nhis\tpositivie\t1\n#Flooding\tpositivie\t1\n@PIN_VID:\tpositivie\t1\n@RoyalAirForce:\tpositivie\t1\nacross\tpositivie\t1\nlift\tpositivie\t1\ncrashed\tpositivie\t1\nFb\tpositivie\t1\nto\tnegative\t1\npage\tpositivie\t1\nflashlight.\tnegative\t1\nhelp\tpositivie\t1\nincluding\tnegative\t1\nhttps://t.co…\tpositivie\t1\nnow\tpositivie\t1\n@HumphreyBogart\tnegative\t1\nall\tpositivie\t1\nwa…\tpositivie\t1\nravaged\tnegative\t1\n@TimTebow:\tpositivie\t1\nliving\tpositivie\t1\nwiped\tpositivie\t1\nold,\tpositivie\t1\nthankful\tpositivie\t1\nN…\tpositivie\t1\nDo\tnegative\t1\nday\tpositivie\t1\nburglaries\tpositivie\t1\nproblem\tpositivie\t1\nPD\u0027s\tpositivie\t1\ninto\tpositivie\t1\nold\tpositivie\t1\nhttps://t.co/APgR7x9304\tpositivie\t1\n#Irma\u0027s\tpositivie\t1\nhttps://t.co/KNYZ7wFP7q\n#TCMParty\tnegative\t1\nbelieves\tpositivie\t1\n#Irma…\tpositivie\t1\nin\tnegative\t1\nJose,\tpositivie\t1\nas\tnegative\t1\neye\tpositivie\t1\neastern\tpositivie\t1\nafter\tnegative\t1\nowns\tpositivie\t1\nhttps://t.c…\tnegative\t1\nwas\tpositivie\t1\n@Paula_White:\tnegative\t1\nmeet\tpositivie\t1\nalong\tpositivie\t1\nForests\tpositivie\t1\nus.\tnegative\t1\n#IrmaRecovery\tnegative\t1\nrestore\tpositivie\t1\ncypress\tpositivie\t1\n18.\tnegative\t1\ndamage\tnegative\t1\nBaby\tpositivie\t1\nLooking\tpositivie\t1\n@stillglomar:\tpositivie\t1\nmessage\tnegative\t1\nHuge\tpositivie\t1\n#Tha…\tpositivie\t1\nMedics\tpositivie\t1\nexposed\tpositivie\t1\ncandles,\tnegative\t1\nhelping\tpositivie\t1\ninspect\tnegative\t1\nKey\tnegative\t1\nout\tnegative\t1\nLargo\tnegative\t1\nAmish\tpositivie\t1\n@SpongebobMemory:\tpositivie\t1\nFacebook\tpositivie\t1\nany\tnegative\t1\nan\tpositivie\t1\n@WeatherNation:\tpositivie\t1\nlost\tpositivie\t1\nno\tpositivie\t1\nnot\tnegative\t1\n#Irma:\tnegative\t1\nyour\tpositivie\t1\n@RobinMeade:\tpositivie\t1\nseriously\tpositivie\t1\n#Florida\tpositivie\t1\ngot\tpositivie\t1\nlifetime.\tpositivie\t1\nA\tnegative\t1\nFL\tpositivie\t1\nMeet\tpositivie\t1\nstill\tnegative\t1\nsome.\tpositivie\t1\nfootage\tpositivie\t1\nhard.\tpositivie\t1\n#FilmFestival\tnegative\t1\nIslands\tpositivie\t1\nmost\tpositivie\t1\n@The405Film:\tnegative\t1\nfar\tpositivie\t1\n@FLGovScott\tpositivie\t1\ngreat!\tnegative\t1\n#Gainesville\tpositivie\t1\n\u0026\tpositivie\t1\nFL.\tpositivie\t1\nlasting\tpositivie\t1\nofficers\tpositivie\t1\n🍂🍃\tpositivie\t1\nup.\tpositivie\t1\nleadership\tpositivie\t1\ncanoe\tpositivie\t1\nkilling\tnegative\t1\non\tpositivie\t1\nof\tnegative\t1\nthanks\tpositivie\t1\nhttps://t.co/XZI1Rt…\tpositivie\t1\nThe\tnegative\t1\nfood\tnegative\t1\ndugout\tpositivie\t1\nwake\tpositivie\t1\nstory:…\tpositivie\t1\nStill\tpositivie\t1\nOfficer\tpositivie\t1\n@dallasgoldtooth:\tpositivie\t1\nKrusty\tpositivie\t1\nJose\tpositivie\t1\nresident\tnegative\t1\nClimate\tnegative\t1\n#Irma.\tpositivie\t1\nUS\tpositivie\t1\nThose\tpositivie\t1\n#…\tnegative\t1\nright\tpositivie\t1\nfor\tnegative\t1\nshortage\tpositivie\t1\n#Hurricane\tnegative\t1\nFlorida!\tpositivie\t1\nso\tpositivie\t1\n@JebBush:\tpositivie\t1\n@ABC:\tpositivie\t1\nhttps://t.co/lhfnagPkte\tpositivie\t1\nthem\tpositivie\t1\nsand\tpositivie\t1\nreform.\tpositivie\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352180129_1358671126",
+      "id": "20170914-012300_912056455",
+      "dateCreated": "Sep 14, 2017 1:23:00 AM",
+      "dateStarted": "Sep 14, 2017 1:29:47 AM",
+      "dateFinished": "Sep 14, 2017 1:29:48 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\nselect minute, sentiment, count(1) as cnt from\n(\n   select substr(from_unixtime(createdAt), 0, 16) as minute, screenName, sentiment(text) as sentiment, wordcount(text) as wordcount, text  from tweets\n) sub1\ngroup by minute, sentiment\norder by minute\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:30:13 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "minute\tsentiment\tcnt\n2017-09-14 01:29\tnegative\t3\n2017-09-14 01:29\tneutral\t64\n2017-09-14 01:29\tpositivie\t26\n2017-09-14 01:30\tnegative\t1\n2017-09-14 01:30\tneutral\t11\n2017-09-14 01:30\tpositivie\t4\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352192045_-369620934",
+      "id": "20170914-012312_1115162763",
+      "dateCreated": "Sep 14, 2017 1:23:12 AM",
+      "dateStarted": "Sep 14, 2017 1:30:13 AM",
+      "dateFinished": "Sep 14, 2017 1:30:13 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nssc.stop()\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:31:34 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352203483_1212866617",
+      "id": "20170914-012323_2060953373",
+      "dateCreated": "Sep 14, 2017 1:23:23 AM",
+      "dateStarted": "Sep 14, 2017 1:31:34 AM",
+      "dateFinished": "Sep 14, 2017 1:31:35 AM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 1:31:34 AM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505352694271_-1518878825",
+      "id": "20170914-013134_140870628",
+      "dateCreated": "Sep 14, 2017 1:31:34 AM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Bayes Lecture Part 1 (User Defined Function)",
+  "id": "2CSN2RCK2",
+  "angularObjects": {
+    "2CSGNTVK6:shared_process": [],
+    "2CT1D5V2U:shared_process": [],
+    "2CUSRY4CN:shared_process": [],
+    "2CV4DKRBB:shared_process": [],
+    "2CTFT1XUW:shared_process": [],
+    "2CTGCW29G:shared_process": [],
+    "2CT9P4WCH:shared_process": [],
+    "2CT9KD4TS:shared_process": [],
+    "2CTQ21Q8M:shared_process": [],
+    "2CS247E13:shared_process": [],
+    "2CTWJKKGC:shared_process": [],
+    "2CSJ7PCCR:shared_process": [],
+    "2CS7M34WX:shared_process": [],
+    "2CTAVCMB5:shared_process": [],
+    "2CTYEYNXE:shared_process": [],
+    "2CTW97MUQ:shared_process": [],
+    "2CUX9DTK9:shared_process": [],
+    "2CTNR6NYH:shared_process": [],
+    "2CSZURSA1:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

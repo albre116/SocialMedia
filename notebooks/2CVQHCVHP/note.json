@@ -4,7 +4,7 @@
       "title": "Some of the Source Code is From this Book (its a good book for Twitter Scraping/Analysis)",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/python_social_media.jpg)\n\n\u003cbr\u003e\n\n- Marco has good topic coverage related to API integration from Twitter and Google ecosystem.\n- Chapters 1-4 are worth reading, the back end is not\n- Some other sites that have good API coverage are Pintrest and google +\n- Also covers web scraping (beautiful soup and selector gadget)\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -26,8 +26,8 @@
       "jobName": "paragraph_1505311825045_1874226274",
       "id": "20170913-141025_1786289981",
       "dateCreated": "Sep 13, 2017 2:10:25 PM",
-      "dateStarted": "Sep 13, 2017 6:45:50 PM",
-      "dateFinished": "Sep 13, 2017 6:45:50 PM",
+      "dateStarted": "Sep 14, 2017 12:33:08 AM",
+      "dateFinished": "Sep 14, 2017 12:33:08 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -36,7 +36,7 @@
       "title": "Here is the clown\u0027s page where you can find the source code for this project",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/github.jpg)\n\n- There is a build file for running this on digital ocean if you would like to set up a droplet\n- git clone https://github.com/albre116/SocialMedia.git\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:53:11 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -58,8 +58,8 @@
       "jobName": "paragraph_1505316632163_820999371",
       "id": "20170913-153032_145488954",
       "dateCreated": "Sep 13, 2017 3:30:32 PM",
-      "dateStarted": "Sep 13, 2017 6:45:56 PM",
-      "dateFinished": "Sep 13, 2017 6:45:56 PM",
+      "dateStarted": "Sep 14, 2017 12:33:10 AM",
+      "dateFinished": "Sep 14, 2017 12:33:10 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -68,7 +68,7 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -89,8 +89,8 @@
       "jobName": "paragraph_1505311639355_-994555115",
       "id": "20170913-140719_1256049814",
       "dateCreated": "Sep 13, 2017 2:07:19 PM",
-      "dateStarted": "Sep 13, 2017 6:24:25 PM",
-      "dateFinished": "Sep 13, 2017 6:24:27 PM",
+      "dateStarted": "Sep 14, 2017 12:33:20 AM",
+      "dateFinished": "Sep 14, 2017 12:33:20 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -99,7 +99,7 @@
       "title": "Verify that the twitter API keys were successfully imported on Docker-Compose Start",
       "text": "%sh printenv\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -120,8 +120,8 @@
       "jobName": "paragraph_1505311817523_573374918",
       "id": "20170913-141017_2024225710",
       "dateCreated": "Sep 13, 2017 2:10:17 PM",
-      "dateStarted": "Sep 13, 2017 6:24:31 PM",
-      "dateFinished": "Sep 13, 2017 6:24:32 PM",
+      "dateStarted": "Sep 14, 2017 12:33:28 AM",
+      "dateFinished": "Sep 14, 2017 12:33:28 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -130,7 +130,7 @@
       "title": "Lets Start by studying the worlds biggest internet troll...",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/trump2.jpg)\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -152,8 +152,8 @@
       "jobName": "paragraph_1505316049587_1738982887",
       "id": "20170913-152049_1561233656",
       "dateCreated": "Sep 13, 2017 3:20:49 PM",
-      "dateStarted": "Sep 13, 2017 6:24:39 PM",
-      "dateFinished": "Sep 13, 2017 6:24:39 PM",
+      "dateStarted": "Sep 14, 2017 12:33:30 AM",
+      "dateFinished": "Sep 14, 2017 12:33:30 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -162,7 +162,7 @@
       "title": "Lets do Some Basic Twitter Stuff:  First Get  User Profile",
       "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"realDonaldTrump\")\nprint(json.dumps(profile._json, indent \u003d4))\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -183,17 +183,17 @@
       "jobName": "paragraph_1505314649480_1521240201",
       "id": "20170913-145729_692620537",
       "dateCreated": "Sep 13, 2017 2:57:29 PM",
-      "dateStarted": "Sep 13, 2017 6:25:54 PM",
-      "dateFinished": "Sep 13, 2017 6:25:54 PM",
+      "dateStarted": "Sep 14, 2017 12:33:33 AM",
+      "dateFinished": "Sep 14, 2017 12:33:34 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Ok, maybe too big of a troll... Lets get a lesser troll so we can pull followers and friends in less than a fortnight",
-      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/lessertroll.jpg)\n",
+      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/troll.jpg)\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -215,17 +215,17 @@
       "jobName": "paragraph_1505316515253_-1746750203",
       "id": "20170913-152835_979853565",
       "dateCreated": "Sep 13, 2017 3:28:35 PM",
-      "dateStarted": "Sep 13, 2017 6:46:10 PM",
-      "dateFinished": "Sep 13, 2017 6:46:10 PM",
+      "dateStarted": "Sep 14, 2017 12:33:37 AM",
+      "dateFinished": "Sep 14, 2017 12:33:37 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Here is the user profile.",
-      "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"the7r0LL\")\nprint(json.dumps(profile._json, indent \u003d4))\n",
+      "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"skibo43\")\nprint(json.dumps(profile._json, indent \u003d4))\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -246,17 +246,17 @@
       "jobName": "paragraph_1505315284693_1396856272",
       "id": "20170913-150804_2074214843",
       "dateCreated": "Sep 13, 2017 3:08:04 PM",
-      "dateStarted": "Sep 13, 2017 6:26:20 PM",
-      "dateFinished": "Sep 13, 2017 6:26:20 PM",
+      "dateStarted": "Sep 14, 2017 12:33:41 AM",
+      "dateFinished": "Sep 14, 2017 12:33:41 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Ok, lets go find some trolls...  Lets get the followers and friends of this stellar individual",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py the7r0LL",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py skibo43",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -277,17 +277,17 @@
       "jobName": "paragraph_1505315311953_-1546072741",
       "id": "20170913-150831_1529988440",
       "dateCreated": "Sep 13, 2017 3:08:31 PM",
-      "dateStarted": "Sep 13, 2017 6:29:55 PM",
-      "dateFinished": "Sep 13, 2017 6:30:01 PM",
+      "dateStarted": "Sep 14, 2017 12:33:44 AM",
+      "dateFinished": "Sep 14, 2017 12:33:51 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Is this troll powerful?  not really",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_followers_stats.py the7r0LL\n",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_followers_stats.py skibo43\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -308,17 +308,17 @@
       "jobName": "paragraph_1505315502320_667881344",
       "id": "20170913-151142_2128447985",
       "dateCreated": "Sep 13, 2017 3:11:42 PM",
-      "dateStarted": "Sep 13, 2017 6:27:06 PM",
-      "dateFinished": "Sep 13, 2017 6:27:06 PM",
-      "status": "ERROR",
+      "dateStarted": "Sep 14, 2017 12:33:53 AM",
+      "dateFinished": "Sep 14, 2017 12:33:53 AM",
+      "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Lets See Why the Error and the Structure of Things...  Oh, I guess he doesn\u0027t have even 5 mutual friends... not very surprising right...",
+      "title": "What did that code do?",
       "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_followers_stats.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -339,17 +339,17 @@
       "jobName": "paragraph_1505315309533_626619622",
       "id": "20170913-150829_1824121962",
       "dateCreated": "Sep 13, 2017 3:08:29 PM",
-      "dateStarted": "Sep 13, 2017 6:27:13 PM",
-      "dateFinished": "Sep 13, 2017 6:27:13 PM",
+      "dateStarted": "Sep 14, 2017 12:33:57 AM",
+      "dateFinished": "Sep 14, 2017 12:33:57 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Ok, lets pivot here and compare the influence of the troll vs my page",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py the7r0LL \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py MarkA2663\n",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py skibo43 \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user.py MarkA2663\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -370,8 +370,8 @@
       "jobName": "paragraph_1505315306560_1895506170",
       "id": "20170913-150826_1532811302",
       "dateCreated": "Sep 13, 2017 3:08:26 PM",
-      "dateStarted": "Sep 13, 2017 6:31:06 PM",
-      "dateFinished": "Sep 13, 2017 6:31:12 PM",
+      "dateStarted": "Sep 14, 2017 12:34:02 AM",
+      "dateFinished": "Sep 14, 2017 12:34:10 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -379,7 +379,7 @@
     {
       "text": "%sh dir /notebook/users/MarkA2663/\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -399,17 +399,17 @@
       "jobName": "paragraph_1505322474814_-658129011",
       "id": "20170913-170754_1611375353",
       "dateCreated": "Sep 13, 2017 5:07:54 PM",
-      "dateStarted": "Sep 13, 2017 6:27:41 PM",
-      "dateFinished": "Sep 13, 2017 6:27:41 PM",
+      "dateStarted": "Sep 14, 2017 12:34:11 AM",
+      "dateFinished": "Sep 14, 2017 12:34:11 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Look at my followers",
+      "title": "Look at my followers \u0026 friends",
       "text": "%sh cat /notebook/users/MarkA2663/followers.jsonl \u0026\u0026\ncat /notebook/users/MarkA2663/friends.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:27 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -430,17 +430,17 @@
       "jobName": "paragraph_1505322325070_-1773899177",
       "id": "20170913-170525_1925302083",
       "dateCreated": "Sep 13, 2017 5:05:25 PM",
-      "dateStarted": "Sep 13, 2017 6:27:45 PM",
-      "dateFinished": "Sep 13, 2017 6:27:45 PM",
+      "dateStarted": "Sep 14, 2017 12:34:14 AM",
+      "dateFinished": "Sep 14, 2017 12:34:14 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "We need to get user timelines to compare influence",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py the7r0LL \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py MarkA2663",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py skibo43 \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py MarkA2663",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -461,17 +461,17 @@
       "jobName": "paragraph_1505327321482_-85726701",
       "id": "20170913-182841_1008683522",
       "dateCreated": "Sep 13, 2017 6:28:41 PM",
-      "dateStarted": "Sep 13, 2017 6:32:11 PM",
-      "dateFinished": "Sep 13, 2017 6:32:12 PM",
+      "dateStarted": "Sep 14, 2017 12:34:18 AM",
+      "dateFinished": "Sep 14, 2017 12:34:23 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Compute Basic Network Influence... the troll wins... what does this say about me???",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_influence.py the7r0LL MarkA2663",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_influence.py skibo43 MarkA2663",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -492,8 +492,8 @@
       "jobName": "paragraph_1505317665071_897622933",
       "id": "20170913-154745_1561635174",
       "dateCreated": "Sep 13, 2017 3:47:45 PM",
-      "dateStarted": "Sep 13, 2017 6:32:16 PM",
-      "dateFinished": "Sep 13, 2017 6:32:16 PM",
+      "dateStarted": "Sep 14, 2017 12:34:24 AM",
+      "dateFinished": "Sep 14, 2017 12:34:25 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -502,7 +502,7 @@
       "title": "All the influence did was find the nearest neighbors in a directed graph...",
       "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_influence.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:50 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -523,17 +523,17 @@
       "jobName": "paragraph_1505317661865_-1120769797",
       "id": "20170913-154741_1271256831",
       "dateCreated": "Sep 13, 2017 3:47:41 PM",
-      "dateStarted": "Sep 13, 2017 6:32:23 PM",
-      "dateFinished": "Sep 13, 2017 6:32:23 PM",
+      "dateStarted": "Sep 14, 2017 12:34:29 AM",
+      "dateFinished": "Sep 14, 2017 12:34:29 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Lets look at the followers and get ready to do some clustering in Higher Dimensions on the statement",
-      "text": "%sh cat /notebook/users/the7r0LL/followers.jsonl\n",
+      "title": "Lets look at the followers and get ready to do some clustering in Higher Dimensions on the personal statement of his followers",
+      "text": "%sh cat /notebook/users/skibo43/followers.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -554,17 +554,17 @@
       "jobName": "paragraph_1505323112846_1944247964",
       "id": "20170913-171832_519086404",
       "dateCreated": "Sep 13, 2017 5:18:32 PM",
-      "dateStarted": "Sep 13, 2017 6:33:56 PM",
-      "dateFinished": "Sep 13, 2017 6:33:56 PM",
+      "dateStarted": "Sep 14, 2017 12:34:34 AM",
+      "dateFinished": "Sep 14, 2017 12:34:34 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "K-means clustering by TF-IDF (this is a naughty troll with mean friends...)",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_cluster_users.py \\\n--filename users/the7r0LL/followers.jsonl \\\n--k 5 \\\n--max-features 100 \\\n--max-ngram 2\n",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_cluster_users.py \\\n--filename users/skibo43/followers.jsonl \\\n--k 5 \\\n--max-features 100 \\\n--max-ngram 2\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -585,8 +585,8 @@
       "jobName": "paragraph_1505317657965_-664857674",
       "id": "20170913-154737_1141152267",
       "dateCreated": "Sep 13, 2017 3:47:37 PM",
-      "dateStarted": "Sep 13, 2017 6:34:01 PM",
-      "dateFinished": "Sep 13, 2017 6:34:02 PM",
+      "dateStarted": "Sep 14, 2017 12:34:38 AM",
+      "dateFinished": "Sep 14, 2017 12:34:39 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -594,7 +594,7 @@
     {
       "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_cluster_users.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -614,8 +614,8 @@
       "jobName": "paragraph_1505322971048_-267504897",
       "id": "20170913-171611_1987970077",
       "dateCreated": "Sep 13, 2017 5:16:11 PM",
-      "dateStarted": "Sep 13, 2017 6:34:22 PM",
-      "dateFinished": "Sep 13, 2017 6:34:22 PM",
+      "dateStarted": "Sep 14, 2017 12:34:46 AM",
+      "dateFinished": "Sep 14, 2017 12:34:46 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -624,7 +624,7 @@
       "title": "So, How did that work???",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/tfidf.jpg)\n\n- #### The workhorse is the TfidfVectorizer (http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)\n\n![](http://lin1pr1ap6:8765/random_images/kmall.png) \n\n- #### Simple K-Means to form groupings of like feature vectors http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\n \n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -636,7 +636,7 @@
         "editorMode": "ace/mode/markdown",
         "title": true,
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -646,8 +646,8 @@
       "jobName": "paragraph_1505327852879_-56134973",
       "id": "20170913-183732_959558618",
       "dateCreated": "Sep 13, 2017 6:37:32 PM",
-      "dateStarted": "Sep 13, 2017 6:49:57 PM",
-      "dateFinished": "Sep 13, 2017 6:49:57 PM",
+      "dateStarted": "Sep 14, 2017 12:34:51 AM",
+      "dateFinished": "Sep 14, 2017 12:34:51 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -656,7 +656,7 @@
       "title": "Ok, so we would like to select a hashtag to follow and stream, we can look at the user timeline to find one (lets go back to the biggest troll though...)",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py realDonaldTrump\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -677,8 +677,8 @@
       "jobName": "paragraph_1505324946929_-907690961",
       "id": "20170913-174906_624769392",
       "dateCreated": "Sep 13, 2017 5:49:06 PM",
-      "dateStarted": "Sep 13, 2017 6:10:22 PM",
-      "dateFinished": "Sep 13, 2017 6:10:29 PM",
+      "dateStarted": "Sep 14, 2017 12:34:57 AM",
+      "dateFinished": "Sep 14, 2017 12:35:03 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -687,7 +687,7 @@
       "title": "Do a hashtag frequency ",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -708,8 +708,8 @@
       "jobName": "paragraph_1505325048136_2059628829",
       "id": "20170913-175048_45716461",
       "dateCreated": "Sep 13, 2017 5:50:48 PM",
-      "dateStarted": "Sep 13, 2017 6:10:47 PM",
-      "dateFinished": "Sep 13, 2017 6:10:47 PM",
+      "dateStarted": "Sep 14, 2017 12:35:04 AM",
+      "dateFinished": "Sep 14, 2017 12:35:04 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -718,7 +718,7 @@
       "title": "Hashtag Summary Info",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_stats.py user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -739,8 +739,8 @@
       "jobName": "paragraph_1505325198469_-688416381",
       "id": "20170913-175318_702298758",
       "dateCreated": "Sep 13, 2017 5:53:18 PM",
-      "dateStarted": "Sep 13, 2017 6:10:59 PM",
-      "dateFinished": "Sep 13, 2017 6:10:59 PM",
+      "dateStarted": "Sep 14, 2017 12:35:10 AM",
+      "dateFinished": "Sep 14, 2017 12:35:10 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -749,7 +749,7 @@
       "title": "Hashtag mention",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_mention_frequency.py user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -770,8 +770,8 @@
       "jobName": "paragraph_1505325196473_-1484077107",
       "id": "20170913-175316_82579509",
       "dateCreated": "Sep 13, 2017 5:53:16 PM",
-      "dateStarted": "Sep 13, 2017 6:11:08 PM",
-      "dateFinished": "Sep 13, 2017 6:11:09 PM",
+      "dateStarted": "Sep 14, 2017 12:35:14 AM",
+      "dateFinished": "Sep 14, 2017 12:35:15 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -780,7 +780,7 @@
       "title": "Get the nltk stop words data set to remove \"the\" etc from data",
       "text": "%sh python -m nltk.downloader stopwords\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -801,8 +801,8 @@
       "jobName": "paragraph_1505326522182_72501451",
       "id": "20170913-181522_165905398",
       "dateCreated": "Sep 13, 2017 6:15:22 PM",
-      "dateStarted": "Sep 13, 2017 6:16:33 PM",
-      "dateFinished": "Sep 13, 2017 6:16:34 PM",
+      "dateStarted": "Sep 14, 2017 12:35:20 AM",
+      "dateFinished": "Sep 14, 2017 12:35:21 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -811,7 +811,7 @@
       "title": "Ok, lets check out the depth of vocabulary in terms of stemmed token counts",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_term_frequency.py user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -832,17 +832,17 @@
       "jobName": "paragraph_1505326452192_-713833355",
       "id": "20170913-181412_2043291250",
       "dateCreated": "Sep 13, 2017 6:14:12 PM",
-      "dateStarted": "Sep 13, 2017 6:16:37 PM",
-      "dateFinished": "Sep 13, 2017 6:16:38 PM",
+      "dateStarted": "Sep 14, 2017 12:35:31 AM",
+      "dateFinished": "Sep 14, 2017 12:35:32 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
-      "title": "Here is the raw data for reference this is based off",
+      "title": "Here is the raw data these counts are based off",
       "text": "%sh cat /notebook/user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -863,8 +863,8 @@
       "jobName": "paragraph_1505326687085_1726196552",
       "id": "20170913-181807_362259646",
       "dateCreated": "Sep 13, 2017 6:18:07 PM",
-      "dateStarted": "Sep 13, 2017 6:19:03 PM",
-      "dateFinished": "Sep 13, 2017 6:19:03 PM",
+      "dateStarted": "Sep 14, 2017 12:35:45 AM",
+      "dateFinished": "Sep 14, 2017 12:35:45 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -873,7 +873,7 @@
       "title": "Now lets start working with the twitter stream on a selected topic (Irma looks like a good one)",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#Irma\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -894,8 +894,8 @@
       "jobName": "paragraph_1505323525863_-1287858457",
       "id": "20170913-172525_88182351",
       "dateCreated": "Sep 13, 2017 5:25:25 PM",
-      "dateStarted": "Sep 13, 2017 6:11:54 PM",
-      "dateFinished": "Sep 13, 2017 6:19:45 PM",
+      "dateStarted": "Sep 14, 2017 12:35:50 AM",
+      "dateFinished": "Sep 14, 2017 12:47:12 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
@@ -904,7 +904,7 @@
       "title": "Identify the running stream process",
       "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -925,17 +925,17 @@
       "jobName": "paragraph_1505324592130_1684455968",
       "id": "20170913-174312_1496337806",
       "dateCreated": "Sep 13, 2017 5:43:12 PM",
-      "dateStarted": "Sep 13, 2017 6:19:35 PM",
-      "dateFinished": "Sep 13, 2017 6:19:35 PM",
+      "dateStarted": "Sep 14, 2017 12:46:59 AM",
+      "dateFinished": "Sep 14, 2017 12:46:59 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Kill the running stream process",
-      "text": "%sh kill 3578\n",
+      "text": "%sh kill 1866\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -956,17 +956,17 @@
       "jobName": "paragraph_1505324595558_-580576131",
       "id": "20170913-174315_17334022",
       "dateCreated": "Sep 13, 2017 5:43:15 PM",
-      "dateStarted": "Sep 13, 2017 6:19:45 PM",
-      "dateFinished": "Sep 13, 2017 6:19:45 PM",
+      "dateStarted": "Sep 14, 2017 12:47:12 AM",
+      "dateFinished": "Sep 14, 2017 12:47:12 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Basic Tweet Summary Stats for JsonL tweet file",
-      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_PacktPub.jsonl\n",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__Irma.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 13, 2017 6:52:51 PM",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -987,33 +987,364 @@
       "jobName": "paragraph_1505324693998_-812240941",
       "id": "20170913-174453_157023897",
       "dateCreated": "Sep 13, 2017 5:44:53 PM",
+      "dateStarted": "Sep 14, 2017 12:36:09 AM",
+      "dateFinished": "Sep 14, 2017 12:36:09 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_conversation.py stream__Irma.jsonl",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334379634_542882885",
+      "id": "20170913-202619_1541673257",
+      "dateCreated": "Sep 13, 2017 8:26:19 PM",
+      "dateStarted": "Sep 14, 2017 12:36:17 AM",
+      "dateFinished": "Sep 14, 2017 12:36:18 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_conversation.py\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334419834_1487269580",
+      "id": "20170913-202659_581374120",
+      "dateCreated": "Sep 13, 2017 8:26:59 PM",
+      "dateStarted": "Sep 14, 2017 12:36:25 AM",
+      "dateFinished": "Sep 14, 2017 12:36:25 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_make_geojson.py --tweets stream__Irma.jsonl --geojson stream__Irma.geo.json\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334462058_1102398086",
+      "id": "20170913-202742_1589654682",
+      "dateCreated": "Sep 13, 2017 8:27:42 PM",
+      "dateStarted": "Sep 14, 2017 12:36:31 AM",
+      "dateFinished": "Sep 14, 2017 12:36:32 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "lets check the geostream... hum.. nothing",
+      "text": "%sh cd /notebook \u0026\u0026\ncat stream__Irma.geo.json\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334660370_134626552",
+      "id": "20170913-203100_1306127426",
+      "dateCreated": "Sep 13, 2017 8:31:00 PM",
+      "dateStarted": "Sep 14, 2017 12:36:34 AM",
+      "dateFinished": "Sep 14, 2017 12:36:34 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "It is using \"coordinates\" where \"place\" would be better",
+      "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_make_geojson.py\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505335480008_-1799926500",
+      "id": "20170913-204440_32451466",
+      "dateCreated": "Sep 13, 2017 8:44:40 PM",
+      "dateStarted": "Sep 14, 2017 12:36:38 AM",
+      "dateFinished": "Sep 14, 2017 12:36:39 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "https://twittercommunity.com/t/twitter-search-api-always-return-geo-null/66166/7 no coordinates anymore, just place",
+      "text": "%sh tail /notebook/stream__Irma.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334790433_-600812486",
+      "id": "20170913-203310_1824250413",
+      "dateCreated": "Sep 13, 2017 8:33:10 PM",
+      "dateStarted": "Sep 14, 2017 12:36:45 AM",
+      "dateFinished": "Sep 14, 2017 12:36:45 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Lets fix that up and use place instead",
+      "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_make_geojson_place_based.py\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505334675932_-1460911813",
+      "id": "20170913-203115_1819474203",
+      "dateCreated": "Sep 13, 2017 8:31:15 PM",
+      "dateStarted": "Sep 14, 2017 12:36:52 AM",
+      "dateFinished": "Sep 14, 2017 12:36:52 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Ok, here we run the stream with the fix in place",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_make_geojson_place_based.py --tweets stream__Irma.jsonl --geojson stream__Irma.pkl\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505335701452_61643565",
+      "id": "20170913-204821_424564217",
+      "dateCreated": "Sep 13, 2017 8:48:21 PM",
+      "dateStarted": "Sep 14, 2017 12:42:39 AM",
+      "dateFinished": "Sep 14, 2017 12:42:40 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "That looks much better it will be the corner of the box but so what...",
+      "text": "%sh cd /notebook \u0026\u0026\ncat stream__Irma.pkl\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505335846646_-680245609",
+      "id": "20170913-205046_2135150552",
+      "dateCreated": "Sep 13, 2017 8:50:46 PM",
+      "dateStarted": "Sep 14, 2017 12:42:43 AM",
+      "dateFinished": "Sep 14, 2017 12:42:43 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n\nimport folium\n\nmap_width\u003d1800\nmap_height\u003d600\n\n\nmap_sf \u003d folium.Map([35, -90],\n                  zoom_start\u003d4,\n                  tiles\u003d\u0027cartodbpositron\u0027)\n                  \n\nimport pickle\nimport re\n\n# read python dict back from the file\npkl_file \u003d open(\u0027/notebook/stream__Irma.pkl\u0027, \u0027rb\u0027)\ngeoItems \u003d pickle.load(pkl_file)\npkl_file.close()\n\nfor k in geoItems[\u0027features\u0027]:\n    folium.Marker(location \u003d [k[\u0027geometry\u0027][\u0027coordinates\u0027][1],k[\u0027geometry\u0027][\u0027coordinates\u0027][0]],popup \u003d re.sub(r\u0027\\W+\u0027, \u0027 \u0027, k[\u0027properties\u0027][\u0027text\u0027])).add_to(map_sf)\n\n\n\n\nprint \"%angular \" + \"\u003cdiv style\u003d\u0027width:1050px;height:1050px\u0027\u003e\" + map_sf._repr_html_() + \"\u003c/div\u003e\"\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505335863313_-1321991450",
+      "id": "20170913-205103_354304512",
+      "dateCreated": "Sep 13, 2017 8:51:03 PM",
+      "dateStarted": "Sep 14, 2017 12:42:57 AM",
+      "dateFinished": "Sep 14, 2017 12:42:58 AM",
+      "status": "FINISHED",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "Sep 14, 2017 12:59:28 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1505350741656_651604983",
+      "id": "20170914-005901_1567801857",
+      "dateCreated": "Sep 14, 2017 12:59:01 AM",
       "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "Bayes Lecture Twitter (Part 1 Working with Twitter Client)",
+  "name": "Bayes Lecture Twitter (Part 1 Python Twitter Client)",
   "id": "2CVQHCVHP",
   "angularObjects": {
-    "2CTAXKPJT:shared_process": [],
-    "2CV1HPW27:shared_process": [],
-    "2CUN7A29Z:shared_process": [],
-    "2CTVBDU1J:shared_process": [],
-    "2CS8DUQGX:shared_process": [],
-    "2CUQ9E88C:shared_process": [],
-    "2CUQRN7BY:shared_process": [],
-    "2CS9EA2T6:shared_process": [],
-    "2CTUMG788:shared_process": [],
-    "2CS8CVR9F:shared_process": [],
-    "2CTXNWRVT:shared_process": [],
-    "2CSK64ZDK:shared_process": [],
-    "2CS7ZCATP:shared_process": [],
-    "2CUWUM5NX:shared_process": [],
-    "2CS21132D:shared_process": [],
-    "2CSPG37RR:shared_process": [],
-    "2CUNGQERQ:shared_process": [],
-    "2CU95D4V2:shared_process": [],
-    "2CT2Z79Z1:shared_process": []
+    "2CSGNTVK6:shared_process": [],
+    "2CT1D5V2U:shared_process": [],
+    "2CUSRY4CN:shared_process": [],
+    "2CV4DKRBB:shared_process": [],
+    "2CTFT1XUW:shared_process": [],
+    "2CTGCW29G:shared_process": [],
+    "2CT9P4WCH:shared_process": [],
+    "2CT9KD4TS:shared_process": [],
+    "2CTQ21Q8M:shared_process": [],
+    "2CS247E13:shared_process": [],
+    "2CTWJKKGC:shared_process": [],
+    "2CSJ7PCCR:shared_process": [],
+    "2CS7M34WX:shared_process": [],
+    "2CTAVCMB5:shared_process": [],
+    "2CTYEYNXE:shared_process": [],
+    "2CTW97MUQ:shared_process": [],
+    "2CUX9DTK9:shared_process": [],
+    "2CTNR6NYH:shared_process": [],
+    "2CSZURSA1:shared_process": []
   },
   "config": {},
   "info": {}

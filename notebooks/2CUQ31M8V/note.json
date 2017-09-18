@@ -3,16 +3,16 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:18:29 PM",
+      "dateUpdated": "Sep 14, 2017 4:36:50 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "scala",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -23,7 +23,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@6eb0bae7\n"
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@738f5361\n"
           }
         ]
       },
@@ -31,8 +31,8 @@
       "jobName": "paragraph_1505350377753_-1050031012",
       "id": "20170914-005257_756679878",
       "dateCreated": "Sep 14, 2017 12:52:57 AM",
-      "dateStarted": "Sep 14, 2017 3:18:29 PM",
-      "dateFinished": "Sep 14, 2017 3:18:46 PM",
+      "dateStarted": "Sep 14, 2017 4:36:50 PM",
+      "dateFinished": "Sep 14, 2017 4:36:54 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -40,16 +40,16 @@
       "title": "Get the scala packages required and env variables",
       "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:20:57 PM",
+      "dateUpdated": "Sep 14, 2017 4:36:56 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "scala",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/scala",
         "title": true
       },
       "settings": {
@@ -69,15 +69,15 @@
       "jobName": "paragraph_1505350418061_554757174",
       "id": "20170914-005338_393750063",
       "dateCreated": "Sep 14, 2017 12:53:38 AM",
-      "dateStarted": "Sep 14, 2017 3:20:57 PM",
-      "dateFinished": "Sep 14, 2017 3:21:06 PM",
+      "dateStarted": "Sep 14, 2017 4:36:56 PM",
+      "dateFinished": "Sep 14, 2017 4:37:03 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:21:09 PM",
+      "dateUpdated": "Sep 14, 2017 4:34:14 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -107,25 +107,25 @@
       "jobName": "paragraph_1505350460295_141044837",
       "id": "20170914-005420_1902955168",
       "dateCreated": "Sep 14, 2017 12:54:20 AM",
-      "dateStarted": "Sep 14, 2017 3:21:09 PM",
-      "dateFinished": "Sep 14, 2017 3:21:10 PM",
+      "dateStarted": "Sep 14, 2017 4:34:14 PM",
+      "dateFinished": "Sep 14, 2017 4:34:14 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "https://github.com/biancini/SparkTwitterAnalyzer/blob/master/src/main/scala/it/reti/spark/sentiment/TweetStreamingApp.scala",
-      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\n//val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\ntweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getGeoLocation !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getGeoLocation().getLatitude(), t.getGeoLocation().getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:23:42 PM",
+      "dateUpdated": "Sep 14, 2017 4:38:24 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "scala",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/scala",
         "title": true,
         "editorHide": false,
         "tableHide": false
@@ -139,7 +139,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@312015e4\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@36d7ae1\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@4d2d41f7\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@42819446\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@787e9774\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@4074f7ad\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
@@ -147,15 +147,15 @@
       "jobName": "paragraph_1505350467397_2036317919",
       "id": "20170914-005427_2046324729",
       "dateCreated": "Sep 14, 2017 12:54:27 AM",
-      "dateStarted": "Sep 14, 2017 3:21:22 PM",
-      "dateFinished": "Sep 14, 2017 3:21:24 PM",
+      "dateStarted": "Sep 14, 2017 4:37:30 PM",
+      "dateFinished": "Sep 14, 2017 4:37:32 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n-- checking window contents\n\nselect * from tweets\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:23:26 PM",
+      "dateUpdated": "Sep 14, 2017 4:35:13 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -184,7 +184,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "user\ttweet\tlat\tlon\nтворибардак\tI\u0027m at KFC in Chelyabinsk https://t.co/5FnquIhC3q\t55.15734844\t61.39580761\nMaxxiJ\tI\u0027m at ยอดแซ่บจุ่ม@หลัง มช. in Chiangmai https://t.co/0UwpGPYlJL\t18.79219855\t98.9570235\npaty\tAcabou de publicar uma foto em Hotel Presidente https://t.co/BoA0bwbiW5\t-1.45055\t-48.49649\n"
+            "data": "user\ttweet\tlat\tlon\nThailand Mike\t🗣 #captainwierdo here , #aka ThailandMike!   What can I say....booking this winter: thailand 🇹🇭… https://t.co/AfGMPiXXK9\t40.70891\t-73.9245399\n"
           }
         ]
       },
@@ -192,24 +192,24 @@
       "jobName": "paragraph_1505350483405_270720541",
       "id": "20170914-005443_1213347979",
       "dateCreated": "Sep 14, 2017 12:54:43 AM",
-      "dateStarted": "Sep 14, 2017 3:22:54 PM",
-      "dateFinished": "Sep 14, 2017 3:22:55 PM",
+      "dateStarted": "Sep 14, 2017 4:35:13 PM",
+      "dateFinished": "Sep 14, 2017 4:35:13 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:23:03 PM",
+      "dateUpdated": "Sep 14, 2017 4:38:07 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "scala",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text"
+        "editorMode": "ace/mode/scala"
       },
       "settings": {
         "params": {},
@@ -223,8 +223,8 @@
       "jobName": "paragraph_1505350498990_-1626076213",
       "id": "20170914-005458_662638385",
       "dateCreated": "Sep 14, 2017 12:54:58 AM",
-      "dateStarted": "Sep 14, 2017 3:23:03 PM",
-      "dateFinished": "Sep 14, 2017 3:23:03 PM",
+      "dateStarted": "Sep 14, 2017 4:38:07 PM",
+      "dateFinished": "Sep 14, 2017 4:38:07 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -248,56 +248,31 @@
   "name": "Bayes Lecture Twitter Map (Part 1.2 Spark Twitter Client GeoLoc)",
   "id": "2CUQ31M8V",
   "angularObjects": {
-    "2CV12RFZ1:shared_process": [],
-    "2CTXX2WRF:shared_process": [],
-    "2CSDNZU3C:shared_process": [],
-    "2CVPN7EVE:shared_process": [],
-    "2CUBUX6MY:shared_process": [],
-    "2CSWG2EGM:shared_process": [],
-    "2CTNS34A8:shared_process": [],
-    "2CU4B4AM4:shared_process": [],
-    "2CSBJQYED:shared_process": [],
-    "2CS6KN44W:shared_process": [],
-    "2CUHKQN66:shared_process": [],
-    "2CUMAZ7ZB:shared_process": [],
-    "2CSF9MAXX:shared_process": [
+    "2CTVVVTV3:shared_process": [],
+    "2CTRT8FA3:shared_process": [],
+    "2CVAURWQU:shared_process": [],
+    "2CUQ18ZYF:shared_process": [],
+    "2CVBQ7MEQ:shared_process": [],
+    "2CV1KAATZ:shared_process": [],
+    "2CU6JXGC3:shared_process": [],
+    "2CS2Y94EQ:shared_process": [],
+    "2CS1V8HFJ:shared_process": [],
+    "2CV71473K:shared_process": [],
+    "2CVCE1ANQ:shared_process": [
       {
         "name": "data",
-        "object": [
-          {
-            "user": "творибардак",
-            "tweet": "I\u0027m at KFC in Chelyabinsk https://t.co/5FnquIhC3q",
-            "lat": 55.15734844,
-            "lon": 61.39580761
-          },
-          {
-            "user": "MaxxiJ",
-            "tweet": "I\u0027m at ยอดแซ่บจุ่ม@หลัง มช. in Chiangmai https://t.co/0UwpGPYlJL",
-            "lat": 18.79219855,
-            "lon": 98.9570235
-          },
-          {
-            "user": "paty",
-            "tweet": "Acabou de publicar uma foto em Hotel Presidente https://t.co/BoA0bwbiW5",
-            "lat": -1.45055,
-            "lon": -48.49649
-          },
-          {
-            "user": "Thai Assed",
-            "tweet": "Mlhr hr (@ Sabor da Cidade) https://t.co/NNf9x05A5F",
-            "lat": -22.75413044,
-            "lon": -43.43322904
-          }
-        ],
+        "object": [],
         "noteId": "2CUQ31M8V"
       }
     ],
-    "2CTNW73XW:shared_process": [],
-    "2CSTEZX6R:shared_process": [],
-    "2CUJNHGW7:shared_process": [],
-    "2CU5DKK96:shared_process": [],
-    "2CTTZV3CP:shared_process": [],
-    "2CVBW8WFR:shared_process": []
+    "2CT9VNU2V:shared_process": [],
+    "2CUA39CTW:shared_process": [],
+    "2CVENK4UN:shared_process": [],
+    "2CTRSKG8X:shared_process": [],
+    "2CT49XVEY:shared_process": [],
+    "2CUM9FYYM:shared_process": [],
+    "2CUSNPA9P:shared_process": [],
+    "2CU76UQWX:shared_process": []
   },
   "config": {},
   "info": {}

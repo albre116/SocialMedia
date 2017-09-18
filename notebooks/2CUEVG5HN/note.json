@@ -3,7 +3,7 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:24:11 PM",
+      "dateUpdated": "Sep 14, 2017 4:41:22 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -23,7 +23,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@5858ccf5\n"
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@87857b8\n"
           }
         ]
       },
@@ -31,15 +31,15 @@
       "jobName": "paragraph_1505396413619_-1309561807",
       "id": "20170914-134013_1388942810",
       "dateCreated": "Sep 14, 2017 1:40:13 PM",
-      "dateStarted": "Sep 14, 2017 3:24:11 PM",
-      "dateFinished": "Sep 14, 2017 3:24:15 PM",
+      "dateStarted": "Sep 14, 2017 4:41:22 PM",
+      "dateFinished": "Sep 14, 2017 4:41:26 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:24:15 PM",
+      "dateUpdated": "Sep 14, 2017 4:41:31 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -67,15 +67,15 @@
       "jobName": "paragraph_1505396456121_1092102124",
       "id": "20170914-134056_1684202951",
       "dateCreated": "Sep 14, 2017 1:40:56 PM",
-      "dateStarted": "Sep 14, 2017 3:24:15 PM",
-      "dateFinished": "Sep 14, 2017 3:24:23 PM",
+      "dateStarted": "Sep 14, 2017 4:41:31 PM",
+      "dateFinished": "Sep 14, 2017 4:41:38 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:24:25 PM",
+      "dateUpdated": "Sep 14, 2017 4:41:40 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -105,15 +105,15 @@
       "jobName": "paragraph_1505396569055_2009667478",
       "id": "20170914-134249_1248757363",
       "dateCreated": "Sep 14, 2017 1:42:49 PM",
-      "dateStarted": "Sep 14, 2017 3:24:25 PM",
-      "dateFinished": "Sep 14, 2017 3:24:25 PM",
+      "dateStarted": "Sep 14, 2017 4:41:40 PM",
+      "dateFinished": "Sep 14, 2017 4:41:40 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\n// val tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#Irma\"))\nval tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getPlace !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getPlace().getBoundingBoxCoordinates().head.head.getLatitude(), t.getPlace().getBoundingBoxCoordinates().head.head.getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:24:38 PM",
+      "dateUpdated": "Sep 14, 2017 4:42:09 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -135,7 +135,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@2eb0b0e4\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@6ebb2d30\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@8c32331\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@29dcf0e6\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@40b73060\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@21a316a3\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
@@ -143,8 +143,8 @@
       "jobName": "paragraph_1505396582764_-658166071",
       "id": "20170914-134302_2079537237",
       "dateCreated": "Sep 14, 2017 1:43:02 PM",
-      "dateStarted": "Sep 14, 2017 3:24:38 PM",
-      "dateFinished": "Sep 14, 2017 3:24:40 PM",
+      "dateStarted": "Sep 14, 2017 4:42:09 PM",
+      "dateFinished": "Sep 14, 2017 4:42:11 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -209,7 +209,7 @@
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Sep 14, 2017 3:26:02 PM",
+      "dateUpdated": "Sep 14, 2017 4:42:39 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -232,8 +232,8 @@
       "jobName": "paragraph_1505396639847_1843764081",
       "id": "20170914-134359_1211307661",
       "dateCreated": "Sep 14, 2017 1:43:59 PM",
-      "dateStarted": "Sep 14, 2017 3:26:02 PM",
-      "dateFinished": "Sep 14, 2017 3:26:02 PM",
+      "dateStarted": "Sep 14, 2017 4:42:39 PM",
+      "dateFinished": "Sep 14, 2017 4:42:39 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -257,110 +257,98 @@
   "name": "Bayes Lecture Twitter Map (Part 1.3 Spark Twitter Client Place)",
   "id": "2CUEVG5HN",
   "angularObjects": {
-    "2CV12RFZ1:shared_process": [],
-    "2CTXX2WRF:shared_process": [],
-    "2CSDNZU3C:shared_process": [],
-    "2CVPN7EVE:shared_process": [],
-    "2CUBUX6MY:shared_process": [],
-    "2CSWG2EGM:shared_process": [],
-    "2CTNS34A8:shared_process": [],
-    "2CU4B4AM4:shared_process": [],
-    "2CSBJQYED:shared_process": [],
-    "2CS6KN44W:shared_process": [],
-    "2CUHKQN66:shared_process": [],
-    "2CUMAZ7ZB:shared_process": [],
-    "2CSF9MAXX:shared_process": [
+    "2CTVVVTV3:shared_process": [],
+    "2CTRT8FA3:shared_process": [],
+    "2CVAURWQU:shared_process": [],
+    "2CUQ18ZYF:shared_process": [],
+    "2CVBQ7MEQ:shared_process": [],
+    "2CV1KAATZ:shared_process": [],
+    "2CU6JXGC3:shared_process": [],
+    "2CS2Y94EQ:shared_process": [],
+    "2CS1V8HFJ:shared_process": [],
+    "2CV71473K:shared_process": [],
+    "2CVCE1ANQ:shared_process": [
       {
         "name": "data",
         "object": [
           {
-            "user": "leandro 🎨",
-            "tweet": "@mrlulluzin só a Sônia que deve ter um pacto com esse povo kkkkk",
-            "lat": -5.897826,
-            "lon": -35.291178
+            "user": "Sandra de la Fuente",
+            "tweet": "@mexicomemata Bueno, cuidate, que veo que no son tus días más afortunados. Pero si pudiste con Bach, podrás con huracanes y terremotos.",
+            "lat": 41.317048,
+            "lon": 2.052477
           },
           {
-            "user": "LC",
-            "tweet": "Queria q meu irmão trocase de lugar CMG ele trabalhar e eu fica em casa o dia e todo...  Kkk",
-            "lat": -22.777657,
-            "lon": -43.434094
+            "user": "alano",
+            "tweet": "yasmin https://t.co/SJNKDmM68N",
+            "lat": -1.526453,
+            "lon": -48.623684
           },
           {
-            "user": "Baby Z 😍",
-            "tweet": "Aweeeee okay! Bantay ka lang sakin ilang beses mo na ginawa to sakin",
-            "lat": 7.130703,
-            "lon": 124.157387
+            "user": "dé",
+            "tweet": "Eu saio da merda dessa escola pro ônibus quebrar",
+            "lat": -23.815924,
+            "lon": -46.567276
           },
           {
-            "user": "Ron Mitchell",
-            "tweet": "#KeeSept. Healthy pinhook return on Hip 863 from Hunter Valley Farm. Union Rags c. Bought for $75K sold for $475K.",
-            "lat": 36.497129,
-            "lon": -89.57151
+            "user": "Shay.",
+            "tweet": "Which one of her songs?  Chandelier is my favorite ☺️ https://t.co/HjO8f3JaG6",
+            "lat": 6.596286,
+            "lon": -1.710074
           },
           {
-            "user": "sevgi",
-            "tweet": "@biciyo 2 senedir birini çok sevdiğim için öncesi hiç yaşanmamış gibi geliyor bana  eski yokmuş hep o varmış gibi 🖤",
-            "lat": 36.939744,
-            "lon": 35.235367
+            "user": "Yassine🇩🇿",
+            "tweet": "L’Algérie reste la meilleur équipe d’Afrique a mes yeux wallah",
+            "lat": 50.142865,
+            "lon": 3.20143
           },
           {
-            "user": "Sher💙",
-            "tweet": "Serious tho I want Hoseok rainbow gucci sweater",
-            "lat": 51.842113,
-            "lon": 3.941836
+            "user": "Hugo ✠ ‏",
+            "tweet": "Era só uma praiana amanhã",
+            "lat": -22.840589,
+            "lon": -43.496757
           },
           {
-            "user": "Doc Washburn",
-            "tweet": "@AmericanVoterUS @realDonaldTrump @POTUS Or he could just keep his word from last year and send everyone back who is here illegally.",
-            "lat": 34.62595,
-            "lon": -92.521595
+            "user": "Mr.RepYoCity 225🏆",
+            "tweet": "#RepYoCity 🗣 https://t.co/0qZe4X8L87",
+            "lat": 30.115967,
+            "lon": -92.158649
           },
           {
-            "user": "Cristina",
-            "tweet": "Sometimes I wish I were straight cause the amount of guys that ask for my number is crazy",
-            "lat": 29.840708,
-            "lon": -97.993537
+            "user": "Radu Alexandru",
+            "tweet": "#theperfectmushroom #porcini #boletusedulis #🍄🍄🍄 la Osteria Nero… https://t.co/eaPjKIkFPr",
+            "lat": 37.817828,
+            "lon": 15.223563
           },
           {
-            "user": "Filiz💛💙",
-            "tweet": "Yüreğim ağzıma geldi🙊😨 https://t.co/c8BJD1EAM2",
-            "lat": 40.802734,
-            "lon": 28.632104
+            "user": "+b",
+            "tweet": "vou descansar um pouco",
+            "lat": -22.865838,
+            "lon": -43.681932
           },
           {
-            "user": "Arató Gergely",
-            "tweet": "A Sorosról szóló hazugság amerikai szemmel. Érdemes belenézni a kommentekbe is. https://t.co/r1pwSXHfFy",
-            "lat": 47.349448,
-            "lon": 18.925169
+            "user": "Stephanie Collins",
+            "tweet": "#Blog: Grief \u0026 Denial\nExcerpt: Man, you miss just ONE summer visit...!\n#LGBTQ #specialneeds \nhttps://t.co/DNjodlDVdG\nhttps://t.co/ShrxPVYGxk",
+            "lat": 47.642154,
+            "lon": -122.240397
           },
           {
-            "user": "Max Lerner",
-            "tweet": "@reporterchris what about Soshnikov?",
-            "lat": 44.961937,
-            "lon": -76.353876
-          },
-          {
-            "user": "K$NG/SS4🤴🏾",
-            "tweet": "@Love__Ally Well shidd really tonight 😂 @ 12am",
-            "lat": 29.507337,
-            "lon": -95.505362
-          },
-          {
-            "user": "المہۣۗۧلگہۣۗۧہۣۗۧہهۣ",
-            "tweet": "كِـي يُمرَض #الڨَلبْ . . #الوجه يَعطِيكْ #خبَآآرُو https://t.co/p0wmJtwM8u",
-            "lat": 18.944441,
-            "lon": -8.670788
+            "user": "Rick Gdovic",
+            "tweet": "We are getting rid of those small spoilers for the Kentucky race.  They make the cars too unstable. https://t.co/LuE2oZILs5",
+            "lat": 36.960216,
+            "lon": -76.62797
           }
         ],
         "noteId": "2CUEVG5HN"
       }
     ],
-    "2CTNW73XW:shared_process": [],
-    "2CSTEZX6R:shared_process": [],
-    "2CUJNHGW7:shared_process": [],
-    "2CU5DKK96:shared_process": [],
-    "2CTTZV3CP:shared_process": [],
-    "2CVBW8WFR:shared_process": []
+    "2CT9VNU2V:shared_process": [],
+    "2CUA39CTW:shared_process": [],
+    "2CVENK4UN:shared_process": [],
+    "2CTRSKG8X:shared_process": [],
+    "2CT49XVEY:shared_process": [],
+    "2CUM9FYYM:shared_process": [],
+    "2CUSNPA9P:shared_process": [],
+    "2CU76UQWX:shared_process": []
   },
   "config": {},
   "info": {}

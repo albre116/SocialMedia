@@ -122,9 +122,9 @@
     },
     {
       "title": "Lets Start by comparing 2 data science pages for influence",
-      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/trump2.jpg)\n",
+      "text": "%md\n## [Super Data Science](https://twitter.com/sperdatascience?lang\u003den)\n\n## vs\n\n## [https://twitter.com/BigBytesInfo](https://twitter.com/BigBytesInfo)\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 9:43:45 PM",
+      "dateUpdated": "Nov 8, 2017 5:20:17 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -147,7 +147,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/trump2.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/sperdatascience?lang\u003den\"\u003eSuper Data Science\u003c/a\u003e\u003c/h2\u003e\n\u003ch2\u003evs\u003c/h2\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/BigBytesInfo\"\u003ehttps://twitter.com/BigBytesInfo\u003c/a\u003e\u003c/h2\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -155,34 +155,9 @@
       "jobName": "paragraph_1510005595815_-1130854663",
       "id": "20171106-215955_189690932",
       "dateCreated": "Nov 6, 2017 9:59:55 PM",
-      "dateStarted": "Nov 7, 2017 2:13:08 PM",
-      "dateFinished": "Nov 7, 2017 2:13:08 PM",
+      "dateStarted": "Nov 8, 2017 5:06:04 PM",
+      "dateFinished": "Nov 8, 2017 5:06:04 PM",
       "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/trump2.jpg)\n",
-      "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 9:43:42 PM",
-      "config": {
-        "colWidth": 12.0,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true
-        },
-        "editorMode": "ace/mode/markdown"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "jobName": "paragraph_1510091016461_340247238",
-      "id": "20171107-214336_1710485557",
-      "dateCreated": "Nov 7, 2017 9:43:36 PM",
-      "status": "READY",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -418,9 +393,9 @@
     },
     {
       "title": "Ok, we want a hashtag to follow... Lets see what the worlds biggest internet troll is up to",
-      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/trump2.jpg)\n",
+      "text": "%md\n## [Donald Trump](https://twitter.com/realDonaldTrump)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 10:01:01 PM",
+      "dateUpdated": "Nov 8, 2017 5:20:56 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -443,7 +418,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/trump2.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/realDonaldTrump\"\u003eDonald Trump\u003c/a\u003e\u003c/h2\u003e\n\u003c/div\u003e"
           }
         ]
       },
@@ -451,8 +426,8 @@
       "jobName": "paragraph_1510091963251_2082170786",
       "id": "20171107-215923_587510509",
       "dateCreated": "Nov 7, 2017 9:59:23 PM",
-      "dateStarted": "Nov 7, 2017 10:01:01 PM",
-      "dateFinished": "Nov 7, 2017 10:01:01 PM",
+      "dateStarted": "Nov 8, 2017 5:20:56 PM",
+      "dateFinished": "Nov 8, 2017 5:20:56 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },

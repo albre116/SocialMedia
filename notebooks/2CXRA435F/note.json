@@ -1,0 +1,269 @@
+{
+  "paragraphs": [
+    {
+      "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:02:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@5d6ad008\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510591328453_-1502871407",
+      "id": "20171113-164208_1453639392",
+      "dateCreated": "Nov 13, 2017 4:42:08 PM",
+      "dateStarted": "Nov 13, 2017 5:02:40 PM",
+      "dateFinished": "Nov 13, 2017 5:02:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:02:51 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\nres3: String \u003d null\nres4: String \u003d null\nres5: String \u003d null\nres6: String \u003d null\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592534120_18721836",
+      "id": "20171113-170214_1080735016",
+      "dateCreated": "Nov 13, 2017 5:02:14 PM",
+      "dateStarted": "Nov 13, 2017 5:02:51 PM",
+      "dateFinished": "Nov 13, 2017 5:02:58 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:03:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/undefined",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "ANGULAR",
+            "data": "\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592571138_-1107176039",
+      "id": "20171113-170251_1025836816",
+      "dateCreated": "Nov 13, 2017 5:02:51 PM",
+      "dateStarted": "Nov 13, 2017 5:03:09 PM",
+      "dateFinished": "Nov 13, 2017 5:03:10 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#maga\"))\n// val tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getPlace !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getPlace().getBoundingBoxCoordinates().head.head.getLatitude(), t.getPlace().getBoundingBoxCoordinates().head.head.getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:04:07 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "tableHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@3d05f352\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@7c2ccd63\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@332ebad8\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592589494_1910055484",
+      "id": "20171113-170309_140924505",
+      "dateCreated": "Nov 13, 2017 5:03:09 PM",
+      "dateStarted": "Nov 13, 2017 5:03:39 PM",
+      "dateFinished": "Nov 13, 2017 5:03:42 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect * from tweets\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:07:12 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "user\ttweet\tlat\tlon\nBroadwayShaneBedd\tSA adds up, the trip is ending soon, I think @realDonaldTrump social media guy that Dan, played us all with Q Clear… https://t.co/qlc3S7SdhI\t25.837092\t-106.645646\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592619896_509046821",
+      "id": "20171113-170339_1180816653",
+      "dateCreated": "Nov 13, 2017 5:03:39 PM",
+      "dateStarted": "Nov 13, 2017 5:07:12 PM",
+      "dateFinished": "Nov 13, 2017 5:07:12 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nssc.stop()\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:07:26 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592632732_-1179231352",
+      "id": "20171113-170352_586310415",
+      "dateCreated": "Nov 13, 2017 5:03:52 PM",
+      "dateStarted": "Nov 13, 2017 5:07:26 PM",
+      "dateFinished": "Nov 13, 2017 5:07:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:07:26 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1510592846391_611865078",
+      "id": "20171113-170726_20438562",
+      "dateCreated": "Nov 13, 2017 5:07:26 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "U_of_M_Twitter_Example_Part_2",
+  "id": "2CXRA435F",
+  "angularObjects": {
+    "2CZJVG5MN:shared_process": [],
+    "2CWTGG3KP:shared_process": [],
+    "2D19WB1SX:shared_process": [],
+    "2D16N6K17:shared_process": [],
+    "2CYJUZ3PK:shared_process": [],
+    "2CXW1QUF1:shared_process": [],
+    "2CYF8ZUHC:shared_process": [],
+    "2CX6TK6VC:shared_process": [
+      {
+        "name": "data",
+        "object": [
+          {
+            "user": "BroadwayShaneBedd",
+            "tweet": "SA adds up, the trip is ending soon, I think @realDonaldTrump social media guy that Dan, played us all with Q Clear… https://t.co/qlc3S7SdhI",
+            "lat": 25.837092,
+            "lon": -106.645646
+          }
+        ],
+        "noteId": "2CXRA435F"
+      }
+    ],
+    "2CY8J9E5M:shared_process": [],
+    "2CYMM4PZY:shared_process": [],
+    "2CYUJ2KCT:shared_process": [],
+    "2CZ7F5R3H:shared_process": [],
+    "2CXP9EU5U:shared_process": [],
+    "2D1HDHGB9:shared_process": [],
+    "2CXU7D2Q5:shared_process": [],
+    "2CYQFZSUP:shared_process": [],
+    "2CZS63BSA:shared_process": [],
+    "2D1KR2N41:shared_process": [],
+    "2CZ3UFXP7:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

@@ -3,15 +3,17 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:01:13 PM",
+      "dateUpdated": "Nov 13, 2017 5:10:30 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -22,7 +24,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@13f6dd50\n"
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@5d6ad008\n"
           }
         ]
       },
@@ -30,23 +32,25 @@
       "jobName": "paragraph_1510095637175_-1662165592",
       "id": "20171107-230037_2703926",
       "dateCreated": "Nov 7, 2017 11:00:37 PM",
-      "dateStarted": "Nov 7, 2017 11:01:13 PM",
-      "dateFinished": "Nov 7, 2017 11:01:34 PM",
+      "dateStarted": "Nov 13, 2017 5:10:30 PM",
+      "dateFinished": "Nov 13, 2017 5:10:34 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:02:38 PM",
+      "dateUpdated": "Nov 13, 2017 5:10:41 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -57,7 +61,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming._\n\nimport org.apache.spark.streaming.twitter._\n\nimport org.apache.spark.storage.StorageLevel\n\nimport scala.io.Source\n\nimport scala.collection.mutable.HashMap\n\nimport java.io.File\n\nimport org.apache.log4j.Logger\n\nimport org.apache.log4j.Level\n\nimport sys.process.stringSeqToProcess\n\nimport twitter4j.HashtagEntity\n\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\n\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\n\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\n\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\n\nres3: String \u003d null\n\nres4: String \u003d null\n\nres5: String \u003d null\n\nres6: String \u003d null\n"
+            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\nres3: String \u003d null\nres4: String \u003d null\nres5: String \u003d null\nres6: String \u003d null\n"
           }
         ]
       },
@@ -65,8 +69,8 @@
       "jobName": "paragraph_1510095673391_-780074281",
       "id": "20171107-230113_874628575",
       "dateCreated": "Nov 7, 2017 11:01:13 PM",
-      "dateStarted": "Nov 7, 2017 11:02:38 PM",
-      "dateFinished": "Nov 7, 2017 11:02:47 PM",
+      "dateStarted": "Nov 13, 2017 5:10:41 PM",
+      "dateFinished": "Nov 13, 2017 5:10:48 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -74,16 +78,18 @@
       "title": "https://spark.apache.org/docs/latest/streaming-programming-guide.html",
       "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#maga\"))\n//val tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(createdAt:Long, text:String, screenName:String)\ntwt.map(t\u003d\u003e\n  Tweet(t.getCreatedAt().getTime()/1000, t.getText(), t.getUser().getScreenName())).foreachRDD(rdd\u003d\u003e{\n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:05:03 PM",
+      "dateUpdated": "Nov 13, 2017 5:10:59 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": false
         },
         "editorMode": "ace/mode/scala",
-        "title": true
+        "title": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -94,7 +100,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nimport org.apache.spark.streaming.twitter._\n\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@65e893f5\n\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@5a2644ae\n\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@4ee70e01\n\ndefined class Tweet\n\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@5669f154\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@45a70fe5\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@a45c110\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
@@ -102,15 +108,50 @@
       "jobName": "paragraph_1510095758414_-531236977",
       "id": "20171107-230238_377548329",
       "dateCreated": "Nov 7, 2017 11:02:38 PM",
-      "dateStarted": "Nov 7, 2017 11:05:03 PM",
-      "dateFinished": "Nov 7, 2017 11:05:06 PM",
+      "dateStarted": "Nov 13, 2017 5:10:59 PM",
+      "dateFinished": "Nov 13, 2017 5:11:01 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect text from tweets\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:11:10 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "text\nSeriously? he has opened the way for EU, China, Russia \u0026 rest of the world 2 lead by withdrawing from formerly US l… https://t.co/Yg3lUDGn1W\nRT @realDonaldTrump: Will be leaving the Philippines tomorrow after many days of constant mtgs \u0026 work in order to #MAGA! My promises are ra…\n#BREAKING #BreakingNews #update #Latest #latestnews #trending #trendingnews #TwitterMoments #Africa #northkorea… https://t.co/lzOlToTQ98\nRT @energystics: Great news Senator! We NEED you to provide direction and wisdom for your colleagues to get their job done! #MAGA https://t…\nRT @SandraTXAS: Outrageous ‼️\nBergdahl could get 300K in back pay. If anyone gets $$$ it should be service members injured looking… \nRT @Jali_Cat: TICK-FREAKIN-TOCK!\nGreat news! Now let’s just pray @FBI doesn’t hide Informant info or send them on a Clinton Perm… \nRT @bfraser747: 🌴🌴#MakeCaliforniaGreatAgain \nPlease FOLLOW, SUPPORT,  @AjaforCongress \u0026 donate for her bid for Congress #CA41… \nMSNBC Host Chris Hayes: Clinton Supporters Are Due For A \u0027Reckoning\u0027 Over Sexual Harassment Claims… https://t.co/JdkunV2qLI\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \n#running 😛 #MAGA #Derby https://t.co/25NULVuAts\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRT @seanhannity: Love it https://t.co/t3wMzMwQeI\nRT @CarmineZozzora: The same seditious Left and criminal media that defended Bill Clinton’s history of unspeakable behavior to the deat… \nI want to talk #TermLimits for #Congress starting w/ ! 🤔😉 #MAGA\nRT @AnnaApp91838450: https://t.co/jHcjfLyOw0\nGOD we need to bring MILITARY TANKS to our Legal System and PURGE COMPLETELY 👏🇺🇸\nSO MUCH CO… \nLet\u0027s face it They just don\u0027t get it. They think the Public is so stupid they continue to contradict themselves eve… https://t.co/B79Gfnw36t\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510588568376_1330277239",
+      "id": "20171113-155608_321901324",
+      "dateCreated": "Nov 13, 2017 3:56:08 PM",
+      "dateStarted": "Nov 13, 2017 5:11:10 PM",
+      "dateFinished": "Nov 13, 2017 5:11:11 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n-- checking window contents\n\nselect from_unixtime(createdAt), count(1) from tweets group by createdAt order by createdAt\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:09:34 PM",
+      "dateUpdated": "Nov 13, 2017 5:11:19 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -125,9 +166,11 @@
           }
         },
         "editorSetting": {
-          "language": "sql"
+          "language": "sql",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -138,7 +181,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-11-07 23:07:29\t1\n2017-11-07 23:07:30\t2\n2017-11-07 23:07:31\t2\n2017-11-07 23:07:32\t2\n2017-11-07 23:07:33\t4\n2017-11-07 23:07:34\t5\n2017-11-07 23:07:35\t2\n2017-11-07 23:07:36\t3\n2017-11-07 23:07:37\t2\n2017-11-07 23:07:38\t2\n2017-11-07 23:07:39\t3\n2017-11-07 23:07:40\t3\n2017-11-07 23:07:42\t5\n2017-11-07 23:07:43\t2\n2017-11-07 23:07:44\t2\n2017-11-07 23:07:45\t1\n2017-11-07 23:07:46\t1\n2017-11-07 23:07:47\t4\n2017-11-07 23:07:48\t2\n2017-11-07 23:07:49\t3\n2017-11-07 23:07:50\t2\n2017-11-07 23:07:51\t8\n2017-11-07 23:07:52\t7\n2017-11-07 23:07:53\t3\n2017-11-07 23:07:54\t2\n2017-11-07 23:07:55\t7\n2017-11-07 23:07:56\t2\n2017-11-07 23:07:57\t4\n2017-11-07 23:07:58\t1\n2017-11-07 23:07:59\t1\n2017-11-07 23:08:00\t1\n2017-11-07 23:08:01\t1\n2017-11-07 23:08:02\t2\n2017-11-07 23:08:03\t3\n2017-11-07 23:08:04\t2\n2017-11-07 23:08:05\t1\n2017-11-07 23:08:06\t1\n2017-11-07 23:08:07\t1\n2017-11-07 23:08:08\t7\n2017-11-07 23:08:09\t2\n2017-11-07 23:08:10\t4\n2017-11-07 23:08:11\t2\n2017-11-07 23:08:12\t2\n2017-11-07 23:08:13\t6\n2017-11-07 23:08:15\t1\n2017-11-07 23:08:16\t1\n2017-11-07 23:08:18\t2\n2017-11-07 23:08:19\t6\n2017-11-07 23:08:20\t3\n2017-11-07 23:08:21\t3\n2017-11-07 23:08:22\t2\n2017-11-07 23:08:23\t3\n2017-11-07 23:08:24\t1\n2017-11-07 23:08:25\t1\n2017-11-07 23:08:26\t2\n2017-11-07 23:08:27\t3\n2017-11-07 23:08:28\t2\n2017-11-07 23:08:29\t3\n2017-11-07 23:08:30\t1\n2017-11-07 23:08:31\t3\n2017-11-07 23:08:32\t2\n2017-11-07 23:08:33\t1\n2017-11-07 23:08:34\t3\n2017-11-07 23:08:35\t1\n2017-11-07 23:08:36\t4\n2017-11-07 23:08:37\t2\n2017-11-07 23:08:38\t5\n2017-11-07 23:08:39\t1\n2017-11-07 23:08:40\t1\n2017-11-07 23:08:41\t4\n2017-11-07 23:08:43\t1\n2017-11-07 23:08:44\t2\n2017-11-07 23:08:45\t6\n2017-11-07 23:08:46\t2\n2017-11-07 23:08:47\t5\n2017-11-07 23:08:48\t6\n2017-11-07 23:08:50\t1\n2017-11-07 23:08:51\t3\n2017-11-07 23:08:52\t4\n2017-11-07 23:08:53\t1\n2017-11-07 23:08:54\t1\n2017-11-07 23:08:55\t3\n2017-11-07 23:08:56\t4\n2017-11-07 23:08:57\t2\n2017-11-07 23:08:58\t3\n2017-11-07 23:08:59\t5\n2017-11-07 23:09:00\t3\n2017-11-07 23:09:01\t2\n2017-11-07 23:09:02\t1\n2017-11-07 23:09:03\t1\n2017-11-07 23:09:04\t1\n2017-11-07 23:09:05\t4\n2017-11-07 23:09:06\t3\n2017-11-07 23:09:07\t3\n2017-11-07 23:09:08\t2\n2017-11-07 23:09:09\t4\n2017-11-07 23:09:10\t4\n2017-11-07 23:09:11\t2\n2017-11-07 23:09:12\t4\n2017-11-07 23:09:14\t3\n2017-11-07 23:09:15\t2\n2017-11-07 23:09:16\t3\n2017-11-07 23:09:17\t4\n2017-11-07 23:09:18\t5\n2017-11-07 23:09:19\t5\n2017-11-07 23:09:20\t2\n2017-11-07 23:09:21\t3\n2017-11-07 23:09:22\t2\n2017-11-07 23:09:23\t1\n2017-11-07 23:09:24\t1\n2017-11-07 23:09:25\t3\n2017-11-07 23:09:26\t4\n2017-11-07 23:09:27\t5\n2017-11-07 23:09:28\t1\n"
+            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-11-13 17:11:02\t2\n2017-11-13 17:11:03\t1\n2017-11-13 17:11:04\t1\n2017-11-13 17:11:05\t4\n2017-11-13 17:11:06\t2\n2017-11-13 17:11:07\t2\n2017-11-13 17:11:08\t3\n2017-11-13 17:11:09\t1\n"
           }
         ]
       },
@@ -146,23 +189,25 @@
       "jobName": "paragraph_1510095903466_2101431181",
       "id": "20171107-230503_1517724842",
       "dateCreated": "Nov 7, 2017 11:05:03 PM",
-      "dateStarted": "Nov 7, 2017 11:09:34 PM",
-      "dateFinished": "Nov 7, 2017 11:09:35 PM",
+      "dateStarted": "Nov 13, 2017 5:11:19 PM",
+      "dateFinished": "Nov 13, 2017 5:11:20 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "/* declaring a function in Scala */\n\ndef sentiment(s:String) : String \u003d {\n    val positive \u003d Array(\"like\", \"love\", \"good\", \"great\", \"happy\", \"cool\", \"the\", \"one\", \"that\")\n    val negative \u003d Array(\"hate\", \"bad\", \"stupid\", \"is\", \"hillary\")\n\n    var st \u003d 0;\n\n    val words \u003d s.split(\" \")    \n    positive.foreach(p \u003d\u003e\n        words.foreach(w \u003d\u003e\n            if(p\u003d\u003dw) st \u003d st+1\n        )\n    )\n\n    negative.foreach(p\u003d\u003e\n        words.foreach(w\u003d\u003e\n            if(p\u003d\u003dw) st \u003d st-1\n        )\n    )\n    if(st\u003e0)\n        \"positivie\"\n    else if(st\u003c0)\n        \"negative\"\n    else\n        \"neutral\"\n}\n\nsqlc.udf.register(\"sentiment\", sentiment _)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:10:29 PM",
+      "dateUpdated": "Nov 13, 2017 5:24:47 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "sql"
+          "language": "scala",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -173,7 +218,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "\nsentiment: (s: String)String\n\nres19: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,StringType,Some(List(StringType)))\n"
+            "data": "sentiment: (s: String)String\nres39: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,StringType,Some(List(StringType)))\n"
           }
         ]
       },
@@ -181,24 +226,24 @@
       "jobName": "paragraph_1510095929516_-875508977",
       "id": "20171107-230529_1623792657",
       "dateCreated": "Nov 7, 2017 11:05:29 PM",
-      "dateStarted": "Nov 7, 2017 11:10:29 PM",
-      "dateFinished": "Nov 7, 2017 11:10:30 PM",
+      "dateStarted": "Nov 13, 2017 5:24:47 PM",
+      "dateFinished": "Nov 13, 2017 5:24:47 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\n--and make a plot\n\nselect  sentiment(text) as sentiment, count(1) from tweets group by sentiment(text)",
+      "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\nselect  sentiment(text) as sentiment, text from tweets LIMIT 1",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:36:47 PM",
+      "dateUpdated": "Nov 13, 2017 5:32:19 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {
           "0": {
             "graph": {
-              "mode": "pieChart",
+              "mode": "table",
               "height": 300.0,
-              "optionOpen": false
+              "optionOpen": true
             },
             "helium": {}
           }
@@ -217,7 +262,53 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "sentiment\tcount(1)\nneutral\t195\nnegative\t23\npositivie\t125\n"
+            "data": "sentiment\ttext\npositivie\tRT @AntonioSabatoJr: With Mom last night @ the Republican Jewish Coalition . #MAGA https://t.co/jx5jz9hEKJ 🇺🇸🇮🇱 https://t.co/ptMr59hwvW\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510593097260_-291172883",
+      "id": "20171113-171137_557436332",
+      "dateCreated": "Nov 13, 2017 5:11:37 PM",
+      "dateStarted": "Nov 13, 2017 5:32:19 PM",
+      "dateFinished": "Nov 13, 2017 5:32:19 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\n--and make a plot\n\nselect  sentiment(text) as sentiment, count(1) from tweets group by sentiment(text)",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 5:32:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sentiment\tcount(1)\nneutral\t205\nnegative\t31\npositivie\t115\n"
           }
         ]
       },
@@ -225,15 +316,15 @@
       "jobName": "paragraph_1510096229387_-1526490436",
       "id": "20171107-231029_473151385",
       "dateCreated": "Nov 7, 2017 11:10:29 PM",
-      "dateStarted": "Nov 7, 2017 11:36:47 PM",
-      "dateFinished": "Nov 7, 2017 11:36:48 PM",
+      "dateStarted": "Nov 13, 2017 5:32:37 PM",
+      "dateFinished": "Nov 13, 2017 5:32:37 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\n\n--show most common words for negatives tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027negative\u0027\ngroup by word, sentiment\n--having count(1) \u003e 1\norder by cnt desc\n",
+      "text": "%sql\n\n--show most common words for negatives tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027negative\u0027\ngroup by word, sentiment\nhaving count(1) \u003e 5\norder by cnt desc\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:51:09 PM",
+      "dateUpdated": "Nov 13, 2017 5:32:43 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -269,9 +360,11 @@
           }
         },
         "editorSetting": {
-          "language": "sql"
+          "language": "sql",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -282,7 +375,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "word\tsentiment\tcnt\nis\tnegative\t24\n\tnegative\t17\nRT\tnegative\t15\na\tnegative\t12\nyou\tnegative\t6\n#MAGA\tnegative\t6\nand\tnegative\t6\nthis\tnegative\t5\ndoing\tnegative\t4\nThis\tnegative\t4\nPress\tnegative\t4\nSecretary!\tnegative\t4\nif\tnegative\t4\nas\tnegative\t4\nLiberals\tnegative\t4\n✔RETWEET✔\tnegative\t4\njob\tnegative\t4\n#FakeNews…\tnegative\t4\nAGREE\tnegative\t4\nGREAT\tnegative\t4\n@mikandynothem:\tnegative\t4\nHouse\tnegative\t4\nWhite\tnegative\t4\n@SarahHuckabee\tnegative\t4\nbelieve\tnegative\t3\naccount.\tnegative\t3\nyourself!\tnegative\t3\nbot\tnegative\t3\n#BotCheck👇🏾#BotPurge\tnegative\t3\n@realDonaldTrump\tnegative\t3\ndown\tnegative\t3\n4\tnegative\t3\nCheck\tnegative\t3\nI\tnegative\t3\nHis\tnegative\t2\non\tnegative\t2\nmany\tnegative\t2\n@AmericanHotLips:\tnegative\t2\nreporter\tnegative\t2\nher\tnegative\t2\nan\tnegative\t2\nto\tnegative\t2\nw\tnegative\t2\nby\tnegative\t2\n#MAGA.\tnegative\t2\n#2A\tnegative\t2\ndisaster”\tnegative\t2\nThank\tnegative\t2\nthe\tnegative\t2\nwith\tnegative\t2\nhtt…\tnegative\t2\nof\tnegative\t2\nin\tnegative\t2\nagenda.\tnegative\t2\nfrom\tnegative\t2\nfor\tnegative\t2\n“Chicago\tnegative\t2\nobvious\tnegative\t2\nshutting\tnegative\t2\n#Twitter\tnegative\t1\npeople\tnegative\t1\nboard\tnegative\t1\nWe\tnegative\t1\nbu…\tnegative\t1\nmore.\tnegative\t1\nrecords.\tnegative\t1\narmed\tnegative\t1\n#Patriots\tnegative\t1\nfollow\tnegative\t1\nNixon\u0027s\tnegative\t1\nwe\u0027re…\tnegative\t1\nunder\tnegative\t1\nNFL\tnegative\t1\nEven\tnegative\t1\n@corbinsmom:\tnegative\t1\nout,\nAnd\tnegative\t1\nour\tnegative\t1\n@VoteAngryNow\tnegative\t1\n#TexasChurchShooter\tnegative\t1\n@FoxNews\tnegative\t1\nsoap\tnegative\t1\nman\tnegative\t1\n26\tnegative\t1\nhttps://t.co/cUf5IXerOx\tnegative\t1\nbreak\tnegative\t1\nall\tnegative\t1\nsizes!\tnegative\t1\nS…\tnegative\t1\nthough\tnegative\t1\n#Election2017\tnegative\t1\nVirginia-VOTE\tnegative\t1\n@EdanClay\tnegative\t1\none\u0027s\tnegative\t1\nLess\tnegative\t1\ncome\tnegative\t1\nED\tnegative\t1\n2B\tnegative\t1\nevolving\tnegative\t1\nhttps://t.co/TR5y4LVo04\tnegative\t1\nOne\tnegative\t1\noath.\tnegative\t1\n#love\tnegative\t1\n#ElectionDay2017\tnegative\t1\nbecause\tnegative\t1\nGILLESPIE.\tnegative\t1\nmom\tnegative\t1\nopera!!!\tnegative\t1\nWhat\tnegative\t1\n@EjHirschberger:\tnegative\t1\n@haze_gilmore:\tnegative\t1\nit\u0027s\tnegative\t1\n@AutumnFoxNews\tnegative\t1\nTrump-Russia\tnegative\t1\n#POTUS\tnegative\t1\ngetting\tnegative\t1\ncitizen,\tnegative\t1\nParty\"\n#ElectionDay\tnegative\t1\nartificially\tnegative\t1\ncan’t\tnegative\t1\n#Trump\tnegative\t1\nadministration\tnegative\t1\n#americafirst\tnegative\t1\n@DonaldJTrumpJr\tnegative\t1\nprojected\tnegative\t1\njust\tnegative\t1\nBrittain\tnegative\t1\nwon\u0027…\tnegative\t1\nfake\tnegative\t1\nTHE\tnegative\t1\nDo\tnegative\t1\nv…\tnegative\t1\nac…\tnegative\t1\nimportant\tnegative\t1\n#maga\tnegative\t1\nunemployment\tnegative\t1\nChrist,\tnegative\t1\na…\tnegative\t1\n#Patriots\tnegative\t1\n@GovMikeHuckabee\tnegative\t1\nsaying\tnegative\t1\nstopped\tnegative\t1\nDRAIN\tnegative\t1\nin.\tnegative\t1\n#FakeNews\tnegative\t1\nn…\tnegative\t1\nbad\tnegative\t1\naccounts\tnegative\t1\nfollowers\tnegative\t1\nconservative\tnegative\t1\n#Desor\tnegative\t1\n@badmanUSA:\tnegative\t1\npurging\tnegative\t1\nfootsteps.\nHang\tnegative\t1\ninto\tnegative\t1\nFlake\tnegative\t1\n#Hero…\tnegative\t1\nup,\tnegative\t1\nSWAMP!\tnegative\t1\n#MAGA\tnegative\t1\nkeep\tnegative\t1\nhttps://t.co/HmMXZ9Y69p\tnegative\t1\nMake\tnegative\t1\nup\tnegative\t1\nsad\tnegative\t1\nHe\tnegative\t1\nhe!\tnegative\t1\n#DEPLORABLES\tnegative\t1\n#AlternativeFacts\tnegative\t1\n@Real_Assange_:\tnegative\t1\nwhy\tnegative\t1\nstock\tnegative\t1\n#TuesdayThoughts\tnegative\t1\nisn\u0027t\tnegative\t1\nTrump\u0027s\tnegative\t1\n@Gov_Christie\tnegative\t1\n:\tnegative\t1\nstill\tnegative\t1\ncommentary\tnegative\t1\nmarket\tnegative\t1\npart\tnegative\t1\nTrump...\tnegative\t1\nit’s\tnegative\t1\nare\tnegative\t1\nhttps://t.co/ZcTNZ3ITE7\tnegative\t1\nown\tnegative\t1\nhttps://t.co/GlSsaxpS9T\tnegative\t1\nwas\tnegative\t1\n@PressSec\tnegative\t1\ndid,\tnegative\t1\nclose\tnegative\t1\nuntil\tnegative\t1\nyour\tnegative\t1\nnews.\tnegative\t1\n#MSM\nhttps://t.co/vjinMJvJB7\tnegative\t1\nyear\tnegative\t1\ndead\tnegative\t1\nsociety.\nStay\tnegative\t1\nhttps://t.co/7V7OanYnGF\tnegative\t1\n#family\tnegative\t1\n#TCOT\tnegative\t1\non,\tnegative\t1\ngoing\tnegative\t1\n@KatTheHammer:\tnegative\t1\nhttps://t.co/…\tnegative\t1\n@ChooseToBFree:\tnegative\t1\nDemocratic\tnegative\t1\nthey\tnegative\t1\nso\tnegative\t1\n@OMGno2trump:\tnegative\t1\n\"Views\tnegative\t1\n@SenatorBrittain:\tnegative\t1\n"
+            "data": "word\tsentiment\tcnt\nis\tnegative\t37\nRT\tnegative\t26\n\tnegative\t25\na\tnegative\t19\nto\tnegative\t13\nfor\tnegative\t11\nof\tnegative\t9\nThe\tnegative\t8\nin\tnegative\t7\n#MAGA\tnegative\t6\nwho\tnegative\t6\nTrump\tnegative\t6\nThis\tnegative\t6\nthis\tnegative\t6\n"
           }
         ]
       },
@@ -290,15 +383,15 @@
       "jobName": "paragraph_1510096264553_-788926271",
       "id": "20171107-231104_1599062660",
       "dateCreated": "Nov 7, 2017 11:11:04 PM",
-      "dateStarted": "Nov 7, 2017 11:49:38 PM",
-      "dateFinished": "Nov 7, 2017 11:49:39 PM",
+      "dateStarted": "Nov 13, 2017 5:32:43 PM",
+      "dateFinished": "Nov 13, 2017 5:32:43 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%sql\n\n--show most common words for positivie tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027positivie\u0027\ngroup by word, sentiment\n--having count(1) \u003e 1\norder by cnt desc\n",
+      "text": "%sql\n\n--show most common words for positivie tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027positivie\u0027\ngroup by word, sentiment\nhaving count(1) \u003e 5\norder by cnt desc\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:52:11 PM",
+      "dateUpdated": "Nov 13, 2017 5:32:51 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -332,9 +425,11 @@
           }
         },
         "editorSetting": {
-          "language": "sql"
+          "language": "sql",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -345,7 +440,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "word\tsentiment\tcnt\nthe\tpositivie\t105\nRT\tpositivie\t98\n\tpositivie\t77\nto\tpositivie\t63\na\tpositivie\t40\nof\tpositivie\t36\n#MAGA\tpositivie\t34\nfor\tpositivie\t33\nand\tpositivie\t24\nI\tpositivie\t22\nPresident\tpositivie\t19\nthat\tpositivie\t19\nour\tpositivie\t18\nlike\tpositivie\t18\nbe\tpositivie\t15\nat\tpositivie\t15\ndo\tpositivie\t15\nas\tpositivie\t14\nshould\tpositivie\t13\nare\tpositivie\t13\nextremely\tpositivie\t11\nya\tpositivie\t11\nsurge\tpositivie\t11\ngrateful\tpositivie\t11\ndemocrats?\nGun\tpositivie\t11\nrecord\tpositivie\t11\nproud\tpositivie\t11\nAmericans\tpositivie\t11\nenormously\tpositivie\t11\nam\tpositivie\t11\nbuying\tpositivie\t11\n@Harlan:\tpositivie\t11\nselves.\n#MAGA\tpositivie\t11\n@realDonaldTrump\tpositivie\t11\nTHIS\tpositivie\t11\ns…\tpositivie\t11\nhe’s\tpositivie\t11\nHow\tpositivie\t11\nthey\tpositivie\t11\naccomplished!\nWe\tpositivie\t11\ndefend\tpositivie\t11\nThe\tpositivie\t11\nseek\tpositivie\t11\neverything\tpositivie\t11\nyou\tpositivie\t10\nhttps://t.co/a…\tpositivie\t10\nclosed\tpositivie\t10\nJones\tpositivie\t10\nsession.\tpositivie\t10\n@KatTheHammer:\tpositivie\t10\n4th\tpositivie\t10\n#WINNING:\tpositivie\t10\nIndustrial\tpositivie\t10\nAverage\tpositivie\t10\n/\tpositivie\t10\n@DonaldJTrumpJr:\tpositivie\t10\nhigh\tpositivie\t10\nDow\tpositivie\t10\ngood\tpositivie\t10\nstraight\tpositivie\t10\nis\tpositivie\t9\nbad\tpositivie\t9\n\u0026\tpositivie\t9\nmen\tpositivie\t9\nthing\tpositivie\t9\nJust\tpositivie\t9\neven\tpositivie\t8\n\"scared\tpositivie\t8\ndoing\tpositivie\t8\nman!\tpositivie\t8\nin\tpositivie\t8\nwith\tpositivie\t8\ndon\u0027t\tpositivie\t8\nreally,\tpositivie\t8\nTwo\tpositivie\t8\nthough\tpositivie\t8\nstopped\tpositivie\t8\nwere\tpositivie\t8\nright\tpositivie\t8\ndeath\"\n#TexasStrong…\tpositivie\t8\nhas\tpositivie\t7\non\tpositivie\t7\nyear\tpositivie\t7\nhttps://t.co/SUY2mnpJcQ\tpositivie\t6\nago\tpositivie\t6\nout\tpositivie\t6\ntoday,\tpositivie\t6\n@vannsmole:\tpositivie\t6\ngreat\tpositivie\t6\n@mikandynothem:\tpositivie\t6\nOne\tpositivie\t6\nthis\tpositivie\t6\nwell\tpositivie\t5\n\tpositivie\t5\nbeen\tpositivie\t5\n@EjHirschberger:\tpositivie\t5\nb…\tpositivie\t5\nwe\tpositivie\t5\nkeep\tpositivie\t5\nSince\tpositivie\t5\nAmerica\tpositivie\t5\nwas\tpositivie\t5\nmake\tpositivie\t5\nhttps://t.co/MGblhaji5b\tpositivie\t5\nbefore\tpositivie\t5\nby…\tpositivie\t5\n@SebGorka:\tpositivie\t4\n45th\tpositivie\t4\neconomy\tpositivie\t4\nbecame\tpositivie\t4\nthen,\tpositivie\t4\nIf\tpositivie\t4\nI\u0027ve\tpositivie\t4\nStates.\tpositivie\t4\nGO\tpositivie\t4\nyour\tpositivie\t4\nPlease\tpositivie\t4\nhave\tpositivie\t4\nback\tpositivie\t4\npolls\tpositivie\t4\nopen\tpositivie\t4\n#MAGA…\tpositivie\t4\ndone\tpositivie\t4\nYou\tpositivie\t4\nby\tpositivie\t4\nget\tpositivie\t4\nneed\tpositivie\t4\nUnited\tpositivie\t4\nAND\tpositivie\t4\nlove\tpositivie\t4\neat\tpositivie\t4\nOUT\tpositivie\t4\nOh\tpositivie\t4\nGillespie.\tpositivie\t3\nreptile\tpositivie\t3\nwho\tpositivie\t3\n@EdWGillespie\tpositivie\t3\nin.🐍…\tpositivie\t3\nVOTE,\tpositivie\t3\nall\tpositivie\t3\none\tpositivie\t3\ntook\tpositivie\t3\ncan\tpositivie\t3\n@StacyLStiles:\tpositivie\t3\nsilly\tpositivie\t3\nbut\tpositivie\t3\nvoted\tpositivie\t3\npeople\tpositivie\t3\nFTW!…\tpositivie\t3\nVirginia\tpositivie\t3\nproblem\tpositivie\t3\ngrin.\tpositivie\t3\nknow\tpositivie\t3\ndamn\tpositivie\t3\nagain\tpositivie\t3\nVIRGINIA!\tpositivie\t3\npropaganda\tpositivie\t3\nmy\tpositivie\t3\nsnake,\tpositivie\t3\nknew\tpositivie\t3\nme\tpositivie\t3\nThanks\tpositivie\t3\nfrom\tpositivie\t3\nup\tpositivie\t3\nforget\tpositivie\t3\n@realmagapac:\tpositivie\t3\nLet\u0027s\tpositivie\t3\nexactly\tpositivie\t3\n7!\tpositivie\t3\n@POTUS\tpositivie\t3\nshut\tpositivie\t3\nNov\tpositivie\t3\nwhat\tpositivie\t3\nsaid\tpositivie\t3\nan\tpositivie\t3\nlet\tpositivie\t3\nwoman,\tpositivie\t3\nfirst\tpositivie\t3\nP…\tpositivie\t2\nfeels\tpositivie\t2\n#ThankYouLord\tpositivie\t2\n1st\tpositivie\t2\nwould\tpositivie\t2\nTwitter\tpositivie\t2\nTrump!\tpositivie\t2\n@BBergquam:\tpositivie\t2\nrestaurant\nThis\tpositivie\t2\nWe\tpositivie\t2\ntoo\tpositivie\t2\n1900,\tpositivie\t2\n@realDonaldTrump…\tpositivie\t2\n@The_Trump_Train:\tpositivie\t2\nCNN\u0027s\tpositivie\t2\nrain\tpositivie\t2\nvote\tpositivie\t2\nwhen\tpositivie\t2\nfancy\tpositivie\t2\n@CarmineZozzora:\tpositivie\t2\nDemocrats.\tpositivie\t2\nNow\tpositivie\t2\nBDay\tpositivie\t2\nkind\tpositivie\t2\nThanks!\tpositivie\t2\nMy\tpositivie\t2\ntake\tpositivie\t2\ndeter\tpositivie\t2\n@Pink_About_it:\tpositivie\t2\njust\tpositivie\t2\nshootings\tpositivie\t2\nHe\tpositivie\t2\nturns\tpositivie\t2\nTrump\tpositivie\t2\nswamp…\tpositivie\t2\nrather\tpositivie\t2\nlife\tpositivie\t2\n@LouDobbs:\tpositivie\t2\nbit\tpositivie\t2\nclose\tpositivie\t2\nhttps://t.…\tpositivie\t2\nUSA\tpositivie\t2\npolitical\tpositivie\t2\nThis\tpositivie\t2\nknown\tpositivie\t2\n#MAGA!!\nHere\u0027s\tpositivie\t2\nChange\tpositivie\t2\nher\tpositivie\t2\n#Guns\tpositivie\t2\nseveral\tpositivie\t2\never\tpositivie\t2\n#HillaryforPrison\tpositivie\t2\nit\tpositivie\t2\ntheir\tpositivie\t2\n@HyltonRobin:\tpositivie\t2\nemissions\tpositivie\t2\nnot\tpositivie\t2\ntrain\tpositivie\t2\nWho\tpositivie\t2\ntoday.\tpositivie\t2\noff!\tpositivie\t2\ninterviews\tpositivie\t2\nFolks,\tpositivie\t2\nthen\tpositivie\t2\n90%\tpositivie\t2\n-\tpositivie\t2\ntroops\tpositivie\t2\nleveling\tpositivie\t2\ncorruption\tpositivie\t2\nwanting\tpositivie\t2\nVirginians,\tpositivie\t2\nCarbon\tpositivie\t2\nHave\tpositivie\t2\ncommitted\tpositivie\t2\nmore\tpositivie\t2\n@RedNationRising:\tpositivie\t2\n#DrainTheSwamp\tpositivie\t2\n@JacobAWohl:\tpositivie\t2\ntill\tpositivie\t2\nyou?\tpositivie\t2\n@Snitfit:\tpositivie\t2\nuntil\tpositivie\t2\nleader\tpositivie\t2\nlate.\tpositivie\t2\nThank\tpositivie\t2\nabout\tpositivie\t2\nsame…\tpositivie\t2\n#Winning\tpositivie\t2\nso\tpositivie\t2\nprobably\tpositivie\t2\nAmer…\tpositivie\t2\nthem\tpositivie\t2\nClimate\tpositivie\t2\nfellow\tpositivie\t2\nshows\tpositivie\t2\ntoday?\tpositivie\t2\nIt\tpositivie\t2\n\tpositivie\t2\nplease\tpositivie\t2\nGovernment\tpositivie\t2\n🇺🇸\nYou\tpositivie\t2\ncountry\tpositivie\t2\nreport\tpositivie\t2\nWashington\tpositivie\t2\ninternational\tpositivie\t2\nelse\tpositivie\t2\nhis\tpositivie\t2\noccasion.…\tpositivie\t2\nTomorrow\tpositivie\t2\nit’s\tpositivie\t2\nrolling\tpositivie\t2\nconstitute\tpositivie\t1\nOUR\tpositivie\t1\n@njagoda\tpositivie\t1\n@adrscott\tpositivie\t1\npart\tpositivie\t1\nLIBERALISM\"…\tpositivie\t1\n#RepubloCrats\tpositivie\t1\nhaving\tpositivie\t1\nspecies\tpositivie\t1\nAmerican\tpositivie\t1\nbill\tpositivie\t1\nunfortunately.\tpositivie\t1\n7pm.\tpositivie\t1\ncome\tpositivie\t1\nUS…\tpositivie\t1\nplace\tpositivie\t1\nhappened\tpositivie\t1\nDUHblasio\tpositivie\t1\nZ…\tpositivie\t1\nused\tpositivie\t1\n@mikandynothem\tpositivie\t1\nuniform.\"\tpositivie\t1\nhttps://…\tpositivie\t1\nheads\tpositivie\t1\nU.S.\tpositivie\t1\nhope\tpositivie\t1\nThese\tpositivie\t1\nadopt\tpositivie\t1\nhttps://t.co/leauKJrchZ\tpositivie\t1\nmsm\tpositivie\t1\nanswer\tpositivie\t1\nsymbolism\tpositivie\t1\nvoting…\tpositivie\t1\nSenators\tpositivie\t1\nworld,\tpositivie\t1\nProblem\tpositivie\t1\nwhole\tpositivie\t1\nSure\tpositivie\t1\naudacity\tpositivie\t1\n--\n\"This\tpositivie\t1\nWatch\tpositivie\t1\nalready\tpositivie\t1\ndeeper\tpositivie\t1\nremember\tpositivie\t1\nVirginia?\tpositivie\t1\nparts\tpositivie\t1\nCode\tpositivie\t1\n#TrumpTrai…\tpositivie\t1\nKnow\tpositivie\t1\n§\tpositivie\t1\nVOTE\tpositivie\t1\nBattle\tpositivie\t1\nworst\tpositivie\t1\nFASCISM\tpositivie\t1\nMSM\tpositivie\t1\n@LouDobbs\tpositivie\t1\nretweet\tpositivie\t1\nDNC\tpositivie\t1\nmany\tpositivie\t1\nfar:\n#integrity\tpositivie\t1\n#privacy\tpositivie\t1\nadded\tpositivie\t1\n@SandraTXAS:\tpositivie\t1\nmean\tpositivie\t1\nradicalization\tpositivie\t1\nliar\tpositivie\t1\nconstituents!\tpositivie\t1\nfighting\tpositivie\t1\nSpencer\u0027s\tpositivie\t1\n17,\tpositivie\t1\nhighest\tpositivie\t1\npride\tpositivie\t1\nvoted.\nPolls\tpositivie\t1\nK…\tpositivie\t1\nKellyanne\tpositivie\t1\nAmerica...\nit\tpositivie\t1\naddressed.\tpositivie\t1\nago...the\tpositivie\t1\nstron…\tpositivie\t1\nWorld.\tpositivie\t1\nYes\tpositivie\t1\nExample\tpositivie\t1\n@jimlibertarian\tpositivie\t1\namazing\tpositivie\t1\npress\tpositivie\t1\nDonna\tpositivie\t1\ntwo\tpositivie\t1\nnothing\tpositivie\t1\nbooks.\tpositivie\t1\ndid.\tpositivie\t1\nwant\tpositivie\t1\nfollow.\tpositivie\t1\nwants\tpositivie\t1\nbeing\tpositivie\t1\n@LauraLoomer:\tpositivie\t1\nsinc…\tpositivie\t1\nproduce\tpositivie\t1\nhelping\tpositivie\t1\nFallen\tpositivie\t1\n👍#MAGA\tpositivie\t1\nh…\tpositivie\t1\ndevil\tpositivie\t1\n#Antifa\tpositivie\t1\nyes,\tpositivie\t1\n2013\tpositivie\t1\nbooks\tpositivie\t1\n.\tpositivie\t1\nfigure\tpositivie\t1\nhttps://t.co/hGOZf5dDVD\tpositivie\t1\n.@GOP\tpositivie\t1\n\u0027thrown\tpositivie\t1\nBushes\tpositivie\t1\nsure\tpositivie\t1\nhim\tpositivie\t1\nhttps://t.co/p5SuFH1gI0\tpositivie\t1\nkill\tpositivie\t1\nundisguised\tpositivie\t1\nfailed\tpositivie\t1\nNorth\tpositivie\t1\nknowwise\tpositivie\t1\n@MarkYoungTruth:\tpositivie\t1\ndidn’t\tpositivie\t1\nis…\tpositivie\t1\nbrainwashing\tpositivie\t1\nchance\tpositivie\t1\ndayful\tpositivie\t1\nwould\u0027ve\tpositivie\t1\nYOU\u0027RE\tpositivie\t1\norganization,\tpositivie\t1\nchurchgoing\tpositivie\t1\nhttps://t.co/nfTlZXGZEe\tpositivie\t1\nchiise\tpositivie\t1\ntrust\tpositivie\t1\nfollowers.\tpositivie\t1\nus\tpositivie\t1\n@Bane_Buster:\tpositivie\t1\ndoes\tpositivie\t1\n#FakeNews\tpositivie\t1\nGet\tpositivie\t1\n#Periscope:\tpositivie\t1\ncomes\tpositivie\t1\n@EdWGillespie…\tpositivie\t1\nTribute\tpositivie\t1\nnever\tpositivie\t1\nduties\tpositivie\t1\n#Resist\tpositivie\t1\ndoesn\u0027t\tpositivie\t1\ngoing\tpositivie\t1\n#TrumpTrain\tpositivie\t1\nreflect\tpositivie\t1\nDon\u0027t\tpositivie\t1\npetition.....\tpositivie\t1\nactually\tpositivie\t1\nunder\tpositivie\t1\n#ViolentPeople\tpositivie\t1\nevening\tpositivie\t1\nbeloved\tpositivie\t1\nit!\tpositivie\t1\nrefor…\tpositivie\t1\nflag\tpositivie\t1\nCLASS\tpositivie\t1\nAgainst\tpositivie\t1\n@9ERSorBUST:\tpositivie\t1\nshared\tpositivie\t1\n👀\tpositivie\t1\nRespect\tpositivie\t1\nre…\tpositivie\t1\n#AmericaFirst…\tpositivie\t1\nwouldnt\tpositivie\t1\nmccain\tpositivie\t1\nsociopathic\tpositivie\t1\nsurprise.\tpositivie\t1\nacknowledging\tpositivie\t1\n😂😂\n#SaluteToService\n#MAGA…\tpositivie\t1\nUTACHEKA\tpositivie\t1\nstorms⛈\tpositivie\t1\ntimes\tpositivie\t1\ncan\u0027t\tpositivie\t1\ntelling\tpositivie\t1\nLefts\tpositivie\t1\nNo\tpositivie\t1\nTurn\tpositivie\t1\nhttps://t.co/VUK5HxxxLT\tpositivie\t1\nupright\n@realDonaldTrump…\tpositivie\t1\nown…\tpositivie\t1\ndefeat…\tpositivie\t1\n#2A\tpositivie\t1\nIslamic\tpositivie\t1\n@WayneDupreeShow\tpositivie\t1\n@StockPhotoTrump\tpositivie\t1\nextremists\tpositivie\t1\nHillary\tpositivie\t1\n#MusicMonday\tpositivie\t1\n#Democrat\tpositivie\t1\n140\tpositivie\t1\nProgressive\tpositivie\t1\nNationalism\tpositivie\t1\nTHE\tpositivie\t1\n#PJNET\tpositivie\t1\n#VoteHimOut\tpositivie\t1\neyes\tpositivie\t1\nSweet\tpositivie\t1\nsides\tpositivie\t1\nHeroes..\tpositivie\t1\nemployees,\tpositivie\t1\n❤\tpositivie\t1\nSign\tpositivie\t1\n@Channel4\tpositivie\t1\nSyria\tpositivie\t1\nhttps://t.co/EkWjJ3rSrF\tpositivie\t1\nshoot\tpositivie\t1\nsafe,\tpositivie\t1\nstealing\tpositivie\t1\n@BreitbartNews\tpositivie\t1\nRepublican,\tpositivie\t1\nstanding\tpositivie\t1\nflag.\n\"No\tpositivie\t1\n@nytimes\tpositivie\t1\npeople,\tpositivie\t1\nReagan\tpositivie\t1\n\"TRUTH\"\tpositivie\t1\nMain\tpositivie\t1\nfelon\tpositivie\t1\nunderstand\tpositivie\t1\n\"Stay\tpositivie\t1\nhappen\tpositivie\t1\ndays\"\tpositivie\t1\nbus\u0027\tpositivie\t1\n@Sunrise51052:\tpositivie\t1\nmillion\tpositivie\t1\nhttps://t.co/AkbC7k41bs\tpositivie\t1\nhole\tpositivie\t1\nNY\tpositivie\t1\nAnd\tpositivie\t1\nShe\u0027s\tpositivie\t1\nWhat\tpositivie\t1\n@NiaMAGA3X:\tpositivie\t1\nduring\tpositivie\t1\npr…\tpositivie\t1\nkids\tpositivie\t1\n#MAGA\nhttps://t.co/owq4j88gZh\tpositivie\t1\n4\tpositivie\t1\nIn\tpositivie\t1\nbriefing:\tpositivie\t1\nRecommended\tpositivie\t1\ngun\tpositivie\t1\n@bfraser747:\tpositivie\t1\nthey\u0027re\tpositivie\t1\nstop\tpositivie\t1\nhttps://t.co/KyvfJWUyL3\tpositivie\t1\n#Trump\nhttps://…\tpositivie\t1\nanybody\tpositivie\t1\n#TuesdayThoughts\tpositivie\t1\n\"unpopular\"\tpositivie\t1\n[Jeff\tpositivie\t1\nChanged\tpositivie\t1\nhighs.\tpositivie\t1\n24\tpositivie\t1\nGovt\tpositivie\t1\nespecially\tpositivie\t1\n@EdKrassen\tpositivie\t1\nHANDING\tpositivie\t1\nagainst\tpositivie\t1\n🇺🇸🇺🇸🇺🇸🇺🇸🇺🇸🇺🇸🇺🇸\n#Truth\tpositivie\t1\n#classic…\tpositivie\t1\nsa…\tpositivie\t1\nchars.\tpositivie\t1\nunde…\tpositivie\t1\ntells\tpositivie\t1\nhttps://t.co/3E3SoxJ0GL\tpositivie\t1\n👹to\tpositivie\t1\n@onedovealone:\tpositivie\t1\n#PeopleKill\tpositivie\t1\npledge\tpositivie\t1\nhttps://t.co/wTaI1BnvBN\tpositivie\t1\n@RodStryker:\tpositivie\t1\ncompany\tpositivie\t1\n@FLOTUS\tpositivie\t1\nlike:\tpositivie\t1\nBy\tpositivie\t1\n@SenKamalaHarris\tpositivie\t1\nfeel\tpositivie\t1\n🙏🏼As\tpositivie\t1\njob.\tpositivie\t1\nintention\tpositivie\t1\nboth\tpositivie\t1\n@Tia6sc\tpositivie\t1\nathletic\tpositivie\t1\nhttps://t.co/3Yz8vIWJJE\tpositivie\t1\nLord\tpositivie\t1\nHappening\tpositivie\t1\nbody\tpositivie\t1\nkinni00:\tpositivie\t1\nLawle…\tpositivie\t1\nFBI\n\tpositivie\t1\nhere\u0027sful\tpositivie\t1\nuprising?\tpositivie\t1\n🇺🇸💥🇺🇸💥🇺🇸💥🇺🇸💥🇺🇸💥\nTwo\tpositivie\t1\nfracturing\tpositivie\t1\nSTILL,\tpositivie\t1\n@RileyPresident\tpositivie\t1\nACT!!!\tpositivie\t1\nmuch\tpositivie\t1\nhttps://t.co/c3ytjHQmiD\tpositivie\t1\nTide\tpositivie\t1\nDay\tpositivie\t1\n@DRUDGE\tpositivie\t1\nhttps://t.co/BBdHGfoOz5\tpositivie\t1\nhe\u0027s\tpositivie\t1\nDig\tpositivie\t1\nup!\tpositivie\t1\nmosques.\tpositivie\t1\nsays\tpositivie\t1\ntweets\tpositivie\t1\n#FATCA\nSo\tpositivie\t1\nindoctrination\tpositivie\t1\n#PresidentElectTrump\tpositivie\t1\nfactual\tpositivie\t1\nwaste\tpositivie\t1\nguardians\tpositivie\t1\ncaught\tpositivie\t1\n@kylegriffin1:\tpositivie\t1\n@RealOmarNavarro:\tpositivie\t1\nhttps://t.co/yUqRPOiW7n\tpositivie\t1\nor\tpositivie\t1\nhttps://t.co/7VfXYAJs3F\tpositivie\t1\n@bestICNnurse\tpositivie\t1\ncalling\tpositivie\t1\nApril\tpositivie\t1\n...\tpositivie\t1\nhttps://t.co/eCdjxJyKYv\tpositivie\t1\nletting\tpositivie\t1\nrapist\tpositivie\t1\ncharliespiering:\tpositivie\t1\nmarket\tpositivie\t1\nface\tpositivie\t1\naren\u0027t\tpositivie\t1\nw/\tpositivie\t1\nignoring\tpositivie\t1\n#TCOT\tpositivie\t1\nAs\tpositivie\t1\neveryone\tpositivie\t1\ngo\tpositivie\t1\nlefties\tpositivie\t1\nword\tpositivie\t1\nhttps://t.co/WHJKgSZWk6\tpositivie\t1\nshows…\tpositivie\t1\nmental\tpositivie\t1\n280\tpositivie\t1\nsignaling\tpositivie\t1\nCompanies\tpositivie\t1\nevery\tpositivie\t1\n@heytootssweet:\tpositivie\t1\nJobs\tpositivie\t1\ndays\tpositivie\t1\nhealth\tpositivie\t1\nrepeal\tpositivie\t1\nscull.…\tpositivie\t1\nthem,\tpositivie\t1\nwomen\tpositivie\t1\nfish\tpositivie\t1\n@spoutsmith:\tpositivie\t1\nWhen\tpositivie\t1\nEXACTLY\tpositivie\t1\neve\tpositivie\t1\n#WomenEmpowerment\tpositivie\t1\nANYTHING\tpositivie\t1\nExactly\tpositivie\t1\nown\tpositivie\t1\nDecades\tpositivie\t1\n@Channel4News\tpositivie\t1\nSafe\"\tpositivie\t1\nToots\tpositivie\t1\npoints\tpositivie\t1\nMilitary\tpositivie\t1\nTO\tpositivie\t1\nRides\tpositivie\t1\nendangered\tpositivie\t1\nlot\tpositivie\t1\noutpouring\tpositivie\t1\nImagine\tpositivie\t1\nCall\tpositivie\t1\nFlake],\tpositivie\t1\ncorker\tpositivie\t1\nflake\tpositivie\t1\nSomeone\tpositivie\t1\npresident\tpositivie\t1\ntax\tpositivie\t1\n#MAGA.\tpositivie\t1\nnobody\tpositivie\t1\nFlail\tpositivie\t1\nhttps://t.co/lgnxESUKIw\tpositivie\t1\nEmperor\tpositivie\t1\nOR\tpositivie\t1\nsupporters\tpositivie\t1\nBrian\tpositivie\t1\nguy,\tpositivie\t1\nConway\tpositivie\t1\n@DonnyFerguson\tpositivie\t1\nhttps://t.co/RaGVXpWZiR\tpositivie\t1\nresponsibilities\tpositivie\t1\n11/7\nVote…\tpositivie\t1\nDEMS...AGAIN!\tpositivie\t1\n@russianbot11:\tpositivie\t1\nhell\tpositivie\t1\ncoming\tpositivie\t1\nGreeting\tpositivie\t1\nRichard\tpositivie\t1\n#A…\tpositivie\t1\nabuse\tpositivie\t1\nTRUT…\tpositivie\t1\nsaying\tpositivie\t1\nseal\tpositivie\t1\nre\tpositivie\t1\nSyria!!!\tpositivie\t1\nCOUNTRY\tpositivie\t1\nrepresent!\n#MAGA\tpositivie\t1\nhttps:…\tpositivie\t1\nMillions\tpositivie\t1\nissa\tpositivie\t1\nreal!\tpositivie\t1\nhttps://t.co/dVwtIl8hMf\tpositivie\t1\nBrazile\tpositivie\t1\nstory\tpositivie\t1\nw…\tpositivie\t1\nknow-nothing\tpositivie\t1\nSJWs,\tpositivie\t1\n@arieshapira1:\tpositivie\t1\nsome\tpositivie\t1\nKeep\tpositivie\t1\nnews\tpositivie\t1\nname\tpositivie\t1\nLaw\tpositivie\t1\nWay\tpositivie\t1\nHistory\tpositivie\t1\nSJWs\tpositivie\t1\nFamilies\tpositivie\t1\nsingle\tpositivie\t1\nSo,\tpositivie\t1\nStock\tpositivie\t1\nresident\tpositivie\t1\n365\tpositivie\t1\ntopics\tpositivie\t1\nguns,\tpositivie\t1\nchoice\tpositivie\t1\nBiased,\tpositivie\t1\nmedia\tpositivie\t1\nworks\tpositivie\t1\n#Patriots\tpositivie\t1\nho…\tpositivie\t1\ndid\tpositivie\t1\ncontrol\tpositivie\t1\nvoted!\tpositivie\t1\n@USATODAY\tpositivie\t1\nriot?\tpositivie\t1\nWe\tpositivie\t1\nserial\tpositivie\t1\nthere\tpositivie\t1\ncharacters,\tpositivie\t1\ncostume\tpositivie\t1\ninto\tpositivie\t1\nover\tpositivie\t1\nAmerica:\tpositivie\t1\n@HarryDowning113\tpositivie\t1\nNext\tpositivie\t1\n#MaxineWatersHasToGo…\tpositivie\t1\nGo\tpositivie\t1\nwork\tpositivie\t1\nvirtue\tpositivie\t1\nJapanese\tpositivie\t1\nlevel\"…\tpositivie\t1\nWoebegone\tpositivie\t1\nCongrats\tpositivie\t1\nTODAY\tpositivie\t1\n@BiglyPrez:\tpositivie\t1\nLIVE\tpositivie\t1\ntax\u0027n\tpositivie\t1\nagency\tpositivie\t1\ntime\tpositivie\t1\nban\tpositivie\t1\n\"old\tpositivie\t1\nsee\tpositivie\t1\n#chicago\tpositivie\t1\nmorr\tpositivie\t1\nWormy\tpositivie\t1\nman\tpositivie\t1\ntype\tpositivie\t1\nif\tpositivie\t1\n@StoneColdTruth:\tpositivie\t1\nrespect…\tpositivie\t1\nRIGHT!\n\"If\tpositivie\t1\nreality👇🏽Never\tpositivie\t1\nOVER\tpositivie\t1\nbarrel?\tpositivie\t1\nraided\tpositivie\t1\n@DFBHarvard:\tpositivie\t1\nDiscussing\tpositivie\t1\nseason\tpositivie\t1\n@IRdotnet\tpositivie\t1\nbecome\tpositivie\t1\ncolor.\tpositivie\t1\nasked\tpositivie\t1\nhttps://t.co/Gf1UfZ8diS\tpositivie\t1\ncurb\tpositivie\t1\ninstead\tpositivie\t1\nendful\tpositivie\t1\n8\tpositivie\t1\nkicking\tpositivie\t1\nfreedom\tpositivie\t1\nSERIOUSLY;\tpositivie\t1\nwill\tpositivie\t1\nMommy\tpositivie\t1\nUSA.\tpositivie\t1\nhunting\tpositivie\t1\nHAD\tpositivie\t1\nJoy,\tpositivie\t1\nalways\tpositivie\t1\nought\tpositivie\t1\ntrying\tpositivie\t1\ncurrent\tpositivie\t1\nissues\tpositivie\t1\nHarry\tpositivie\t1\nhate\tpositivie\t1\n\u003e\u003e\tpositivie\t1\nhttps://t.co/aELBYhmrK8\tpositivie\t1\n@PlaysTrumpCard:\tpositivie\t1\nCongress\u0027s\tpositivie\t1\nhad\tpositivie\t1\nwalk\tpositivie\t1\nirritate\tpositivie\t1\nTake\tpositivie\t1\nerror.\tpositivie\t1\nSarsour,\tpositivie\t1\n@Blingaholique1:\tpositivie\t1\nLeft\tpositivie\t1\ndistributes\tpositivie\t1\nNot\tpositivie\t1\nbrazen\tpositivie\t1\nbrave\tpositivie\t1\nothers\tpositivie\t1\nOregon\tpositivie\t1\n\u003d\tpositivie\t1\nStelter\tpositivie\t1\n5K\tpositivie\t1\nno\tpositivie\t1\n"
+            "data": "word\tsentiment\tcnt\nthe\tpositivie\t145\nRT\tpositivie\t101\n\tpositivie\t85\nof\tpositivie\t70\nto\tpositivie\t63\nin\tpositivie\t54\na\tpositivie\t41\n\u0026\tpositivie\t38\nare\tpositivie\t34\nbe\tpositivie\t32\nWill\tpositivie\t26\nafter\tpositivie\t26\nMy\tpositivie\t25\nPhilippines\tpositivie\t25\nmany\tpositivie\t25\ntomorrow\tpositivie\t25\ndays\tpositivie\t25\nleaving\tpositivie\t25\nra…\tpositivie\t23\nwork\tpositivie\t23\nmtgs\tpositivie\t23\nconstant\tpositivie\t23\npromises\tpositivie\t23\n#MAGA!\tpositivie\t23\n@realDonaldTrump:\tpositivie\t23\norder\tpositivie\t23\nfor\tpositivie\t22\nthat\tpositivie\t22\nThe\tpositivie\t18\nhas\tpositivie\t18\n#MAGA\tpositivie\t17\nyou\tpositivie\t17\nhave\tpositivie\t12\nbeen\tpositivie\t12\n@realDonaldTrump\tpositivie\t11\nnot\tpositivie\t10\nback\tpositivie\t10\nthey\tpositivie\t10\nis\tpositivie\t10\nnow\tpositivie\t9\nPresident\tpositivie\t9\none\tpositivie\t9\nI\tpositivie\t9\nlike\tpositivie\t9\ndown\tpositivie\t9\nand\tpositivie\t9\nso\tpositivie\t9\nKeurig\tpositivie\t8\nWe\tpositivie\t8\nwas\tpositivie\t8\ngo\tpositivie\t8\nroad\tpositivie\t7\nare…\tpositivie\t7\ntheir\tpositivie\t7\nsame\tpositivie\t7\nwhich\tpositivie\t7\n@mikandynothem:\tpositivie\t7\nroad.\tpositivie\t7\nThey\tpositivie\t7\nI’m\tpositivie\t7\nregret,\tpositivie\t7\nto…\tpositivie\t7\nObama\tpositivie\t7\ndangerous\tpositivie\t7\n#NFL,\tpositivie\t7\nwill\tpositivie\t7\nwent\tpositivie\t7\nmillion\tpositivie\t7\ndown.\tpositivie\t7\nchosen\tpositivie\t7\nwho\tpositivie\t6\npeople\tpositivie\t6\non\tpositivie\t6\ngoing\tpositivie\t6\nhow\tpositivie\t6\n@Harlan:\tpositivie\t6\nour\tpositivie\t6\nvoters\tpositivie\t6\nsupported\tpositivie\t6\nby\tpositivie\t6\n2016...\nWe’re\tpositivie\t6\n7\tpositivie\t6\nPlease\tpositivie\t6\nyour\tpositivie\t6\n"
           }
         ]
       },
@@ -353,23 +448,25 @@
       "jobName": "paragraph_1510098675208_1982498845",
       "id": "20171107-235115_491215821",
       "dateCreated": "Nov 7, 2017 11:51:15 PM",
-      "dateStarted": "Nov 7, 2017 11:52:11 PM",
-      "dateFinished": "Nov 7, 2017 11:52:12 PM",
+      "dateStarted": "Nov 13, 2017 5:32:51 PM",
+      "dateFinished": "Nov 13, 2017 5:32:52 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\n#declaring a function in Python\n#to count the number of words by splitting on white space\n\nimport re\n\ndef wordcount(a):\n  return len(re.split(\"\\W+\",a))\n  \nsqlContext.registerFunction(\"wordcount\", wordcount)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 11:13:15 PM",
+      "dateUpdated": "Nov 13, 2017 5:22:43 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "python"
+          "language": "python",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/python"
+        "editorMode": "ace/mode/python",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -383,15 +480,15 @@
       "jobName": "paragraph_1510096361271_-2020168724",
       "id": "20171107-231241_396290152",
       "dateCreated": "Nov 7, 2017 11:12:41 PM",
-      "dateStarted": "Nov 7, 2017 11:13:15 PM",
-      "dateFinished": "Nov 7, 2017 11:13:16 PM",
+      "dateStarted": "Nov 13, 2017 5:22:43 PM",
+      "dateFinished": "Nov 13, 2017 5:22:43 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n---maybe we want to know the word count associated with each\n\nselect  sentiment(text) as sentiment, wordcount(text) as wordcount, count(1) from tweets group by sentiment(text), wordcount(text)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 8, 2017 12:00:51 AM",
+      "dateUpdated": "Nov 13, 2017 5:22:49 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -406,9 +503,11 @@
           }
         },
         "editorSetting": {
-          "language": "sql"
+          "language": "sql",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -419,7 +518,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "sentiment\twordcount\tcount(1)\nneutral\t15\t4\nneutral\t21\t11\nnegative\t15\t1\nneutral\t22\t26\npositivie\t20\t3\nneutral\t13\t6\nnegative\t22\t8\nneutral\t24\t19\npositivie\t28\t1\nnegative\t21\t5\nneutral\t7\t5\nneutral\t17\t16\nnegative\t23\t1\nneutral\t11\t8\nneutral\t18\t14\nneutral\t6\t5\npositivie\t10\t1\nneutral\t8\t1\nneutral\t16\t11\nneutral\t27\t2\nneutral\t19\t16\nnegative\t7\t1\nneutral\t5\t2\npositivie\t15\t6\npositivie\t27\t4\nneutral\t26\t4\nnegative\t25\t3\npositivie\t19\t2\nnegative\t18\t1\nneutral\t10\t4\npositivie\t24\t22\npositivie\t22\t11\nneutral\t12\t10\npositivie\t23\t25\npositivie\t21\t5\npositivie\t16\t1\npositivie\t12\t1\npositivie\t18\t8\nneutral\t20\t19\npositivie\t26\t6\npositivie\t25\t11\nnegative\t26\t3\nnegative\t8\t1\nneutral\t28\t2\nnegative\t19\t2\npositivie\t14\t1\nneutral\t9\t2\nneutral\t23\t11\nneutral\t14\t8\nneutral\t25\t19\n"
+            "data": "sentiment\twordcount\tcount(1)\nneutral\t15\t4\nneutral\t21\t19\nneutral\t22\t10\nnegative\t9\t1\npositivie\t20\t10\nneutral\t13\t3\nnegative\t22\t13\nneutral\t24\t29\npositivie\t28\t2\nnegative\t21\t1\nneutral\t7\t1\nneutral\t17\t7\nnegative\t23\t5\nneutral\t11\t4\nneutral\t18\t22\nneutral\t6\t3\nneutral\t8\t7\nneutral\t16\t20\nneutral\t27\t2\nneutral\t19\t15\npositivie\t15\t2\nneutral\t5\t2\npositivie\t27\t2\nneutral\t26\t7\nnegative\t25\t2\npositivie\t19\t9\nneutral\t10\t11\npositivie\t24\t43\npositivie\t22\t9\nneutral\t12\t9\npositivie\t29\t1\nnegative\t24\t4\npositivie\t23\t11\npositivie\t21\t5\npositivie\t8\t1\npositivie\t16\t2\nnegative\t14\t1\npositivie\t12\t2\nnegative\t20\t2\npositivie\t18\t4\nnegative\t12\t1\nneutral\t20\t15\npositivie\t26\t9\npositivie\t25\t10\nnegative\t26\t2\nneutral\t28\t1\nnegative\t19\t2\npositivie\t14\t2\nneutral\t23\t8\nneutral\t14\t4\nneutral\t25\t9\npositivie\t11\t1\nnegative\t28\t1\nnegative\t11\t1\nnegative\t17\t1\npositivie\t17\t1\n"
           }
         ]
       },
@@ -427,15 +526,15 @@
       "jobName": "paragraph_1510096344814_-92207310",
       "id": "20171107-231224_2097199119",
       "dateCreated": "Nov 7, 2017 11:12:24 PM",
-      "dateStarted": "Nov 8, 2017 12:00:00 AM",
-      "dateFinished": "Nov 8, 2017 12:00:01 AM",
+      "dateStarted": "Nov 13, 2017 5:22:49 PM",
+      "dateFinished": "Nov 13, 2017 5:22:51 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n---maybe we want to know the raw counts by minute\n\nselect minute, sentiment, count(1) as cnt from\n(\n   select substr(from_unixtime(createdAt), 0, 16) as minute, screenName, sentiment(text) as sentiment, wordcount(text) as wordcount, text  from tweets\n) sub1\ngroup by minute, sentiment\norder by minute\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 8, 2017 12:02:14 AM",
+      "dateUpdated": "Nov 13, 2017 5:22:54 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -450,9 +549,11 @@
           }
         },
         "editorSetting": {
-          "language": "sql"
+          "language": "sql",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/sql"
+        "editorMode": "ace/mode/sql",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -463,7 +564,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "minute\tsentiment\tcnt\n2017-11-07 23:59\tpositivie\t32\n2017-11-07 23:59\tnegative\t7\n2017-11-07 23:59\tneutral\t69\n2017-11-08 00:00\tnegative\t16\n2017-11-08 00:00\tpositivie\t54\n2017-11-08 00:00\tneutral\t134\n2017-11-08 00:01\tpositivie\t21\n2017-11-08 00:01\tnegative\t1\n2017-11-08 00:01\tneutral\t38\n"
+            "data": "minute\tsentiment\tcnt\n2017-11-13 17:20\tpositivie\t11\n2017-11-13 17:20\tnegative\t3\n2017-11-13 17:20\tneutral\t20\n2017-11-13 17:21\tneutral\t107\n2017-11-13 17:21\tpositivie\t63\n2017-11-13 17:21\tnegative\t21\n2017-11-13 17:22\tnegative\t11\n2017-11-13 17:22\tneutral\t83\n2017-11-13 17:22\tpositivie\t52\n"
           }
         ]
       },
@@ -471,23 +572,25 @@
       "jobName": "paragraph_1510098877012_-1091985288",
       "id": "20171107-235437_1745354127",
       "dateCreated": "Nov 7, 2017 11:54:37 PM",
-      "dateStarted": "Nov 8, 2017 12:01:29 AM",
-      "dateFinished": "Nov 8, 2017 12:01:30 AM",
+      "dateStarted": "Nov 13, 2017 5:22:54 PM",
+      "dateFinished": "Nov 13, 2017 5:22:55 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 8, 2017 12:08:07 AM",
+      "dateUpdated": "Nov 13, 2017 3:58:43 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala"
+          "language": "scala",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/scala",
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -501,16 +604,26 @@
       "jobName": "paragraph_1510099289748_763119023",
       "id": "20171108-000129_241191086",
       "dateCreated": "Nov 8, 2017 12:01:29 AM",
-      "dateStarted": "Nov 8, 2017 12:08:07 AM",
-      "dateFinished": "Nov 8, 2017 12:08:09 AM",
+      "dateStarted": "Nov 13, 2017 3:58:43 PM",
+      "dateFinished": "Nov 13, 2017 3:58:44 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 8, 2017 12:08:07 AM",
-      "config": {},
+      "dateUpdated": "Nov 8, 2017 9:48:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": false
+      },
       "settings": {
         "params": {},
         "forms": {}
@@ -523,28 +636,28 @@
       "progressUpdateIntervalMs": 500
     }
   ],
-  "name": "U_of_M_Twitter_Example_Part_2",
+  "name": "U_of_M_Twitter_Example_Part_3",
   "id": "2CZK69E8F",
   "angularObjects": {
-    "2CXBSW4TJ:shared_process": [],
-    "2CXEBXSQZ:shared_process": [],
-    "2CWJ2A8RF:shared_process": [],
-    "2CZD1B9WR:shared_process": [],
-    "2CZFYTMSF:shared_process": [],
-    "2CXPZU11F:shared_process": [],
-    "2CWDEE5JX:shared_process": [],
-    "2CXMNXU3V:shared_process": [],
-    "2CXAH2Z3H:shared_process": [],
-    "2CWUDFCYP:shared_process": [],
-    "2D1AKV3RS:shared_process": [],
-    "2CWWY2G9H:shared_process": [],
-    "2CWBRVJWU:shared_process": [],
-    "2CZJ48SD7:shared_process": [],
-    "2D14NK1WN:shared_process": [],
-    "2CZREWEEY:shared_process": [],
-    "2CWXVPXMY:shared_process": [],
-    "2CWSHRTFJ:shared_process": [],
-    "2CY3TV3CX:shared_process": []
+    "2CZJVG5MN:shared_process": [],
+    "2CWTGG3KP:shared_process": [],
+    "2D19WB1SX:shared_process": [],
+    "2D16N6K17:shared_process": [],
+    "2CYJUZ3PK:shared_process": [],
+    "2CXW1QUF1:shared_process": [],
+    "2CYF8ZUHC:shared_process": [],
+    "2CX6TK6VC:shared_process": [],
+    "2CY8J9E5M:shared_process": [],
+    "2CYMM4PZY:shared_process": [],
+    "2CYUJ2KCT:shared_process": [],
+    "2CZ7F5R3H:shared_process": [],
+    "2CXP9EU5U:shared_process": [],
+    "2D1HDHGB9:shared_process": [],
+    "2CXU7D2Q5:shared_process": [],
+    "2CYQFZSUP:shared_process": [],
+    "2CZS63BSA:shared_process": [],
+    "2D1KR2N41:shared_process": [],
+    "2CZ3UFXP7:shared_process": []
   },
   "config": {},
   "info": {}

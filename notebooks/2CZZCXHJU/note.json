@@ -1,0 +1,894 @@
+{
+  "paragraphs": [
+    {
+      "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:45:03 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@1149b945\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510603742584_-1822473055",
+      "id": "20171113-200902_191997932",
+      "dateCreated": "Nov 13, 2017 8:09:02 PM",
+      "dateStarted": "Nov 13, 2017 8:45:03 PM",
+      "dateFinished": "Nov 13, 2017 8:45:07 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:45:10 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\nres3: String \u003d null\nres4: String \u003d null\nres5: String \u003d null\nres6: String \u003d null\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510603409324_-1686917205",
+      "id": "20171113-200329_463285937",
+      "dateCreated": "Nov 13, 2017 8:03:29 PM",
+      "dateStarted": "Nov 13, 2017 8:45:10 PM",
+      "dateFinished": "Nov 13, 2017 8:45:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#maga\"))\n//val tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(createdAt:Long, text:String, screenName:String)\ntwt.map(t\u003d\u003e\n  Tweet(t.getCreatedAt().getTime()/1000, t.getText(), t.getUser().getScreenName())).foreachRDD(rdd\u003d\u003e{\n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:45:24 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@4df1d462\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@15038f26\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@50c18f0f\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510603702816_-48811274",
+      "id": "20171113-200822_1770883423",
+      "dateCreated": "Nov 13, 2017 8:08:22 PM",
+      "dateStarted": "Nov 13, 2017 8:45:24 PM",
+      "dateFinished": "Nov 13, 2017 8:45:26 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Hook to custom python libraries on disk",
+      "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:45:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/tmp\u0027, \u0027/zeppelin/interpreter/python/py4j-0.9.2/src\u0027, \u0027/zeppelin/interpreter/lib/python\u0027, \u0027/opt/conda/lib/python27.zip\u0027, \u0027/opt/conda/lib/python2.7\u0027, \u0027/opt/conda/lib/python2.7/plat-linux2\u0027, \u0027/opt/conda/lib/python2.7/lib-tk\u0027, \u0027/opt/conda/lib/python2.7/lib-old\u0027, \u0027/opt/conda/lib/python2.7/lib-dynload\u0027, \u0027/opt/conda/lib/python2.7/site-packages\u0027, \u0027/opt/conda/lib/python2.7/site-packages/setuptools-27.2.0-py2.7.egg\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536444182_136785545",
+      "id": "20171113-012724_1422074933",
+      "dateCreated": "Nov 13, 2017 1:27:24 AM",
+      "dateStarted": "Nov 13, 2017 8:45:45 PM",
+      "dateFinished": "Nov 13, 2017 8:45:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Lets Pick 3 streams to build a topic classifier from (We all know everything in life is about either sports, politics, or religion... per Bill Nelson NAST Deivery Team)",
+      "text": "%md\n## [Donald J. Trump](https://twitter.com/realDonaldTrump) #maga\n\n## vs\n\n## [Boston Celtics](https://twitter.com/celtics) #celtics\n\n## vs\n\n## [CNN Religion](https://twitter.com/CNNbelief) #god\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:14:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "title": true,
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/realDonaldTrump\"\u003eDonald J. Trump\u003c/a\u003e #maga\u003c/h2\u003e\n\u003ch2\u003evs\u003c/h2\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/celtics\"\u003eBoston Celtics\u003c/a\u003e #celtics\u003c/h2\u003e\n\u003ch2\u003evs\u003c/h2\u003e\n\u003ch2\u003e\u003ca href\u003d\"https://twitter.com/CNNbelief\"\u003eCNN Religion\u003c/a\u003e #god\u003c/h2\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536505371_-2094465271",
+      "id": "20171113-012825_920165819",
+      "dateCreated": "Nov 13, 2017 1:28:25 AM",
+      "dateStarted": "Nov 13, 2017 8:14:41 PM",
+      "dateFinished": "Nov 13, 2017 8:14:41 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py realDonaldTrump \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py celtics \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py CNNbelief\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:40:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536670101_290145765",
+      "id": "20171113-013110_1054835544",
+      "dateCreated": "Nov 13, 2017 1:31:10 AM",
+      "dateStarted": "Nov 13, 2017 6:40:40 PM",
+      "dateFinished": "Nov 13, 2017 6:41:11 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_realDonaldTrump.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:14:46 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "maga: 103\ndraintheswamp: 81\nbigleaguetruth: 58\ndebate: 47\namericafirst: 35\nmakeamericagreatagain: 31\nicymi: 28\ndebates2016: 24\nusa: 20\nvpdebate: 19\ncrookedhillary: 17\ndebates: 16\nfakenews: 16\nobamacare: 13\nthankyoutour2016: 12\ndebatenight: 11\nhurricaneharvey: 11\nunga: 10\ntrumppence16: 9\nharvey: 8\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536789763_-1977009293",
+      "id": "20171113-013309_1720240770",
+      "dateCreated": "Nov 13, 2017 1:33:09 AM",
+      "dateStarted": "Nov 13, 2017 8:14:46 PM",
+      "dateFinished": "Nov 13, 2017 8:14:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_celtics.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:41:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "celtics: 141\nitsnotluck: 91\ndraftkingspregame: 65\nnebhinjuryreport: 62\nheroamongus: 23\nisaiahthomas: 23\nnbacommunityassist: 18\ncelticswin: 18\nsunlifedunk4diabetes: 14\naskjayson: 11\njblxcelticsdrive: 10\ncelticsassist: 10\ncrustaceannation: 9\ncelticsdraft: 9\ncelticssummer: 9\ncelticsmediaday: 7\nnbaplayoffs: 7\nbestplayoffmoment: 7\ncelticssummit: 7\ncelticslive: 7\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536833526_-380994235",
+      "id": "20171113-013353_435747132",
+      "dateCreated": "Nov 13, 2017 1:33:53 AM",
+      "dateStarted": "Nov 13, 2017 6:41:21 PM",
+      "dateFinished": "Nov 13, 2017 6:41:21 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_CNNbelief.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:41:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "popefrancis: 114\npopeindc: 38\nfindingjesus: 33\ncreationdebate: 29\natheists: 21\npope: 18\nlgbt: 15\npopeinnyc: 14\nsotu: 13\nscotus: 12\ncnn: 12\ngopdebate: 12\npopeinus: 11\npopeinphilly: 11\nlaudatosi: 11\ncatholic: 11\nmuslims: 11\ndebates: 9\natheist: 8\nfindingfrancis: 7\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510598452985_1870996557",
+      "id": "20171113-184052_289328921",
+      "dateCreated": "Nov 13, 2017 6:40:52 PM",
+      "dateStarted": "Nov 13, 2017 6:41:31 PM",
+      "dateFinished": "Nov 13, 2017 6:41:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#maga \n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:43:00 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "INCOMPLETE",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Paragraph received a SIGTERM\nExitValue: 143"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536962611_1841482334",
+      "id": "20171113-013602_1480681987",
+      "dateCreated": "Nov 13, 2017 1:36:02 AM",
+      "dateStarted": "Nov 13, 2017 6:43:00 PM",
+      "dateFinished": "Nov 13, 2017 6:43:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#celtics\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:44:31 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "INCOMPLETE",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Paragraph received a SIGTERM\nExitValue: 143"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537282014_-1603698880",
+      "id": "20171113-014122_2030711449",
+      "dateCreated": "Nov 13, 2017 1:41:22 AM",
+      "dateStarted": "Nov 13, 2017 6:44:31 PM",
+      "dateFinished": "Nov 13, 2017 6:46:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#god\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:49:42 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "INCOMPLETE",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Paragraph received a SIGTERM\nExitValue: 143"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510598519954_1909527287",
+      "id": "20171113-184159_1457874669",
+      "dateCreated": "Nov 13, 2017 6:41:59 PM",
+      "dateStarted": "Nov 13, 2017 6:49:42 PM",
+      "dateFinished": "Nov 13, 2017 6:50:52 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:50:40 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root      8341  0.0  0.0  19704   268 ?        S    18:49   0:00 bash -c cd /notebook \u0026\u0026 python /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#god\nroot      8345  0.5  0.0 200592 24700 ?        Sl   18:49   0:00 python /notebook/pythonpckg/Chap02_03/twitter_streaming.py #god\nroot      8354  0.0  0.0  19700  1508 ?        S    18:50   0:00 bash -c ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\nroot      8360  0.0  0.0  12940   980 ?        S    18:50   0:00 grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537095154_461204139",
+      "id": "20171113-013815_1406438966",
+      "dateCreated": "Nov 13, 2017 1:38:15 AM",
+      "dateStarted": "Nov 13, 2017 6:50:40 PM",
+      "dateFinished": "Nov 13, 2017 6:50:40 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh kill 8345\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:50:52 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537111535_1626455316",
+      "id": "20171113-013831_1056956519",
+      "dateCreated": "Nov 13, 2017 1:38:31 AM",
+      "dateStarted": "Nov 13, 2017 6:50:52 PM",
+      "dateFinished": "Nov 13, 2017 6:50:52 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__maga.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:15:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "maga: 67\nboycottkeurig: 7\ntrump: 6\ntcot: 5\nkeurigsmashchallenge: 4\nlockthemup: 3\nobama: 3\nkaepernick: 2\ndji: 2\nsandyschaper: 2\nnfl: 2\nfoxnews: 2\nfboloud: 2\nmondaymorning: 2\njobs: 2\nmondaymotivation: 2\nboycotts: 2\nwakeupamerica: 2\ntpot: 2\ntrumps: 2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536849586_723081867",
+      "id": "20171113-013409_1141458055",
+      "dateCreated": "Nov 13, 2017 1:34:09 AM",
+      "dateStarted": "Nov 13, 2017 8:15:54 PM",
+      "dateFinished": "Nov 13, 2017 8:15:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__celtics.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:51:04 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "celtics: 17\ntickets: 1\nallforone: 1\n76ers: 1\nboston: 1\nsixers: 1\ngreenrunsdeep: 1\npatriots: 1\ndubnation: 1\nwethenorth: 1\nnba: 1\ngrindcity: 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510536970084_-417778532",
+      "id": "20171113-013610_943243959",
+      "dateCreated": "Nov 13, 2017 1:36:10 AM",
+      "dateStarted": "Nov 13, 2017 6:51:04 PM",
+      "dateFinished": "Nov 13, 2017 6:51:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__god.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:51:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "god: 12\nlove: 2\nfedupwithswamp: 1\nfaith: 1\njesuschrist: 1\nbible: 1\nfollowwhiterabbit: 1\nfamily: 1\nworldkindnessday: 1\neternallife: 1\ndeepstategate: 1\nmessiah: 1\nlockthemup: 1\nfollowthe: 1\ntrani: 1\ncountry: 1\ngospel: 1\njesus: 1\nplanofsalvation: 1\ngoodnews: 1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537047769_-1404904647",
+      "id": "20171113-013727_1601931154",
+      "dateCreated": "Nov 13, 2017 1:37:27 AM",
+      "dateStarted": "Nov 13, 2017 6:51:09 PM",
+      "dateFinished": "Nov 13, 2017 6:51:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh cat /notebook/stream__god.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 6:51:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\"created_at\":\"Mon Nov 13 18:49:54 +0000 2017\",\"id\":930145716063952896,\"id_str\":\"930145716063952896\",\"text\":\"RT @TYCASHH: You can never know what #God can do until you trust Him.\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\/download\\/iphone\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter for iPhone\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":3101995478,\"id_str\":\"3101995478\",\"name\":\"Queen Gen\\ud83d\\udc51\",\"screen_name\":\"Gennee__\",\"location\":\"Texas, USA\",\"url\":null,\"description\":\"\\ud83d\\udc78\\ud83c\\udffb\\/\\/ sc:obeyy_ricans \\/\\/ de la isla m\\u00e1s cabrona \\ud83c\\uddf5\\ud83c\\uddf7\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":539,\"friends_count\":501,\"listed_count\":5,\"favourites_count\":3745,\"statuses_count\":1121,\"created_at\":\"Sat Mar 21 18:28:48 +0000 2015\",\"utc_offset\":null,\"time_zone\":null,\"geo_enabled\":true,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/916766944824647680\\/dOURKsJI_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/916766944824647680\\/dOURKsJI_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/3101995478\\/1507699352\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"retweeted_status\":{\"created_at\":\"Mon Nov 13 18:49:39 +0000 2017\",\"id\":930145650888585216,\"id_str\":\"930145650888585216\",\"text\":\"You can never know what #God can do until you trust Him.\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":88204158,\"id_str\":\"88204158\",\"name\":\"PRETTYBOY MCA MULAN\",\"screen_name\":\"TYCASHH\",\"location\":\"IPHONE 40.76181,-73.96817\",\"url\":\"http:\\/\\/getweeklypaychecks.com\\/cp30.php?user\u003dmoneyteam\u0026campaign\u003dtym\u0026campaign\u003dtym\",\"description\":\"CEO\\/Hiring Manager, Aspiring actor, Model, Song writer, Party Promoter | #MoneyTeam Entrepreneurs living life drama free flexing! Dm me for a job!\",\"translator_type\":\"regular\",\"protected\":false,\"verified\":false,\"followers_count\":70489,\"friends_count\":58077,\"listed_count\":338,\"favourites_count\":15,\"statuses_count\":785663,\"created_at\":\"Sat Nov 07 15:16:28 +0000 2009\",\"utc_offset\":-21600,\"time_zone\":\"Central Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"0A0504\",\"profile_background_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_background_images\\/736011612\\/57cdd2746dbf34678410f2c73e0b51eb.jpeg\",\"profile_background_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_background_images\\/736011612\\/57cdd2746dbf34678410f2c73e0b51eb.jpeg\",\"profile_background_tile\":true,\"profile_link_color\":\"331E09\",\"profile_sidebar_border_color\":\"FFFFFF\",\"profile_sidebar_fill_color\":\"FFFFFF\",\"profile_text_color\":\"0D0609\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/582950678278070272\\/E_oJDmAK_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/582950678278070272\\/E_oJDmAK_normal.jpg\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":1,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[24,28]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\"},\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[37,41]}],\"urls\":[],\"user_mentions\":[{\"screen_name\":\"TYCASHH\",\"name\":\"PRETTYBOY MCA MULAN\",\"id\":88204158,\"id_str\":\"88204158\",\"indices\":[3,11]}],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510598994638\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:02 +0000 2017\",\"id\":930145749664436224,\"id_str\":\"930145749664436224\",\"text\":\"RT @churchAlmighty: \\\"Out of my own willingness I follow #God. I don\u0027t care whether He wants me or not. I seek to #love Him, steadfastly\\u2026 \",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":852587297698656256,\"id_str\":\"852587297698656256\",\"name\":\"nancy\",\"screen_name\":\"nancy1991zheng\",\"location\":\"Queens, NY\",\"url\":\"https:\\/\\/www.holyspiritspeaks.org\\/\",\"description\":\"I am nancy\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":7,\"friends_count\":20,\"listed_count\":0,\"favourites_count\":664,\"statuses_count\":659,\"created_at\":\"Thu Apr 13 18:20:26 +0000 2017\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"zh-tw\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"000000\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1B95E0\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"000000\",\"profile_text_color\":\"000000\",\"profile_use_background_image\":false,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/852594385636249601\\/VchhehcU_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/852594385636249601\\/VchhehcU_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/852587297698656256\\/1492109262\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"retweeted_status\":{\"created_at\":\"Mon Nov 13 17:30:00 +0000 2017\",\"id\":930125609396723712,\"id_str\":\"930125609396723712\",\"text\":\"\\\"Out of my own willingness I follow #God. I don\u0027t care whether He wants me or not. I seek to #love Him, steadfastly\\u2026 https:\\/\\/t.co\\/ctfcK8Prc1\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/about.twitter.com\\/products\\/tweetdeck\\\" rel\u003d\\\"nofollow\\\"\\u003eTweetDeck\\u003c\\/a\\u003e\",\"truncated\":true,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":2603821831,\"id_str\":\"2603821831\",\"name\":\"Almighty God Church\",\"screen_name\":\"churchAlmighty\",\"location\":\"info@almightygod.church\",\"url\":\"https:\\/\\/www.holyspiritspeaks.org\\/android-app\\/\",\"description\":\"The Church of Almighty God came into being because of the work of the returned Lord Jesus\\u2014the end-time Christ,\\u201cAlmighty God\\u201d\\u2014in China\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":3850,\"friends_count\":2952,\"listed_count\":273,\"favourites_count\":36,\"statuses_count\":4309,\"created_at\":\"Fri Jul 04 16:58:28 +0000 2014\",\"utc_offset\":36000,\"time_zone\":\"Brisbane\",\"geo_enabled\":false,\"lang\":\"zh-tw\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/884018123308802048\\/kDt_UD-p_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/884018123308802048\\/kDt_UD-p_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/2603821831\\/1506764188\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"extended_tweet\":{\"full_text\":\"\\\"Out of my own willingness I follow #God. I don\u0027t care whether He wants me or not. I seek to #love Him, steadfastly follow Him. I will gain Him, offering my #life to Him.\\\"\\nfrom The Word Appears in the Flesh\\n#Testimony #Song\\nhttps:\\/\\/t.co\\/qO6Ewgtuqm\",\"display_text_range\":[0,247],\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[36,40]},{\"text\":\"love\",\"indices\":[93,98]},{\"text\":\"life\",\"indices\":[157,162]},{\"text\":\"Testimony\",\"indices\":[207,217]},{\"text\":\"Song\",\"indices\":[218,223]}],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/qO6Ewgtuqm\",\"expanded_url\":\"https:\\/\\/www.holyspiritspeaks.org\\/videos\\/i-will-not-rest-until-i-gain-god\\/\",\"display_url\":\"holyspiritspeaks.org\\/videos\\/i-will-\\u2026\",\"indices\":[224,247]}],\"user_mentions\":[],\"symbols\":[]}},\"quote_count\":0,\"reply_count\":1,\"retweet_count\":4,\"favorite_count\":6,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[36,40]},{\"text\":\"love\",\"indices\":[93,98]}],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/ctfcK8Prc1\",\"expanded_url\":\"https:\\/\\/twitter.com\\/i\\/web\\/status\\/930125609396723712\",\"display_url\":\"twitter.com\\/i\\/web\\/status\\/9\\u2026\",\"indices\":[117,140]}],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"possibly_sensitive\":false,\"filter_level\":\"low\",\"lang\":\"en\"},\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[56,60]},{\"text\":\"love\",\"indices\":[113,118]}],\"urls\":[],\"user_mentions\":[{\"screen_name\":\"churchAlmighty\",\"name\":\"Almighty God Church\",\"id\":2603821831,\"id_str\":\"2603821831\",\"indices\":[3,18]}],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599002649\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:04 +0000 2017\",\"id\":930145756111089664,\"id_str\":\"930145756111089664\",\"text\":\"Feel free to do the thing you were born to do.   #God created you!   If anyone have a problem with that - tell them to take it up with God.\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialoomph.com\\\" rel\u003d\\\"nofollow\\\"\\u003eSocialOomph\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":76255864,\"id_str\":\"76255864\",\"name\":\"Minister Lee Rice\",\"screen_name\":\"MinLeeRice\",\"location\":\"Tacoma, WA.  USA\",\"url\":\"https:\\/\\/www.ministerleerice.com\\/\",\"description\":\"WE ARE SOLDIERS FOR THE LORD\\n| Multi Award Winner | International Gospel Recording Artist http:\\/\\/ministerrice.com http:\\/\\/dld.bz\\/dB8g6 (Assoc. of @can2009)\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":69924,\"friends_count\":55252,\"listed_count\":587,\"favourites_count\":85,\"statuses_count\":123754,\"created_at\":\"Tue Sep 22 05:05:08 +0000 2009\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_background_images\\/832808301\\/c485f3b69df2ea44b5cf7a159a50d4f1.jpeg\",\"profile_background_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_background_images\\/832808301\\/c485f3b69df2ea44b5cf7a159a50d4f1.jpeg\",\"profile_background_tile\":true,\"profile_link_color\":\"0084B4\",\"profile_sidebar_border_color\":\"FFFFFF\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/593428078564519936\\/b7lACBlZ_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/593428078564519936\\/b7lACBlZ_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/76255864\\/1398293318\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[49,53]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599004186\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:04 +0000 2017\",\"id\":930145757881126912,\"id_str\":\"930145757881126912\",\"text\":\"Feel free to do the thing you were born to do.   #God created you!   If anyone have a problem with that - tell them to take it up with God.\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialoomph.com\\\" rel\u003d\\\"nofollow\\\"\\u003eSocialOomph\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":3229493875,\"id_str\":\"3229493875\",\"name\":\"Global Marketing\",\"screen_name\":\"GlobalNetwork14\",\"location\":\"Tacoma, WA\",\"url\":\"http:\\/\\/dld.bz\\/f8ZCR\",\"description\":\"#HubCity, #Networking, #Marketing #Advertisements \u0026 #GlobalMarketing\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":814,\"friends_count\":705,\"listed_count\":70,\"favourites_count\":5,\"statuses_count\":43561,\"created_at\":\"Fri May 29 05:38:15 +0000 2015\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"000000\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"0084B4\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"000000\",\"profile_text_color\":\"000000\",\"profile_use_background_image\":false,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/604170829782384640\\/kAcT_vdE_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/604170829782384640\\/kAcT_vdE_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/3229493875\\/1432882387\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[49,53]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599004608\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:05 +0000 2017\",\"id\":930145759563042822,\"id_str\":\"930145759563042822\",\"text\":\"Feel free to do the thing you were born to do.   #God created you!   If anyone have a problem with that - tell them to take it up with God.\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialoomph.com\\\" rel\u003d\\\"nofollow\\\"\\u003eSocialOomph\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":739206068832608256,\"id_str\":\"739206068832608256\",\"name\":\"GlobalBasedMinistry\",\"screen_name\":\"GBMinistry1\",\"location\":\"Tacoma, WA\",\"url\":\"http:\\/\\/dld.bz\\/f8ZCR\",\"description\":\"Working to #Equip the #Saints for the work of #Ministry, for #Building up the #Body of #Christ. Eph. 4:12 @MinLeeRice (Assoc. of @can2009)\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":930,\"friends_count\":730,\"listed_count\":59,\"favourites_count\":7,\"statuses_count\":46578,\"created_at\":\"Sat Jun 04 21:23:55 +0000 2016\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"000000\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1B95E0\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"000000\",\"profile_text_color\":\"000000\",\"profile_use_background_image\":false,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/897608211875848192\\/AbRmW2ju_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/897608211875848192\\/AbRmW2ju_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/739206068832608256\\/1502841474\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[49,53]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599005009\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:05 +0000 2017\",\"id\":930145761177800705,\"id_str\":\"930145761177800705\",\"text\":\"#God is not the source of your problems. The enemy is the source!  But God will be the source of our enemy\u0027s problems.\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialoomph.com\\\" rel\u003d\\\"nofollow\\\"\\u003eSocialOomph\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":26159579,\"id_str\":\"26159579\",\"name\":\"Christian Associates\",\"screen_name\":\"can2009\",\"location\":\"Tacoma, Washington\",\"url\":\"http:\\/\\/can2009.com\",\"description\":\"Collective Thoughts, Ideas, Teachings, Advice \u0026 Prayers from Men \u0026 Women of God. Pass Them On \u0026 Be a Blessing to Others. IT\u0027S A GOOD THING!\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":163016,\"friends_count\":104425,\"listed_count\":1170,\"favourites_count\":86,\"statuses_count\":190795,\"created_at\":\"Tue Mar 24 02:42:14 +0000 2009\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":true,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"9AE4E8\",\"profile_background_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_background_images\\/10772117\\/bigstockphoto_Binary_Digit_People__370221.jpg\",\"profile_background_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_background_images\\/10772117\\/bigstockphoto_Binary_Digit_People__370221.jpg\",\"profile_background_tile\":true,\"profile_link_color\":\"0084B4\",\"profile_sidebar_border_color\":\"FFFFFF\",\"profile_sidebar_fill_color\":\"DDFFCC\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/1452958059\\/Bob_Hughes_CAN_logo_-_Copy_for_Twitter_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/1452958059\\/Bob_Hughes_CAN_logo_-_Copy_for_Twitter_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/26159579\\/1404898226\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[0,4]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599005394\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:10 +0000 2017\",\"id\":930145780933058560,\"id_str\":\"930145780933058560\",\"text\":\"#IWouldTextYouBackBut I\u0027m in church giving all praises \u0026amp; glory to #God..\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":2188157994,\"id_str\":\"2188157994\",\"name\":\"PRETTYBOY MCA MULAN\",\"screen_name\":\"tycashhhh\",\"location\":\"IPHONE 40.76181,-73.96817   \\u00b7 \",\"url\":\"http:\\/\\/getweeklypaychecks.com\\/cp30.php?user\u003dmoneyteam\u0026campaign\u003dtym\u0026campaign\u003dtym\",\"description\":\"CEO\\/Hiring Manager, Aspiring actor, Model, Song writer, Party Promoter | #MoneyTeam Entrepreneurs living life drama free flexing! Dm me for a job!\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":51198,\"friends_count\":44321,\"listed_count\":350,\"favourites_count\":2,\"statuses_count\":693498,\"created_at\":\"Mon Nov 11 10:57:02 +0000 2013\",\"utc_offset\":-14400,\"time_zone\":\"Atlantic Time (Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/378800000809612733\\/ea84de045a46fe75d423adcf50bbafcf_normal.jpeg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/378800000809612733\\/ea84de045a46fe75d423adcf50bbafcf_normal.jpeg\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"IWouldTextYouBackBut\",\"indices\":[0,21]},{\"text\":\"God\",\"indices\":[70,74]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599010104\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:19 +0000 2017\",\"id\":930145819377963008,\"id_str\":\"930145819377963008\",\"text\":\"@ZombieTrump69 @JohnJotink Good point. What exactly are we presuming? I KNOW they have substantiated their claim th\\u2026 https:\\/\\/t.co\\/Rb3pAH4EPE\",\"display_text_range\":[27,140],\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":true,\"in_reply_to_status_id\":930144608121774081,\"in_reply_to_status_id_str\":\"930144608121774081\",\"in_reply_to_user_id\":913789854466666496,\"in_reply_to_user_id_str\":\"913789854466666496\",\"in_reply_to_screen_name\":\"ZombieTrump69\",\"user\":{\"id\":913445580428410881,\"id_str\":\"913445580428410881\",\"name\":\"Thomas Doubtmoore\",\"screen_name\":\"Doubtism\",\"location\":null,\"url\":null,\"description\":\"MOST of the world\u0027s problems are due to people believing complete bullshit for no good reason... for bad reasons. Believe less... doubt more!\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":491,\"friends_count\":596,\"listed_count\":5,\"favourites_count\":860,\"statuses_count\":2862,\"created_at\":\"Thu Sep 28 16:49:32 +0000 2017\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"F5F8FA\",\"profile_background_image_url\":\"\",\"profile_background_image_url_https\":\"\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/913446986535391238\\/HQNn_Ua9_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/913446986535391238\\/HQNn_Ua9_normal.jpg\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"extended_tweet\":{\"full_text\":\"@ZombieTrump69 @JohnJotink Good point. What exactly are we presuming? I KNOW they have substantiated their claim that #God exists. I KNOW the #Christianity can\u0027t prove its many claims to be true. An afterlife? Who\u0027s presuming? Not me! What am I presuming?\",\"display_text_range\":[27,255],\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[118,122]},{\"text\":\"Christianity\",\"indices\":[142,155]}],\"urls\":[],\"user_mentions\":[{\"screen_name\":\"ZombieTrump69\",\"name\":\"Zombie Trump\",\"id\":913789854466666496,\"id_str\":\"913789854466666496\",\"indices\":[0,14]},{\"screen_name\":\"JohnJotink\",\"name\":\"John Tinkler\",\"id\":392909650,\"id_str\":\"392909650\",\"indices\":[15,26]}],\"symbols\":[]}},\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/Rb3pAH4EPE\",\"expanded_url\":\"https:\\/\\/twitter.com\\/i\\/web\\/status\\/930145819377963008\",\"display_url\":\"twitter.com\\/i\\/web\\/status\\/9\\u2026\",\"indices\":[117,140]}],\"user_mentions\":[{\"screen_name\":\"ZombieTrump69\",\"name\":\"Zombie Trump\",\"id\":913789854466666496,\"id_str\":\"913789854466666496\",\"indices\":[0,14]},{\"screen_name\":\"JohnJotink\",\"name\":\"John Tinkler\",\"id\":392909650,\"id_str\":\"392909650\",\"indices\":[15,26]}],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599019270\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:26 +0000 2017\",\"id\":930145849182650368,\"id_str\":\"930145849182650368\",\"text\":\"#God\u0027s #PlanOfSalvation \u003d #GOSPEL \u003d #GoodNews!\\n#JesusChrist \u003d #Messiah MADE A WAY 4 us to KNOW we have #EternalLife!\\nhttps:\\/\\/t.co\\/xG8F6vcpkz\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialjukebox.com\\\" rel\u003d\\\"nofollow\\\"\\u003eThe Social Jukebox\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":3448846420,\"id_str\":\"3448846420\",\"name\":\"Mary Budesheim\",\"screen_name\":\"MaryPatriotNews\",\"location\":\"Glens Falls, NY\",\"url\":\"http:\\/\\/marypatriotnews.com\\/\",\"description\":\"#MediaPro \u0026 Fed-Up #Conservative  #Patriot who loves #GOD \u0026 FIGHTING #MEDIA #BIAS of #POLITICAL ISSUES!  #PJNET #tcot #NoSharia #IndictHillary #IStandWithIsrael\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":13673,\"friends_count\":11513,\"listed_count\":1041,\"favourites_count\":12319,\"statuses_count\":167904,\"created_at\":\"Wed Aug 26 16:43:33 +0000 2015\",\"utc_offset\":-28800,\"time_zone\":\"Pacific Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"022330\",\"profile_background_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_background_images\\/676237918680158208\\/4CAXdFr7.jpg\",\"profile_background_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_background_images\\/676237918680158208\\/4CAXdFr7.jpg\",\"profile_background_tile\":false,\"profile_link_color\":\"0084B4\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"000000\",\"profile_text_color\":\"000000\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/648224166584283136\\/IaLvkL4j_normal.png\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/648224166584283136\\/IaLvkL4j_normal.png\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/3448846420\\/1473044614\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[0,4]},{\"text\":\"PlanOfSalvation\",\"indices\":[7,23]},{\"text\":\"GOSPEL\",\"indices\":[26,33]},{\"text\":\"GoodNews\",\"indices\":[36,45]},{\"text\":\"JesusChrist\",\"indices\":[47,59]},{\"text\":\"Messiah\",\"indices\":[62,70]},{\"text\":\"EternalLife\",\"indices\":[103,115]}],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/xG8F6vcpkz\",\"expanded_url\":\"http:\\/\\/ow.ly\\/SGfX307qRoL\",\"display_url\":\"ow.ly\\/SGfX307qRoL\",\"indices\":[117,140]}],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"possibly_sensitive\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599026376\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:27 +0000 2017\",\"id\":930145854563995648,\"id_str\":\"930145854563995648\",\"text\":\"#WorldKindnessDay  #love #Faith #God #Country #Family\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":1664003869,\"id_str\":\"1664003869\",\"name\":\"Leslie B\",\"screen_name\":\"Snail822\",\"location\":\"Earth\",\"url\":null,\"description\":\"love and kindness\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":340,\"friends_count\":1139,\"listed_count\":14,\"favourites_count\":5231,\"statuses_count\":13338,\"created_at\":\"Mon Aug 12 02:46:59 +0000 2013\",\"utc_offset\":-14400,\"time_zone\":\"Atlantic Time (Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"1A1B1F\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme9\\/bg.gif\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme9\\/bg.gif\",\"profile_background_tile\":false,\"profile_link_color\":\"1B95E0\",\"profile_sidebar_border_color\":\"FFFFFF\",\"profile_sidebar_fill_color\":\"252429\",\"profile_text_color\":\"666666\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/442180046048878592\\/GPrUVOsS_normal.jpeg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/442180046048878592\\/GPrUVOsS_normal.jpeg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/1664003869\\/1510419353\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"WorldKindnessDay\",\"indices\":[0,17]},{\"text\":\"love\",\"indices\":[19,24]},{\"text\":\"Faith\",\"indices\":[25,31]},{\"text\":\"God\",\"indices\":[32,36]},{\"text\":\"Country\",\"indices\":[37,45]},{\"text\":\"Family\",\"indices\":[46,53]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"und\",\"timestamp_ms\":\"1510599027659\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:30 +0000 2017\",\"id\":930145866685538304,\"id_str\":\"930145866685538304\",\"text\":\"As far as me and my house, we WILL serve the Lord. https:\\/\\/t.co\\/fSyXUAipr6 #God #Jesus #Bible\",\"source\":\"\\u003ca href\u003d\\\"https:\\/\\/www.socialjukebox.com\\\" rel\u003d\\\"nofollow\\\"\\u003eThe Social Jukebox\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":230218871,\"id_str\":\"230218871\",\"name\":\"Scott Thompson\",\"screen_name\":\"sales__geek\",\"location\":\"Kalamazoo, MI\",\"url\":\"https:\\/\\/www.facebook.com\\/iDriveMediaUSA\",\"description\":\"Marketing evangelist.  Looking to network, learn, and connect.\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":18253,\"friends_count\":16848,\"listed_count\":617,\"favourites_count\":909,\"statuses_count\":49022,\"created_at\":\"Fri Dec 24 16:52:37 +0000 2010\",\"utc_offset\":-21600,\"time_zone\":\"Central Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/458356935666835456\\/hdhM3hDP_normal.jpeg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/458356935666835456\\/hdhM3hDP_normal.jpeg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/230218871\\/1424647989\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[75,79]},{\"text\":\"Jesus\",\"indices\":[80,86]},{\"text\":\"Bible\",\"indices\":[87,93]}],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/fSyXUAipr6\",\"expanded_url\":\"http:\\/\\/www.vwcenter.org\\/where-is-your-strength.html\",\"display_url\":\"vwcenter.org\\/where-is-your-\\u2026\",\"indices\":[51,74]}],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"possibly_sensitive\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599030549\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:30 +0000 2017\",\"id\":930145867536977920,\"id_str\":\"930145867536977920\",\"text\":\"Deuteronomy 5:20(#God commanded) Do not accuse anyone falsely.\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter Web Client\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":18178264,\"id_str\":\"18178264\",\"name\":\"Jim Sager\",\"screen_name\":\"faithclubdotnet\",\"location\":\"Pittsburgh, PA\",\"url\":\"http:\\/\\/www.faithclub.net\",\"description\":\"God is real! Jesus is LORD! God said\u0027Good News\u0027 and I received a Good News Bible.    http:\\/\\/www.goodnewsjim.com  http:\\/\\/www.FatherSpiritSon.com\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":15158,\"friends_count\":164,\"listed_count\":910,\"favourites_count\":951,\"statuses_count\":2140778,\"created_at\":\"Wed Dec 17 01:03:27 +0000 2008\",\"utc_offset\":-18000,\"time_zone\":\"Eastern Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"000000\",\"profile_background_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_background_images\\/32713220\\/resize1.jpg\",\"profile_background_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_background_images\\/32713220\\/resize1.jpg\",\"profile_background_tile\":false,\"profile_link_color\":\"D02B55\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"67ACFA\",\"profile_text_color\":\"3E4415\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/308545745\\/milkyroadMan_landolfi_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/308545745\\/milkyroadMan_landolfi_normal.jpg\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[17,21]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599030752\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:39 +0000 2017\",\"id\":930145902135795712,\"id_str\":\"930145902135795712\",\"text\":\"#God was he a #Trani\",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\/download\\/android\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter for Android\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":338606239,\"id_str\":\"338606239\",\"name\":\"Ian Hope.\",\"screen_name\":\"totalmale\",\"location\":null,\"url\":null,\"description\":\"SELF MADE MAN.\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":38,\"friends_count\":79,\"listed_count\":6,\"favourites_count\":4003,\"statuses_count\":6646,\"created_at\":\"Tue Jul 19 20:41:33 +0000 2011\",\"utc_offset\":0,\"time_zone\":\"London\",\"geo_enabled\":true,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/758369432452395008\\/9dyWQX4j_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/758369432452395008\\/9dyWQX4j_normal.jpg\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"God\",\"indices\":[0,4]},{\"text\":\"Trani\",\"indices\":[14,20]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"en\",\"timestamp_ms\":\"1510599039001\"}\r\n{\"created_at\":\"Mon Nov 13 18:50:40 +0000 2017\",\"id\":930145910281179137,\"id_str\":\"930145910281179137\",\"text\":\"RT @kenolady: #FedUpWithSwamp \\n#DeepStateGate \\n#FollowWhiteRabbit \\n#LOCKthemUP  #FollowThe \\u0137n,,NSA $$$\\nClinton body count rising!\\u2026 \",\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\/download\\/iphone\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter for iPhone\\u003c\\/a\\u003e\",\"truncated\":false,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":276190334,\"id_str\":\"276190334\",\"name\":\"Tammy S Beck\",\"screen_name\":\"TalkingWthTammy\",\"location\":\"Texas, USA\",\"url\":\"https:\\/\\/gab.ai\\/TalkingWithTammy\",\"description\":\"Abe Lincoln #WeThePeople are Rightful Masters of congress \u0026 courts not to overthrow Constitution, but to Overthrow MEN who would PERVERT the Constitution.\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":621,\"friends_count\":632,\"listed_count\":22,\"favourites_count\":11231,\"statuses_count\":10801,\"created_at\":\"Sat Apr 02 21:07:28 +0000 2011\",\"utc_offset\":-21600,\"time_zone\":\"Central Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"C0DEED\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"1DA1F2\",\"profile_sidebar_border_color\":\"C0DEED\",\"profile_sidebar_fill_color\":\"DDEEF6\",\"profile_text_color\":\"333333\",\"profile_use_background_image\":true,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/794965353336029184\\/DQcFvG7k_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/794965353336029184\\/DQcFvG7k_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/276190334\\/1471107488\",\"default_profile\":true,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"retweeted_status\":{\"created_at\":\"Sat Nov 11 02:25:23 +0000 2017\",\"id\":929173176600465409,\"id_str\":\"929173176600465409\",\"text\":\"#FedUpWithSwamp \\n#DeepStateGate \\n#FollowWhiteRabbit \\n#LOCKthemUP  #FollowThe \\u0137n,,NSA $$$\\nClinton body count rising!\\u2026 https:\\/\\/t.co\\/4ZrmoHPw8w\",\"display_text_range\":[0,140],\"source\":\"\\u003ca href\u003d\\\"http:\\/\\/twitter.com\\/download\\/android\\\" rel\u003d\\\"nofollow\\\"\\u003eTwitter for Android\\u003c\\/a\\u003e\",\"truncated\":true,\"in_reply_to_status_id\":null,\"in_reply_to_status_id_str\":null,\"in_reply_to_user_id\":null,\"in_reply_to_user_id_str\":null,\"in_reply_to_screen_name\":null,\"user\":{\"id\":25243171,\"id_str\":\"25243171\",\"name\":\"\\u2606\\u2661\\u2606LisaM\",\"screen_name\":\"kenolady\",\"location\":\"Ohio - USA\",\"url\":null,\"description\":\"Dedicated disabled American- Reader\u0026Researcher-Coffee\\u2661er-PatrioticAmerican\\u2606Believe In Constitution- Want American Vets\\/Military\\/LEOs Respected -MAGA\",\"translator_type\":\"none\",\"protected\":false,\"verified\":false,\"followers_count\":928,\"friends_count\":816,\"listed_count\":9,\"favourites_count\":42757,\"statuses_count\":10060,\"created_at\":\"Thu Mar 19 05:15:29 +0000 2009\",\"utc_offset\":-18000,\"time_zone\":\"Eastern Time (US \u0026 Canada)\",\"geo_enabled\":false,\"lang\":\"en\",\"contributors_enabled\":false,\"is_translator\":false,\"profile_background_color\":\"000000\",\"profile_background_image_url\":\"http:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_image_url_https\":\"https:\\/\\/abs.twimg.com\\/images\\/themes\\/theme1\\/bg.png\",\"profile_background_tile\":false,\"profile_link_color\":\"981CEB\",\"profile_sidebar_border_color\":\"000000\",\"profile_sidebar_fill_color\":\"000000\",\"profile_text_color\":\"000000\",\"profile_use_background_image\":false,\"profile_image_url\":\"http:\\/\\/pbs.twimg.com\\/profile_images\\/922806303721967617\\/sfPCFNkF_normal.jpg\",\"profile_image_url_https\":\"https:\\/\\/pbs.twimg.com\\/profile_images\\/922806303721967617\\/sfPCFNkF_normal.jpg\",\"profile_banner_url\":\"https:\\/\\/pbs.twimg.com\\/profile_banners\\/25243171\\/1509859797\",\"default_profile\":false,\"default_profile_image\":false,\"following\":null,\"follow_request_sent\":null,\"notifications\":null},\"geo\":null,\"coordinates\":null,\"place\":null,\"contributors\":null,\"is_quote_status\":false,\"extended_tweet\":{\"full_text\":\"#FedUpWithSwamp \\n#DeepStateGate \\n#FollowWhiteRabbit \\n#LOCKthemUP  #FollowThe \\u0137n,,NSA $$$\\nClinton body count rising!\\n#WATCHYourSIX \\n#StormIsComing \\n#MAGA\\n#VeteransDay \\n#WeWillNeverForget \\n#MIA #POW\\n#TRUTH\\n#HONOR\\n#GOD\\n#COUNTRY \\n#PRAYING4AMERICA \\n#PRAY4POTUS https:\\/\\/t.co\\/2A3HZkuufX\",\"display_text_range\":[0,255],\"entities\":{\"hashtags\":[{\"text\":\"FedUpWithSwamp\",\"indices\":[0,15]},{\"text\":\"DeepStateGate\",\"indices\":[17,31]},{\"text\":\"FollowWhiteRabbit\",\"indices\":[33,51]},{\"text\":\"LOCKthemUP\",\"indices\":[53,64]},{\"text\":\"FollowThe\",\"indices\":[66,76]},{\"text\":\"WATCHYourSIX\",\"indices\":[116,129]},{\"text\":\"StormIsComing\",\"indices\":[131,145]},{\"text\":\"MAGA\",\"indices\":[147,152]},{\"text\":\"VeteransDay\",\"indices\":[153,165]},{\"text\":\"WeWillNeverForget\",\"indices\":[167,185]},{\"text\":\"MIA\",\"indices\":[187,191]},{\"text\":\"POW\",\"indices\":[192,196]},{\"text\":\"TRUTH\",\"indices\":[197,203]},{\"text\":\"HONOR\",\"indices\":[204,210]},{\"text\":\"GOD\",\"indices\":[211,215]},{\"text\":\"COUNTRY\",\"indices\":[216,224]},{\"text\":\"PRAYING4AMERICA\",\"indices\":[226,242]},{\"text\":\"PRAY4POTUS\",\"indices\":[244,255]}],\"urls\":[],\"user_mentions\":[],\"symbols\":[],\"media\":[{\"id\":929173168052473856,\"id_str\":\"929173168052473856\",\"indices\":[256,279],\"media_url\":\"http:\\/\\/pbs.twimg.com\\/media\\/DOUWEsiXkAAbs8w.jpg\",\"media_url_https\":\"https:\\/\\/pbs.twimg.com\\/media\\/DOUWEsiXkAAbs8w.jpg\",\"url\":\"https:\\/\\/t.co\\/2A3HZkuufX\",\"display_url\":\"pic.twitter.com\\/2A3HZkuufX\",\"expanded_url\":\"https:\\/\\/twitter.com\\/kenolady\\/status\\/929173176600465409\\/photo\\/1\",\"type\":\"photo\",\"sizes\":{\"medium\":{\"w\":1062,\"h\":1200,\"resize\":\"fit\"},\"large\":{\"w\":1062,\"h\":1200,\"resize\":\"fit\"},\"small\":{\"w\":602,\"h\":680,\"resize\":\"fit\"},\"thumb\":{\"w\":150,\"h\":150,\"resize\":\"crop\"}}}]},\"extended_entities\":{\"media\":[{\"id\":929173168052473856,\"id_str\":\"929173168052473856\",\"indices\":[256,279],\"media_url\":\"http:\\/\\/pbs.twimg.com\\/media\\/DOUWEsiXkAAbs8w.jpg\",\"media_url_https\":\"https:\\/\\/pbs.twimg.com\\/media\\/DOUWEsiXkAAbs8w.jpg\",\"url\":\"https:\\/\\/t.co\\/2A3HZkuufX\",\"display_url\":\"pic.twitter.com\\/2A3HZkuufX\",\"expanded_url\":\"https:\\/\\/twitter.com\\/kenolady\\/status\\/929173176600465409\\/photo\\/1\",\"type\":\"photo\",\"sizes\":{\"medium\":{\"w\":1062,\"h\":1200,\"resize\":\"fit\"},\"large\":{\"w\":1062,\"h\":1200,\"resize\":\"fit\"},\"small\":{\"w\":602,\"h\":680,\"resize\":\"fit\"},\"thumb\":{\"w\":150,\"h\":150,\"resize\":\"crop\"}}}]}},\"quote_count\":0,\"reply_count\":0,\"retweet_count\":2,\"favorite_count\":2,\"entities\":{\"hashtags\":[{\"text\":\"FedUpWithSwamp\",\"indices\":[0,15]},{\"text\":\"DeepStateGate\",\"indices\":[17,31]},{\"text\":\"FollowWhiteRabbit\",\"indices\":[33,51]},{\"text\":\"LOCKthemUP\",\"indices\":[53,64]},{\"text\":\"FollowThe\",\"indices\":[66,76]}],\"urls\":[{\"url\":\"https:\\/\\/t.co\\/4ZrmoHPw8w\",\"expanded_url\":\"https:\\/\\/twitter.com\\/i\\/web\\/status\\/929173176600465409\",\"display_url\":\"twitter.com\\/i\\/web\\/status\\/9\\u2026\",\"indices\":[117,140]}],\"user_mentions\":[],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"possibly_sensitive\":false,\"filter_level\":\"low\",\"lang\":\"fi\"},\"is_quote_status\":false,\"quote_count\":0,\"reply_count\":0,\"retweet_count\":0,\"favorite_count\":0,\"entities\":{\"hashtags\":[{\"text\":\"FedUpWithSwamp\",\"indices\":[14,29]},{\"text\":\"DeepStateGate\",\"indices\":[31,45]},{\"text\":\"FollowWhiteRabbit\",\"indices\":[47,65]},{\"text\":\"LOCKthemUP\",\"indices\":[67,78]},{\"text\":\"FollowThe\",\"indices\":[80,90]}],\"urls\":[],\"user_mentions\":[{\"screen_name\":\"kenolady\",\"name\":\"\\u2606\\u2661\\u2606LisaM\",\"id\":25243171,\"id_str\":\"25243171\",\"indices\":[3,12]}],\"symbols\":[]},\"favorited\":false,\"retweeted\":false,\"filter_level\":\"low\",\"lang\":\"fi\",\"timestamp_ms\":\"1510599040943\"}\r\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537636554_-1426591792",
+      "id": "20171113-014716_217466998",
+      "dateCreated": "Nov 13, 2017 1:47:16 AM",
+      "dateStarted": "Nov 13, 2017 6:51:15 PM",
+      "dateFinished": "Nov 13, 2017 6:51:15 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\nimport sys\nimport json\nfrom argparse import ArgumentParser\nfrom collections import defaultdict\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.cluster import KMeans\n\nimport logging\nimport numpy as np\nfrom optparse import OptionParser\nimport sys\nfrom time import time\nimport matplotlib.pyplot as plt\n\nfrom sklearn.datasets import fetch_20newsgroups\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.feature_extraction.text import HashingVectorizer\nfrom sklearn.feature_selection import SelectFromModel\nfrom sklearn.feature_selection import SelectKBest, chi2\nfrom sklearn.linear_model import RidgeClassifier\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.svm import LinearSVC\nfrom sklearn.linear_model import SGDClassifier\nfrom sklearn.linear_model import Perceptron\nfrom sklearn.linear_model import PassiveAggressiveClassifier\nfrom sklearn.naive_bayes import BernoulliNB, MultinomialNB\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.neighbors import NearestCentroid\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.utils.extmath import density\nfrom sklearn import metrics\n\n\n\nfilenames \u003d [\u0027/notebook/stream__celtics.jsonl\u0027,\u0027/notebook/stream__maga.jsonl\u0027,\u0027/notebook/stream__god.jsonl\u0027]\nlabels \u003d [\u0027celtics\u0027,\u0027maga\u0027,\u0027god\u0027]\n\nstream \u003d []\nlabel \u003d []\nintlabel \u003d []\nfor i, filename in enumerate(filenames):\n    with open(filename) as f:\n        for line in f:\n            streamelement \u003d json.loads(line)\n            stream.append(streamelement[\u0027text\u0027])\n            label.append(labels[i])\n            intlabel.append(i)\n\nvectorizer \u003d HashingVectorizer(stop_words\u003d\u0027english\u0027, alternate_sign\u003dFalse)\nX_train \u003d vectorizer.transform(stream)            \ny_train \u003d intlabel\n\n###lets do the MultinomialNB model\n###go with uniform or unbalanced sampling will heavily affect\nclf \u003d MultinomialNB(alpha\u003d1, fit_prior \u003dFalse,class_prior\u003dNone)\nclf.fit(X_train, y_train)\npred \u003d clf.predict(X_train)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:46:34 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510537654498_1835340031",
+      "id": "20171113-014734_1113631015",
+      "dateCreated": "Nov 13, 2017 1:47:34 AM",
+      "dateStarted": "Nov 13, 2017 8:46:34 PM",
+      "dateFinished": "Nov 13, 2017 8:46:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n[labels[p] for p in pred]",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:46:43 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027maga\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027celtics\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027maga\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027maga\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027god\u0027, \u0027maga\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510538519103_-593574842",
+      "id": "20171113-020159_1977858216",
+      "dateCreated": "Nov 13, 2017 2:01:59 AM",
+      "dateStarted": "Nov 13, 2017 8:46:43 PM",
+      "dateFinished": "Nov 13, 2017 8:46:43 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%pyspark\n\n#declaring a function in Python\n#classify incoming tweet stream\n\ndef classifytweet(twt):\n    X_train \u003d vectorizer.transform([twt])\n    pred \u003d clf.predict(X_train)\n    pred  \u003d [labels[p] for p in pred]\n    return pred[0]\n  \nsqlContext.registerFunction(\"classifytweet\", classifytweet)\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:46:53 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510542500995_-342433454",
+      "id": "20171113-030820_1896342997",
+      "dateCreated": "Nov 13, 2017 3:08:20 AM",
+      "dateStarted": "Nov 13, 2017 8:46:53 PM",
+      "dateFinished": "Nov 13, 2017 8:46:54 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n-- checking window contents\n\nselect text from tweets",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:47:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "text\nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @DonnaWR8: @realDonaldTrump #MAGA https://t.co/rjcQjfqaUP\nRT @fakedansavage: Molest American Girls Again? Make Americans Grimace Again? Malign American Gays Again? https://t.co/hg5zRd5Tp6\nRT @ColMorrisDavis: I’m sure there are many fine people on both sides of the pedophilia debate, I mean at least he didn’t take a knee o… \n@WhiteHouse its now clear the attack on #RoyMoore is ran by republicans that dont want him their....step aside..rea… https://t.co/vVkWpDBTom\nWhat goes through my mind whenever I hear “make America great again” #maga https://t.co/pEy1pi6qbh\nRT @khalifallah: I would still vote for @realDonaldTrump anytime and anywhere over #CrookedHillary! #TrumPence2020 #MAGA #MSMisTRASH https:…\nRT @EntheosShines: @sherjohnson969 BINGO!  --\u003e https://t.co/UrK6pZ0I3F\nRT @NYSky_007: Will Liberal Media give our @POTUS @realDonaldTrump a break today? Last time I checked, lies weren’t kind.… \nRT @StockMonsterUSA: BOOOOM !! White House floating the idea of sending Sleepy Sessions back to Alabama ....  Roy/Alabama might have to… \nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @SithLordTJ: #MondayMotivation To try not to laugh too hard at #MAGA. Seeing these pics of smashed up Keurig makers is pretty ri… \nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @_celia_marie_: More people called for Hillary Clinton to denounce Harvey Weinstein than Mike Pence who explicitly endorsed and cha… \nRT @AnnaApp91838450: https://t.co/49bce3ONfC\nWhere is JUSTICE FOR AMERICA \nhe should be Locked up for CORRUPTION AND LIES TO THE HOUSE \u0026… \nRT @fyremedic1200: If I was ol @SenJohnMcCain I would sure as hell go quietly before the Mueller indictments come out. There is always… \n@marthamaccallum @TheStoryFNC No but that is part of the playbook of these two deep state puppets. The swamp is thi… https://t.co/bXWlvOxk0l\nRT @ReaderAdrift: What now #MAGA friends? https://t.co/MNOW3KAasb\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \n@senrobportman I don\u0027t believe the false commercials about you.. Please vote Yes on #TaxReform \n#ohioVoter #MAGA\n🇺🇸🇺🇸🇺🇸🇺🇸\nRT @DonnaWR8: PODESTA👺GROUP LINKED TO SAUDIS FOR CORRUPTION ⛓\n#LockThemUp\n🎥@SavingAmerica4U \n#MAGA #TRUMP @POTUS @OANN https://t.co/dTYrB…\n@MooreSenate Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten the… https://t.co/F5QEhFqXFr\nSo much winning! #MAGA is a scam. https://t.co/PnW0atxEp7\nRT @phil200269: @johnburnsnc @MooreSenate @SenateMajLdr If you believe the last minute sex scandal charade political tactic you sho… \nAnd how about that chocolate cake! https://t.co/xesMb3xGFk\n@WolfensPride @seanhannity @DonnaWR8 @jimlibertarian Please write #MAGA on every 💲 spent. Illegal but so is harbori… https://t.co/bhitETZjjt\nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @AntonioSabatoJr: The Liberal Socialist Democratic Party is working extremely hard to make sure the American people finish last , not… \nLook how she moves away because she knows! @TheDemocrats @GOP @POTUS @realDonaldTrump #Resistance #MAGA https://t.co/Dwhgv50XgP\nRT @GmanFan45: It Begins Hijab Barbie #bansharia  #sharia #endimmigration  #stopthemadness #Liberallogic \n#MAGA 🇺🇸🇺🇸\nhttps://t.co/607ebJTGO6\nRT @Wh1skeeW4rrior: 👉 #Saudi Princess’ tell-all includes Bangladeshi children traded as sex slaves.\n#PedoGate \n#ClintonFoundation… \nRT @matthewjordan97: Kamala Harris Caught in Money Funneling Scheme with Maxine Waters\n#campaign   #MondayMotivation #Democrat #MAGA… \nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @ed_hooley: BARACK HUSSEIN OBAMA REFUSES TO SALUTE US FLAG #VeteransDay #VeteransDayWeekend2017 #VeteransDay2017 #gop #MAGA  https://t.c…\n@lyman_brian Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten the… https://t.co/GWjvkHtey3\nRT @POLITICSandFUN: 💥💥‼️BOOM‼️💥💥\n This Is What You Call\n  💫⚡️RESPECT⚡️💫\nTrump Is #MAGA And The \nWorld Knows It Despite What\nSwamp Dwel… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @alozrasT: .@SenateMajLdr Saying Roy Moore should step aside.\n#MitchMcConnell 👉YOU step aside! RESIGN! 🙄\n#DoNothingMitch… \n@kansascityfish @cheecheebecker Sure it has. That\u0027s why ppl come from all over the world for our healthcare. #MAGA\nRT @RodgerBigler: What is your connection with this scandal?  @RepMikeQuigley \n#news #infowars #wearechange https://t.co/nu3FBZ2nAM\nRT @Sissy_1022: @HelloFresh Cancel your subscription \ncall-\n  1 800 733 2414 \n#StandWithHannity \n#BoycottHelloFresh \n#MAGA\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nGood job!!! https://t.co/zm64p7Y3z3\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \n#VeteransDay #MAGA Putin #GeorgeTakei #ThankAVet #CNNFakeNews #HillaryRussia #Mueller #Hannity #Tucker… https://t.co/WnT6q9PVV2\nRT @AnnaApp91838450: https://t.co/49bce3ONfC\nWhere is JUSTICE FOR AMERICA \nhe should be Locked up for CORRUPTION AND LIES TO THE HOUSE \u0026… \nRT @WolfensPride: .@seanhannity #Hannity #IStandWithSean #WeStandWithHannity Sean even if you don’t do boycotts,we respect you, we wi… \nYou can ask Duterte for Political Asylum. It\u0027s okay with America! Stay as long as you like. https://t.co/KYoGhrT4NN\nRT @Crossbearer1956: Gainor Questions \u0027Suspicious\u0027 Timing of WaPo\u0027s Hit Piece on Roy Moore To Cause \u0027Maximum Damage\u0027 #SexHoax… \nI wonder how many got paid by Dem Party? So corrupt! I wish I was FBI! #CrookedDems #MAGA https://t.co/286TnnpKvF\nRT @LindaSuhler: The #FakeNews media is scum. \nThe GOP establishment is scum. \nLet\u0027s show them they can\u0027t stop the #MAGA machine. \nS… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @PhilMcCrackin44: This is the very reason why we elected President Trump 👇\n@POTUS\n#MAGA https://t.co/Sq7hjzifiS\n#FakeNews #FakeNewsMedia #DrainTheSwamp #MAGA @realDonaldTrump @POTUS @FoxNews #Trump #CNN #AntiAmerican… https://t.co/Pg9TBxZk5z\nRT @Boyd_2650: 🇺🇸This WAPO fake story about Judge Roy Moore is a political hit piece to try to discredit Moore. It’s time to… \n@DeGe71 And just so you know, I can just keep lighting you up like this for as long as you want, so long as you kee… https://t.co/tZ9DAzyJ2o\nRT @ColoradoGirl2A: Can you hear us now? ...\n@POTUS thank you for putting #America first. Together we will #MAGA \n#MondayMorning… \nRT @Crossbearer1956: #CrookedHillary Desperately Tries to Distract From Bombshell Russia-Uranium One Report #TrumpTrain #MAGA https://t.co/…\nWoman Accuses #RoyMoore of Trying to Rape Her at 16: I Was ‘Begging Him to Stop’ \n#RoyMooreChildMolester #MAGA… https://t.co/gBv3a2tKWn\nRT @jfktruther: The Left Is Dangerously Programmed By Social Media: https://t.co/VRBZSTYOUa #leftists #democrats #liberals… \n#MAGA supporters will not even read this. or call it fake. they would rather be worse off than vote for whats good… https://t.co/FoqVLPfCpU\nRT @ColMorrisDavis: I’m sure there are many fine people on both sides of the pedophilia debate, I mean at least he didn’t take a knee o… \nRT @brianklaas: Trump’s “Contract with the American Voter” promised 10 major bills signed in his first 100 days. Wednesday is day 3… \nRT @matthewjordan97: Kamala Harris Caught in Money Funneling Scheme with Maxine Waters\n#campaign   #MondayMotivation #Democrat #MAGA… \nRT @kwilli1046: Awarding Colin #Kaepernick the Citizen of the Year Award was like Awarding #Obama the Nobel Peace Prize in 2009.  I… \nRT @MAGARoseTaylor: I absolutely love this ❤️\nTexans band together and rebuild the home of 100 year old veteran who’s home was destroy… \nRT @MathisenScoot: Will @realDonaldTrump Make America Great Again?\n#MAGA #LoveBTS10M #Broncos #NEvsDEN \n(Retweet and Vote PLEASE‼️#TrumpTra…\nRT @LouDobbs: Dump Him - @TomFitton: Investigating Mike Flynn is not what Mueller was hired to do, and this is just another reaso… \n@MooreSenate Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten the… https://t.co/1JjVg2EKSm\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \n#MondayMotivation \n#RealTalk Below!\nWe Must Continue Using Our Voices \u0026 Votes To End #DCCorruption,… https://t.co/eJM9cIijcU\n@AngelReinaMarie @thehill @MooreSenate Like hell. These are the same swamp creatures who spent million$ to get Stra… https://t.co/08CzL2VOxj\nRT @Irwoodstock56: Vote Moore in. Trump Bannon dealing a blow to Rhino GOP \u003d #MAGA. https://t.co/sUEpDrdOjM\nRT @OMGno2trump: Come on #MAGA, get real.  If you still support Trump and his co-conspirators you\u0027re far worse than deplorable.  \nhttps://…\n#MAGA or some bullshit like it. https://t.co/ebgn03dihU\nRT @LouDobbs: Big Business, Dimms and Left Wing Media Working Together Against Free Speech and Anti-globalists  #MAGA… \nRT @alozrasT: Oops! #Keurig caved in to Media Matters and stopped advertising on #Hannity!\nDeplorables, we know the drill!… \nRT @JudgeJeanine: No president has been honored by China as President @realDonaldTrump. The world is starting to respect us as Presid… \nRT @realDonaldTrump: Will be leaving the Philippines tomorrow after many days of constant mtgs \u0026 work in order to #MAGA! My promises are ra…\nRT @jfktruther: Thank God Trump decided to Run... He LOVES America.  #MAGA #TrumpTrain @realDonaldTrump @POTUS https://t.co/ZHCLRBEUGM\n@FoxNews @senrobportman Congress appears to be more broken than the tax code.  #MAGA. #DRAIN THE SWAMP\nRT @AnnaApp91838450: https://t.co/49bce3ONfC\nWhere is JUSTICE FOR AMERICA \nhe should be Locked up for CORRUPTION AND LIES TO THE HOUSE \u0026… \nYeah, take that you lying bastard @SenMajLdr! @MooreSenate, PLEASE DO NOT STEP DOWN!  The @GOP establishment is plo… https://t.co/cIDgwZPY6i\nWhat goes through my mind whenever I hear “make America great again” #maga https://t.co/zMKtjnx49B #SpeedWeed\nRT @LouDobbs: Anti-Trump DHS Nominee Ignores @POTUS Immigration Agenda, #MAGA Agenda https://t.co/xJmMA9mGUU @realDonaldTrump #AmericaFirst…\n@GoAngelo @seanhannity You guys can’t stop w the #fakenews can you? Losers! #MAGA🇺🇸🐸✊🏻\nRT @HollywoodMediia: These outstanding women, men, and children raise the bar, step up, and stand out to be the change we all wish to se… \nRT @LouDobbs: Anti-Trump DHS Nominee Ignores @POTUS Immigration Agenda, #MAGA Agenda https://t.co/xJmMA9mGUU @realDonaldTrump #AmericaFirst…\nchuck and nancy will be blown out of d.c. in #thestorm that\u0027s upon us!!! https://t.co/aMP98MLxJM\nRT @Harlan: I’m one of the 7 million Obama voters that supported President @realDonaldTrump in 2016...\nWe’re not going back to… \nRT @Harlan: I’m one of the 7 million Obama voters that supported President @realDonaldTrump in 2016...\nWe’re not going back to… \nRT @LouDobbs: ‘Hannity’ Fans Blow Up Products as Companies Pull Ads over Roy Moore Coverage  https://t.co/5adfbc677a #MAGA @realDonaldTrump…\nRT @mikandynothem: I understand that Weinstein is a liberal PIG. That being said, there is some culpability on the other side. Ashley… \nRT @LouDobbs: ‘Hannity’ Fans Blow Up Products as Companies Pull Ads over Roy Moore Coverage  https://t.co/5adfbc677a #MAGA @realDonaldTrump…\nRT @AshevilleSlut: There is a #Trump movement to stop the New Years tradition of dropping the Ball and instead #DropTheTitties What do… \nRT @Harlan: I’m pretty sure this means @SeanHannity won!\nAdvertisers can side with liberal fascists — that’s fine — but know t… \nThis is the very reason the #Establishment is trying to get rid of @MooreSenate. They know he will not stand with M… https://t.co/TgNA469Brl\n#IStandWithHannity👊 #BoycottKeurig🚫 https://t.co/IV18NSDpgJ\nRT @_celia_marie_: More people called for Hillary Clinton to denounce Harvey Weinstein than Mike Pence who explicitly endorsed and cha… \nRT @uspatrol: If you haven\u0027t heard yet @seanhannity asked #WeThePeople to not #BoycottKeurig !CEO apologized \u0026 claimed ignorance!… \nThe latest Daily Chikapapa! https://t.co/JpQPKCqCDi Thanks to @yuzumeets_an @tt_p10 #ycrazymind #maga\nRT @Chris11962: Bob Gamgort, Keurig CEO, apologizes for \u0027taking sides\u0027 as Sean Hannity fans smash coffee makers - Washington Times… \nRT @ronaldravegan: #MAGA #FANCYFEASTFORFREEDOM #FancyFeastForFreedom #StandWithHannity #BoycottKeurig #BoycottNFL !!!ATTENTION PATRIOT… \nRT @izzie_adams2: 🍕Harassment case puts Democratic Senate candidate in California under spotlight🍕 https://t.co/y1NMUjPgfT #FoxNews #MAGA #…\n@RealWeiseDame @LovesTrump45 @Robynmonty @glblchangedjt @TheBadDadder @CudaDebbie @supercent666 @LynwoodTalks… https://t.co/Pu2LeDWWlz\nRT @RichardAngwin: A little message for #Trump as he continues reversing all the regulations designed to protect our environment and p… \nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @StockMonsterUSA: My father was on the fence about voting for Roy Moore but now that Harvey Weinstein\u0027s lawyer\u0027s mother, Gloria Allre… \nRT @MooreSenate: Thank you, Mr. Vice President! #ALSen https://t.co/BEZu57cU0I\nNow THAT is a basket of deplorables. https://t.co/50YOomJ4dq\n@charliespiering can\u0027t he start him own party, with @RandPaul (and #Trump)\n#RoyMoore \n#Maga\nRT @MAGARoseTaylor: I absolutely love this ❤️\nTexans band together and rebuild the home of 100 year old veteran who’s home was destroy… \nRT @ShaneTHazel: Once again the free market is beating the government/establishment. Direct from producer to consumer is always the… \nRT @JannaWilkinso69: RETWEET 👊👊IF YOU ARE 100% BEHIND 👊👊@realDonaldTrump👊👊\n#MAGA #MASA 💛💚💜💙❤️🇺🇸 https://t.co/phphRhsISd\nRT @DonnaWR8: #Bergdahl gets off w/o jail time meanwhile SIX TROOPS were killed or injured including a #military service dog tryi… \nYou telling me these Republican officials that love the young ( AKA CPAC volunteers ) have a right to say anything?… https://t.co/ozAxcCuM10\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nI never grabbed nobody\u0027s neck !!  This is a George Soros lie!  I\u0027ll see that woman in court another lying liberal!… https://t.co/Q3y7HDOcvL\nRT @AntonioSabatoJr: The Liberal Socialist Democratic Party is working extremely hard to make sure the American people finish last , not… \nRT @FMoniteau: Trump should win Worst \"Citizen of the Year\" for the way he has hurt America\n#TheResistance #MAGA #Trump #FoxNews… \nRT @HollywoodMediia: These outstanding women, men, and children raise the bar, step up, and stand out to be the change we all wish to se… \nRT @DrHorseshark: Yes Donna, you tell it!\nBecause #HillaryIsOurEnemy .\n-\n-\n-\nAaaaaaand...\n#HerHusbandIsARapist \n-\n-\n-\nAnd… \nRT @alozrasT: .@SenateMajLdr Saying Roy Moore should step aside.\n#MitchMcConnell 👉YOU step aside! RESIGN! 🙄\n#DoNothingMitch… \nRT @PolToons: #VeteransDay Thank Them For Their Service Everyday! #NeverForget #ObamasLegacy #DemocratLiesMatter Always #VoteGOP… \nRT @GIJoeOPS: #MondayMotivation \n#RealTalk Below!\nWe Must Continue Using Our Voices \u0026 Votes To End #DCCorruption,… \nRT @Unpersuaded112: Uhhm @realDonaldTrump @POTUS how is this keeping the little guy safe?? Another lie on your part? @NYPDONeil #MAGA https…\nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @r_little_finger: @RealJamesWoods @Twitter Calling all fellow James Woods supporters - Stand with me. Retweet to congratulate… \nRT @_celia_marie_: More people called for Hillary Clinton to denounce Harvey Weinstein than Mike Pence who explicitly endorsed and cha… \nRT @brianklaas: Trump’s “Contract with the American Voter” promised 10 major bills signed in his first 100 days. Wednesday is day 3… \nRT @Harlan: I’m pretty sure this means @SeanHannity won!\nAdvertisers can side with liberal fascists — that’s fine — but know t… \nRT @realDonaldTrump: Spoke to Roy Moore of Alabama last night for the first time. Sounds like a really great guy who ran a fantastic race.…\n#maga Whooo-hooo!  Hail Trump!  Break your shit!  White Power!  Blame the victims!  Guns and God!  Pro-life! Wheeee… https://t.co/ufVJhrRqpJ\nRT @LouDobbs: Dimms Despair: Roy Moore Up 10 Pts in Emerson College Poll After Washington Post Story https://t.co/t3Z3w6nHT4 #MAGA @realDon…\nRT @JohnWayneMartin: @Chris11962 @seanhannity @Keurig \"...apologizes for getting caught...\"\nThere. Fixed.\n#MAGA\nRT @LouDobbs: Dimms Despair: Roy Moore Up 10 Pts in Emerson College Poll After Washington Post Story https://t.co/t3Z3w6nHT4 #MAGA @realDon…\nRT @redhead4645: Mega donor Paul Singer launched attacks agains @POTUS and now Judge Roy Moore! Singer involved in funding of Fusion… \nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @Crossbearer1956: #ToxicLiberal\u0027s worst nightmare -- #PresidentTrump naming 4 members to US Supreme Court #TrumpTrain #MAGA https://t.co…\n@TuckerCarlson @seanhannity \n@realDonaldTrump @POTUS \n@FLOTUS\n#BanCNN\n@WhiteHouse #Banislam\n#HillaryForPrison\n#MAGA… https://t.co/EGqLuG6lSq\nRT @zlando: Look at this map. Who are the \"land-grabbing colonists\", Arabs or Jews? \nhttps://t.co/llsKUIZtyr\n#mondaymotivation #MAGA 151047…\nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @SandraTXAS: 44% of Millennials want to live under socialism.\nWe should send them all to Venezuela. They will beg to come back t… \nRT @_celia_marie_: More people called for Hillary Clinton to denounce Harvey Weinstein than Mike Pence who explicitly endorsed and cha… \nThat fucking idiot can\u0027t even control himself. I would worry if I could control Trump. Because I would be SICK! https://t.co/r9mIOu4WW8\n@LBisogne @GeorgiaDirtRoad God bless AMERICA! #MAGA😎\nRT @SandraTXAS: Fake Racism: \nA black student wrote those racist messages that shook the Air Force Academy\nhttps://t.co/ApFNpCIDRM… \nTrump declared an end to America’s ‘war on coal.’ But what actual impact have his policies had?… https://t.co/BQvnzSrZrL #klout #maga\nRT @TakeThMarkOUDID: #FakeNews  We\u0027re done with it! We\u0027re not Liberals, we don\u0027t have anything to hide! 🙏🏻🇺🇸💪🏻 https://t.co/93MuH8Pfpv\n@KrieghDavid And they should pay taxes on it. Like lottery winners. New money in, pay the taxman. Then they can fin… https://t.co/LGCrM3AoCG\nRT @jnm0201: Liberal America... you WILL NEVER convince those of us w/morals, intellect, intelligence, faith, purpose that THIS… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\n@LindseyGrahamSC is going to meet this veteran on the debate stage. I plan on primarying his progressive ass. He is… https://t.co/CFoLf59Nf8\nRT @LouisaAvery8: #DitchMitch \u0026 his how\u0027s!!! @AttGloriaAllred. She is an ambulance hooker chaser. Anything for money and destroy any… \nRT @MandingoLuke: #Indictments #Mueller #Trump #MichaelFlynn #PaulManafort #JeffSessions #Treason #Collusion #Maga #whitesupremacists… \nSo great to hear but NOT for Liberals #MAGA\nRT @Heated_Rant: Rainy Day Shopper: Best place to shop online with deals on top sites and on name brands! https://t.co/w7k28LRQWj Sh… \n😇\u0027s in 🇺🇸!!! https://t.co/vUEwHxg4Gz\nRT @We_R_TheMedia: Bannon👉\"We’re a Nation of Citizens; We’re NOT a Nation of Immigrants. So Now We Have to Start to Act Like CITIZENS… \nRT @LouDobbs: Dimms Despair: Roy Moore Up 10 Pts in Emerson College Poll After Washington Post Story https://t.co/t3Z3w6nHT4 #MAGA @realDon…\nRT @OMGno2trump: Understand this #MAGA, it\u0027s your money.  If the $2 trillion Trump/@GOP tax cut was shared equally with 65 million A… \n@FreiLaurent Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten the… https://t.co/tzEtUslo8L\nRT @realDonaldTrump: Will be leaving the Philippines tomorrow after many days of constant mtgs \u0026 work in order to #MAGA! My promises are ra…\nRT @AmericanVoterUS: Seldom does a country on the path to tyranny have a chance to redeem itself\nWE THE PEOPLE now control the narrativ… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @NRIUSA2866: @LBisogne @GeorgiaDirtRoad God bless AMERICA! #MAGA😎\nFABULOUS work @POTUS !!\n#MAGA https://t.co/OKZ6SZzyzR\nRT @DonnaWR8: PODESTA👺GROUP LINKED TO SAUDIS FOR CORRUPTION ⛓\n#LockThemUp\n🎥@SavingAmerica4U \n#MAGA #TRUMP @POTUS @OANN https://t.co/dTYrB…\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @Harlan: I’m one of the 7 million Obama voters that supported President @realDonaldTrump in 2016...\nWe’re not going back to… \nRT @Crossbearer1956: Sen. Bob Corker Announces Retirement One Day After Breitbart Reports on His $3 Million Swamp Deal #TrumpTrain #MAGA ht…\nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @chgardens1: @seanhannity @Keurig We love @seanhannity \u0026 defend you, but this is big. They learned lesson. It\u0027s about the US Con… \nInnocent until proven guilty is the American way. How would you know from allegations? #MAGA #MASA #DraintgeSwamp https://t.co/VMqeZr0wFo\nRT @LouDobbs: Big Business, Dimms and Left Wing Media Working Together Against Free Speech and Anti-globalists  #MAGA… \nRT @DonnaWR8: PODESTA👺GROUP LINKED TO SAUDIS FOR CORRUPTION ⛓\n#LockThemUp\n🎥@SavingAmerica4U \n#MAGA #TRUMP @POTUS @OANN https://t.co/dTYrB…\nRT @StockMonsterUSA: My father was on the fence about voting for Roy Moore but now that Harvey Weinstein\u0027s lawyer\u0027s mother, Gloria Allre… \nRT @brianklaas: Trump’s “Contract with the American Voter” promised 10 major bills signed in his first 100 days. Wednesday is day 3… \nRT @AmericanVoterUS: Seldom does a country on the path to tyranny have a chance to redeem itself\nWE THE PEOPLE now control the narrativ… \nRT @MAGAStrong: Will you ever watch NFL games again? Do vote and retweet. #MAGA #Trump #NFL\nRT @Speak4Tomorrow: A majority of Republicans still support an abusive pedophile. Its time to say NO!\nIf you\u0027re Republican, its time to… \nRT @drscott_atlanta: Ethel and Julius Rosenberg got THE CHAIR for what the #Clintons and #DNC☠ have done with #Russia\n@SebGorka👑… \n@SenatorCollins Maybe you (RINO) should resign! You\u0027re foolish and senile, and can\u0027t do the job! #MAGA\nRT @cjlongoria07: @StefanMolyneux @BlissTabitha 👍🏻👍🏻 keep up the good work! #MAGA https://t.co/G8I6LTzy5h\nRT @cjlongoria07: @StefanMolyneux @BlissTabitha 👍🏻👍🏻 keep up the good work! #MAGA https://t.co/G8I6LTzy5h\nRT @PhilMcCrackin44: This is the very reason why we elected President Trump 👇\n@POTUS\n#MAGA https://t.co/Sq7hjzifiS\nRelax. There\u0027s an explanation.\n@donlemon\u0027s mommy hadn\u0027t changed his diaper that day and he was cranky. https://t.co/TpmmurWUMI\nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @DonnaWR8: @realDonaldTrump #FakeNews won’t show #POTUSinAsia trip because, as in ALL previous #POTUS trips abroad, @POTUS… \n@AntonioSabatoJr Sing Antonio 👉SING!!!! \n🇺🇸💪\n#MAGA\n@ericbolling @NFL @GQMagazine An insult to USA. Very sad #MAGA\nRT @AntonioSabatoJr: #MAGA Movement is growing \u0026 Winning ! 🇺🇸 https://t.co/34qKYEh23S\nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nA tweet for every occasion. America, the time for a general strike nears. https://t.co/8MwQbnvAYa\nRT @bocavista2016: THE CLINTON CABAL\nThey\u0027ve been exposed\nTheir scandals are being investigated\nThere WILL be indictments AND priso… \nRT @SandraTXAS: 44% of Millennials want to live under socialism.\nWe should send them all to Venezuela. They will beg to come back t… \nRT @bethd_k: By the way, have you heard from the lady who said @SenateMajLdr raped her when she was 17?   That\u0027s despicable and… \n@mbmk7 @RaheemKassam @BreitbartNews @TheDemocrats @RepMaxineWaters @RepWilson @tedlieu Hmmm... \"All the world?\" Tha… https://t.co/6yx4LxVkn0\nRT @zlando: The anti-#Trump people are scared!\nScared that Trump will succeed!\n#DrainTheSwamp\n#MAGA \n#MOAB \nhttps://t.co/zPixJz0Alt 1510470…\nHere\u0027s the list of advertisers being targeted by racist, homophobic angelo at dem front group #MediaMatters. Give a… https://t.co/6IfxpEnD9L\nRT @SaarioBrandon: You go to D.C. and help CA, I\u0027ll go to Sacramento and clean that place up. CA can\u0027t afford these taxes and policies… \n@GOP is USELESS! MAGA - Morons Are Governing America @POTUS @realDonaldTrump @FLOTUS @PressSec #LiarInChief #MAGA… https://t.co/qUuuedIwrH\nRT @StockMonsterUSA: My father was on the fence about voting for Roy Moore but now that Harvey Weinstein\u0027s lawyer\u0027s mother, Gloria Allre… \nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRT @BiglyPrez: #BREAKING: Scott Baio arrested for smashing Keurig machine on the set of the Hollywood Unemployment Office!… \nRT @TheLeftIsRacist: Throughout all my years of talking politics, I’ve never felt so good about the direction our country is headed in.… \nRT @AntonioSabatoJr: The Liberal Socialist Democratic Party is working extremely hard to make sure the American people finish last , not… \n@jstines3 @washingtonpost @TeriGRight @sdv92 @smartgirls4gop @sunbeltgirl @DataGenesis @ChuckNASCAR @chuckwoolery C… https://t.co/XpsViMYa7r\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\n@Chris11962 @HouseGOP https://t.co/kEyfYYNSGB https://t.co/u3FnzSEPx8\n@joemama920 .They did everything in their power to stop him and couldn\u0027t, now this crap comes to light weeks before… https://t.co/YvUFClpFgE\n@AntonioSabatoJr Thank you and Good Luck!🇱🇷 #MAGA #DrainTheSwamp\nRT @Mrs_Beahm: The way it looks now... someone is terrified of #RoyMoore and will spend a huge amount of money to deter votes... P… \nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRT @EjHirschberger: Linda Sarsour one of Glamour Magazine unworthy \u0027Women of the Year\u0027 https://t.co/CM8lrVIp8r #NotForWomensRights… \nRT @SandraTXAS: Outrageous ‼️\nBergdahl could get 300K in back pay. If anyone gets $$$ it should be service members injured looking… \nRT @DonnaWR8: Remember This⬇️\nEvery trip @POTUS has had abroad has been an incredible SUCCESS! \n#POTUSinAsia no different. #MAGA https://t…\nRT @ECMcLaughlin: Let\u0027s not forget this tweet from September. #roymoorechildmolester https://t.co/n8TUfUzoQD\nRT @DonnaWR8: Remember This⬇️\nEvery trip @POTUS has had abroad has been an incredible SUCCESS! \n#POTUSinAsia no different. #MAGA https://t…\n@Michelle_____24 Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten… https://t.co/ej7DGOxGHM\nRT @svenroy: I\u0027m on gab. Follow me at https://t.co/RPbQb4J2us https://t.co/TKkdXRs8cq\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @Angelemichelle: THIS SAYS IT ALL.......👿\n#RapistHarvey #DrainHollywood\n#DrainTheSwamp \n#DrainDemocrats\n#MAGA https://t.co/daVFrFGXtR\nRT @DustieDahl: @jsexton9 @BreitbartNews Hillary is a known criminal who has bought bribed and threatened her way out of ALL accoun… \nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nLets make @Keurig example of what happens when we are attacked We have the power to punish them Lets make that happ… https://t.co/jlhmdYmNe0\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @BillyCorben: \"I hire the best people\": Before He Was Nominated For Federal Court, Donald Trump’s Controversial Judicial Nominee,… \nAmazing thread👇🏼tying the McCain Institute to Saudis, Lynn de Rothschild \u0026 fake work to end sex trafficking!🍕The pi… https://t.co/jTeCaBlBHg\nRT @stacy_redvirgo: 💥Judge Roy Moore @MooreSenate responds to @SenateMajLdr \n👊🏻The person who should step aside is @SenateMajLdr He ha… \nWho gets an autograph from their dad? \n#MRGA https://t.co/H0Q6aT3B3t\nRT @Courtneykh24: @bbusa617 Roseanne is the woman with a plan!! She has exceeded my expectations from one who has overcome so much in… \nRT @DonnaWR8: PODESTA👺GROUP LINKED TO SAUDIS FOR CORRUPTION ⛓\n#LockThemUp\n🎥@SavingAmerica4U \n#MAGA #TRUMP @POTUS @OANN https://t.co/dTYrB…\n@WillDossier @DavidLimbaugh If expel every Congress Member unfit 4 office won\u0027t be many left! #MAGA\nRT @JenGranholm: Former U.S. intelligence officials: Trump being \u0027played\u0027 by Putin https://t.co/QSZy45mrlD @realDonaldTrump… \nRT @LouDobbs: ‘Hannity’ Fans Blow Up Products as Companies Pull Ads over Roy Moore Coverage  https://t.co/5adfbc677a #MAGA @realDonaldTrump…\nAnyone want to make a bet that @Kaepernick7 being named @GQMagazine’s citizen of the year will help GQ lose subscri… https://t.co/SNihLjSVSH\nRead \"Family of Secrets\" and watch Kay Griggs video on Youtube if you want info about this.. https://t.co/r971EVzQPQ\nRT @WeThePeopleFor: @seanhannity has just stated on his show to not #BoycottKuerig as ceo has called and apologized. They were deceived… \nRT @PhilMcCrackin44: This is the very reason why we elected President Trump 👇\n@POTUS\n#MAGA https://t.co/Sq7hjzifiS\nRT @MathisenScoot: Will you vote for @realDonaldTrump in 2020?\n#MAGA #BoycottKeurig #SundayMorning \n(Retweet and Vote Please, #HackLearning)\nRT @TheMikeClayton1: Smashed mine with a Trump Sledge hammer in the middle of the highway.🤟🤟🤟 https://t.co/0dtjN3XXCV\nRT @MONTANANBALLER: #Democrats are evil we do not need #GunControl we need #Democrat control RT if you agree #MAGA #Trump has made Amer… \nRT @PhilMcCrackin44: This is the very reason why we elected President Trump 👇\n@POTUS\n#MAGA https://t.co/Sq7hjzifiS\nRT @AntonioSabatoJr: The Liberal Socialist Democratic Party is working extremely hard to make sure the American people finish last , not… \nRT @DonnaWR8: #RogerGoodell SHOULD’VE been an actual LEADER and made the decision to #StandForOurFlag. It’s in @NFL GUIDELINES an… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\n@MooreSenate Conservative Christian Evangelicals are the biggest frauds in America today.  They have forgotten the… https://t.co/eAVVJ496zP\nRT @kwilli1046: Awarding Colin #Kaepernick the Citizen of the Year Award was like Awarding #Obama the Nobel Peace Prize in 2009.  I… \n@ShepNewsTeam @TuckerCarlson @seanhannity \n@realDonaldTrump @POTUS \n@FLOTUS\n#BanCNN\n@WhiteHouse #Banislam… https://t.co/W2M3vysWSK\nRT @DonnaWR8: Remember This⬇️\nEvery trip @POTUS has had abroad has been an incredible SUCCESS! \n#POTUSinAsia no different. #MAGA https://t…\nRT @brianklaas: Trump’s “Contract with the American Voter” promised 10 major bills signed in his first 100 days. Wednesday is day 3… \nRT @SandraTXAS: 44% of Millennials want to live under socialism.\nWe should send them all to Venezuela. They will beg to come back t… \ndoes he have a #wifeDaughter too? #PedosOfaFeather https://t.co/zXRy7TML22\nRT @FNTHEHALLS: This...\n#MooreTheMolester \n#TheResistance \n#Resist\n#StayWoke https://t.co/oA6VHhY93M\nRT @StockMonsterUSA: My father was on the fence about voting for Roy Moore but now that Harvey Weinstein\u0027s lawyer\u0027s mother, Gloria Allre… \nRT @RealMattCouch: President Trump and his DOJ are slowly taking down the Hollywood Pedophiles and Elites. Thank God for a President w… \nRT @DonnaWR8: #PresidentTrump #DrainTheDeepState \nCLOWNS 🤡 TO THE LEFT OF ME...\nJOKERS🃏TO THE RIGHT...🎵\n#MAGA #TrumpStrong… \nRT @GomezReporting: I\u0027m very excited at the meltdown you have started w/#MAGA.\nThank you, Colin. https://t.co/FWryedZ9nr\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nTo, too, two- better learn how to use them before it is too late for you two folks. https://t.co/LuXgISSd5U\nRT @HCDotNet: Angelo Carusone from Media Matters for America is a pajama boy wearing beta male slapping SJW soy chugger. #MAGA… \nRT @GIJoeOPS: #MondayMotivation \n#RealTalk Below!\nWe Must Continue Using Our Voices \u0026 Votes To End #DCCorruption,… \nRT @MortimersHole: Liberals \u0026 Hollywood are sexual deviants who claim the moral high ground while @realDonaldTrump is a man of honour… \nBroken Windows #MAGA #Trump #potus #pence #vp #TrumpCare\nRT @AnnaApp91838450: https://t.co/49bce3ONfC\nWhere is JUSTICE FOR AMERICA \nhe should be Locked up for CORRUPTION AND LIES TO THE HOUSE \u0026… \nRT @Crossbearer1956: White House Economist Larry Kudlow says #PresidentTrump \u0027Ending the War on Business\u0027 #TrumpTrain #MAGA https://t.co/VW…\nRT @Harlan: They’ll call it “not Presidential,” but under President @realDonaldTrump, America has its swagger back!\nWe fear no… \nRT @RichardAngwin: Justice Brandeis could see it over 100 years ago. Can you ??\nReject Trump\u0027s trickle-down tax scheme !!… \nRT @StockMonsterUSA: BOOOOM !! White House floating the idea of sending Sleepy Sessions back to Alabama ....  Roy/Alabama might have to… \nRT @StockMonsterUSA: My father was on the fence about voting for Roy Moore but now that Harvey Weinstein\u0027s lawyer\u0027s mother, Gloria Allre… \nRT @wattsjim: May I recommend a coffee alternative? #BlackRifleCoffee\nIt\u0027s GREAT coffee! My fav is Espresso Blend ✔👍… \nRT @crazylary51: woops oops all you racist bigot liars #foxnews #maga scum #Hannity #TheFive #FoxAndFriends  #Dobbs  Kaepernick land… \n@Keurig Oh well back to Mr coffee tired of the left wing BS. #MAGA\nRT @LouDobbs: Dimms Despair: Roy Moore Up 10 Pts in Emerson College Poll After Washington Post Story https://t.co/t3Z3w6nHT4 #MAGA @realDon…\nRT @Harlan: I’m pretty sure this means @SeanHannity won!\nAdvertisers can side with liberal fascists — that’s fine — but know t… \n@CarlToddHand @chrislhayes MAKE AMERICA GROPE AGAIN!!!!!! #MAGA\nRT @SandraTXAS: 44% of Millennials want to live under socialism.\nWe should send them all to Venezuela. They will beg to come back t… \nRT @MrsMalindo: @MooreSenate @SenateMajLdr Good news! Gloria Allred now involved LOL! https://t.co/FuKfWsViHl\nRT @Ohio_Buckeye_US: Congrats @RealJamesWoods you reached 1 million followers.  ##MAGA #JamesWoods 🎉 https://t.co/yCl6HsftmW\nRT @OverTheMoonbat: #PresidentTrump #MAGA (Days 201-300)\nhttps://t.co/VrR7AAqdKD\nhttps://t.co/4ljYpSxadv\n| #tcot #PJNET\n..The Only Color Missing Here is GREEN 🤑🤑🤑🤑🤑🤑🤑💍🥂🍸💅🏻💄💇🏼🏎🐩👜👠👗💲💲💲💲💲💲💲💲💲💲💲, Hey A-RED .. Bama Ain’t Buying Your #Shht!… https://t.co/55lTB5RCD0\nRT @MrsMalindo: @MooreSenate @SenateMajLdr Good news! Gloria Allred now involved LOL! https://t.co/FuKfWsViHl\n@Plewis1994 @UCLA Then I guess u can\u0027t read. And, I know u #MAGA cultists believe u control the world, but honestly… https://t.co/GekActlCDF\nRT @LizCrokin: Amazing thread👇🏼tying the McCain Institute to Saudis, Lynn de Rothschild \u0026 fake work to end sex trafficking!🍕The pi… \nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @johncardillo: Good. It’s a U.N. Ponzi and we should be thankful we’re not among those conned. \nAnother @realDonaldTrump win.… \nRT @ThoseUSAGirls: The latest ❤Heroical™ ❤MasterNews™❤! https://t.co/YRxsk7SR4v Thanks to @RoeMasterNYC @HRClintonPrison @jeep_sifu #maga\nGood! Because this is same old playbook I don\u0027t care if that demonic bitch pays 1000 flying circus sluts! Means mor… https://t.co/U6DCrOwrRO\nRT @BillCorbett: He might be a child rapist BUT AT LEAST HE DIDN’T SAY “HAPPY HOLIDAYS” #MAGA https://t.co/mTrxCVoYSj\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @Angelluisr: Thank you now let’s win and get to work! 🇺🇸 https://t.co/oFO3uh9Uc3\nRT @matthewjordan97: Kamala Harris Caught in Money Funneling Scheme with Maxine Waters\n#campaign   #MondayMotivation #Democrat #MAGA… \nRT @Angelluisr: With all the coffee news don’t forget to get one of these! Only $12 and you would be supporting a campaign that wil… \nRT @counterchekist: The idea of destroying one’s own property to spite a third party has always been the province of idiots \u0026 buffoons.… \nRT @Harlan: I’m one of the 7 million Obama voters that supported President @realDonaldTrump in 2016...\nWe’re not going back to… \nRT @Gwenap: .@realDonaldTrump approval rating 46% despite negative MSM!🎯\n💥We the people love and support @POTUS!💥\n🇺🇸#MAGA… \nRT @CroUSA1st: #MAGA https://t.co/GQ70Gutyfj\nRT @StockMonsterUSA: Beverly Young Nelson \u0026 Gloria Allred have their story but this Alabama lady who\u0027s known Roy Moore for years has her… \nRT @warrenwarmachi1: @morstroud @LizCrokin @realDonaldTrump LOL!  Rothschild NWO Globalists R coming unglued bc we have the Great @POTUS 2…\nRT @LouDobbs: Time for Draft? Army slashes standards for recruits, even with mental health https://t.co/Mvz6EavLmO #MAGA @realDonaldTrump #…\nRT @Harlan: I’m pretty sure this means @SeanHannity won!\nAdvertisers can side with liberal fascists — that’s fine — but know t… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\n\u003e0 inches of wall built\n\u003eDACA amnesties still being renewed\n\u003eno national E-Verify despite 80% support\n\u003eno pressure… https://t.co/SLfBIkybJC\nWatch: Beverly Young Nelson Makes Emotional Accusation Against #RoyMoore https://t.co/bXeiv9UjLR @redstate #MAGA #TRUMP\nOpen Thread https://t.co/eqQvrJK6CH #AceOfSpades #MAGA #TRUMP\n#MAGA! https://t.co/VtmJ6aSZVG My Karma is at 666 so I made this.\n@RBRadio41 @DiveConLFP @__pointnlaugh__ @GavinLively @ElkaSelzer @APBT_Rocket @anwaryusef @5five6 @TheLexZane… https://t.co/6Wa2L74o0I\n#ResistTheResistance #MAGA\n#MAGA! https://t.co/Rnl3CBVwLv Praying for Wisconsin. We need Paul Nehlen to unseat Paul Ryan. To my Wisconsin Pedes, make sure everyone i…\n@mike_pence Supported Roy Moore but where has he come out strong against him and his PEDOPHILE behavior and history… https://t.co/roApFzfy47\n#MAGA! https://t.co/qHEIhzsHH5 Roy Moore admits his guilt in New statement.\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRepublicans can do a good job a keeping people safe and more. I think dems need their help by communion so we can #MAGA\nTRUMP @realDonaldTrump @VP @AMERICANDREAM09 #GOP #TRUMP #MAGA #DOJ @seanhannity #AMERICANDREAM16  #Trumptrain2020… https://t.co/mdlusYfVcY\nRT @DiagonalDoug: 🚨THREAD🚨\nThe #McCainInstitute For International Leadership..\nIs this #ClintonFoundation 2.0?\nMcCain works for so… \n@RealAlexJones #BoycottNBA and #BoycottNFL Both are Anti-American, Anti-Christian, Anti-family and Anti -… https://t.co/3tDJdO1Xwd\nRT @ChrisCJackson: Every time #MAGA idiots destroy their own stuff to own the libs I think of this moron who honestly believed he was… \n@WillCoForests #MAGA\nRT @SithLordTJ: #MAGA: \"Mary \u0026 Joseph married when she was around 14, so that means Roy Moore is a man of God! Trump is building a… \nRT @NYSky_007: Will Liberal Media give our @POTUS @realDonaldTrump a break today? Last time I checked, lies weren’t kind.… \nRT @BillyCorben: \"I hire the best people\": Before He Was Nominated For Federal Court, Donald Trump’s Controversial Judicial Nominee,… \nRT @Chris11962: Bob Gamgort, Keurig CEO, apologizes for \u0027taking sides\u0027 as Sean Hannity fans smash coffee makers - Washington Times… \nRT @LouDobbs: Much to be Humble About-41 Elected Clinton, 43 Elected Obama, Claim \"Humility\" as They Bash @realDonaldTrump https://t.co/8zw…\nRT @Dameshek: Brennan defends the honor of USAF Lt General Clapper, who was impugned on Veterans Day by draft-dodging supporter o… \nRT @We_R_TheMedia: Bannon👉\"We’re a Nation of Citizens; We’re NOT a Nation of Immigrants. So Now We Have to Start to Act Like CITIZENS… \nRT @stacy_redvirgo: 💥Judge Roy Moore @MooreSenate responds to @SenateMajLdr \n👊🏻The person who should step aside is @SenateMajLdr He ha… \nRT @4AllSoulKind: When you drop a rod of god on a fault line, it manufactures a large scale earthquake without leaving a fingerprint… \nRT @kwilli1046: Awarding Colin #Kaepernick the Citizen of the Year Award was like Awarding #Obama the Nobel Peace Prize in 2009.  I… \nRT @alozrasT: .@SenateMajLdr Saying Roy Moore should step aside.\n#MitchMcConnell 👉YOU step aside! RESIGN! 🙄\n#DoNothingMitch… \nRT @CarmineZozzora: If Moore had been caught shoving cigars up 21-year-old girls blowing him repeatedly in the Oval Office as his wife… \nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\nRT @Chris11962: Bob Gamgort, Keurig CEO, apologizes for \u0027taking sides\u0027 as Sean Hannity fans smash coffee makers - Washington Times… \nRT @Boyd_2650: 🇺🇸🇺🇸I’ve got a better idea. Let’s have Lindsey Graham step down and resign from the senate because he is fighting a… \nRT @RedNationRising: Anyone who votes for Democrat\u0027s are crazy. They\u0027re voting for incompetence and corruption. #MAGA #RedNationRising http…\nRT @ibsharkbait: Ah. Stage 2 of the attack by the desperate GOP Elites. We all got Gloria Allred\u0027s number a long time ago. A Moore w… \nRT @SassyT_Joy: @TrumpsBlonde @Military_First @JAmy208 @Ms_Erika74 @TheTrumpLady @thebradfordfile @polishprincessh @EjHirschberger… \nRT @ibsharkbait: Ah. Stage 2 of the attack by the desperate GOP Elites. We all got Gloria Allred\u0027s number a long time ago. A Moore w… \n@washingtonpost @GeorgeWill These two are an American EMBARRASSMENT too!! A lot of EMBARRASSMENTS!! #MAGA https://t.co/6TtGDTqreg\nRT @MathisenScoot: Is @realDonaldTrump a better President than @BarackObama ?\n#MondayMotivation #WorldKindnessDay… \nRT @StockMonsterUSA: We should all send Gloria Allred thank you cards for helping seat Roy Moore to the Great State of Alabama !!\n#RoyMoor…\n@realDonaldTrump \nLet them rot #POTUS or they will just grow up to be like the athletes we have now who just want t… https://t.co/2CGQBUOZHo\nRT @JohnFugelsang: Trump\u0027s kissing up to China proves that the man flips like a crackhouse mattress.  #maga\n@benshapiro What\u0027s sad is, if these allegations are true, having #Fakenews @DNC shills at @washingtonpost \u0026 the amb… https://t.co/LdgsZh9aL0\nRT @StacyLStiles: Right!? BUT, @realDonaldTrump|his Administration|White House is a Daycare Center. Uh-huh.🙄 #MAGA https://t.co/mojE40qtaQ\nRT @dreamedofdust: #MAGA! https://t.co/Bp8sG1aqcR The left is really gonna regret backing Kaepernick\nRT @colemanbracken: +++SA\n++ Rs\n+S\n#TheEnd #MAGA #thegreatawakening https://t.co/MisbY4JroN\nRT @FNTHEHALLS: This...\n#MooreTheMolester \n#TheResistance \n#Resist\n#StayWoke https://t.co/oA6VHhY93M\nRT @PhilMcCrackin44: This is the very reason why we elected President Trump 👇\n@POTUS\n#MAGA https://t.co/Sq7hjzifiS\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510604277004_1538749993",
+      "id": "20171113-201757_286827908",
+      "dateCreated": "Nov 13, 2017 8:17:57 PM",
+      "dateStarted": "Nov 13, 2017 8:47:37 PM",
+      "dateFinished": "Nov 13, 2017 8:47:38 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n---maybe we want to know the word count associated with each\n\nselect  classifytweet(text) as classifytweet, count(1) from tweets group by classifytweet(text)\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:49:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "classifytweet\tcount(1)\nmaga\t405\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510604296139_147513295",
+      "id": "20171113-201816_1756271970",
+      "dateCreated": "Nov 13, 2017 8:18:16 PM",
+      "dateStarted": "Nov 13, 2017 8:49:45 PM",
+      "dateFinished": "Nov 13, 2017 8:49:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\nssc.stop()\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:49:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1510606141533_1670954186",
+      "id": "20171113-204901_1445641639",
+      "dateCreated": "Nov 13, 2017 8:49:01 PM",
+      "dateStarted": "Nov 13, 2017 8:49:46 PM",
+      "dateFinished": "Nov 13, 2017 8:49:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 13, 2017 8:49:45 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1510606185785_479279573",
+      "id": "20171113-204945_1083727896",
+      "dateCreated": "Nov 13, 2017 8:49:45 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "U_of_M_Twitter_Example_Part_4",
+  "id": "2CZZCXHJU",
+  "angularObjects": {
+    "2CZJVG5MN:shared_process": [],
+    "2CWTGG3KP:shared_process": [],
+    "2D19WB1SX:shared_process": [],
+    "2D16N6K17:shared_process": [],
+    "2CYJUZ3PK:shared_process": [],
+    "2CXW1QUF1:shared_process": [],
+    "2CYF8ZUHC:shared_process": [],
+    "2CX6TK6VC:shared_process": [],
+    "2CY8J9E5M:shared_process": [],
+    "2CYMM4PZY:shared_process": [],
+    "2CYUJ2KCT:shared_process": [],
+    "2CZ7F5R3H:shared_process": [],
+    "2CXP9EU5U:shared_process": [],
+    "2D1HDHGB9:shared_process": [],
+    "2CXU7D2Q5:shared_process": [],
+    "2CYQFZSUP:shared_process": [],
+    "2CZS63BSA:shared_process": [],
+    "2D1KR2N41:shared_process": [],
+    "2CZ3UFXP7:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

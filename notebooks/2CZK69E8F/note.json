@@ -3,7 +3,7 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:10:30 PM",
+      "dateUpdated": "Nov 16, 2017 4:45:54 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -32,15 +32,15 @@
       "jobName": "paragraph_1510095637175_-1662165592",
       "id": "20171107-230037_2703926",
       "dateCreated": "Nov 7, 2017 11:00:37 PM",
-      "dateStarted": "Nov 13, 2017 5:10:30 PM",
-      "dateFinished": "Nov 13, 2017 5:10:34 PM",
+      "dateStarted": "Nov 16, 2017 4:45:54 PM",
+      "dateFinished": "Nov 16, 2017 4:45:58 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n\n\n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:10:41 PM",
+      "dateUpdated": "Nov 16, 2017 4:46:01 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -69,8 +69,8 @@
       "jobName": "paragraph_1510095673391_-780074281",
       "id": "20171107-230113_874628575",
       "dateCreated": "Nov 7, 2017 11:01:13 PM",
-      "dateStarted": "Nov 13, 2017 5:10:41 PM",
-      "dateFinished": "Nov 13, 2017 5:10:48 PM",
+      "dateStarted": "Nov 16, 2017 4:46:01 PM",
+      "dateFinished": "Nov 16, 2017 4:46:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -78,7 +78,7 @@
       "title": "https://spark.apache.org/docs/latest/streaming-programming-guide.html",
       "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#maga\"))\n//val tweets \u003d TwitterUtils.createStream(ssc, None)\n//tweets.saveAsObjectFiles(\"hdfs://sandbox.hortonworks.com:8020/test/twitter-spark/twitter_\", \".txt\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(createdAt:Long, text:String, screenName:String)\ntwt.map(t\u003d\u003e\n  Tweet(t.getCreatedAt().getTime()/1000, t.getText(), t.getUser().getScreenName())).foreachRDD(rdd\u003d\u003e{\n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:10:59 PM",
+      "dateUpdated": "Nov 16, 2017 4:46:10 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -100,7 +100,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@5669f154\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@45a70fe5\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@a45c110\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@c0326f3\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@4916dbc5\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@3fb6f212\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
@@ -108,15 +108,15 @@
       "jobName": "paragraph_1510095758414_-531236977",
       "id": "20171107-230238_377548329",
       "dateCreated": "Nov 7, 2017 11:02:38 PM",
-      "dateStarted": "Nov 13, 2017 5:10:59 PM",
-      "dateFinished": "Nov 13, 2017 5:11:01 PM",
+      "dateStarted": "Nov 16, 2017 4:46:10 PM",
+      "dateFinished": "Nov 16, 2017 4:46:12 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n-- checking window contents\n\nselect text from tweets\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:11:10 PM",
+      "dateUpdated": "Nov 16, 2017 4:46:22 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -135,7 +135,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "text\nSeriously? he has opened the way for EU, China, Russia \u0026 rest of the world 2 lead by withdrawing from formerly US l… https://t.co/Yg3lUDGn1W\nRT @realDonaldTrump: Will be leaving the Philippines tomorrow after many days of constant mtgs \u0026 work in order to #MAGA! My promises are ra…\n#BREAKING #BreakingNews #update #Latest #latestnews #trending #trendingnews #TwitterMoments #Africa #northkorea… https://t.co/lzOlToTQ98\nRT @energystics: Great news Senator! We NEED you to provide direction and wisdom for your colleagues to get their job done! #MAGA https://t…\nRT @SandraTXAS: Outrageous ‼️\nBergdahl could get 300K in back pay. If anyone gets $$$ it should be service members injured looking… \nRT @Jali_Cat: TICK-FREAKIN-TOCK!\nGreat news! Now let’s just pray @FBI doesn’t hide Informant info or send them on a Clinton Perm… \nRT @bfraser747: 🌴🌴#MakeCaliforniaGreatAgain \nPlease FOLLOW, SUPPORT,  @AjaforCongress \u0026 donate for her bid for Congress #CA41… \nMSNBC Host Chris Hayes: Clinton Supporters Are Due For A \u0027Reckoning\u0027 Over Sexual Harassment Claims… https://t.co/JdkunV2qLI\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \n#running 😛 #MAGA #Derby https://t.co/25NULVuAts\nRT @jackTweets11: Just so it\u0027s clear. #Maga people are going to #BoycottKeurig because Keurig is taking a stand against pedophilia.… \nRT @seanhannity: Love it https://t.co/t3wMzMwQeI\nRT @CarmineZozzora: The same seditious Left and criminal media that defended Bill Clinton’s history of unspeakable behavior to the deat… \nI want to talk #TermLimits for #Congress starting w/ ! 🤔😉 #MAGA\nRT @AnnaApp91838450: https://t.co/jHcjfLyOw0\nGOD we need to bring MILITARY TANKS to our Legal System and PURGE COMPLETELY 👏🇺🇸\nSO MUCH CO… \nLet\u0027s face it They just don\u0027t get it. They think the Public is so stupid they continue to contradict themselves eve… https://t.co/B79Gfnw36t\n"
+            "data": "text\nRT @Truthseeker126: @realDonaldTrump advises  these 3 to enjoy life and not F up again. Thank you Trump for not wasting time on the ass… \n#AlFrankenResign #RedNationRising #PJNET #TrumpTrain #TrumpTrain2020 #TrumpArmy #AmericaFirst #MAGA… https://t.co/73tIuMxFEC\nRT @MightyBusterBro: WARNING\nAMERICA is UNDER ATTACK\nby The Masters of Deceit: THE LEFT\n#POTUS #1A #2A #NRA #Tucker #Hannity #CNN… \nRT @r_little_finger: @LeeannTweeden @Cernovich Al Franken lectures GOP on not respecting women. Now is accused of groping a woman. it\u0027s… \nOh - so ISIS can make even MORE money off the ivory trade? Trump. As per usual you have No sense of right and wrong… https://t.co/21LMlkAzVO\nYES this is what leadership looks like \u0026 thank GOD for President Trump, he is a real leader,one like we have not ha… https://t.co/NF9OkG0wxg\nRT @NewRightNetwork: Breaking: Journalist Accuses Sen. Al Franken of Fondling, Kissing Her Without Consent (Photographic Proof)… \nRT @MartelPlieiades: The Al Franken molestations are not tainted by serial liar \u0026 briber Gloria Allred having a dog and pony show.… \nRT @realLucyAmato: Thanks Trump. Japan\u0027s 50% Tariff On Frozen Beef Imports Hurts U.S. Cattle Industry #MAGA https://t.co/4ibJEtIJhB\n@Daholduk @GingerMcQueen @realDonaldTrump I get it. This tax reform has you whackjobs on the left crying yourself t… https://t.co/omg3f68nBE\nRT @PolToons: Political Holiday Season Gifts #TaxReform #DrainTheSwamp #DemocratLiesMatter Always #VoteGOP #NoRINOs #MAGA… \n"
           }
         ]
       },
@@ -143,15 +143,15 @@
       "jobName": "paragraph_1510588568376_1330277239",
       "id": "20171113-155608_321901324",
       "dateCreated": "Nov 13, 2017 3:56:08 PM",
-      "dateStarted": "Nov 13, 2017 5:11:10 PM",
-      "dateFinished": "Nov 13, 2017 5:11:11 PM",
+      "dateStarted": "Nov 16, 2017 4:46:22 PM",
+      "dateFinished": "Nov 16, 2017 4:46:22 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n-- checking window contents\n\nselect from_unixtime(createdAt), count(1) from tweets group by createdAt order by createdAt\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:11:19 PM",
+      "dateUpdated": "Nov 16, 2017 4:46:33 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -181,7 +181,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-11-13 17:11:02\t2\n2017-11-13 17:11:03\t1\n2017-11-13 17:11:04\t1\n2017-11-13 17:11:05\t4\n2017-11-13 17:11:06\t2\n2017-11-13 17:11:07\t2\n2017-11-13 17:11:08\t3\n2017-11-13 17:11:09\t1\n"
+            "data": "from_unixtime(createdAt, yyyy-MM-dd HH:mm:ss)\tcount(1)\n2017-11-16 16:46:13\t2\n2017-11-16 16:46:14\t4\n2017-11-16 16:46:16\t2\n2017-11-16 16:46:17\t1\n2017-11-16 16:46:18\t2\n2017-11-16 16:46:20\t2\n2017-11-16 16:46:21\t5\n2017-11-16 16:46:22\t3\n2017-11-16 16:46:23\t4\n2017-11-16 16:46:24\t3\n2017-11-16 16:46:25\t4\n2017-11-16 16:46:26\t1\n2017-11-16 16:46:27\t2\n2017-11-16 16:46:28\t3\n2017-11-16 16:46:29\t4\n"
           }
         ]
       },
@@ -189,15 +189,15 @@
       "jobName": "paragraph_1510095903466_2101431181",
       "id": "20171107-230503_1517724842",
       "dateCreated": "Nov 7, 2017 11:05:03 PM",
-      "dateStarted": "Nov 13, 2017 5:11:19 PM",
-      "dateFinished": "Nov 13, 2017 5:11:20 PM",
+      "dateStarted": "Nov 16, 2017 4:46:33 PM",
+      "dateFinished": "Nov 16, 2017 4:46:33 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "/* declaring a function in Scala */\n\ndef sentiment(s:String) : String \u003d {\n    val positive \u003d Array(\"like\", \"love\", \"good\", \"great\", \"happy\", \"cool\", \"the\", \"one\", \"that\")\n    val negative \u003d Array(\"hate\", \"bad\", \"stupid\", \"is\", \"hillary\")\n\n    var st \u003d 0;\n\n    val words \u003d s.split(\" \")    \n    positive.foreach(p \u003d\u003e\n        words.foreach(w \u003d\u003e\n            if(p\u003d\u003dw) st \u003d st+1\n        )\n    )\n\n    negative.foreach(p\u003d\u003e\n        words.foreach(w\u003d\u003e\n            if(p\u003d\u003dw) st \u003d st-1\n        )\n    )\n    if(st\u003e0)\n        \"positivie\"\n    else if(st\u003c0)\n        \"negative\"\n    else\n        \"neutral\"\n}\n\nsqlc.udf.register(\"sentiment\", sentiment _)\n",
+      "text": "/* declaring a function in Scala */\n\ndef sentiment(s:String) : String \u003d {\n    val positive \u003d Array(\"like\", \"love\", \"good\", \"great\", \"happy\", \"cool\", \"the\", \"one\", \"that\",\"golf\",\"russia\")\n    val negative \u003d Array(\"hate\", \"bad\", \"stupid\", \"hillary\",\"collusion\",\"cnn\",\"fakenews\",\"democrat\",\"unknown\",\"child\",\"insecure\",\"god\",\"rocketman\")\n\n    var st \u003d 0;\n\n    val words \u003d s.split(\" \")    \n    positive.foreach(p \u003d\u003e\n        words.foreach(w \u003d\u003e\n            if(p\u003d\u003dw) st \u003d st+1\n        )\n    )\n\n    negative.foreach(p\u003d\u003e\n        words.foreach(w\u003d\u003e\n            if(p\u003d\u003dw) st \u003d st-1\n        )\n    )\n    if(st\u003e0)\n        \"positivie\"\n    else if(st\u003c0)\n        \"negative\"\n    else\n        \"neutral\"\n}\n\nsqlc.udf.register(\"sentiment\", sentiment _)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:24:47 PM",
+      "dateUpdated": "Nov 16, 2017 4:48:31 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -218,7 +218,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "sentiment: (s: String)String\nres39: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,StringType,Some(List(StringType)))\n"
+            "data": "sentiment: (s: String)String\nres23: org.apache.spark.sql.expressions.UserDefinedFunction \u003d UserDefinedFunction(\u003cfunction1\u003e,StringType,Some(List(StringType)))\n"
           }
         ]
       },
@@ -226,15 +226,15 @@
       "jobName": "paragraph_1510095929516_-875508977",
       "id": "20171107-230529_1623792657",
       "dateCreated": "Nov 7, 2017 11:05:29 PM",
-      "dateStarted": "Nov 13, 2017 5:24:47 PM",
-      "dateFinished": "Nov 13, 2017 5:24:47 PM",
+      "dateStarted": "Nov 16, 2017 4:48:31 PM",
+      "dateFinished": "Nov 16, 2017 4:48:32 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\nselect  sentiment(text) as sentiment, text from tweets LIMIT 1",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:32:19 PM",
+      "dateUpdated": "Nov 16, 2017 4:47:25 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -262,7 +262,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "sentiment\ttext\npositivie\tRT @AntonioSabatoJr: With Mom last night @ the Republican Jewish Coalition . #MAGA https://t.co/jx5jz9hEKJ 🇺🇸🇮🇱 https://t.co/ptMr59hwvW\n"
+            "data": "sentiment\ttext\npositivie\tRT @Truthseeker126: @realDonaldTrump advises  these 3 to enjoy life and not F up again. Thank you Trump for not wasting time on the ass… \n"
           }
         ]
       },
@@ -270,22 +270,92 @@
       "jobName": "paragraph_1510593097260_-291172883",
       "id": "20171113-171137_557436332",
       "dateCreated": "Nov 13, 2017 5:11:37 PM",
-      "dateStarted": "Nov 13, 2017 5:32:19 PM",
-      "dateFinished": "Nov 13, 2017 5:32:19 PM",
+      "dateStarted": "Nov 16, 2017 4:47:25 PM",
+      "dateFinished": "Nov 16, 2017 4:47:25 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\nselect  text from tweets LIMIT 50\n",
+      "user": "anonymous",
+      "dateUpdated": "Nov 16, 2017 4:48:50 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "text\nRT @RightWingAngel: Dear Maxine, DNC etc, You are in possible violation of: \n18 U.S. Code § 2385 - Advocating overthrow of Gov\" If two… \nRT @SandraTXAS: Democrats like Schumer only care about future voters, not current citizens \n#NYCTerroristAttack \n#FridayFeeling… \nThis is my surprised face. https://t.co/UiRqvn61vX\nRT @SpecialKMB1969: Why did BLM delete their poll?\n52,116 VOTES \n67% APPROVE of President @realDonaldTrump performance!\nThey didn\u0027t… \nRT @TomHall: Trump Administration to END  the Ban on Elephant Trophies from Africa.\n#WTH?\nThis is going to #MAGA?\nVampires \u0026… \nSorry isn\u0027t enough you freak-show. https://t.co/vFqjvt0ldb\nRT @GaryDeSantis: All women in America #AlFranken has got toRESIGN TODAY1 #InvestigateAllDemocrats @NIVIsa4031 @Dbargen… \n@anti_Sci @LeeannTweeden You have no respect for a woman\u0027s right to dignity. You defend a woman being made a joke,… https://t.co/fcyA8Al93e\nRT @Ohio_Buckeye_US: We must definitely address sexual harassment Senator..Karma comes at you fast. #MAGA  🇺🇸 https://t.co/NMBUSK98Vy\nRT @DonnaWR8: 🔁RT IF YOU AGREE⬇️\n“This is what makes the #American people sick...One set of rules for the #Clintons \u0026 another se… \nRT @KatrinaPierson: If the media doesn’t cover it, did it happen? Only if @realDonaldTrump tweets about it. It’s the only way the natio… \nRT @MrsScottBaio: There it is! \n@realDonaldTrump  #MAGA https://t.co/JxO0EaZK7h\nThe latest Pennsylvania\u0027s UnityThroughSolutions Daily! https://t.co/nVQSvtbnNS Thanks to @Expo_2023 @CWCSBDub @jacket1962 #tech #maga\nRT @NewRightNetwork: #Liberal Hypocrite @alfranken accused of #sexualmisconduct by journalist @LeeannTweeden! Will he RESIGN!?! CLICK ON… \nRT @sassywindsor: Alabama voters do not let the DC Swamp steal your election!  #maga https://t.co/LeDHuUh3Bf\nRT @SpecialKMB1969: Why did BLM delete their poll?\n52,116 VOTES \n67% APPROVE of President @realDonaldTrump performance!\nThey didn\u0027t… \nRT @RepHagan: I will fight to #DrainTheSwamp, secure our borders, protect good paying jobs, and stop disastrous trade deals!\nJoi… \n@Jeveryday26 Followed You.🇺🇸🇺🇸🇺🇸#MAGA🇺🇸🇺🇸🇺🇸\nRT @LVNancy: #ThursdayThoughts \n#Democrats and #GOP have UNITED against a Christian Conservative #JudgeRoyMoore to sabotage… \nRT @alozrasT: We finally have a president who loves America and cares about the American people. Remember, after a storm comes a… \nRT @GmanFan45: Give my #RollTide friend @crimsontide2262 a follow and he will follow you back  \nCheck out his new book the Prodig… \nRT @SheriffClarke: In less than one year @realDonaldTrump restores America’s standing in Asia and the world. This is what leadership l… \n@FoxNews So now everyone on the left is going to call for his immediate resignation.  If not... you’re all hypocrit… https://t.co/ZIyO4utC1o\nRT @ColoradoGirl2A: Good morning patriots! \nLet’s do our part to #MAGA \n#ThursdayMotivation #ThursdayThoughts https://t.co/snGmgr4kyv\nLet\u0027s #DrainTheSwamp and #MAGA #Alabama and elect #JudgeRoyMoore !\nMake the eGOP \u0026 Dems pay for slandering a good… https://t.co/HyYqQVbPou\nRT @RightWingAngel: Dear Maxine, DNC etc, You are in possible violation of: \n18 U.S. Code § 2385 - Advocating overthrow of Gov\" If two… \n@Lofty537 Leave it to the Orwellian Brits to insist on killing democracy in order to save it.\nHRC/Dems/FBI paying… https://t.co/zpFkkgbAn2\nRT @KuntrinaPierson: #mooresenate\n#potus\n#flotus\n#gop\n#foxnews\n#speakerryan\n#pryan \n#govwalker\n#resist\n#wi01\n#ironstache\n#madison… \nRT @thebradfordfile: #FrankenFondles\n#FrankenFondles\n#FrankenFondles\n#FrankenFondles\n#FrankenFondles\n#FrankenFondles\n#FrankenFondles… \nRT @SpecialKMB1969: Why did BLM delete their poll?\n52,116 VOTES \n67% APPROVE of President @realDonaldTrump performance!\nThey didn\u0027t… \nThe children (usually boys) that were subjected to this form of discipline became what is known as the Greatest Gen… https://t.co/uoKO08DJi9\nRT @MzBodie: Dear @HillaryClinton ,\nYou know what really rips at the fabric of 🇺🇸?\nThumbing your crooked nose at the… \nRT @r_little_finger: @FoxNews @KellyannePolls @alfranken Al Franken lectures GOP on not respecting women. Now is accused of groping a wo… \n“The test of our progress is not whether we add more to the abundance of those who have much; it is whether we prov… https://t.co/iLxxrGI8F8\nRT @Joy_Villa: The fabulous, extraordinary and FEARLESS @DiamondandSilk 💋💕🌟👸🏾👸🏽👸🏾 #PowerWomen joining together at @IWF 👏🏽😆🇺🇸… \nRT @NoThoughtsHere: Al Franken \u0026 Louis C.K. admitted that there was some basis for the allegations against them. Roy Moore, Donald Trum… \nRT @patmiletich: When you\u0027re willing to lose friends while speaking the truth. #Respect https://t.co/ofioCXxDqf\nRT @LVNancy: #ThursdayThoughts \n#Democrats and #GOP have UNITED against a Christian Conservative #JudgeRoyMoore to sabotage… \nRT @BiglyPrez: Even Asians–with their slanty eyes and everything–can see that I am the LEAST RACIST PRESIDENT since George Jefferson! #MAGA\nAs much as I would like to see Al Franken go down in flames... that photo... it looks like he isn\u0027t actually touchi… https://t.co/gKGi8oKAfE\n@realDonaldTrump\nIs this your idea of “draining the swamp?”\nTrump supporters:\nIs this how you thought Trump would… https://t.co/l7QLUgVwJA\nRT @gr8tjude: 🇺🇸🇺🇸🇺🇸🇺🇸🇺🇸\n💥Trump signed 37 deals in China\n💥Chinese deals total $250 Billion\n💥Trump saved 3 UCLA Americans from Ch… \nRT @Jali_Cat: Come on @VP @POTUS @ChuckGrassley @DevinNunes @TGowdySC @SecretaryRoss...this is ELECTIVE SURGERY, not a medical ne… \nRT @r_little_finger: @FoxNews @KellyannePolls @alfranken Al Franken lectures GOP on not respecting women. Now is accused of groping a wo… \nRT @RichardAngwin: A history lesson for #Trump and his Education Secretary #BetsyDevos \n#ThursdayThoughts #MarkTwain #Resist #1u… \nRT @RealMarquis7: Birth control is so cheap but the liberal demagogues want it free. \nIf you can’t spend a few dollars for birth con… \nRT @realamericadrew: After a very successful Asia Trip do you approve or disapprove of the performance @realDonaldTrump has done as… \nRT @SheriffClarke: In less than one year @realDonaldTrump restores America’s standing in Asia and the world. This is what leadership l… \nNDP propagandist joins Canadian Climate Change delegation https://t.co/lL0oPr5ERF #POYB #ProudBoys #MAGA #UHURU\nRT @SERD1983: @MooreSenate They are trying to get rid of him because of his Christian values! PERIOD! Who runs the media? They do… \n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510680895089_2031759859",
+      "id": "20171114-173455_139699560",
+      "dateCreated": "Nov 14, 2017 5:34:55 PM",
+      "dateStarted": "Nov 16, 2017 4:48:50 PM",
+      "dateFinished": "Nov 16, 2017 4:48:50 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\nselect  sentiment(text) as sentiment from tweets LIMIT 10",
+      "user": "anonymous",
+      "dateUpdated": "Nov 16, 2017 4:47:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "sentiment\npositivie\nneutral\nneutral\nneutral\npositivie\npositivie\nneutral\nneutral\nneutral\npositivie\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1510680899086_1626249843",
+      "id": "20171114-173459_1411724408",
+      "dateCreated": "Nov 14, 2017 5:34:59 PM",
+      "dateStarted": "Nov 16, 2017 4:47:37 PM",
+      "dateFinished": "Nov 16, 2017 4:47:37 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n\n--Ok, lets take a peek at sentiment with our function\n--and make a plot\n\nselect  sentiment(text) as sentiment, count(1) from tweets group by sentiment(text)",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:32:37 PM",
+      "dateUpdated": "Nov 16, 2017 4:48:40 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {
           "0": {
             "graph": {
-              "mode": "table",
+              "mode": "pieChart",
               "height": 300.0,
               "optionOpen": false
             },
@@ -308,7 +378,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "sentiment\tcount(1)\nneutral\t205\nnegative\t31\npositivie\t115\n"
+            "data": "sentiment\tcount(1)\nneutral\t176\npositivie\t126\n"
           }
         ]
       },
@@ -316,15 +386,15 @@
       "jobName": "paragraph_1510096229387_-1526490436",
       "id": "20171107-231029_473151385",
       "dateCreated": "Nov 7, 2017 11:10:29 PM",
-      "dateStarted": "Nov 13, 2017 5:32:37 PM",
-      "dateFinished": "Nov 13, 2017 5:32:37 PM",
+      "dateStarted": "Nov 16, 2017 4:48:40 PM",
+      "dateFinished": "Nov 16, 2017 4:48:41 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n\n--show most common words for negatives tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027negative\u0027\ngroup by word, sentiment\nhaving count(1) \u003e 5\norder by cnt desc\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:32:43 PM",
+      "dateUpdated": "Nov 14, 2017 5:36:08 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -375,7 +445,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "word\tsentiment\tcnt\nis\tnegative\t37\nRT\tnegative\t26\n\tnegative\t25\na\tnegative\t19\nto\tnegative\t13\nfor\tnegative\t11\nof\tnegative\t9\nThe\tnegative\t8\nin\tnegative\t7\n#MAGA\tnegative\t6\nwho\tnegative\t6\nTrump\tnegative\t6\nThis\tnegative\t6\nthis\tnegative\t6\n"
+            "data": "word\tsentiment\tcnt\nis\tnegative\t20\nRT\tnegative\t10\nand\tnegative\t8\n\tnegative\t7\nto\tnegative\t7\nPresident\tnegative\t6\nit\tnegative\t6\nof\tnegative\t6\n"
           }
         ]
       },
@@ -383,15 +453,15 @@
       "jobName": "paragraph_1510096264553_-788926271",
       "id": "20171107-231104_1599062660",
       "dateCreated": "Nov 7, 2017 11:11:04 PM",
-      "dateStarted": "Nov 13, 2017 5:32:43 PM",
-      "dateFinished": "Nov 13, 2017 5:32:43 PM",
+      "dateStarted": "Nov 14, 2017 5:36:08 PM",
+      "dateFinished": "Nov 14, 2017 5:36:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n\n--show most common words for positivie tweets\n\nselect word, sentiment, count(1) as cnt\nfrom \n(\n   select from_unixtime(createdAt) as created, screenName, sentiment(text) as sentiment,  text  from tweets\n) sub1\nlateral view explode(split(text, \u0027 \u0027)) t as word \nwhere sentiment \u003d \u0027positivie\u0027\ngroup by word, sentiment\nhaving count(1) \u003e 5\norder by cnt desc\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:32:51 PM",
+      "dateUpdated": "Nov 14, 2017 9:49:41 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -440,7 +510,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "word\tsentiment\tcnt\nthe\tpositivie\t145\nRT\tpositivie\t101\n\tpositivie\t85\nof\tpositivie\t70\nto\tpositivie\t63\nin\tpositivie\t54\na\tpositivie\t41\n\u0026\tpositivie\t38\nare\tpositivie\t34\nbe\tpositivie\t32\nWill\tpositivie\t26\nafter\tpositivie\t26\nMy\tpositivie\t25\nPhilippines\tpositivie\t25\nmany\tpositivie\t25\ntomorrow\tpositivie\t25\ndays\tpositivie\t25\nleaving\tpositivie\t25\nra…\tpositivie\t23\nwork\tpositivie\t23\nmtgs\tpositivie\t23\nconstant\tpositivie\t23\npromises\tpositivie\t23\n#MAGA!\tpositivie\t23\n@realDonaldTrump:\tpositivie\t23\norder\tpositivie\t23\nfor\tpositivie\t22\nthat\tpositivie\t22\nThe\tpositivie\t18\nhas\tpositivie\t18\n#MAGA\tpositivie\t17\nyou\tpositivie\t17\nhave\tpositivie\t12\nbeen\tpositivie\t12\n@realDonaldTrump\tpositivie\t11\nnot\tpositivie\t10\nback\tpositivie\t10\nthey\tpositivie\t10\nis\tpositivie\t10\nnow\tpositivie\t9\nPresident\tpositivie\t9\none\tpositivie\t9\nI\tpositivie\t9\nlike\tpositivie\t9\ndown\tpositivie\t9\nand\tpositivie\t9\nso\tpositivie\t9\nKeurig\tpositivie\t8\nWe\tpositivie\t8\nwas\tpositivie\t8\ngo\tpositivie\t8\nroad\tpositivie\t7\nare…\tpositivie\t7\ntheir\tpositivie\t7\nsame\tpositivie\t7\nwhich\tpositivie\t7\n@mikandynothem:\tpositivie\t7\nroad.\tpositivie\t7\nThey\tpositivie\t7\nI’m\tpositivie\t7\nregret,\tpositivie\t7\nto…\tpositivie\t7\nObama\tpositivie\t7\ndangerous\tpositivie\t7\n#NFL,\tpositivie\t7\nwill\tpositivie\t7\nwent\tpositivie\t7\nmillion\tpositivie\t7\ndown.\tpositivie\t7\nchosen\tpositivie\t7\nwho\tpositivie\t6\npeople\tpositivie\t6\non\tpositivie\t6\ngoing\tpositivie\t6\nhow\tpositivie\t6\n@Harlan:\tpositivie\t6\nour\tpositivie\t6\nvoters\tpositivie\t6\nsupported\tpositivie\t6\nby\tpositivie\t6\n2016...\nWe’re\tpositivie\t6\n7\tpositivie\t6\nPlease\tpositivie\t6\nyour\tpositivie\t6\n"
+            "data": "word\tsentiment\tcnt\nthe\tpositivie\t90\nRT\tpositivie\t74\n\tpositivie\t72\nto\tpositivie\t45\nof\tpositivie\t32\na\tpositivie\t26\nin\tpositivie\t23\nis\tpositivie\t21\nfor\tpositivie\t21\nyou\tpositivie\t20\nthat\tpositivie\t20\nand\tpositivie\t19\nI\tpositivie\t18\non\tpositivie\t18\n\u0026\tpositivie\t16\n#MAGA\tpositivie\t13\nthese\tpositivie\t11\nfrom\tpositivie\t10\nare\tpositivie\t10\nhas\tpositivie\t9\nabout\tpositivie\t9\nWhy\tpositivie\t8\nthan\tpositivie\t8\nTrump\tpositivie\t8\nmore\tpositivie\t8\nat\tpositivie\t8\nhis\tpositivie\t8\nIf\tpositivie\t8\ntime\tpositivie\t8\nif\tpositivie\t8\nALL\tpositivie\t8\nfilm,\tpositivie\t7\nmultitude\tpositivie\t7\n#Hillary\tpositivie\t7\ncaught\tpositivie\t7\n@KNP2BP:\tpositivie\t7\ncrime…\tpositivie\t7\naren’t\tpositivie\t7\nSOBs\tpositivie\t7\nthose\tpositivie\t7\nserve\tpositivie\t7\nclowns,\tpositivie\t7\nfind\tpositivie\t6\nhe\tpositivie\t6\nit\tpositivie\t6\ndid\tpositivie\t6\nbe\tpositivie\t6\nThe\tpositivie\t6\n"
           }
         ]
       },
@@ -448,15 +518,15 @@
       "jobName": "paragraph_1510098675208_1982498845",
       "id": "20171107-235115_491215821",
       "dateCreated": "Nov 7, 2017 11:51:15 PM",
-      "dateStarted": "Nov 13, 2017 5:32:51 PM",
-      "dateFinished": "Nov 13, 2017 5:32:52 PM",
+      "dateStarted": "Nov 14, 2017 9:49:41 PM",
+      "dateFinished": "Nov 14, 2017 9:49:42 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%pyspark\n\n#declaring a function in Python\n#to count the number of words by splitting on white space\n\nimport re\n\ndef wordcount(a):\n  return len(re.split(\"\\W+\",a))\n  \nsqlContext.registerFunction(\"wordcount\", wordcount)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:22:43 PM",
+      "dateUpdated": "Nov 14, 2017 9:50:07 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -480,15 +550,15 @@
       "jobName": "paragraph_1510096361271_-2020168724",
       "id": "20171107-231241_396290152",
       "dateCreated": "Nov 7, 2017 11:12:41 PM",
-      "dateStarted": "Nov 13, 2017 5:22:43 PM",
-      "dateFinished": "Nov 13, 2017 5:22:43 PM",
+      "dateStarted": "Nov 14, 2017 9:50:07 PM",
+      "dateFinished": "Nov 14, 2017 9:50:08 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n---maybe we want to know the word count associated with each\n\nselect  sentiment(text) as sentiment, wordcount(text) as wordcount, count(1) from tweets group by sentiment(text), wordcount(text)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:22:49 PM",
+      "dateUpdated": "Nov 14, 2017 9:50:12 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -518,7 +588,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "sentiment\twordcount\tcount(1)\nneutral\t15\t4\nneutral\t21\t19\nneutral\t22\t10\nnegative\t9\t1\npositivie\t20\t10\nneutral\t13\t3\nnegative\t22\t13\nneutral\t24\t29\npositivie\t28\t2\nnegative\t21\t1\nneutral\t7\t1\nneutral\t17\t7\nnegative\t23\t5\nneutral\t11\t4\nneutral\t18\t22\nneutral\t6\t3\nneutral\t8\t7\nneutral\t16\t20\nneutral\t27\t2\nneutral\t19\t15\npositivie\t15\t2\nneutral\t5\t2\npositivie\t27\t2\nneutral\t26\t7\nnegative\t25\t2\npositivie\t19\t9\nneutral\t10\t11\npositivie\t24\t43\npositivie\t22\t9\nneutral\t12\t9\npositivie\t29\t1\nnegative\t24\t4\npositivie\t23\t11\npositivie\t21\t5\npositivie\t8\t1\npositivie\t16\t2\nnegative\t14\t1\npositivie\t12\t2\nnegative\t20\t2\npositivie\t18\t4\nnegative\t12\t1\nneutral\t20\t15\npositivie\t26\t9\npositivie\t25\t10\nnegative\t26\t2\nneutral\t28\t1\nnegative\t19\t2\npositivie\t14\t2\nneutral\t23\t8\nneutral\t14\t4\nneutral\t25\t9\npositivie\t11\t1\nnegative\t28\t1\nnegative\t11\t1\nnegative\t17\t1\npositivie\t17\t1\n"
+            "data": "sentiment\twordcount\tcount(1)\nneutral\t15\t5\nneutral\t21\t20\nneutral\t22\t9\npositivie\t20\t7\nneutral\t13\t3\nneutral\t24\t9\npositivie\t28\t5\nneutral\t7\t2\nneutral\t17\t6\nneutral\t11\t5\nneutral\t18\t5\nneutral\t6\t3\nnegative\t30\t1\nneutral\t8\t3\nneutral\t16\t3\nneutral\t27\t1\nneutral\t19\t9\npositivie\t15\t2\nneutral\t5\t2\npositivie\t27\t6\nneutral\t26\t3\npositivie\t13\t1\nneutral\t10\t3\npositivie\t24\t11\npositivie\t22\t12\nneutral\t12\t3\npositivie\t29\t1\npositivie\t23\t12\npositivie\t21\t7\npositivie\t16\t2\npositivie\t18\t7\nneutral\t20\t11\npositivie\t26\t10\npositivie\t25\t8\nneutral\t4\t1\nneutral\t9\t3\nneutral\t23\t9\nneutral\t14\t8\nneutral\t25\t4\npositivie\t11\t1\npositivie\t17\t1\n"
           }
         ]
       },
@@ -526,15 +596,15 @@
       "jobName": "paragraph_1510096344814_-92207310",
       "id": "20171107-231224_2097199119",
       "dateCreated": "Nov 7, 2017 11:12:24 PM",
-      "dateStarted": "Nov 13, 2017 5:22:49 PM",
-      "dateFinished": "Nov 13, 2017 5:22:51 PM",
+      "dateStarted": "Nov 14, 2017 9:50:12 PM",
+      "dateFinished": "Nov 14, 2017 9:50:14 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%sql\n---maybe we want to know the raw counts by minute\n\nselect minute, sentiment, count(1) as cnt from\n(\n   select substr(from_unixtime(createdAt), 0, 16) as minute, screenName, sentiment(text) as sentiment, wordcount(text) as wordcount, text  from tweets\n) sub1\ngroup by minute, sentiment\norder by minute\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 5:22:54 PM",
+      "dateUpdated": "Nov 14, 2017 5:36:55 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -564,7 +634,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "minute\tsentiment\tcnt\n2017-11-13 17:20\tpositivie\t11\n2017-11-13 17:20\tnegative\t3\n2017-11-13 17:20\tneutral\t20\n2017-11-13 17:21\tneutral\t107\n2017-11-13 17:21\tpositivie\t63\n2017-11-13 17:21\tnegative\t21\n2017-11-13 17:22\tnegative\t11\n2017-11-13 17:22\tneutral\t83\n2017-11-13 17:22\tpositivie\t52\n"
+            "data": "minute\tsentiment\tcnt\n2017-11-14 17:34\tpositivie\t5\n2017-11-14 17:34\tnegative\t1\n2017-11-14 17:34\tneutral\t7\n2017-11-14 17:35\tneutral\t70\n2017-11-14 17:35\tnegative\t11\n2017-11-14 17:35\tpositivie\t46\n2017-11-14 17:36\tnegative\t14\n2017-11-14 17:36\tpositivie\t33\n2017-11-14 17:36\tneutral\t55\n"
           }
         ]
       },
@@ -572,15 +642,15 @@
       "jobName": "paragraph_1510098877012_-1091985288",
       "id": "20171107-235437_1745354127",
       "dateCreated": "Nov 7, 2017 11:54:37 PM",
-      "dateStarted": "Nov 13, 2017 5:22:54 PM",
-      "dateFinished": "Nov 13, 2017 5:22:55 PM",
+      "dateStarted": "Nov 14, 2017 5:36:55 PM",
+      "dateFinished": "Nov 14, 2017 5:36:55 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 13, 2017 3:58:43 PM",
+      "dateUpdated": "Nov 14, 2017 9:50:31 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -604,8 +674,8 @@
       "jobName": "paragraph_1510099289748_763119023",
       "id": "20171108-000129_241191086",
       "dateCreated": "Nov 8, 2017 12:01:29 AM",
-      "dateStarted": "Nov 13, 2017 3:58:43 PM",
-      "dateFinished": "Nov 13, 2017 3:58:44 PM",
+      "dateStarted": "Nov 14, 2017 9:50:31 PM",
+      "dateFinished": "Nov 14, 2017 9:50:32 PM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -633,31 +703,32 @@
       "id": "20171108-000807_1559053565",
       "dateCreated": "Nov 8, 2017 12:08:07 AM",
       "status": "READY",
+      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     }
   ],
   "name": "U_of_M_Twitter_Example_Part_3",
   "id": "2CZK69E8F",
   "angularObjects": {
-    "2CZJVG5MN:shared_process": [],
-    "2CWTGG3KP:shared_process": [],
-    "2D19WB1SX:shared_process": [],
-    "2D16N6K17:shared_process": [],
-    "2CYJUZ3PK:shared_process": [],
-    "2CXW1QUF1:shared_process": [],
-    "2CYF8ZUHC:shared_process": [],
-    "2CX6TK6VC:shared_process": [],
-    "2CY8J9E5M:shared_process": [],
-    "2CYMM4PZY:shared_process": [],
-    "2CYUJ2KCT:shared_process": [],
-    "2CZ7F5R3H:shared_process": [],
-    "2CXP9EU5U:shared_process": [],
-    "2D1HDHGB9:shared_process": [],
-    "2CXU7D2Q5:shared_process": [],
-    "2CYQFZSUP:shared_process": [],
-    "2CZS63BSA:shared_process": [],
-    "2D1KR2N41:shared_process": [],
-    "2CZ3UFXP7:shared_process": []
+    "2D1XD7MEB:shared_process": [],
+    "2D1BAQ1XM:shared_process": [],
+    "2D1Q8NWYN:shared_process": [],
+    "2CYZ737U2:shared_process": [],
+    "2D1GN3WKU:shared_process": [],
+    "2CYMSKF1H:shared_process": [],
+    "2CZ8XKGKV:shared_process": [],
+    "2CZEQG9AN:shared_process": [],
+    "2CXVSBD3P:shared_process": [],
+    "2CX3BUXV3:shared_process": [],
+    "2CY5FYZZP:shared_process": [],
+    "2CYCT39S6:shared_process": [],
+    "2D1HY1STT:shared_process": [],
+    "2D14QADQ7:shared_process": [],
+    "2CZKUCYT4:shared_process": [],
+    "2CZZ6TBSY:shared_process": [],
+    "2D16EBRFV:shared_process": [],
+    "2CZQYSB6A:shared_process": [],
+    "2CZ5F48SH:shared_process": []
   },
   "config": {},
   "info": {}

@@ -3,16 +3,16 @@
     {
       "text": "%dep\nz.reset()\n//z.load(\"org.apache.spark:spark-streaming-twitter_2.11:1.5.2\")\nz.load(\"org.apache.bahir:spark-streaming-twitter_2.11:2.0.1\")\nz.load(\"org.twitter4j:twitter4j-core:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-media-support:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-async:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-examples:3.0.3\")\nz.load(\"org.twitter4j:twitter4j-stream:3.0.3\")",
       "user": "anonymous",
-      "dateUpdated": "Nov 16, 2017 7:54:04 PM",
+      "dateUpdated": "Nov 17, 2017 1:53:01 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/text"
       },
       "settings": {
         "params": {},
@@ -23,7 +23,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@5d6ad008\n"
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@1c99e0ea\n"
           }
         ]
       },
@@ -31,24 +31,24 @@
       "jobName": "paragraph_1510591328453_-1502871407",
       "id": "20171113-164208_1453639392",
       "dateCreated": "Nov 13, 2017 4:42:08 PM",
-      "dateStarted": "Nov 16, 2017 7:54:04 PM",
-      "dateFinished": "Nov 16, 2017 7:54:08 PM",
+      "dateStarted": "Nov 17, 2017 1:53:01 AM",
+      "dateFinished": "Nov 17, 2017 1:53:11 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\n//import org.apache.bahir.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\n\nval consumerKey \u003d System.getenv(\"TWITTER_CONSUMER_KEY\")\nval consumerSecret \u003d System.getenv(\"TWITTER_CONSUMER_SECRET\")\nval accessToken \u003d System.getenv(\"TWITTER_ACCESS_TOKEN\")\nval accessTokenSecret \u003d System.getenv(\"TWITTER_ACCESS_SECRET\")\n\nSystem.setProperty(\"twitter4j.oauth.consumerKey\", consumerKey)\nSystem.setProperty(\"twitter4j.oauth.consumerSecret\", consumerSecret)\nSystem.setProperty(\"twitter4j.oauth.accessToken\", accessToken)\nSystem.setProperty(\"twitter4j.oauth.accessTokenSecret\", accessTokenSecret)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 16, 2017 7:54:13 PM",
+      "dateUpdated": "Nov 17, 2017 1:53:16 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/text"
       },
       "settings": {
         "params": {},
@@ -59,7 +59,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\nconsumerKey: String \u003d bcfMz9WsSeJLAFKs8DcSCq5qS\nconsumerSecret: String \u003d Cy33bYqk9JWUr3kvGqzaLnwbBfv3BLZ4M6nysxPpBMUUAu1JJE\naccessToken: String \u003d 4332384689-zNH8ikndg5Mq8icy07Kvni6TmP2zEg43L21Ftca\naccessTokenSecret: String \u003d Rz7ZvL05ywhxMvKyRaxhxAVUkjGrwHlug2fTvxRzhN3YW\nres3: String \u003d null\nres4: String \u003d null\nres5: String \u003d null\nres6: String \u003d null\n"
+            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.streaming.twitter._\nimport org.apache.spark.storage.StorageLevel\nimport scala.io.Source\nimport scala.collection.mutable.HashMap\nimport java.io.File\nimport org.apache.log4j.Logger\nimport org.apache.log4j.Level\nimport sys.process.stringSeqToProcess\nimport twitter4j.HashtagEntity\nconsumerKey: String \u003d UZXuNs30p93oGmxh4L8Bm39A2\nconsumerSecret: String \u003d KJrToBczE1JqBafrZQg9yrrHVkx3SGhlq29hCLSMPq3enDfIjL\naccessToken: String \u003d 828809891196391424-t3S2blpCVwoSUwjTeXkETXvZwtdOgvj\naccessTokenSecret: String \u003d YbL3vYPwwfSRAC9zvbe1rgFGuIS2vsRk3jigc2qqGhng3\nres3: String \u003d null\nres4: String \u003d null\nres5: String \u003d null\nres6: String \u003d null\n"
           }
         ]
       },
@@ -67,8 +67,8 @@
       "jobName": "paragraph_1510592534120_18721836",
       "id": "20171113-170214_1080735016",
       "dateCreated": "Nov 13, 2017 5:02:14 PM",
-      "dateStarted": "Nov 16, 2017 7:54:13 PM",
-      "dateFinished": "Nov 16, 2017 7:54:20 PM",
+      "dateStarted": "Nov 17, 2017 1:53:16 AM",
+      "dateFinished": "Nov 17, 2017 1:53:37 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -113,7 +113,7 @@
     {
       "text": "%angular\n\u003clink rel\u003d\"stylesheet\" href\u003d\"https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css\" /\u003e\n\u003cdiv id\u003d\"map\" style\u003d\"height: 800px; width: 100%\"\u003e\u003c/div\u003e\n\n\u003cscript type\u003d\"text/javascript\"\u003e\nfunction initMap() {\n    var map \u003d L.map(\u0027map\u0027).setView([30.00, -30.00], 3);\n\n    L.tileLayer(\u0027http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\u0027, {\n        attribution: \u0027Map data \u0026copy; \u003ca href\u003d\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e contributors\u0027,\n        maxZoom: 12,\n        minZoom: 3\n    }).addTo(map);\n\n    var el \u003d angular.element($(\u0027#map\u0027).parent(\u0027.ng-scope\u0027));\n    angular.element(el).ready(function() {\n        window.locationWatcher \u003d el.scope().compiledScope.$watch(\u0027data\u0027, function(newValue, oldValue) {\n            angular.forEach(newValue, function(tweet) {\n                L.marker([tweet.lat, tweet.lon]).bindPopup(\"\u003cb\u003e\" + tweet.user + \"\u003c/b\u003e\u003cbr\u003e\" + tweet.tweet).addTo(map);             \n            });\n        })\n    });\n}\n\nif (window.locationWatcher) { window.locationWatcher(); }\n\nif (window.L) { initMap(); }\nelse {\n    var sc \u003d document.createElement(\u0027script\u0027);\n    sc.type \u003d \u0027text/javascript\u0027;\n    sc.src \u003d \u0027https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js\u0027;\n    sc.onload \u003d initMap;\n    sc.onerror \u003d function(err) { alert(err); }\n    document.getElementsByTagName(\u0027head\u0027)[0].appendChild(sc);\n}\n\u003c/script\u003e\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 16, 2017 7:55:31 PM",
+      "dateUpdated": "Nov 17, 2017 1:54:11 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -143,24 +143,24 @@
       "jobName": "paragraph_1510592571138_-1107176039",
       "id": "20171113-170251_1025836816",
       "dateCreated": "Nov 13, 2017 5:02:51 PM",
-      "dateStarted": "Nov 16, 2017 7:55:31 PM",
-      "dateFinished": "Nov 16, 2017 7:55:31 PM",
+      "dateStarted": "Nov 17, 2017 1:54:11 AM",
+      "dateFinished": "Nov 17, 2017 1:54:12 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
       "text": "%spark\nimport org.apache.spark.streaming.twitter._\nval ssc \u003d new StreamingContext(sc, Seconds(10))\nval tweets \u003d TwitterUtils.createStream(ssc, None, Array(\"#thursdaythoughts\",\"#tbt\",\"#thanksgiving\",\"#throwbackthursday\",\"#alfranken\"))\n//val tweets \u003d TwitterUtils.createStream(ssc, None)\n// to debug you turn this on to write out the native output\n// tweets.saveAsObjectFiles(\"/notebook/twitter_\")\n// use this one for inspection\n// tweets.saveAsTextFiles(\"/notebook/twitter_\")\n\nval twt \u003d tweets.window(Seconds(120))\n\ncase class Tweet(user: String, tweet: String, lat: Double, lon: Double)\ntwt.filter(_.getPlace !\u003d null).map(t\u003d\u003e\n  Tweet(t.getUser().getName(), t.getText(), t.getPlace().getBoundingBoxCoordinates().head.head.getLatitude(), t.getPlace().getBoundingBoxCoordinates().head.head.getLongitude())).foreachRDD(rdd\u003d\u003e{\n    var items \u003d rdd.collect()\n    z.angularBind(\"data\", items) \n    rdd.toDF().registerTempTable(\"tweets\")\n}\n)\n\n//twt.print\n\nssc.start()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 16, 2017 7:55:35 PM",
+      "dateUpdated": "Nov 17, 2017 1:54:16 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala",
+        "editorMode": "ace/mode/text",
         "editorHide": false,
         "tableHide": false
       },
@@ -173,7 +173,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@4a70d147\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@3ba171d\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@6f7f46f0\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
+            "data": "import org.apache.spark.streaming.twitter._\nssc: org.apache.spark.streaming.StreamingContext \u003d org.apache.spark.streaming.StreamingContext@75b40a5\ntweets: org.apache.spark.streaming.dstream.ReceiverInputDStream[twitter4j.Status] \u003d org.apache.spark.streaming.twitter.TwitterInputDStream@61d855ad\ntwt: org.apache.spark.streaming.dstream.DStream[twitter4j.Status] \u003d org.apache.spark.streaming.dstream.WindowedDStream@462bb60\ndefined class Tweet\nwarning: there was one deprecation warning; re-run with -deprecation for details\n"
           }
         ]
       },
@@ -181,8 +181,8 @@
       "jobName": "paragraph_1510592589494_1910055484",
       "id": "20171113-170309_140924505",
       "dateCreated": "Nov 13, 2017 5:03:09 PM",
-      "dateStarted": "Nov 16, 2017 7:55:35 PM",
-      "dateFinished": "Nov 16, 2017 7:55:37 PM",
+      "dateStarted": "Nov 17, 2017 1:54:16 AM",
+      "dateFinished": "Nov 17, 2017 1:54:20 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -234,16 +234,16 @@
     {
       "text": "%spark\nssc.stop()\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 16, 2017 7:56:56 PM",
+      "dateUpdated": "Nov 17, 2017 1:55:14 AM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "scala",
+          "language": "text",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/scala"
+        "editorMode": "ace/mode/text"
       },
       "settings": {
         "params": {},
@@ -257,8 +257,8 @@
       "jobName": "paragraph_1510592632732_-1179231352",
       "id": "20171113-170352_586310415",
       "dateCreated": "Nov 13, 2017 5:03:52 PM",
-      "dateStarted": "Nov 16, 2017 7:56:56 PM",
-      "dateFinished": "Nov 16, 2017 7:56:56 PM",
+      "dateStarted": "Nov 17, 2017 1:55:14 AM",
+      "dateFinished": "Nov 17, 2017 1:55:15 AM",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
@@ -282,164 +282,68 @@
   "name": "U_of_M_Twitter_Example_Part_2",
   "id": "2CXRA435F",
   "angularObjects": {
-    "2D1XD7MEB:shared_process": [],
-    "2D1BAQ1XM:shared_process": [],
-    "2D1Q8NWYN:shared_process": [],
-    "2CYZ737U2:shared_process": [],
-    "2D1GN3WKU:shared_process": [],
-    "2CYMSKF1H:shared_process": [],
-    "2CZ8XKGKV:shared_process": [],
-    "2CZEQG9AN:shared_process": [],
-    "2CXVSBD3P:shared_process": [],
-    "2CX3BUXV3:shared_process": [],
-    "2CY5FYZZP:shared_process": [],
-    "2CYCT39S6:shared_process": [],
-    "2D1HY1STT:shared_process": [],
-    "2D14QADQ7:shared_process": [],
-    "2CZKUCYT4:shared_process": [
+    "2D1BZ4DSX:shared_process": [],
+    "2CYBNH6H2:shared_process": [],
+    "2CYBF8NMC:shared_process": [],
+    "2CZM5JQ8B:shared_process": [],
+    "2D1U4DGV7:shared_process": [],
+    "2CXABQVBS:shared_process": [],
+    "2CXBGNX8T:shared_process": [],
+    "2CY2FUUY7:shared_process": [],
+    "2CZWUAZQJ:shared_process": [],
+    "2CY3TFZZD:shared_process": [
       {
         "name": "data",
         "object": [
           {
-            "user": "fontan",
-            "tweet": "Дизайнер пакует! 📦😎 https://t.co/fZwLLjdzao #love #instagood #photooftheday #beautiful #tbt #fashion #happy… https://t.co/GeK3CE7NSf",
-            "lat": 55.488324,
-            "lon": 36.887816
+            "user": "j\u0027kmilo vargas",
+            "tweet": "#tbt🔙  2012 en Politécnico Grancolombiano https://t.co/pTG2R8m6PB",
+            "lat": 3.717432,
+            "lon": -74.483289
           },
           {
-            "user": "Michael J. Langley",
-            "tweet": "With #Thanksgiving next week, @borgenproject wants everyone to have a 🍗🍽️. Help us 🥊 (and end) global hunger once a… https://t.co/a4UzclGIPw",
-            "lat": 33.29026,
-            "lon": -112.323914
+            "user": "Chevy48",
+            "tweet": "Robby Gordon, along with Andy McMillin, enroute to his 3rd Baja 1000 overall victory in 2006. #Baja1000 #tbt https://t.co/cOcUIvGS3U",
+            "lat": 38.45104,
+            "lon": -75.788756
           },
           {
-            "user": "Model Cleaners",
-            "tweet": "Who is saving their pennies or this at home Dry Cleaning machine? \n\nhttps://t.co/mviYnE3h3T \n\n#ThursdayThoughts… https://t.co/EEaRqbVrc3",
-            "lat": 40.36158,
-            "lon": -80.095586
+            "user": "Ángel D Arias",
+            "tweet": "😎DINAMARCA NOCTURNA😎\n✅Sigue a quienes den RT 🔄y MG ❤\n✅ #JuevesDeGanarSeguidores 🙋\n✅ #SiguemeYTeRecomiendo ☝️\n✅… https://t.co/NCZNv0nXJx",
+            "lat": 0.648837,
+            "lon": -73.354073
           },
           {
-            "user": "Pete Tscherewik",
-            "tweet": "Take me back... 🏴󠁧󠁢󠁷󠁬󠁳󠁿 https://t.co/7fkFpi5yo7",
-            "lat": 53.341661,
-            "lon": -2.675408
+            "user": "ellyResists",
+            "tweet": "@KrSolveig @roxannelwright @tonyschwartz yeah. Also, you add that Roger Stone tweeted that #AlFranken\u0027s time in the… https://t.co/jsZKpHLlhD",
+            "lat": 48.403014,
+            "lon": -123.394397
           },
           {
-            "user": "Molly Balkenbush",
-            "tweet": "Can we bring the scrunchie back? #ThrowbackThursday #90sStyle https://t.co/UEEAFcc4Ly",
-            "lat": 38.868002,
-            "lon": -94.733122
+            "user": "JuCo Football Forer",
+            "tweet": "#TBT Damien Williams @TooLoose26 @ Arizona Western JuCo @AWCMatadors n the @NJCAA Natty vs East Mississippi JuCo… https://t.co/VHsaWcMbHi",
+            "lat": 25.70904,
+            "lon": -80.321683
           },
           {
-            "user": "Astroknot 🔜 MFF",
-            "tweet": "I better stop back just cracked doing dead lifts. #ThursdayThoughts",
-            "lat": 43.595844,
-            "lon": -70.349558
-          },
-          {
-            "user": "The Amish Texter ™",
-            "tweet": "@raojenkins Because...\n#AlFranken https://t.co/7G9noTVr8r",
-            "lat": 41.644102,
-            "lon": -87.940033
-          },
-          {
-            "user": "Stacy Klobnak",
-            "tweet": "#TBT I went on the most fun adventure last Saturday to @avwinery with my buddies at… https://t.co/BntI34YcR7",
-            "lat": 34.982924,
-            "lon": -90.310298
-          },
-          {
-            "user": "goyaah",
-            "tweet": "#tbt to checking off two more sections (23-24) on my @AZTRAIL project. @ Mazatzal Peak https://t.co/nPrBIm60jA",
-            "lat": 31.332246,
-            "lon": -114.818269
-          },
-          {
-            "user": "pip-stitcher",
-            "tweet": "I don’t need a man! Being an adult is fucked enough #ThursdayThoughts #imdoneadulting",
-            "lat": 51.335251,
-            "lon": -2.266559
-          },
-          {
-            "user": "Adam Ross Glickman",
-            "tweet": "#tbt to, feelings.  \n#weirdo #fun #vibes #art #skinny #create   \n📸 gcarpenter5211 @ Bergen,… https://t.co/AApD94aIIS",
-            "lat": 60.184854,
-            "lon": 5.16027
-          },
-          {
-            "user": "nfalls75",
-            "tweet": "Maybe I should reserve my opinion until after I check out #JusticeLeague ...Nah, fuck it! The #DCEU sucks. #ThursdayThoughts",
-            "lat": 37.193164,
-            "lon": -122.035311
-          },
-          {
-            "user": "Placentia Library",
-            "tweet": "What are you #thankful for? Add a leaf to our Thankful Tree 🍁🍂 #Thanksgiving #library https://t.co/xComQiRho7",
-            "lat": 33.780441,
-            "lon": -118.394086
-          },
-          {
-            "user": "Aslı✌️",
-            "tweet": "❤️❤️ #tbt🔙  sabirea @ ÖzdilekPark İstanbul https://t.co/x79KAHtI2e",
-            "lat": 40.802734,
-            "lon": 28.632104
-          },
-          {
-            "user": "fontan",
-            "tweet": "Дизайнер пакует! 📦😎 https://t.co/fZwLLjvayY #love #instagood #photooftheday #beautiful #tbt #fashion #happy… https://t.co/QPBFaBMj1e",
-            "lat": 55.488324,
-            "lon": 36.887816
-          },
-          {
-            "user": "Rodney Hazard",
-            "tweet": "They want you to see you do good, but never better than them // ⚡️#tbt @ Planet Earth https://t.co/VFPw9CDEtv",
-            "lat": 39.840498,
-            "lon": -75.102633
-          },
-          {
-            "user": "Diamante",
-            "tweet": "This is where I should be! 💭🙏🏼🌅📖🇨🇺 #tbt em Paradisus Princesa del Mar - Cuba https://t.co/QCchJwSMDK",
-            "lat": 19.82646,
-            "lon": -84.952008
-          },
-          {
-            "user": "SWOSUAthleticTrainer",
-            "tweet": "Looking back at the SWOSU AT poster from ‘13-14. Great group of students. #tbt https://t.co/gnp1a6CySa",
-            "lat": 35.517222,
-            "lon": -98.725251
-          },
-          {
-            "user": "Brian Brammer",
-            "tweet": "#tbt... REALLY missing the ocean today. @ Greek Islands https://t.co/gWItPbgIte",
-            "lat": 35.822475,
-            "lon": 22.890527
-          },
-          {
-            "user": "fontan",
-            "tweet": "Дизайнер пакует! 📦😎 https://t.co/fZwLLjdzao #love #instagood #photooftheday #beautiful #tbt #fashion #happy… https://t.co/3zaAmKMroe",
-            "lat": 55.488324,
-            "lon": 36.887816
-          },
-          {
-            "user": "Glo Bar",
-            "tweet": "#tbt us pampering each other at the beginning of every month! We take pride in the luxury of… https://t.co/eJopIxKERl",
-            "lat": 25.848994,
-            "lon": -80.145856
-          },
-          {
-            "user": "Jaclyn Dean",
-            "tweet": "An opportunity to remind ourselves that this is not a GOP male problem; being a Dem, saying you respect women, and… https://t.co/XC4g3xHnk1",
-            "lat": 38.801826,
-            "lon": -77.119401
+            "user": "Jon Miltimore",
+            "tweet": "\"Anyone know what time the pink hat rally is outside of Al Franken\u0027s office tomorrow?\" - @andyparrish \n\n#AlFranken #AlFrankenResign",
+            "lat": 44.77617,
+            "lon": -93.64754
           }
         ],
         "noteId": "2CXRA435F"
       }
     ],
-    "2CZZ6TBSY:shared_process": [],
-    "2D16EBRFV:shared_process": [],
-    "2CZQYSB6A:shared_process": [],
-    "2CZ5F48SH:shared_process": []
+    "2D1M4QY9C:shared_process": [],
+    "2CZVEHWZA:shared_process": [],
+    "2CXNT1HBJ:shared_process": [],
+    "2CYRG4DHB:shared_process": [],
+    "2D1KYTGUE:shared_process": [],
+    "2CZAV5KYT:shared_process": [],
+    "2CXSMGTQB:shared_process": [],
+    "2CY18W47B:shared_process": [],
+    "2D1RVK8YV:shared_process": []
   },
   "config": {},
   "info": {}

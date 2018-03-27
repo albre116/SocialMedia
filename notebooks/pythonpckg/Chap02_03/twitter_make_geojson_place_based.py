@@ -31,7 +31,7 @@ if __name__ == '__main__':
                             "coordinates": tweet['place']['bounding_box']['coordinates'][0][0]
                         },
                         "properties": {
-                            "text": tweet['text'],
+                            "text": tweet['text'].encode('utf-8').replace('\n', ' ').replace('\r', ''),
                             "created_at": tweet['created_at']
                         }
                     }

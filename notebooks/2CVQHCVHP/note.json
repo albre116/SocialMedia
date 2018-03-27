@@ -4,16 +4,16 @@
       "title": "Some of the Source Code is From this Book (its a good book for Twitter Scraping/Analysis)",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/python_social_media.jpg)\n\n\u003cbr\u003e\n\n- Marco has good topic coverage related to API integration from Twitter and Google ecosystem.\n- Chapters 1-4 are worth reading, the back end is not\n- Some other sites that have good API coverage are Pintrest and google +\n- Also covers web scraping (beautiful soup and selector gadget)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:41 PM",
+      "dateUpdated": "Mar 20, 2018 3:43:15 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "markdown",
-          "editOnDblClick": true
+          "language": "text",
+          "editOnDblClick": false
         },
-        "editorMode": "ace/mode/markdown",
+        "editorMode": "ace/mode/text",
         "title": true,
         "editorHide": false,
         "tableHide": false
@@ -22,14 +22,22 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/python_social_media.jpg\" /\u003e\u003c/p\u003e\n\u003cbr\u003e\n\u003cul\u003e\n  \u003cli\u003eMarco has good topic coverage related to API integration from Twitter and Google ecosystem.\u003c/li\u003e\n  \u003cli\u003eChapters 1-4 are worth reading, the back end is not\u003c/li\u003e\n  \u003cli\u003eSome other sites that have good API coverage are Pintrest and google +\u003c/li\u003e\n  \u003cli\u003eAlso covers web scraping (beautiful soup and selector gadget)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1505311825045_1874226274",
       "id": "20170913-141025_1786289981",
       "dateCreated": "Sep 13, 2017 2:10:25 PM",
-      "dateStarted": "Nov 6, 2017 4:18:14 PM",
-      "dateFinished": "Nov 6, 2017 4:18:14 PM",
+      "dateStarted": "Mar 20, 2018 3:43:15 PM",
+      "dateFinished": "Mar 20, 2018 3:43:15 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -68,7 +76,7 @@
       "title": "Hook Local Package Files to Path",
       "text": "%python\nimport sys\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\nprint(sys.path)",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:19 PM",
+      "dateUpdated": "Mar 20, 2018 3:32:05 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -85,30 +93,38 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u0027/notebook/pythonpckg/Chap02_03\u0027, \u0027/tmp\u0027, \u0027/zeppelin/interpreter/python/py4j-0.9.2/src\u0027, \u0027/zeppelin/interpreter/lib/python\u0027, \u0027/opt/conda/lib/python27.zip\u0027, \u0027/opt/conda/lib/python2.7\u0027, \u0027/opt/conda/lib/python2.7/plat-linux2\u0027, \u0027/opt/conda/lib/python2.7/lib-tk\u0027, \u0027/opt/conda/lib/python2.7/lib-old\u0027, \u0027/opt/conda/lib/python2.7/lib-dynload\u0027, \u0027/opt/conda/lib/python2.7/site-packages\u0027, \u0027/opt/conda/lib/python2.7/site-packages/setuptools-27.2.0-py2.7.egg\u0027]\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1505311639355_-994555115",
       "id": "20170913-140719_1256049814",
       "dateCreated": "Sep 13, 2017 2:07:19 PM",
-      "dateStarted": "Nov 6, 2017 4:18:19 PM",
-      "dateFinished": "Nov 6, 2017 4:18:23 PM",
+      "dateStarted": "Mar 20, 2018 3:31:43 PM",
+      "dateFinished": "Mar 20, 2018 3:31:46 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Verify that the twitter API keys were successfully imported on Docker-Compose Start",
       "text": "%sh printenv\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:19 PM",
+      "dateUpdated": "Mar 20, 2018 3:47:48 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -130,7 +146,7 @@
       "title": "Lets Start by studying the worlds biggest internet troll...",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/trump2.jpg)\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:19 PM",
+      "dateUpdated": "Mar 20, 2018 3:48:11 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -162,16 +178,16 @@
       "title": "Lets do Some Basic Twitter Stuff:  First Get  User Profile",
       "text": "%python\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"realDonaldTrump\")\nprint(json.dumps(profile._json, indent \u003d4))\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 10:11:27 PM",
+      "dateUpdated": "Mar 20, 2018 3:48:12 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "python",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/python",
         "title": true,
         "editorHide": false
       },
@@ -633,7 +649,7 @@
       "title": "So, How did that work???",
       "text": "%md\n![](http://lin1pr1ap6:8765/random_images/tfidf.jpg)\n\n- #### The workhorse is the TfidfVectorizer (http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)\n\n![](http://lin1pr1ap6:8765/random_images/kmall.png) \n\n- #### Simple K-Means to form groupings of like feature vectors http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\n \n\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:20 PM",
+      "dateUpdated": "Mar 20, 2018 5:55:52 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
@@ -645,36 +661,44 @@
         "editorMode": "ace/mode/markdown",
         "title": true,
         "editorHide": false,
-        "tableHide": false
+        "tableHide": true
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/tfidf.jpg\" /\u003e\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003ch4\u003eThe workhorse is the TfidfVectorizer (\u003ca href\u003d\"http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html\"\u003ehttp://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html\u003c/a\u003e)\u003c/h4\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/kmall.png\" /\u003e \u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003ch4\u003eSimple K-Means to form groupings of like feature vectors \u003ca href\u003d\"http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\"\u003ehttp://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\u003c/a\u003e\u003c/h4\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1505327852879_-56134973",
       "id": "20170913-183732_959558618",
       "dateCreated": "Sep 13, 2017 6:37:32 PM",
-      "dateStarted": "Sep 14, 2017 4:18:33 PM",
-      "dateFinished": "Sep 14, 2017 4:18:33 PM",
+      "dateStarted": "Mar 20, 2018 4:55:40 PM",
+      "dateFinished": "Mar 20, 2018 4:55:40 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
       "title": "Ok, so we would like to select a hashtag to follow and stream, we can look at the user timeline to find one (lets go back to the biggest troll though...)",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py realDonaldTrump\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 10:00:54 PM",
+      "dateUpdated": "Mar 20, 2018 4:59:21 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -789,16 +813,16 @@
       "title": "Get the nltk stop words data set to remove \"the\" etc from data",
       "text": "%sh python -m nltk.downloader stopwords\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 10:05:59 PM",
+      "dateUpdated": "Mar 20, 2018 5:10:49 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -851,16 +875,16 @@
       "title": "Here is the raw data these counts are based off",
       "text": "%sh cat /notebook/user_timeline_realDonaldTrump.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:20 PM",
+      "dateUpdated": "Mar 20, 2018 5:10:00 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -882,16 +906,16 @@
       "title": "Now lets start working with the twitter stream on a selected topic (Irma looks like a good one)",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#crookedhillary\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:20 PM",
+      "dateUpdated": "Mar 20, 2018 5:14:19 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -975,16 +999,16 @@
       "title": "Basic Tweet Summary Stats for JsonL tweet file",
       "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__Irma.jsonl\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 7, 2017 10:16:40 PM",
+      "dateUpdated": "Mar 20, 2018 5:32:54 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -992,14 +1016,26 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Traceback (most recent call last):\n  File \"/notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py\", line 13, in \u003cmodule\u003e\n    with open(fname, \u0027r\u0027) as f:\nIOError: [Errno 2] No such file or directory: \u0027stream__Irma.jsonl\u0027\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 1"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1505324693998_-812240941",
       "id": "20170913-174453_157023897",
       "dateCreated": "Sep 13, 2017 5:44:53 PM",
-      "dateStarted": "Sep 14, 2017 4:25:42 PM",
-      "dateFinished": "Sep 14, 2017 4:25:42 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
+      "dateStarted": "Mar 20, 2018 5:32:54 PM",
+      "dateFinished": "Mar 20, 2018 5:32:54 PM",
+      "status": "ERROR",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -1034,30 +1070,38 @@
     {
       "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_conversation.py\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:20 PM",
+      "dateUpdated": "Mar 20, 2018 5:31:18 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "editorHide": false
       },
       "settings": {
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "# Chap02-03/twitter_conversation.py\nimport sys\nimport json\nfrom operator import itemgetter\nimport networkx as nx\n\ndef usage():\n    print(\"Usage:\")\n    print(\"python {} \u003cfilename\u003e\".format(sys.argv[0]))\n\nif __name__ \u003d\u003d \u0027__main__\u0027:\n    if len(sys.argv) !\u003d 2:\n        usage()\n        sys.exit(1)\n    fname \u003d sys.argv[1]\n    with open(fname) as f:\n        graph \u003d nx.DiGraph()\n        for line in f:\n            tweet \u003d json.loads(line)\n            if \u0027id\u0027 in tweet:\n                graph.add_node(tweet[\u0027id\u0027],\n                               tweet\u003dtweet[\u0027text\u0027],\n                               author\u003dtweet[\u0027user\u0027][\u0027screen_name\u0027],\n                               created_at\u003dtweet[\u0027created_at\u0027])\n                if tweet[\u0027in_reply_to_status_id\u0027]:\n                    reply_to \u003d tweet[\u0027in_reply_to_status_id\u0027]\n                    if tweet[\u0027in_reply_to_status_id\u0027] in graph \\\n                    and tweet[\u0027user\u0027][\u0027screen_name\u0027] !\u003d graph.node[reply_to][\u0027author\u0027]:\n                        graph.add_edge(tweet[\u0027in_reply_to_status_id\u0027], tweet[\u0027id\u0027])\n        print(nx.info(graph))\n\n        sorted_replied \u003d sorted(graph.degree_iter(), key\u003ditemgetter(1), reverse\u003dTrue)\n        most_replied_id, replies \u003d sorted_replied[0]\n        print(\"Most replied tweet ({} replies):\".format(replies))\n        print(graph.node[most_replied_id])\n\n        print(\"Longest discussion:\")\n        longest_path \u003d nx.dag_longest_path(graph)\n        for tweet_id in longest_path:\n            node \u003d graph.node[tweet_id]\n            print(\"{} (by {} at {})\".format(node[\u0027tweet\u0027],\n                                            node[\u0027author\u0027],\n                                            node[\u0027created_at\u0027]))\n"
+          }
+        ]
+      },
       "apps": [],
       "jobName": "paragraph_1505334419834_1487269580",
       "id": "20170913-202659_581374120",
       "dateCreated": "Sep 13, 2017 8:26:59 PM",
-      "dateStarted": "Sep 14, 2017 3:16:41 PM",
-      "dateFinished": "Sep 14, 2017 3:16:41 PM",
+      "dateStarted": "Mar 20, 2018 5:31:18 PM",
+      "dateFinished": "Mar 20, 2018 5:31:18 PM",
       "status": "FINISHED",
-      "errorMessage": "",
       "progressUpdateIntervalMs": 500
     },
     {
@@ -1186,16 +1230,16 @@
       "title": "Lets fix that up and use place instead",
       "text": "%sh cat /notebook/pythonpckg/Chap02_03/twitter_make_geojson_place_based.py\n",
       "user": "anonymous",
-      "dateUpdated": "Nov 6, 2017 9:56:20 PM",
+      "dateUpdated": "Mar 20, 2018 5:30:03 PM",
       "config": {
         "colWidth": 12.0,
         "enabled": true,
         "results": {},
         "editorSetting": {
-          "language": "text",
+          "language": "sh",
           "editOnDblClick": false
         },
-        "editorMode": "ace/mode/text",
+        "editorMode": "ace/mode/sh",
         "title": true,
         "editorHide": false
       },
@@ -1334,7 +1378,27 @@
   ],
   "name": "Bayes Lecture Twitter (Part 1.1 Python Twitter Client)",
   "id": "2CVQHCVHP",
-  "angularObjects": {},
+  "angularObjects": {
+    "2DANAK3X9:shared_process": [],
+    "2DBBU66R2:shared_process": [],
+    "2D8NUT3U8:shared_process": [],
+    "2D9424378:shared_process": [],
+    "2D9R1HA74:shared_process": [],
+    "2D9H5X24F:shared_process": [],
+    "2DA4B9F1U:shared_process": [],
+    "2D9W39AJN:shared_process": [],
+    "2D9V3N5RN:shared_process": [],
+    "2D9BDNST4:shared_process": [],
+    "2DBBAAW5T:shared_process": [],
+    "2D8WCYWZ3:shared_process": [],
+    "2DAXSDW9A:shared_process": [],
+    "2D8A4XTZG:shared_process": [],
+    "2DA766H3U:shared_process": [],
+    "2D923GV4E:shared_process": [],
+    "2DAMPP15E:shared_process": [],
+    "2DAAGF2W1:shared_process": [],
+    "2D8H76NNY:shared_process": []
+  },
   "config": {},
   "info": {}
 }

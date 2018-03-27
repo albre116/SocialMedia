@@ -1,0 +1,465 @@
+{
+  "paragraphs": [
+    {
+      "title": "Twitter and API + Streaming for Data Science",
+      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/Cloud-streaming-platform-vsn.jpg)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 21, 2018 5:56:14 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/Cloud-streaming-platform-vsn.jpg\" /\u003e\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521560663710_1150797852",
+      "id": "20180320-154423_726624217",
+      "dateCreated": "Mar 20, 2018 3:44:23 PM",
+      "dateStarted": "Mar 21, 2018 4:15:04 PM",
+      "dateFinished": "Mar 21, 2018 4:15:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Lets Go Get a Front Page...  Our President Elect",
+      "text": "%python\nimport sys\nimport os\nsys.path.insert(0,\"/notebook/pythonpckg/Chap02_03\")\n#print(sys.path)\n#print(os.environ)\n\nfrom twitter_client import get_twitter_client\nimport json\nclient \u003d get_twitter_client()\nprofile \u003d client.get_user(screen_name\u003d\"realDonaldTrump\")\n# print(json.dumps(profile._json, indent \u003d4))\n\nos.system(\u0027cd /notebook \u0026\u0026 python /notebook/pythonpckg/Chap02_03/twitter_get_user_timeline.py realDonaldTrump\u0027)\nos.system(\u0027head -n1 /notebook/user_timeline_realDonaldTrump.jsonl\u0027)\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:24:38 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\"contributors\": null, \"truncated\": false, \"text\": \"RT @realDonaldTrump: Because of the $700 \u0026amp; $716 Billion Dollars gotten to rebuild our Military, many jobs are created and our Military is a\\u2026\", \"is_quote_status\": false, \"in_reply_to_status_id\": null, \"id\": 978461130829058048, \"favorite_count\": 0, \"source\": \"\u003ca href\u003d\\\"http://twitter.com/download/iphone\\\" rel\u003d\\\"nofollow\\\"\u003eTwitter for iPhone\u003c/a\u003e\", \"retweeted\": false, \"coordinates\": null, \"entities\": {\"symbols\": [], \"user_mentions\": [{\"id\": 25073877, \"indices\": [3, 19], \"id_str\": \"25073877\", \"screen_name\": \"realDonaldTrump\", \"name\": \"Donald J. Trump\"}], \"hashtags\": [], \"urls\": []}, \"in_reply_to_screen_name\": null, \"in_reply_to_user_id\": null, \"retweet_count\": 27258, \"id_str\": \"978461130829058048\", \"favorited\": false, \"retweeted_status\": {\"contributors\": null, \"truncated\": true, \"text\": \"Because of the $700 \u0026amp; $716 Billion Dollars gotten to rebuild our Military, many jobs are created and our Military i\\u2026 https://t.co/sF9ouOGHwl\", \"is_quote_status\": false, \"in_reply_to_status_id\": null, \"id\": 977855968364171264, \"favorite_count\": 99490, \"source\": \"\u003ca href\u003d\\\"http://twitter.com/download/iphone\\\" rel\u003d\\\"nofollow\\\"\u003eTwitter for iPhone\u003c/a\u003e\", \"retweeted\": false, \"coordinates\": null, \"entities\": {\"symbols\": [], \"user_mentions\": [], \"hashtags\": [], \"urls\": [{\"url\": \"https://t.co/sF9ouOGHwl\", \"indices\": [121, 144], \"expanded_url\": \"https://twitter.com/i/web/status/977855968364171264\", \"display_url\": \"twitter.com/i/web/status/9\\u2026\"}]}, \"in_reply_to_screen_name\": null, \"in_reply_to_user_id\": null, \"retweet_count\": 27258, \"id_str\": \"977855968364171264\", \"favorited\": false, \"user\": {\"follow_request_sent\": false, \"has_extended_profile\": false, \"profile_use_background_image\": true, \"default_profile_image\": false, \"id\": 25073877, \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/530021613/trump_scotland__43_of_70_cc.jpg\", \"verified\": true, \"translator_type\": \"regular\", \"profile_text_color\": \"333333\", \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg\", \"profile_sidebar_fill_color\": \"C5CEC0\", \"entities\": {\"url\": {\"urls\": [{\"url\": \"https://t.co/OMxB0x7xC5\", \"indice0s\": [0, 23], \"expanded_url\": \"http://www.Instagram.com/realDonaldTrump\", \"display_url\": \"Instagram.com/realDonaldTrump\"}]}, \"description\": {\"urls\": []}}, \"followers_count\": 49587686, \"profile_sidebar_border_color\": \"BDDCAD\", \"id_str\": \"25073877\", \"profile_background_color\": \"6D5C18\", \"listed_count\": 86379, \"is_translation_enabled\": true, \"utc_offset\": -14400, \"statuses_count\": 37186, \"description\": \"45th President of the United States of America\\ud83c\\uddfa\\ud83c\\uddf8\", \"friends_count\": 45, \"location\": \"Washington, DC\", \"profile_link_color\": \"1B95E0\", \"profile_image_url\": \"http://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg\", \"following\": false, \"geo_enabled\": true, \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/25073877/1521874230\", \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background_images/530021613/trump_scotland__43_of_70_cc.jpg\", \"sc\nreen_name\": \"realDonaldTrump\", \"lang\": \"en\", \"profile_background_tile\": true, \"favourites_count\": 24, \"name\": \"Donald J. Trump\", \"notifications\": false, \"url\": \"https://t.co/OMxB0x7xC5\", \"created_at\": \"Wed Mar 18 13:46:38 +0000 2009\", \"contributors_enabled\": false, \"time_zone\": \"Eastern Time (US \u0026 Canada)\", \"protected\": false, \"default_profile\": false, \"is_translator\": false}, \"geo\": null, \"in_reply_to_user_id_str\": null, \"lang\": \"en\", \"created_at\": \"Sun Mar 25 10:33:25 +0000 2018\", \"in_reply_to_status_id_str\": null, \"place\": null}, \"user\": {\"follow_request_sent\": false, \"has_extended_profile\": false, \"profile_use_background_image\": true, \"default_profile_image\": false, \"id\": 25073877, \"profile_background_image_url_https\": \"https://pbs.twimg.com/profile_background_images/530021613/trump_scotland__43_of_70_cc.jpg\", \"verified\": true, \"translator_type\": \"regular\", \"profile_text_color\": \"333333\", \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg\", \"profile_sidebar_fill_color\": \"C5CEC0\", \"entities\": {\"url\": {\"urls\": [{\"url\": \"https://t.co/OMxB0x7xC5\", \"indices\": [0, 23], \"expanded_url\": \"http://www.Instagram.com/realDonaldTrump\", \"display_url\": \"Instagram.com/realDonaldTrump\"}]}, \"description\": {\"urls\": []}}, \"followers_count\": 49587686, \"profile_sidebar_border_color\": \"BDDCAD\", \"id_str\": \"25073877\", \"profile_background_color\": \"6D5C18\", \"listed_count\": 86379, \"is_translation_enabled\": true, \"utc_offset\": -14400, \"statuses_count\": 37186, \"description\": \"45th President of the United States of America\\ud83c\\uddfa\\ud83c\\uddf8\", \"friends_count\": 45, \"location\": \"Washington, DC\", \"profile_link_color\": \"1B95E0\", \"profile_image_url\": \"http://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg\", \"following\": false, \"geo_enabled\": true, \"profile_banner_url\": \"https://pbs.twimg.com/profile_banners/25073877/1521874230\", \"profile_background_image_url\": \"http://pbs.twimg.com/profile_background"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521560702299_2006155953",
+      "id": "20180320-154502_1307506210",
+      "dateCreated": "Mar 20, 2018 3:45:02 PM",
+      "dateStarted": "Mar 27, 2018 4:24:38 PM",
+      "dateFinished": "Mar 27, 2018 4:24:47 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "What Hashtags are on Donald\u0027s Mind? #Hashtag",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py user_timeline_realDonaldTrump.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:25:45 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "maga: 53\nusa: 21\nfakenews: 17\namericafirst: 14\nmakeamericagreatagain: 13\nicymi: 12\nthankyoutour2016: 11\nhurricaneharvey: 11\nunga: 10\nweeklyaddress: 8\npuertorico: 8\nobamacare: 7\nharvey: 7\nuswomensopen: 6\nusaatunga: 6\ntaxreform: 6\nkateslaw: 5\nfake: 5\ng20summit: 4\npotusabroad: 4\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521564998824_-989753513",
+      "id": "20180320-165638_928748680",
+      "dateCreated": "Mar 20, 2018 4:56:38 PM",
+      "dateStarted": "Mar 27, 2018 4:25:45 PM",
+      "dateFinished": "Mar 27, 2018 4:25:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Who is Donald Mentioning? @Mention",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_mention_frequency.py user_timeline_realDonaldTrump.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:25:49 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "foxandfriends: 96\nrealDonaldTrump: 87\nFoxNews: 65\nWhiteHouse: 65\nFLOTUS: 40\nPOTUS: 40\nnytimes: 30\nIvankaTrump: 24\nScavino45: 22\nEricTrump: 22\nCNN: 22\nVP: 21\nseanhannity: 17\nNBCNews: 14\nLouDobbs: 10\nwashingtonpost: 9\nSenateMajLdr: 8\nfema: 8\nmike_pence: 8\nFoxBusiness: 8\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521565176229_-795795739",
+      "id": "20180320-165936_93252014",
+      "dateCreated": "Mar 20, 2018 4:59:36 PM",
+      "dateStarted": "Mar 27, 2018 4:25:49 PM",
+      "dateFinished": "Mar 27, 2018 4:25:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Lets Check out Donald\u0027s Vocabulary (without stop words like \"the\")",
+      "text": "%python\nimport os\nos.system(\u0027python -m nltk.downloader stopwords\u0027) ###get the stopwords dependency remover\nos.system(\u0027cd /notebook \u0026\u0026 python /notebook/pythonpckg/Chap02_03/twitter_term_frequency.py user_timeline_realDonaldTrump.jsonl\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:25:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[nltk_data] Downloading package stopwords to /root/nltk_data...\n[nltk_data]   Package stopwords is already up-to-date!\n…: 1043\ngreat: 561\n...: 346\npeople: 222\nnews: 220\nthank: 212\ntoday: 201\npresident: 190\nu: 190\ntrump: 184\nfake: 183\namerica: 169\nbig: 169\n’: 164\ncountry: 160\ntax: 154\njobs: 140\nmany: 139\ndemocrats: 127\n🇸: 125\nnew: 125\n🇺: 125\namerican: 122\nmedia: 121\ntime: 118\n“: 113\nwould: 111\nmuch: 107\nmake: 102\nday: 101\n0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521565877003_-287175783",
+      "id": "20180320-171117_666974657",
+      "dateCreated": "Mar 20, 2018 5:11:17 PM",
+      "dateStarted": "Mar 27, 2018 4:25:54 PM",
+      "dateFinished": "Mar 27, 2018 4:25:56 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Now Lets pick a topic to stream in Real Time",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_streaming.py \\#maga",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:26:13 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "INCOMPLETE",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Paragraph received a SIGTERM\nExitValue: 143"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521565900410_-1564710697",
+      "id": "20180320-171140_1025357894",
+      "dateCreated": "Mar 20, 2018 5:11:40 PM",
+      "dateStarted": "Mar 27, 2018 4:26:13 PM",
+      "dateFinished": "Mar 27, 2018 4:30:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Basic Hashtag Tweet Summary Stats for Stream #Hashtag",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_hashtag_frequency.py stream__maga.jsonl\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:28:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "maga: 129\nqanon: 27\ntrumptrain: 21\ntuesdaythoughts: 20\ntrump: 16\narmyoftrump: 13\namericafirst: 11\nkag: 11\nwinning: 8\ntrumps: 8\nreleasethevideo: 8\nevangelicals: 8\n2a: 7\nkag2020: 7\ndraintheswamp: 7\nhrcvideo: 7\ngop: 7\nmarchforourlives: 7\nresist: 6\ntcot: 6\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521567016795_776523586",
+      "id": "20180320-173016_574722561",
+      "dateCreated": "Mar 20, 2018 5:30:16 PM",
+      "dateStarted": "Mar 27, 2018 4:28:09 PM",
+      "dateFinished": "Mar 27, 2018 4:28:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Find Tweet Clusters of Similar Topics in Stream",
+      "text": "%md\n![](http://lin1pr1ap6:8765/random_images/tfidf.jpg)\n\n- #### The workhorse is the TfidfVectorizer (http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)\n\n![](http://lin1pr1ap6:8765/random_images/kmall.png) \n\n- #### Simple K-Means to form groupings of like feature vectors http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 21, 2018 6:09:05 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/tfidf.jpg\" /\u003e\u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003ch4\u003eThe workhorse is the TfidfVectorizer (\u003ca href\u003d\"http://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html\"\u003ehttp://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html\u003c/a\u003e)\u003c/h4\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cimg src\u003d\"http://lin1pr1ap6:8765/random_images/kmall.png\" /\u003e \u003c/p\u003e\n\u003cul\u003e\n  \u003cli\u003e\n  \u003ch4\u003eSimple K-Means to form groupings of like feature vectors \u003ca href\u003d\"http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\"\u003ehttp://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html\u003c/a\u003e\u003c/h4\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521568571175_1838223637",
+      "id": "20180320-175611_1799734212",
+      "dateCreated": "Mar 20, 2018 5:56:11 PM",
+      "dateStarted": "Mar 21, 2018 4:22:49 PM",
+      "dateFinished": "Mar 21, 2018 4:22:49 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "What Clusters of Topics Are These Tweets Covering?",
+      "text": "%sh cd /notebook \u0026\u0026\npython /notebook/pythonpckg/Chap02_03/twitter_cluster_stream.py \\\n--filename stream__maga.jsonl \\\n--k 5 \\\n--max-features 100 \\\n--max-ngram 2 \\\n--tweets-per-cluster 10\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:29:54 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Data dimensions: (666, 100)\n---------- Cluster 0\n#RedWaveRising #USFreedomArmy #LessGovMoreFun #TPUSA #tcot #tgdn #TrumpTrain2020 #TrumpArmy #TrumpTrain #MAGA… https://t.co/qubn7Wt7k3\n@TheSamhita @jopoleski @Emma4Change #MAGA deplorables don\u0027t even know what Photoshop is.\nRT @SonofLiberty357: 🚨🚨 BREAKING: Arrest Made in Connection to DC-Area Explosive Package Case (VIDEO) #MAGA  https://t.co/FgswolUvxr\nJust a couple of hunters exercising their 2A rights. #MAGA https://t.co/Jx9GBCwJ3W\nКоммунальный кекс претендует на бенефициарный кэш... Помраченный поверил в эхогранты? #MAGA https://t.co/eFHmTcZQc3\nRT @realDonaldTrump: Great news! #MAGA https://t.co/mRQGRJkozC\nRT @IndigenousDancy: @FLOTUS @trumps_feed .This is a joke #Trumps Cult- #MAGA #TrumpTrain #AmericaFirst #Evangelicals #ArmyofTrump etc.-che…\nRT @DiannyRants: Thank you John Paul Stevens for letting the cat out of the bag! #2A #MolonLabe #IAmTheNRA #RedNationRising #MAGA  https://…\nRT @JiMiZnHB: #KAG #KAG2020 #MAGA #QAnon #winning : https://t.co/AvkHRsztxn\nRT @KatTheHammer1: Stay motivated #MAGA  REMEMBER THE LEFT:   Suppresses our #1A    Hates our #2Amendment   Hates our @POTUS    Hates our F…\n---------- Cluster 1\nRT @polishprincessh: Too much focus on the past. Obama and Hillary had their chance to make a difference in our country \u0026amp; failed. Now it\u0027s…\nRT @SiddonsDan3: “Breaking! Justice Department Finds Evidence To Indict Clinton, Comey And McCabe”~.@RealAlexJones   📺Tune in M-F 11am-3pm…\nRT @bocavista2016: STORMY DANIELS  For 12 years she DENIED having sex with @realDonaldTrump  But now she\u0027s an aged porn star in less demand…\nRT @mikandynothem: The current leadership of Democratic Party:   - Hillary Clinton - Some Florida high school students. - A porn star - NYT…\nRT @KatrinaPierson: $100B and sinking! All because the DNC \u0026amp; Hillary Clinton want YOU to believe that Russia colluded with @TeamTrump. THAN…\nRT @AmericanLuvSong: It\u0027s an oxymoron.  The same people, the Democrat Party, who support abortion (the murder of unborn babies), even up to…\nRT @KatrinaPierson: $100B and sinking! All because the DNC \u0026amp; Hillary Clinton want YOU to believe that Russia colluded with @TeamTrump. THAN…\nRT @GmanFan45: Allegedly David Hogg biked 3 miles to school to record the school shooting while all the other kids are fleeing potential de…\nRT @consmover: 💥Juanita Broaddrick: Media Won\u0027t Interview Me About Clinton Rape \u0027Because I\u0027m Not A Porn Star\u0027💥   #BillClintonRapist #60Minu…\nRT @mikandynothem: The current leadership of Democratic Party:   - Hillary Clinton - Some Florida high school students. - A porn star - NYT…\n---------- Cluster 2\n#Trump #MAGA #KAG #ArmyOfTrump  | FOX \u0026amp; friends @foxandfriends Michael Anton: All 60 #Russians #expelled are people… https://t.co/z3fLha4FF1\nRT @IzJustMyOpinion: Watch How Hypocritical Trump Supporters Really Are “Cognitive Dissonance” perfectly explains the reaction many Donald…\nRT @EndDeportations: By far, the BEST sign 😂👇🥇🎖🏅  #MarchForOurLives  #Resist #Trump #EnoughIsEnough #1u #tcot #maga #NeverAgain #USA #mapol…\nRT @36Angeldb: https://t.co/59OwRQHAHn Love her or hate her, the truth remains—President Trump has the authority to use money for national…\nRT @EjHirschberger: If gun control..  #MarchForOurLives #GunControlNow  #GunReform  #MAGA #Trump #qanon by #Julie4Trump https://t.co/nCbCB9…\nRT @dennis0805a: TRUMP LIE # 83: \"LAWYERS\"  LIE: Says he has no problem finding Lawyers that want to represent him.  FACT: Last week James…\nRT @Logic_Triumphs: ⚡🆕⚡🆕 POLL 🆕⚡🆕⚡ Why are so may lawyers refusing to work for Donald Trump?  @realDonaldTrump #Trump #MAGA\nRT @Logic_Triumphs: ⚡🆕⚡🆕 POLL 🆕⚡🆕⚡ Why are so may lawyers refusing to work for Donald Trump?  @realDonaldTrump #Trump #MAGA\nRT @RichardAngwin: Excellent idea !!!!!  #TuesdayThoughts #Resist #Trump #GunControlNow #NeverAgain #USA #MarchForOurLives #1u #tcot #Enoug…\nRT @mog7546: #GOP starting to worry #Trump\u0027s SLEAZY AFFAIRS could cost them the House  Lawsuits involving Trump and his alleged mistresses,…\n---------- Cluster 3\nRT @zeusFanHouse: @GrrrGraphics You #awake yet?  You are more #powerful than you #realize....  THE SLEEPING GIANT FINALLY #WAKES UP   #Wake…\nRT @ajbsales: Despite #FakeNewsMedia and their best attempt to harm our #PresidentTrump his poll numbers are on the rise because he\u0027s accom…\nRT @Obi_Wan101: 🇺🇸🇺🇸CALLING ALL ALABAMA PATRIOTS🇺🇸🇺🇸Today is the day for you to VOTE in Rex Reynolds to AL House seat in District 21! 💥Cons…\nRT @HBronnenberg2: Good morning fellow patriots!!! 🇺🇸  Everyone in Florida add your handle in the comments. Retweet, follow fellow Floridia…\nRT @USAHotLips: The tolerant Left exposed again. You know what to do folks.   @TwitterSafety @FBI @DHSgov   👇🏼👇🏼👇🏼🚨🚨 @NRA #TuesdayThoughts…\nRT @mixedopinionss: Trump2020 Interview series. I found funding for this if I can show interest with minimum 50k views. Don’t let this die.…\nRT @CoreyLMJones: Don’t be fooled by the talking points.  It’s never been about the AR-15, or large magazines, or the background checks...…\nRT @BanditRandom: Twitter, can you identify this man? The police jacket behind him says Boston Police. If he has an employer, I\u0027m sure they…\nRT @NatalieJHarp: Two years ago I was a victim of medical error - the THIRD leading cause of death in the U.S.  Today I have cancer. And ch…\nRT @Trumpfan1995: Former Supreme Court Justice John Paul Stevens believes that the Second Amendment should be repealed. Do you agree with h…\n---------- Cluster 4\nRT @GaetaSusan: I\u0027m a huge fan of @therealroseanne. Looking forward to her show! God Bless You Roseanne. You da Best!💝 https://t.co/Qj5i0KM…\nRT @HyltonRobin: 🔴⚪️🔵🇺🇸🔴⚪️🔵🇺🇸🔴⚪️🔵  CALIFORNIA   VOTE MIKE SIMPFENDER @MikeSimpfender  FOR 58th District Assembly  Election June,5th  https:…\nRT @adjunctprofessr: SONIC BOOM! 💣💣💣💣💣 #AdjunctProfessr  ⤵️⤵️⤵️⤵️⤵️ https://t.co/RohGg0Taoy\nThe Big Duh! NRA believes March for Our Lives was the work of billionaire puppeteers https://t.co/8YxFj72HUX @POTUS… https://t.co/RoNIBcHFDm\n@NBCNews People with brown skin in Louisiana must apparently be ready to die at the hands of police at any moment.… https://t.co/oHlzuNnXMM\n😎👽😎Morning  #WeThePeople #GreatAwakening #WeAreTheStorm #PatriotsUnite #ExposeTheDeepState #InternetBillOfRights… https://t.co/vBu21NvkGi\nLiberals Oppose Pruitt’s Push For Transparency In EPA Science. Why? https://t.co/5VMG9sudlr #TuesdayThoughts #cnn… https://t.co/sgYNTQLiUl\nRT @adjunctprofessr: SONIC BOOM! 💣💣💣💣💣 #AdjunctProfessr  ⤵️⤵️⤵️⤵️⤵️ https://t.co/RohGg0Taoy\nhttps://t.co/Ayou1x8Ec2  Let\u0027s just see how much of California lives in reality-land. In my experience...Lots of it… https://t.co/x6SkSfPTWS\nWho are these ppl? 😥 https://t.co/6MEHThC5kq\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521567331674_-1256845347",
+      "id": "20180320-173531_252959633",
+      "dateCreated": "Mar 20, 2018 5:35:31 PM",
+      "dateStarted": "Mar 27, 2018 4:29:54 PM",
+      "dateFinished": "Mar 27, 2018 4:29:55 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Identify Running Stream Process",
+      "text": "%sh ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:30:09 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root     54485  0.3  0.0 203040 31892 ?        Sl   16:26   0:00 python /notebook/pythonpckg/Chap02_03/twitter_streaming.py #maga\nroot     55083  0.0  0.0  19700  1512 ?        S    16:30   0:00 bash -c ps aux  | grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\nroot     55088  0.0  0.0  12940   976 ?        R    16:30   0:00 grep /notebook/pythonpckg/Chap02_03/twitter_streaming.py\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1521566665679_-1984187690",
+      "id": "20180320-172425_1378208700",
+      "dateCreated": "Mar 20, 2018 5:24:25 PM",
+      "dateStarted": "Mar 27, 2018 4:30:09 PM",
+      "dateFinished": "Mar 27, 2018 4:30:09 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Kill the running stream process",
+      "text": "%sh kill 54485",
+      "user": "anonymous",
+      "dateUpdated": "Mar 27, 2018 4:30:18 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sh",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1521566993501_-658836642",
+      "id": "20180320-172953_1233695437",
+      "dateCreated": "Mar 20, 2018 5:29:53 PM",
+      "dateStarted": "Mar 27, 2018 4:30:18 PM",
+      "dateFinished": "Mar 27, 2018 4:30:18 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "Mar 20, 2018 6:21:34 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1521570094049_126636124",
+      "id": "20180320-182134_1204462521",
+      "dateCreated": "Mar 20, 2018 6:21:34 PM",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "2018_03_21_TwitterDemo",
+  "id": "2DA7E4KQN",
+  "angularObjects": {
+    "2DAWMDD7G:shared_process": [],
+    "2D93ZFUKM:shared_process": [],
+    "2DBW9ND8K:shared_process": [],
+    "2D916ASA7:shared_process": [],
+    "2D9NB9935:shared_process": [],
+    "2D9Y5FEG3:shared_process": [],
+    "2DBKUEZ11:shared_process": [],
+    "2DC21XE5A:shared_process": [],
+    "2DAHZA4XV:shared_process": [],
+    "2D89NKXKH:shared_process": [],
+    "2D8R34V7F:shared_process": [],
+    "2DA37HUSF:shared_process": [],
+    "2D93CZMNX:shared_process": [],
+    "2D9A4EHM1:shared_process": [],
+    "2D98PPRPD:shared_process": [],
+    "2DBKBTC5G:shared_process": [],
+    "2DANSEQT7:shared_process": [],
+    "2D94E1F5P:shared_process": [],
+    "2D8ABJPSV:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
